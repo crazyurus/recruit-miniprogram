@@ -1,0 +1,31 @@
+{
+  "pages": [
+    "pages/xjh/index"
+  ],
+  "window": {
+    "navigationBarBackgroundColor": "#45c8dc",
+    "navigationBarTitleText": "就业招聘",
+    "navigationBarTextStyle": "dark"
+  },
+  "tabBar": {
+    "color": "#929292",
+    "selectedColor": "#45c8dc",
+    "backgroundColor": "#f7f7f8",
+    "list": [{
+      "pagePath": "pages/xjh/index",
+      "text": "宣讲会",
+      "iconPath": "/image/xjh.png",
+      "selectedIconPath": "/image/xjh_s.png"
+    }, {
+      "pagePath": "pages/xjh/index",
+      "text": "校招",
+      "iconPath": "/image/job.png",
+      "selectedIconPath": "/image/job_s.png"
+    }, {
+      "pagePath": "pages/xjh/index",
+      "text": "面经",
+      "iconPath": "/image/interview.png",
+      "selectedIconPath": "/image/interview_s.png"
+    }]
+  }
+}

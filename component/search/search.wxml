@@ -1,0 +1,6 @@
+<template name="searchbar">
+  <view class="searchbar">
+    <input placeholder="{{placeholder}}" confirm-type="search" bindfocus="{{setFocus}}" bindblur="{{lostFocus}}" />
+    <text class="searchbar-cancel" wx:if="{{showCancelButton}}" bindtap="{{lostFocus}}">取消</text>
+  </view>
+</template>>
