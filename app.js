@@ -1,9 +1,7 @@
 App({
   globalData: {},
   getApiData(url, data, loading = true) {
-    if (loading) wx.showLoading({
-      title: loading == true ? '加载中' : loading
-    });
+    if (loading) wx.showNavigationBarLoading();
     return new Promise(function (resolve, reject) {
       wx.request({
         url: url,
@@ -24,8 +22,7 @@ App({
           if (reject) reject(result);
         },
         complete() {
-          if (loading) wx.hideLoading();
-          else wx.stopPullDownRefresh();
+          if (loading) wx.hideNavigationBarLoading();
         }
       });
     });

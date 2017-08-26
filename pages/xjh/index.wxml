@@ -1,73 +1,33 @@
-<import src="/component/search/search.wxml" />
-
 <view class="page-content">
-  <template is="searchbar"></template>
-  <view class="list-block">
-    <view class="item-link item-check {{active['请选择'] ? 'active' : ''}}">
-      <view class="item-content">
-        <view class="item-inner item-inner-last">
-          <view class="item-title">请选择</view>
+  <navigator class="card" wx:for="{{list}}" wx:key="id">
+    <view class="card-header" style="background: #{{item.backgroundColor}};">
+      <view class="card-no" wx:if="{{item.company_id}}">No.{{item.company_id}}</view>
+      <view class="card-title">{{item.company}}</view>
+    </view>
+    <view class="card-content">
+      <view class="card-content-inner">
+        <view class="card-content-title">
+          <text>{{item.title}}</text>
+          <image wx:if="{{item.is_official}}" class="card-content-verify" src="https://web.wutnews.net/Application/SecondHand/Assets/image/verify.png" />
         </view>
+        <view class="card-content-line">
+          <image class="card-content-icon" src="https://web.wutnews.net/Application/Recruit/Assets/image/time.png" />
+          <text>{{item.holdtime}}</text>
+          <text wx:if="{{item.remain && item.remain == 1}}" class="card-content-tag tag-success">今天</text>
+          <text wx:if="{{item.remain && item.remain == 2}}" class="card-content-tag tag-success">明天</text>
+          <text wx:if="{{item.remain && item.remain > 2}}" class="card-content-tag tag-info">{{item.remain - 1}}天</text>
+          <text wx:if="{{item.isExpired}}" class="card-content-tag tag-danger">已结束</text>
+          <text wx:if="{{item.is_cancel}}" class="card-content-tag tag-warning">已取消</text>
+        </view>
+        <view class="card-content-line">
+          <image class="card-content-icon" src="https://web.wutnews.net/Application/Recruit/Assets/image/address.png" />
+          <text>{{item.address}}</text>
+        </view>        
       </view>
     </view>
-    <view class="list-group-title" wx:if="{{location.show}}">
-      <text>定位地点</text>
+    <view class="card-footer">
+      <text class="card-school">{{item.universityName}}</text>
+      <text class="card-count">浏览：{{item.totalClicks}}</text>
     </view>
-    <view class="item-link item-check" bindtap="callback" data-name="{{location.name}}" wx:if="{{location.show}}">
-      <view class="item-content">
-        <view class="item-inner">
-          <view class="item-title">{{location.name}}</view>
-        </view>
-      </view>
-    </view>
-    <view class="list-group-title">
-      <text>马房山校区</text>
-    </view>
-    <view class="item-link item-check {{active['南湖'] ? 'active' : ''}}" bindtap="callback" data-name="南湖">
-      <view class="item-content">
-        <view class="item-inner">
-          <view class="item-title">南湖</view>
-        </view>
-      </view>
-    </view>
-    <view class="item-link item-check {{active['东院'] ? 'active' : ''}}" bindtap="callback" data-name="东院">
-      <view class="item-content">
-        <view class="item-inner">
-          <view class="item-title">东院</view>
-        </view>
-      </view>
-    </view>
-    <view class="item-link item-check {{active['西院'] ? 'active' : ''}}" bindtap="callback" data-name="西院">
-      <view class="item-content">
-        <view class="item-inner">
-          <view class="item-title">西院</view>
-        </view>
-      </view>
-    </view>
-    <view class="item-link item-check {{active['鉴湖'] ? 'active' : ''}}" bindtap="callback" data-name="鉴湖">
-      <view class="item-content">
-        <view class="item-inner">
-          <view class="item-title">鉴湖</view>
-        </view>
-      </view>
-    </view>
-    <view class="item-disabled">
-      <view class="item-content">
-        <view class="item-inner item-inner-last">
-          <view class="item-title">升升公寓</view>
-        </view>
-      </view>
-    </view>
-    <view class="list-group-title">
-      <text>余家头校区</text>
-    </view>
-    <view class="item-link item-check {{active['余区'] ? 'active' : ''}}" bindtap="callback" data-name="余区">
-      <view class="item-content">
-        <view class="item-inner item-inner-last">
-          <view class="item-title">余区</view>
-        </view>
-      </view>
-    </view>
-  </view>
+  </navigator>
 </view>
-<view class="mask {{search.show ? 'active' : ''}}" bindtap="lostSearchFocus"></view>

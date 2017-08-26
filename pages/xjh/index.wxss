@@ -1,1 +1,130 @@
-@import '/component/search/search.wxss';
+page, .page-content {
+  background: #efeff4;
+}
+
+.card {
+  background: #fff;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+  margin: 10px;
+  position: relative;
+  border-radius: 2px;
+  font-size: 14px;
+}
+
+.card-header {
+  color: #fff;
+  border-radius: 2px 2px 0 0;
+  font-size: 16px;
+  border-bottom: 1rpx solid #e1e1e1;
+}
+
+.card-no {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background: rgba(0, 0, 0, 0.5);
+  font-size: 12px;
+  padding: 3px 5px;
+  border-radius: 2px;
+}
+
+.card-title {
+  text-align: center;
+  margin: 45px 0;
+  width: 100%;
+}
+
+.card-footer, .card-header {
+  position: relative;
+  padding: 8px 15px;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.card-content {
+  position: relative;
+}
+
+.card-content-inner {
+  padding: 15px;
+  position: relative;
+}
+
+.card-content-title {
+  font-weight: bold;
+  padding: 0 0 15px;
+}
+
+.card-content image {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  vertical-align: middle;
+  margin-top: -2px;
+}
+
+.card-content-verify {
+  margin-left: 6px;
+}
+
+.card-content-icon {
+  margin-right: 4px;
+}
+
+.card-content-line {
+  line-height: 1.6;
+}
+
+.card-footer {
+  display: block;
+  border-radius: 0 0 2px 2px;
+  color: #6d6d72;
+  border-top: 1rpx solid #e1e1e1;
+  background: #f3f5f7;
+  overflow: hidden;
+}
+
+.card-count {
+  float: right;
+}
+
+.card-attachment, .card-share {
+  color: #45c8dc !important;
+}
+
+button[open-type] {
+  position: absolute;
+  width: 30px;
+  padding: 0;
+  opacity: 0;
+  z-index: 99;
+  right: 12px;
+  height: 20px;
+  top: 10px;
+}
+
+.card-content-tag {
+  background: #000;
+  color: #fff;
+  border-radius: 3px;
+  margin-left: 10px;
+  padding: 4px;
+}
+
+.tag-success {
+  background: #5cb85c;
+}
+
+.tag-danger {
+  background: #d9534f;
+}
+
+.tag-warning {
+  background: #f0ad4e;
+}
+
+.tag-info {
+  background: #45c8dc;
+}

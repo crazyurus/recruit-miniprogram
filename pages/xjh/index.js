@@ -1,66 +1,52 @@
-// index.js
+var app = getApp();
 Page({
-
-  /**
-   * 页面的初始数据
-   */
   data: {
-  
+    list: [],
+    page: 1,
+    kind: 'after',
+    loading: false
   },
-
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
-  
+  onReady() {
+    this.loadNoticeList();
   },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-  
+  onReachBottom() {
+    this.loadNoticeList();
   },
+  loadNoticeList() {
+    if (this.data.loading) return;
 
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-  
-  },
+    this.data.loading = true;
+    app.getApiData('https://api.wutnews.net/recruit/haitou/xjh/list?client=wutnews&zone=wh&page=' + this.data.page + '&kind=' + this.data.kind, {}).then((result) => {
+      const colorArray = ['ed9d81', 'a7d59a', '8c88ff', '56b8a4', '60bfd8', 'c9759d'];
+      const univArray = require('../..//data/university');
 
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-  
-  },
+      if (result.length == 0) {
+        if (this.data.kind == 'after') {
+          this.data.page = 1;
+          this.data.kind = 'before';
+          this.data.loading = false;
+          this.loadNoticeList();
+        }
+        return;
+      }
 
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-  
-  },
+      result.map((item, i) => {
+        item.backgroundColor = colorArray[i % colorArray.length];
+        item.universityName = item.univ_id == 0 ? item.universityShortName : univArray[item.univ_id - 1].name;
+        item.remain = (!item.isExpired && !item.is_cancel) ? calc_remain(item.holdtime) : false;
+      });
 
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-  
-  },
+      this.data.loading = false;
+      this.data.page++;
 
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-  
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-  
+      this.setData({
+        'list': this.data.list.concat(result)
+      });
+    });
   }
-})
+});
+
+function calc_remain(time) {
+  let hold = +new Date(time);
+  return Math.ceil((hold - Date.now()) / 86400000);
+}
