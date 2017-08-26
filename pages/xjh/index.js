@@ -36,8 +36,6 @@ Page({
         item.remain = (!item.isExpired && !item.is_cancel) ? calc_remain(item.holdtime) : false;
       });
 
-      console.log(result);
-
       this.data.loading = false;
       this.data.page++;
 
