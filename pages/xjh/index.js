@@ -6,7 +6,7 @@ Page({
     kind: 'after',
     loading: false
   },
-  onReady() {
+  onLoad() {
     this.loadNoticeList();
   },
   onReachBottom() {
@@ -36,6 +36,8 @@ Page({
         item.remain = (!item.isExpired && !item.is_cancel) ? calc_remain(item.holdtime) : false;
       });
 
+      console.log(result);
+
       this.data.loading = false;
       this.data.page++;
 
@@ -47,6 +49,6 @@ Page({
 });
 
 function calc_remain(time) {
-  let hold = +new Date(time);
+  let hold = new Date(Date.parse(time.replace(/-/g, "/"))).getTime();
   return Math.ceil((hold - Date.now()) / 86400000);
 }
