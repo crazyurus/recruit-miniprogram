@@ -67,8 +67,6 @@ page, .page-content {
 
 .card-content-verify {
   margin-left: 6px;
-  width: 16px;
-  height: 16px;
 }
 
 .card-content-icon {

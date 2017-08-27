@@ -1,0 +1,91 @@
+.page-content {
+  background: #efeff4;
+}
+
+.xjh-header {
+  height: 60px;
+  display: flex;
+  padding-top: 5px;
+
+}
+
+.xjh-logo {
+  width: 45px;
+  height: 45px;
+  border-radius: 2px;
+  margin: 0 15px 15px;
+  overflow: hidden;
+}
+
+.xjh-logo-university {
+  background-color: #fff;
+}
+
+.xjh-logo > image {
+  width: 45px;
+  height: 45px;
+}
+
+.xjh-logo-university > image {
+  width: 39px;
+  height: 39px;
+  margin: 3px;
+}
+
+.xjh-title {
+  flex: 1;
+  width: calc(100% - 90px);
+}
+
+.xjh-company {
+  font-size: 16px;
+  line-height: 1.6;
+  color: #fff;
+  height: 26px;
+  width: calc(100% - 15px);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.xjh-company-verify {
+  display: inline-block;
+  vertical-align: middle;
+  margin-top: -2px;
+  margin-left: 6px;
+  width: 15px;
+  height: 15px;
+}
+
+.xjh-source {
+  font-size: 14px;
+  line-height: 1.33;
+  color: rgba(255, 255, 255, 0.6);
+  height: 18px;
+  width: calc(100% - 15px);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.xjh-info {
+  background: #fff;
+  border-bottom: 1rpx solid #c8c7cc;
+  padding: 12px 15px;
+}
+
+.xjh-info-line {
+  line-height: 2;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.xjh-info-icon {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  vertical-align: middle;
+  margin-top: -2px;
+  margin-right: 5px;
+}

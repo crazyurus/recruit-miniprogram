@@ -1,7 +1,9 @@
+page, .page-content {
+  height: 100%;
+}
 .page-content {
   height: 100%;
   position: relative;
-  background: #fff;
   font-size: 14px;
   line-height: 1.4;
 }

@@ -1,5 +1,5 @@
 <view class="page-content">
-  <navigator class="card" wx:for="{{list}}" wx:key="id">
+  <navigator class="card" wx:for="{{list}}" wx:key="id" url="detail?id={{item.id}}&bgcolor={{item.backgroundColor}}">
     <view class="card-header" style="background: #{{item.backgroundColor}};">
       <view class="card-no" wx:if="{{item.company_id}}">No.{{item.company_id}}</view>
       <view class="card-title">{{item.company}}</view>
