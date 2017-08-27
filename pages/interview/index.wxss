@@ -1,14 +1,14 @@
 @import '../../component/list/list.wxss';
 
 .list-block .item-text {
-    display: block;
+  display: block;
 }
 
 .item-count {
-    float: right;
+  float: right;
 }
 
 .list-block .item-link .item-inner {
-    background: none;
-    padding-right: 20px;
+  background: none;
+  padding-right: 20px;
 }

@@ -1,12 +1,13 @@
 {
   "pages": [
     "pages/xjh/index",
-    "pages/interview/index"
+    "pages/interview/index",
+    "pages/job/index"
   ],
   "window": {
     "navigationBarBackgroundColor": "#45c8dc",
     "navigationBarTitleText": "就业招聘",
-    "onReachBottomDistance": 60
+    "onReachBottomDistance": 100
   },
   "tabBar": {
     "color": "#929292",
@@ -20,7 +21,7 @@
         "selectedIconPath": "/image/xjh_s.png"
       },
       {
-        "pagePath": "pages/xjh/index",
+        "pagePath": "pages/job/index",
         "text": "校招",
         "iconPath": "/image/job.png",
         "selectedIconPath": "/image/job_s.png"

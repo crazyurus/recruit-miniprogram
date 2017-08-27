@@ -197,27 +197,18 @@ button::after {
   transform: translate3d(0, 0, 0);
 }
 
-.toolbar-inner {
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  padding: 0 8px;
-  box-sizing: border-box;
+.list-block .item-media {
   display: flex;
-  justify-content: space-between;
+  flex-shrink: 0;
+  flex-wrap: nowrap;
+  box-sizing: border-box;
   align-items: center;
+  padding-top: 7px;
+  padding-bottom: 8px;
 }
 
-.toolbar .link {
-  line-height: 44px;
-  height: 44px;
-  text-decoration: none;
-  position: relative;
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  transition-duration: 0.3s;
-  transform: translateZ(0);
+.list-block.media-list .item-media image {
+  display: block;
+  width: 48px;
+  height: 48px;
 }
