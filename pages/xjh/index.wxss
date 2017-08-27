@@ -75,6 +75,7 @@ page, .page-content {
 
 .card-content-line {
   line-height: 1.6;
+  color: #666;
 }
 
 .card-footer {

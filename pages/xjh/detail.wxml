@@ -25,4 +25,42 @@
       <text>举办地点：{{article.address}}</text>
     </view>
   </view>
+  <view class="xjh-tabs">
+    <view class="xjh-tab" bindtap="clickTabContent">
+      <text style="border-bottom: 2px solid #{{bgcolor}}; color: #{{bgcolor}};" class="{{tab.active[0] ? '' : 'xjh-no-active'}} {{tab.disabled[0] ? 'xjh-tab-disabled' : ''}}">宣讲正文</text>
+    </view>
+    <view class="xjh-tab" bindtap="clickTabAlbum">
+      <text style="border-bottom: 2px solid #{{bgcolor}}; color: #{{bgcolor}};" class="{{tab.active[1] ? '' : 'xjh-no-active'}} {{tab.disabled[1] ? 'xjh-tab-disabled' : ''}}">公司相册</text>
+    </view>
+    <view class="xjh-tab" bindtap="clickTabXjh">
+      <text style="border-bottom: 2px solid #{{bgcolor}}; color: #{{bgcolor}};" class="{{tab.active[2] ? '' : 'xjh-no-active'}} {{tab.disabled[2] ? 'xjh-tab-disabled' : ''}}">其它宣讲</text>
+    </view>
+  </view>
+  <view class="xjh-content" wx:if="{{tab.active[0]}}">
+    <rich-text nodes="{{article.content}}"></rich-text>
+  </view>
+  <view class="xjh-album" wx:if="{{tab.active[1]}}">
+    <image src="{{item.thumbSmallUrl}}" wx:for="{{article.albums}}" wx:key="id" data-src="{{item.originalUrl}}" bindtap="showImagePreview" />
+  </view>
+  <view class="xjh-others" wx:if="{{tab.active[2]}}">
+    <view class="list-block media-list record-list">
+    <navigator url="detail?id={{item.id}}&bgcolor=45c8dc" wx:for="{{article.xjhs}}" wx:key="id" class="item-link item-content">
+      <view class="item-inner">
+        <view class="item-title-row">
+          <view class="item-title">
+            <view class="circle" style="background: #{{bgcolor}};"></view>
+            <text>{{item.title}}</text>
+          </view>
+        </view>
+        <view class="item-text">{{item.holdtime}} | {{item.universityName}}</view>
+      </view>
+    </navigator>
+  </view>
+  </view>
+  <view class="xjh-share">
+    <button open-type="share" plain="true" style="background: #{{bgcolor}};" hover-class="none">将宣讲会信息分享给同学</button>
+  </view>
+  <view class="xjh-token">
+    <image src="http://web.wutnews.net/act/girlsday/img/token.png" />
+  </view>
 </view>
