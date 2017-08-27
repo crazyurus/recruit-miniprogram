@@ -92,10 +92,6 @@ page, .page-content {
   float: right;
 }
 
-.card-attachment, .card-share {
-  color: #45c8dc !important;
-}
-
 button[open-type] {
   position: absolute;
   width: 30px;

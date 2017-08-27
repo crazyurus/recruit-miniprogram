@@ -1,6 +1,6 @@
 App({
   globalData: {},
-  getApiData(url, data, loading = true) {
+  getApiData(url, data = {}, loading = true) {
     if (loading) wx.showNavigationBarLoading();
     return new Promise(function (resolve, reject) {
       wx.request({

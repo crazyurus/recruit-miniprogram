@@ -16,7 +16,7 @@ Page({
     if (this.data.loading) return;
 
     this.data.loading = true;
-    app.getApiData('https://api.wutnews.net/recruit/haitou/xjh/list?client=wutnews&zone=wh&page=' + this.data.page + '&kind=' + this.data.kind, {}).then((result) => {
+    app.getApiData('https://api.wutnews.net/recruit/haitou/xjh/list?client=wutnews&zone=wh&page=' + this.data.page + '&kind=' + this.data.kind).then((result) => {
       const colorArray = ['ed9d81', 'a7d59a', '8c88ff', '56b8a4', '60bfd8', 'c9759d'];
       const univArray = require('../..//data/university');
 

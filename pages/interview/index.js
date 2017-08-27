@@ -15,7 +15,7 @@ Page({
     if (this.data.loading) return;
 
     this.data.loading = true;
-    app.getApiData('https://api.wutnews.net/recruit/haitou/mjfx/list?client=wutnews&page=1' + this.data.page, {}).then((result) => {
+    app.getApiData('https://api.wutnews.net/recruit/haitou/mjfx/list?client=wutnews&page=' + this.data.page).then((result) => {
       if (result.length == 0) return;
 
       this.data.loading = false;

@@ -1,0 +1,71 @@
+.list-block .media-item .item-inner, .list-block.media-list .item-inner {
+  box-sizing: border-box;
+  display: block;
+  padding-top: 10px;
+  padding-bottom: 9px;
+  align-self: stretch;
+}
+
+.list-block .item-text {
+  font-size: 15px;
+  color: #8e8e93;
+  line-height: 21px;
+  position: relative;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: flex;
+}
+
+.list-block .item-content:last-child .item-inner {
+  border-bottom: none;
+}
+
+.record-list .item-inner {
+  padding-top: 24px !important;
+  padding-left: 28.8px !important;
+  padding-bottom: 24px !important;
+  font-weight: 300 !important;
+}
+
+.record-list .item-text {
+  margin-top: 8px;
+  margin-left: 32px;
+}
+
+.record-list .item-content {
+  padding-left: 0;
+}
+
+.list-block li.media-item .item-title-row,
+.list-block.media-list .item-title-row {
+  display: flex;
+  justify-content: space-between;
+}
+
+.circle {
+  display: inline-block;
+  width: 12.8px;
+  height: 12.8px;
+  border-radius: 50%;
+  margin-right: 20px;
+}
+
+.circle.bg-green {
+  background: rgb(80, 227, 194);
+}
+
+.circle.bg-orange {
+  background: rgb(252, 171, 83);
+}
+
+.circle.bg-blue {
+  background: rgb(68, 199, 219);
+}
+
+.circle.bg-purple {
+  background: rgb(139, 135, 254);
+}
+
+.circle.bg-red {
+  background: rgb(254, 50, 101);
+}
