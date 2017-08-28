@@ -25,8 +25,7 @@
       <text>举办地点：{{article.address}}</text>
     </view>
   </view>
-  <view class="xjh-blank" wx:if="{{sticky}}"></view>
-  <view class="xjh-tabs" style="position: {{sticky ? 'fixed' : 'static'}};">
+  <view class="xjh-tabs">
     <view class="xjh-tab" bindtap="clickTabContent">
       <text style="border-bottom: 2px solid #{{bgcolor}}; color: #{{bgcolor}};" class="{{tab.active[0] ? '' : 'xjh-no-active'}} {{tab.disabled[0] ? 'xjh-tab-disabled' : ''}}">宣讲正文</text>
     </view>

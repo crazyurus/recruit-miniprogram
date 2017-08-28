@@ -7,8 +7,7 @@ Page({
       active: [true, false, false],
       disabled: [false, true, false]
     },
-    title: false,
-    sticky: false
+    title: false
   },
   onLoad(options) {
     wx.setNavigationBarColor({
@@ -80,7 +79,6 @@ Page({
     });
   },
   onPageScroll(e) {
-    console.log(e);
     if (e.scrollTop <= 60 && this.data.title) {
       this.data.title = false;
       wx.setNavigationBarTitle({
@@ -91,16 +89,6 @@ Page({
       this.data.title = true;
       wx.setNavigationBarTitle({
         title: this.data.article.company
-      });
-    }
-    if (e.scrollTop <= 240 && this.data.sticky) {
-      this.setData({
-        sticky: false
-      });
-    }
-    if (e.scrollTop > 240 && !this.data.sticky) {
-      this.setData({
-        sticky: true
       });
     }
   }
