@@ -58,7 +58,7 @@
   </view>
   </view>
   <view class="xjh-share">
-    <button open-type="share" plain="true" style="background: #{{bgcolor}};" hover-class="none">将宣讲会信息分享给同学</button>
+    <button open-type="share" plain="true" style="background: #{{bgcolor}};" hover-class="none">将此宣讲会分享给同学</button>
   </view>
   <view class="xjh-blank"></view>
   <view class="xjh-token">
