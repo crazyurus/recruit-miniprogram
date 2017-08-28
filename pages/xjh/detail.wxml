@@ -60,6 +60,7 @@
   <view class="xjh-share">
     <button open-type="share" plain="true" style="background: #{{bgcolor}};" hover-class="none">将宣讲会信息分享给同学</button>
   </view>
+  <view class="xjh-blank"></view>
   <view class="xjh-token">
     <image src="http://web.wutnews.net/act/girlsday/img/token.png" />
   </view>

@@ -12,7 +12,14 @@ Page({
   onReachBottom() {
     this.loadNoticeList();
   },
-  loadNoticeList() {
+  onPullDownRefresh() {
+    this.data.page == 1;
+    this.data.loading == false;
+    this.data.kind = 'after';
+    this.data.list = [];
+    //this.loadNoticeList(wx.stopPullDownRefresh);
+  },
+  loadNoticeList(callback) {
     if (this.data.loading) return;
 
     this.data.loading = true;
@@ -42,6 +49,8 @@ Page({
       this.setData({
         'list': this.data.list.concat(result)
       });
+
+      if (callback) callback();
     });
   }
 });
