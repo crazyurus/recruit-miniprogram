@@ -3,7 +3,8 @@
     "pages/xjh/index",
     "pages/interview/index",
     "pages/job/index",
-    "pages/xjh/detail"
+    "pages/xjh/detail",
+    "pages/interview/detail"
   ],
   "window": {
     "navigationBarBackgroundColor": "#45c8dc",
