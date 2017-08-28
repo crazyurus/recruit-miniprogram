@@ -4,6 +4,11 @@ page, .page-content {
   background: #efeff4;
 }
 
+.page-content {
+  height: auto;
+  min-height: 100%;
+}
+
 .xjh-header {
   height: 60px;
   display: flex;
@@ -95,9 +100,8 @@ page, .page-content {
 .xjh-content, .xjh-others, .xjh-album {
   background: #fff;
   padding: 15px;
-  margin-bottom: 30px;
+  margin-bottom: 25px;
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
-  min-height: calc(100% - 375px);
 }
 
 .xjh-album {
@@ -155,19 +159,25 @@ page, .page-content {
   color: #bbb !important;
 }
 
-.xjh-share {
-  padding-bottom: 20px;
-  text-align: center;
-}
-
 .xjh-token {
-  padding-bottom: 20px;
+  width: 100%;
+  position: absolute;
   text-align: center;
+  bottom: 15px;
 }
 
 .xjh-token image {
   width: 160rpx;
   height: 60rpx;
+}
+
+.xjh-blank {
+  height: 1px;
+}
+
+.xjh-share {
+  text-align: center;
+  margin-bottom: 80px;
 }
 
 .xjh-share button[open-type] {
