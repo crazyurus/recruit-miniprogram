@@ -6,7 +6,9 @@ Page({
     tab: {
       active: [true, false, false],
       disabled: [false, true, false]
-    }
+    },
+    title: false,
+    sticky: false
   },
   onLoad(options) {
     wx.setNavigationBarColor({
@@ -20,6 +22,11 @@ Page({
     app.getApiData('https://api.wutnews.net/recruit/haitou/xjh/view?client=wutnews&id=' + options.id, {}, false).then((result) => {
       result.isUniversityLogo = result.logoUrl.indexOf('/university') > -1;
       result.content = result.content.replace(/<table border=1 cellspacing=0 cellpadding=0>/g, '<table style="border: 1px solid #c8c7cc">');
+
+      if (result.univ_id == 3) {
+        let pos = result.content.indexOf('</b></p> <div> <div> <p>');
+        if (pos > -1) result.content = result.content.substring(pos + 9);
+      }
 
       this.setData({
         article: result,
@@ -35,11 +42,6 @@ Page({
       success(res) {
         wx.showToast({
           title: '分享成功'
-        });
-      },
-      fail(res) {
-        wx.showToast({
-          title: '分享失败'
         });
       }
     }
@@ -76,5 +78,30 @@ Page({
       current: e.target.dataset.src,
       urls: imgArray
     });
+  },
+  onPageScroll(e) {
+    console.log(e);
+    if (e.scrollTop <= 60 && this.data.title) {
+      this.data.title = false;
+      wx.setNavigationBarTitle({
+        title: ' '
+      });
+    }
+    if (e.scrollTop > 60 && !this.data.title) {
+      this.data.title = true;
+      wx.setNavigationBarTitle({
+        title: this.data.article.company
+      });
+    }
+    if (e.scrollTop <= 240 && this.data.sticky) {
+      this.setData({
+        sticky: false
+      });
+    }
+    if (e.scrollTop > 240 && !this.data.sticky) {
+      this.setData({
+        sticky: true
+      });
+    }
   }
 });
