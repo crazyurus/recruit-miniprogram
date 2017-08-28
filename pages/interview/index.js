@@ -11,6 +11,14 @@ Page({
   onReachBottom() {
     this.loadNoticeList();
   },
+  onPullDownRefresh() {
+    this.setData({
+      page: 1,
+      loading: false
+    });
+    this.data.list = [];
+    this.loadNoticeList();
+  },
   loadNoticeList() {
     if (this.data.loading) return;
 
@@ -20,6 +28,7 @@ Page({
 
       this.data.loading = false;
       this.data.page++;
+      wx.stopPullDownRefresh();      
 
       this.setData({
         'list': this.data.list.concat(result)

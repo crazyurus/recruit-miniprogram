@@ -13,19 +13,22 @@ Page({
     this.loadNoticeList();
   },
   onPullDownRefresh() {
-    this.data.page == 1;
-    this.data.loading == false;
-    this.data.kind = 'after';
+    this.setData({
+      page: 1,
+      kind: 'after',
+      loading: false
+    });
     this.data.list = [];
-    //this.loadNoticeList(wx.stopPullDownRefresh);
+    this.loadNoticeList();
   },
-  loadNoticeList(callback) {
+  loadNoticeList() {
     if (this.data.loading) return;
 
     this.data.loading = true;
     app.getApiData('https://api.wutnews.net/recruit/haitou/xjh/list?client=wutnews&zone=wh&page=' + this.data.page + '&kind=' + this.data.kind).then((result) => {
       const colorArray = ['ed9d81', 'a7d59a', '8c88ff', '56b8a4', '60bfd8', 'c9759d'];
       const univArray = require('../..//data/university');
+      wx.stopPullDownRefresh();
 
       if (result.length == 0) {
         if (this.data.kind == 'after') {
@@ -49,8 +52,6 @@ Page({
       this.setData({
         'list': this.data.list.concat(result)
       });
-
-      if (callback) callback();
     });
   }
 });
