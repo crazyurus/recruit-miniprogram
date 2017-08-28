@@ -38,7 +38,7 @@
 
 .interview-share {
   text-align: center;
-  margin: 20px 0;
+  margin: 25px 0;
 }
 
 .interview-share button[open-type] {

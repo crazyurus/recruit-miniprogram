@@ -12,7 +12,7 @@ Page({
       }
 
       result.position = position.join(' ');
-      result.info = result.info.replace(/(&ldquo;|&rdquo)/g, '"').replace(/&times;/g, '×').replace(/(&lsquo;|&rsquo;)/g, "'");
+      result.info = result.info.replace(/(&ldquo;|&rdquo)/g, '"').replace(/&times;/g, '×').replace(/(&lsquo;|&rsquo;)/g, "'").replace('/&(.[2,6]);', '');
     
       this.setData({
         article: result
