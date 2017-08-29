@@ -5,7 +5,8 @@
     "pages/job/index",
     "pages/xjh/detail",
     "pages/interview/detail",
-    "pages/job/detail"
+    "pages/job/detail",
+    "pages/job/position"
   ],
   "window": {
     "navigationBarBackgroundColor": "#45c8dc",

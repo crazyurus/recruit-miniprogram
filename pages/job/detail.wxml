@@ -34,8 +34,8 @@
             <text>{{item.title}}</text>
           </view>
         </view>
-        <view class="item-text">部门：{{item.department}}　招聘{{item.headCount}}人</view>
-        <view class="item-text">{{item.city}}　{{item.positionFunction}}</view>
+        <view class="item-text">部门：{{item.department}}　{{item.city}}</view>
+        <view class="item-text">{{item.positionFunction}}<text wx:if="{{item.headCount > 0}}">　招聘{{item.headCount}}人</text></view>
       </view>
     </navigator>
   </view>
