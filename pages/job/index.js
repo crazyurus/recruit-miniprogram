@@ -26,6 +26,10 @@ Page({
     app.getApiData('https://api.wutnews.net/recruit/dajie/progress/index/ajaxSearch?page=' + this.data.page).then((result) => {
       if (result.page >= result.pageTotal) return;
 
+      result.projectList.map((item) => {
+        item.id = item.projectUrl.substring(item.projectUrl.lastIndexOf('/') + 1);
+      });
+
       this.data.loading = false;
       this.data.page++;
       wx.stopPullDownRefresh();

@@ -9,120 +9,104 @@ page, .page-content {
   min-height: 100%;
 }
 
-.xjh-header {
-  height: 60px;
-  display: flex;
-  padding-top: 5px;
+.job-header {
+  height: 135px;
+  position: relative;
 }
 
-.xjh-logo {
+.job-wrapper {
+  background-color: rgba(0, 0, 0, 0.25);
+  display: flex;
+  align-self: center;
+  position: relative;
+  padding: 20px 0;
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.job-background {
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  filter: blur(30px);
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+
+.job-logo {
   width: 45px;
   height: 45px;
   border-radius: 2px;
-  margin: 0 15px 15px;
+  margin: 0 20px;
   overflow: hidden;
+  box-shadow: 0 2px 9px rgba(0, 0, 0, 0.41);
+  margin-top: 8px;
 }
 
-.xjh-logo-university {
-  background-color: #fff;
+.job-logo > image {
+  width: 100%;
+  height: 100%;
 }
 
-.xjh-logo > image {
-  width: 45px;
-  height: 45px;
-}
-
-.xjh-logo-university > image {
-  width: 39px;
-  height: 39px;
-  margin: 3px;
-}
-
-.xjh-title {
+.job-title {
   flex: 1;
-  width: calc(100% - 90px);
+  width: calc(100% - 95px);
 }
 
-.xjh-company {
+.job-company {
   font-size: 16px;
-  line-height: 1.6;
-  color: #fff;
-  width: calc(100% - 15px);
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-.xjh-company-verify {
-  display: inline-block;
-  vertical-align: middle;
-  margin-top: -2px;
-  margin-left: 6px;
-  width: 15px;
-  height: 15px;
-}
-
-.xjh-source {
-  font-size: 14px;
-  line-height: 1.33;
-  color: rgba(255, 255, 255, 0.6);
-  width: calc(100% - 15px);
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-.xjh-info {
-  background: #fff;
-  border-bottom: 1rpx solid #c8c7cc;
-  padding: 12px 15px;
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
-}
-
-.xjh-info-line {
   line-height: 2;
+  color: #fff;
+  width: calc(100% - 3px);
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }
 
-.xjh-info-icon {
-  display: inline-block;
-  width: 14px;
-  height: 14px;
-  vertical-align: middle;
-  margin-top: -2px;
-  margin-right: 5px;
+.job-line {
+  font-size: 14px;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.6);
+  width: calc(100% - 20px);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
-.xjh-content, .xjh-others, .xjh-album {
+.job-content, .job-position {
   background: #fff;
   padding: 15px;
   margin-bottom: 25px;
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
 }
 
-.xjh-album {
+.job-album {
   padding: 10px;
 }
 
-.xjh-album image {
+.job-album image {
   width: calc(33.33% - 10px);
   margin: 5px;
   height: 110px;
 }
 
-.xjh-others {
+.job-others {
   padding: 0;
 }
 
-.xjh-others .list-block {
+.job-others .list-block {
   margin: 0;
   border-top: none;
   font-size: 15px !important;
 }
 
-.xjh-tabs {
+.job-tabs {
   background: #fff;
   border-bottom: 1rpx solid #c8c7cc;
   display: flex;
@@ -130,56 +114,58 @@ page, .page-content {
   top: 0;
   width: 100%;
   height: 40px;
-  margin-top: 15px;
 }
 
-.xjh-tab {
+.job-tab {
   flex: 1;
   text-align: center;
   align-self: center;
   position: relative;
 }
 
-.xjh-tab text {
+.job-tab text {
   height: 38x;
   line-height: 38px;
   padding: 0 8px;
   display: inline-block;
+  border-bottom: 2px solid #fff;
+  color: #666;
 }
 
-.xjh-no-active {
-  border-bottom: 2px solid #fff !important;
-  color: #666 !important;
+.job-tab text.active {
+  border-bottom: 2px solid #45c8dc;
+  color: #45c8dc;
 }
 
-.xjh-tab-disabled {
+.job-tab text.disabled {
   border-bottom: 2px solid #fff !important;
   color: #bbb !important;
 }
 
-.xjh-token {
+.job-token {
   width: 100%;
   position: absolute;
   text-align: center;
   bottom: 15px;
 }
 
-.xjh-token image {
+.job-token image {
   width: 160rpx;
   height: 60rpx;
 }
 
-.xjh-blank {
+.job-blank {
   height: 1px;
 }
 
-.xjh-share {
+.job-share {
   text-align: center;
   margin-bottom: 80px;
 }
 
-.xjh-share button[open-type] {
+.job-share button[open-type] {
   display: inline-block;
+  background: #45c8dc;
   font-size: 14px;
   border: none;
   line-height: 2;
