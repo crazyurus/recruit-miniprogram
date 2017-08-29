@@ -26,7 +26,7 @@
   </view>
   <view class="job-position" wx:if="{{tab.active[1]}}">
     <view class="list-block media-list record-list">
-    <navigator url="detail?id={{item.id}}&bgcolor=45c8dc" wx:for="{{position}}" wx:key="id" class="item-link item-content">
+    <navigator url="" wx:for="{{position}}" wx:key="id" class="item-link item-content">
       <view class="item-inner">
         <view class="item-title-row">
           <view class="item-title">
@@ -34,13 +34,14 @@
             <text>{{item.title}}</text>
           </view>
         </view>
-        <view class="item-text">{{item.holdtime}} | {{item.universityName}}</view>
+        <view class="item-text">部门：{{item.department}}　招聘{{item.headCount}}人</view>
+        <view class="item-text">{{item.city}}　{{item.positionFunction}}</view>
       </view>
     </navigator>
   </view>
   </view>
   <view class="job-share">
-    <button open-type="share" plain="true" hover-class="none">将此宣讲会分享给同学</button>
+    <button open-type="share" plain="true" hover-class="none">将此校招信息分享给同学</button>
   </view>
   <view class="job-blank"></view>
   <view class="job-token">

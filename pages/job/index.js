@@ -23,11 +23,13 @@ Page({
     if (this.data.loading) return;
 
     this.data.loading = true;
-    app.getApiData('https://api.wutnews.net/recruit/dajie/progress/index/ajaxSearch?page=' + this.data.page).then((result) => {
+    app.getApiData('https://api.wutnews.net/recruit/dajie/campus.dajie.com/progress/index/ajaxSearch?page=' + this.data.page).then((result) => {
       if (result.page >= result.pageTotal) return;
 
       result.projectList.map((item) => {
-        item.id = item.projectUrl.substring(item.projectUrl.lastIndexOf('/') + 1);
+        let arr = item.projectUrl.split('/');
+        item.id = arr[6];
+        item.corp_id = arr[4];
       });
 
       this.data.loading = false;
