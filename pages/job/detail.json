@@ -1,4 +1,5 @@
 {
   "navigationBarTitleText": "校园招聘",
+  "onReachBottomDistance": 160,
   "backgroundColor": "#efeff4"
 }

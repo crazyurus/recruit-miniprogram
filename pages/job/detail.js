@@ -24,6 +24,9 @@ Page({
       });
     });
   },
+  onReachBottom() {
+    if (this.data.tab.active[1]) this.loadPositionList();
+  },
   onShareAppMessage(res) {
     return {
       title: this.data.article.title,
@@ -59,7 +62,18 @@ Page({
     app.getApiData('https://api.wutnews.net/recruit/dajie/m.dajie.com/corp/' + this.data.article.corp + '/onlineapply/more?page=' + this.data.page).then((result) => {
       result = result.data;
 
-      if (!result.hasMore) this.data.loading = false;
+      if (result.list.length == 0 && this.data.page == 1) {
+        app.showAlertModal({
+          title: '校园招聘',
+          content: '该公司暂无招聘岗位'
+        });
+        this.setData({
+          'tab.active': [true, false],
+          'tab.disabled': [false, true]
+        });
+      }
+
+      if (result.hasMore) this.data.loading = false;
       this.data.page++;
       wx.stopPullDownRefresh();
 
