@@ -18,7 +18,7 @@
       <text class="{{tab.active[0] ? 'active' : ''}} {{tab.disabled[0] ? 'disabled' : ''}}">招聘简章</text>
     </view>
     <view class="job-tab" bindtap="clickTabPosition">
-      <text class="{{tab.active[1] ? 'active' : ''}} {{tab.disabled[0] ? 'disabled' : ''}}">招聘岗位</text>
+      <text class="{{tab.active[1] ? 'active' : ''}} {{tab.disabled[0] ? 'disabled' : ''}}">招聘职位</text>
     </view>
   </view>
   <view class="job-content" wx:if="{{tab.active[0]}}">
@@ -26,7 +26,7 @@
   </view>
   <view class="job-position" wx:if="{{tab.active[1]}}">
     <view class="list-block media-list record-list">
-    <navigator url="" wx:for="{{position}}" wx:key="id" class="item-link item-content">
+    <navigator url="position?link={{item.url}}" wx:for="{{position}}" wx:key="url" class="item-link item-content">
       <view class="item-inner">
         <view class="item-title-row">
           <view class="item-title">

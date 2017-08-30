@@ -1,2 +1,18 @@
-<!--position.wxml-->
-<text>position.wxml</text>
+<view class="page-content">
+  <view class="pos-header">
+    <view class="pos-title">
+      <view class="pos-name">{{article.title}}</view>
+      <view class="pos-line">{{article.city}}　薪资<text class="text-red">{{article.salary}}</text></view>
+      <view class="pos-line">{{article.corp}}</view>
+    </view>
+    <view class="pos-mark">
+      <view class="pos-mark-day">{{article.time}}</view>
+    </view>
+  </view>
+  <view class="pos-content">
+    <rich-text nodes="{{article.content}}"></rich-text>
+  </view>
+  <view class="pos-share">
+    <button open-type="share" plain="true" hover-class="none">将此职位分享给同学</button>
+  </view>
+</view>
