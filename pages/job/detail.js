@@ -7,6 +7,7 @@ Page({
       active: [true, false],
       disabled: [false, false]
     },
+    logo: false,
     page: 1,
     loading: false
   },
@@ -16,11 +17,13 @@ Page({
       corp: options.corp,
       logo: options.logo
     }, false).then((result) => {
-
+      let logo = result.logo != 'https://fs1.dajie.com/corplogo/100x100.png';
       result.logo = 'https://api.wutnews.net/recruit/dajie/image?url=' + result.logo;
 
       this.setData({
         article: result,
+        logo: logo,
+        'tab.disabled': [false, result.corp == 0]
       });
     });
   },

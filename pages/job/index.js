@@ -28,8 +28,13 @@ Page({
 
       result.projectList.map((item) => {
         let arr = item.projectUrl.split('/');
-        item.id = arr[6];
-        item.corp_id = arr[4];
+        if (arr[4] == 'catch') {
+          item.id = arr[5];
+          item.corp_id = 0;
+        } else {
+          item.id = arr[6];
+          item.corp_id = arr[4];
+        }
       });
 
       this.data.loading = false;

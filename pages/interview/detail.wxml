@@ -2,8 +2,8 @@
   <view class="interview-header">
     <view class="interview-title">{{article.title}}</view>
     <view class="interview-line">年份：{{article.year}}</view>
-    <view class="interview-line" wx:if="{{article.companys}}">公司：{{article.companys[0].name}}</view>
-    <view class="interview-line" wx:if="{{article.workCategorys}}">职位：{{article.position}}</view>
+    <view class="interview-line" wx:if="{{article.companys.length > 0}}">公司：{{article.companys[0].name}}</view>
+    <view class="interview-line" wx:if="{{article.workCategorys.length > 0}}">职位：{{article.position}}</view>
   </view>
   <view class="interview-content">
     <rich-text nodes="{{article.info}}"></rich-text>

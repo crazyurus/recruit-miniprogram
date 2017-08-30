@@ -1,14 +1,14 @@
 <view class="page-content">
   <view class="job-header">
-    <view class="job-background" style="background-image: url({{article.logo}});"></view>
-    <view class="job-wrapper">
+    <view class="job-background" style="background-image: url({{article.logo}});" wx:if="{{logo}}"></view>
+    <view class="job-wrapper {{logo ? '' : 'job-wrapper-background'}}">
       <view class="job-logo">
         <image src="{{article.logo}}" />
       </view>
       <view class="job-title">
         <view class="job-company">{{article.title}}</view>
         <view class="job-line">{{article.city}}</view>
-        <view class="job-line">{{article.major}}</view>
+        <view class="job-line" wx:if="{{article.major != ''}}">{{article.major}}</view>
         <view class="job-line">{{article.state}}　{{article.time}}</view>
       </view>
     </view>
