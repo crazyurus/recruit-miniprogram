@@ -18,7 +18,7 @@
       <text class="{{tab.active[0] ? 'active' : ''}} {{tab.disabled[0] ? 'disabled' : ''}}">招聘简章</text>
     </view>
     <view class="job-tab" bindtap="clickTabPosition">
-      <text class="{{tab.active[1] ? 'active' : ''}} {{tab.disabled[0] ? 'disabled' : ''}}">招聘职位</text>
+      <text class="{{tab.active[1] ? 'active' : ''}} {{tab.disabled[1] ? 'disabled' : ''}}">招聘职位</text>
     </view>
   </view>
   <view class="job-content" wx:if="{{tab.active[0]}}">
