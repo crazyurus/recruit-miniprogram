@@ -7,7 +7,8 @@ Page({
       active: [true, false, false],
       disabled: [false, true, false]
     },
-    title: false
+    title: false,
+    child: false
   },
   onLoad(options) {
     wx.setNavigationBarColor({
@@ -29,6 +30,7 @@ Page({
 
       this.setData({
         article: result,
+        child: getCurrentPages().length == 5,
         bgcolor: options.bgcolor,
         'tab.disabled': [result.content == '', result.albums.length == 0, result.xjhs.length == 0]
       });

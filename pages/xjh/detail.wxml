@@ -44,7 +44,7 @@
   </view>
   <view class="xjh-others" wx:if="{{tab.active[2]}}">
     <view class="list-block media-list record-list">
-    <navigator url="detail?id={{item.id}}&bgcolor=45c8dc" wx:for="{{article.xjhs}}" wx:key="id" class="item-link item-content">
+    <navigator url="detail?id={{item.id}}&bgcolor=45c8dc" open-type="{{child ? 'redirect' : 'navigate'}}" wx:for="{{article.xjhs}}" wx:key="id" class="item-link item-content">
       <view class="item-inner">
         <view class="item-title-row">
           <view class="item-title">
