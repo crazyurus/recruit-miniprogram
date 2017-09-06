@@ -57,6 +57,6 @@ Page({
 });
 
 function calc_remain(time) {
-  let hold = new Date(Date.parse(time.replace(/-/g, "/"))).getTime();
+  let hold = new Date(Date.parse(time.split(' ')[0].replace(/-/g, "/") + ' 23:59:59')).getTime();
   return Math.ceil((hold - Date.now()) / 86400000);
 }
