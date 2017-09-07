@@ -23,19 +23,8 @@ Page({
     if (this.data.loading) return;
 
     this.data.loading = true;
-    app.getApiData('https://api.wutnews.net/recruit/dajie/campus.dajie.com/progress/index/ajaxSearch?page=' + this.data.page).then((result) => {
+    app.getApiData('https://api.wutnews.net/recruit/dajie/lists?page=' + this.data.page).then((result) => {
       if (result.page >= result.pageTotal) return;
-
-      result.projectList.map((item) => {
-        let arr = item.projectUrl.split('/');
-        if (arr[4] == 'catch') {
-          item.id = arr[5];
-          item.corp_id = 0;
-        } else {
-          item.id = arr[6];
-          item.corp_id = arr[4];
-        }
-      });
 
       this.data.loading = false;
       this.data.page++;
