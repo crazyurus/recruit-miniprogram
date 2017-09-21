@@ -4,10 +4,33 @@ Page({
     list: [],
     page: 1,
     kind: 'after',
-    loading: false
+    loading: false,
+    city: {
+      index: 3,
+      id: 'wh',
+      name: '湖北'
+    },
+    university: {
+      index: 3,
+      id: 3,
+      name: '武汉理工大学'
+    },
+    picker: {
+      city: [],
+      university: []
+    }
   },
   onLoad() {
-    this.loadNoticeList();
+    const zoneArray = require('../../data/zone');
+    this.setData({
+      'picker.city': zoneArray
+    });
+    this.changeFilterCity({
+      detail: {
+        value: this.data.city.index,
+        flag: true
+      }
+    });
   },
   onReachBottom() {
     this.loadNoticeList();
@@ -25,7 +48,7 @@ Page({
     if (this.data.loading) return;
 
     this.data.loading = true;
-    app.getApiData('https://api.wutnews.net/recruit/haitou/xjh/list?client=wutnews&zone=wh&page=' + this.data.page + '&kind=' + this.data.kind).then((result) => {
+    app.getApiData('https://api.wutnews.net/recruit/haitou/xjh/list?client=wutnews&zone=' + this.data.city.id + '&page=' + this.data.page + '&kind=' + this.data.kind + (this.data.university.id == 0 ? '' : '&univ=' + this.data.university.id)).then((result) => {
       const colorArray = ['ed9d81', 'a7d59a', '8c88ff', '56b8a4', '60bfd8', 'c9759d'];
       const univArray = require('../../data/university');
       wx.stopPullDownRefresh();
@@ -52,6 +75,62 @@ Page({
       this.setData({
         'list': this.data.list.concat(result)
       });
+    });
+  },
+  changeFilterCity(e) {
+    let index = e.detail.value;
+    const zoneArray = require('../../data/zone');
+    const univArray = require('../../data/university');
+
+    let university = univArray.filter((item) => {
+      return item.zone == zoneArray[index].id;
+    });
+
+    university.unshift({
+      id: 0,
+      name: '全部学校'
+    });
+
+    let data = {
+      city: {
+        id: zoneArray[index].id,
+        name: zoneArray[index].name,
+        index: index
+      },
+      'picker.university': university
+    };
+
+    if (!e.detail.flag) data['university'] = {
+      index: 0,
+      id: 0,
+      name: '全部学校'
+    }
+
+    this.setData(data);
+    this.reset();
+    this.loadNoticeList();
+  },
+  changeFilterUniversity(e) {
+    let index = e.detail.value;
+    const univArray = this.data.picker.university;
+
+    this.setData({
+      university: {
+        id: univArray[index].id,
+        name: univArray[index].name,
+        index: index
+      }
+    });
+
+    this.reset();
+    this.loadNoticeList();
+  },
+  reset() {
+    this.setData({
+      list: [],
+      page: 1,
+      kind: 'after',
+      loading: false
     });
   }
 });

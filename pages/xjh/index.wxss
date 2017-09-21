@@ -4,6 +4,10 @@ page, .page-content {
   background: #efeff4;
 }
 
+.page-content {
+  margin-top: 50px;
+}
+
 button[open-type] {
   position: absolute;
   width: 30px;
@@ -13,4 +17,36 @@ button[open-type] {
   right: 12px;
   height: 20px;
   top: 10px;
+}
+
+.filter-area {
+  height: 40px;
+  background: #45c8dc;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 9;
+  display: flex;
+}
+
+.filter-area .filter-tag {
+  font-size: 15px;
+  line-height: 30px;
+  height: 40px;
+  color: #fff;
+  flex: 1;
+  text-align: center;
+}
+
+.caret {
+    display: inline-block;
+    width: 0;
+    height: 0;
+    margin-left: 4px;
+    vertical-align: middle;
+    border-top: 5px dashed;
+    border-right: 5px solid transparent;
+    border-left: 5px solid transparent;
 }
