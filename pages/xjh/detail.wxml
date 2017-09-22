@@ -38,6 +38,10 @@
   </view>
   <view class="xjh-content" wx:if="{{tab.active[0]}}">
     <rich-text nodes="{{article.content}}"></rich-text>
+    <view class="xjh-content-after">
+      <text>阅读 {{article.totalClicks}}</text>
+      <button open-type="contact" plain="true" hover-class="none">反馈</button>
+    </view>
   </view>
   <view class="xjh-album" wx:if="{{tab.active[1]}}">
     <image src="{{item.thumbSmallUrl}}" wx:for="{{article.albums}}" wx:key="id" data-src="{{item.originalUrl}}" bindtap="showImagePreview" />
