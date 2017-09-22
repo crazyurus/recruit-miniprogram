@@ -18,7 +18,8 @@ Page({
     picker: {
       city: [],
       university: []
-    }
+    },
+    left: 0
   },
   onLoad() {
     const zoneArray = require('../../data/zone');
@@ -51,6 +52,7 @@ Page({
     app.getApiData('https://api.wutnews.net/recruit/haitou/xjh/list?client=wutnews&zone=' + this.data.city.id + '&page=' + this.data.page + '&kind=' + this.data.kind + (this.data.university.id == 0 ? '' : '&univ=' + this.data.university.id)).then((result) => {
       const colorArray = ['ed9d81', 'a7d59a', '8c88ff', '56b8a4', '60bfd8', 'c9759d'];
       const univArray = require('../../data/university');
+
       wx.stopPullDownRefresh();
 
       if (result.length == 0) {
@@ -64,12 +66,13 @@ Page({
       }
 
       result.map((item, i) => {
-        item.backgroundColor = colorArray[i % colorArray.length];
+        item.backgroundColor = colorArray[(i + this.data.left) % colorArray.length];
         item.universityName = item.univ_id == 0 ? item.universityShortName : univArray[item.univ_id - 1].name;
         item.remain = (!item.isExpired && !item.is_cancel) ? calc_remain(item.holdtime) : false;
       });
 
       this.data.loading = false;
+      this.data.left += result.length % colorArray.length;
       this.data.page++;
 
       this.setData({
