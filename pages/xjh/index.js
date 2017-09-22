@@ -133,7 +133,8 @@ Page({
       list: [],
       page: 1,
       kind: 'after',
-      loading: false
+      loading: false,
+      left: 0
     });
   }
 });
