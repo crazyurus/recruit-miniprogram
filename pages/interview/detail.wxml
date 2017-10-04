@@ -7,7 +7,10 @@
   </view>
   <view class="interview-content">
     <rich-text nodes="{{article.info}}"></rich-text>
-    <view class="interview-count">阅读 {{article.count}}　赞 {{article.up}}</view>
+    <view class="interview-count">
+      <text>阅读 {{article.count}}　赞 {{article.up}}</text>
+      <button open-type="contact" plain="true" hover-class="none">反馈</button>
+    </view>
   </view>
   <view class="interview-share">
     <button open-type="share" plain="true" hover-class="none">将面试经验分享给同学</button>
