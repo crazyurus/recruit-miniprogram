@@ -12,7 +12,8 @@ App({
         },
         data: data,
         success(result) {
-          if (result.data.errCode == 0) resolve(result.data.data);
+          if (url.indexOf('api.haitou.cc') > -1) resolve(result.data.data);
+          else if (result.data.errCode == 0) resolve(result.data.data);
           else if (reject) reject(result.data);
         },
         fail(result) {

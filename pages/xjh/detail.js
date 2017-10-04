@@ -19,7 +19,7 @@ Page({
       title: ' '
     });
 
-    app.getApiData('https://api.wutnews.net/recruit/haitou/xjh/view?client=wutnews&id=' + options.id, {}, false).then((result) => {
+    app.getApiData('https://api.haitou.cc/xjh/view?client=wutnews&id=' + options.id, {}, false).then((result) => {
       result.isUniversityLogo = result.logoUrl.indexOf('/university') > -1;
       result.content = result.content.replace(/<table border=1 cellspacing=0 cellpadding=0>/g, '<table style="border: 1px solid #c8c7cc">').replace(/src="http/g, 'style="max-width: 100%" src="http');
 
