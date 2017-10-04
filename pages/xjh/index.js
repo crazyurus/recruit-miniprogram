@@ -37,12 +37,7 @@ Page({
     this.loadNoticeList();
   },
   onPullDownRefresh() {
-    this.setData({
-      page: 1,
-      kind: 'after',
-      loading: false
-    });
-    this.data.list = [];
+    this.reset();
     this.loadNoticeList();
   },
   loadNoticeList() {
@@ -129,8 +124,8 @@ Page({
     this.loadNoticeList();
   },
   reset() {
+    this.data.list = [];
     this.setData({
-      list: [],
       page: 1,
       kind: 'after',
       loading: false,
