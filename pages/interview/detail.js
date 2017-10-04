@@ -4,7 +4,7 @@ Page({
     article: {}
   },
   onLoad(options) {
-    app.getApiData('https:/api.haitou.cc/mjfx/view?client=m&encrypt=0&id=' + options.id, {}, false).then((result) => {
+    app.getApiData('https://api.haitou.cc/mjfx/view?client=m&encrypt=0&id=' + options.id, {}, false).then((result) => {
       let position = [];
 
       for (let category of result.workCategorys) {
