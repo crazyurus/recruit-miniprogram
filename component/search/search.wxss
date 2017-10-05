@@ -46,10 +46,15 @@
   left: 0;
   top: 44px;
   width: 100%;
-  height: calc(100% - 44px);
-  z-index: 0;
-  opacity: 0;
+  height: calc(100% - 36px);
+  z-index: 9;
+  display: none;
   background: rgba(0, 0, 0, 0.4);
   transition-duration: 0.3s;
   transform: translate3d(0, 0, 0);
+}
+
+
+.mask.active {
+  display: block;
 }

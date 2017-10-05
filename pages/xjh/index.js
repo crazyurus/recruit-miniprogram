@@ -19,6 +19,10 @@ Page({
       city: [],
       university: []
     },
+    search: {
+      show: false,
+      keyword: ''
+    },
     left: 0
   },
   onLoad() {
@@ -44,7 +48,13 @@ Page({
     if (this.data.loading) return;
 
     this.data.loading = true;
-    app.getApiData('https://api.haitou.cc/xjh/list?client=wutnews&zone=' + this.data.city.id + '&page=' + this.data.page + '&kind=' + this.data.kind + (this.data.university.id == 0 ? '' : '&univ=' + this.data.university.id)).then((result) => {
+    app.getApiData('https://api.haitou.cc/xjh/list?client=wutnews' + 
+      '&zone=' + this.data.city.id + 
+      '&page=' + this.data.page + 
+      '&kind=' + this.data.kind + 
+      (this.data.university.id == 0 ? '' : '&univ=' + this.data.university.id) +
+      (this.data.search.keyword.trim() == '' ? '' : '&key=' + this.data.search.keyword.trim())
+    ).then((result) => {
       const colorArray = ['ed9d81', 'a7d59a', '8c88ff', '56b8a4', '60bfd8', 'c9759d'];
       const univArray = require('../../data/university');
 
@@ -129,7 +139,31 @@ Page({
       page: 1,
       kind: 'after',
       loading: false,
-      left: 0
+      left: 0,
+      search: {
+        show: false,
+        keyword: ''
+      }
+    });
+  },
+  searchNoticeList(e) {
+    this.reset();
+    this.setData({
+      search: {
+        show: false,
+        keyword: e.detail.value
+      }
+    });
+    this.loadNoticeList();
+  },
+  setSearchFocus() {
+    this.setData({
+      'search.show': true
+    });
+  },
+  lostSearchFocus() {
+    this.setData({
+      'search.show': false
     });
   }
 });

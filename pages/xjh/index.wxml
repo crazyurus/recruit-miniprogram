@@ -1,3 +1,6 @@
+<import src="/component/search/search.wxml" />
+
+<template is="searchbar" data="{{ placeholder: '职位/公司名/行业类别', showCancelButton: search.show }}" ></template>
 <view class="filter-area">
   <picker class="filter-tag" bindchange="changeFilterCity" range="{{picker.city}}" range-key="name" value="{{city.index}}">
     <text>{{city.name}}</text>
