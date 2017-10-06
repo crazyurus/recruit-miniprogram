@@ -12,6 +12,7 @@ page, .page-content {
 .job-header {
   height: 135px;
   position: relative;
+  overflow: hidden;
 }
 
 .job-wrapper {
@@ -34,14 +35,14 @@ page, .page-content {
 
 .job-background {
   background-repeat: no-repeat;
-  background-size: 100% 100%;
+  background-size: cover;
   position: absolute;
-  top: 0;
+  top: -75%;
   left: 0;
   filter: blur(30px);
   overflow: hidden;
   width: 100%;
-  height: 100%;
+  height: 200%;
   z-index: 0;
 }
 
