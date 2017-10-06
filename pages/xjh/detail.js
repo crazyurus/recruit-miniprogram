@@ -100,5 +100,11 @@ Page({
         title: this.data.article.company
       });
     }
+  },
+  showApplyWebsite() {
+    app.showAlertModal({
+      title: this.data.article.company,
+      content: '请在浏览器访问网站：' + this.data.article.apply_url
+    });
   }
 });

@@ -196,7 +196,8 @@ page, .page-content {
 }
 
 .xjh-share button[open-type] {
-  display: inline-block;
+  display: block;
+  width: 160px;
   font-size: 14px;
   border: none;
   line-height: 2;

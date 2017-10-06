@@ -80,7 +80,8 @@
     </view>
   </view>
   <view class="xjh-share">
-    <button open-type="share" plain="true" style="background: #{{bgcolor}};" hover-class="none">将此宣讲会分享给同学</button>
+    <button open-type="button" plain="true" hover-class="none" style="background: #45c8dc; margin-bottom: 10px" bindtap="showApplyWebsite" wx:if="{{article.apply_url}}">访问校园招聘网站</button>
+    <button open-type="share" plain="true" style="background: #{{bgcolor == '45c8dc' && article.apply_url ? 'ed9d81' : bgcolor}};" hover-class="none">将此宣讲会分享给同学</button>
   </view>
   <view class="xjh-blank"></view>
   <view class="xjh-token">
