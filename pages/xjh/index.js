@@ -139,11 +139,7 @@ Page({
       page: 1,
       kind: 'after',
       loading: false,
-      left: 0,
-      search: {
-        show: false,
-        keyword: ''
-      }
+      left: 0
     });
   },
   searchNoticeList(e) {

@@ -102,9 +102,19 @@ Page({
     }
   },
   showApplyWebsite() {
-    app.showAlertModal({
-      title: this.data.article.company,
-      content: '请在浏览器访问网站：' + this.data.article.apply_url
+    const self = this;
+    wx.showModal({
+      title: self.data.article.company,
+      content: '请在浏览器粘贴以下网址访问：' + self.data.article.apply_url,
+      showCancel: true,
+      confirmText: '复制网址',
+      confirmColor: '#' + self.data.bgcolor,
+      cancelText: '关闭',
+      success() {
+        wx.setClipboardData({
+          data: self.data.article.apply_url
+        });
+      }
     });
   }
 });
