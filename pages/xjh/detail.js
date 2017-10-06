@@ -4,8 +4,8 @@ Page({
     article: {},
     bgcolor: '45c8dc',
     tab: {
-      active: [true, false, false],
-      disabled: [false, true, false]
+      active: [true, false, false, false],
+      disabled: [false, true, false, false]
     },
     title: false,
     child: false
@@ -32,7 +32,7 @@ Page({
         article: result,
         child: getCurrentPages().length == 5,
         bgcolor: options.bgcolor,
-        'tab.disabled': [result.content == '', result.albums.length == 0, result.xjhs.length == 0]
+        'tab.disabled': [result.content == '', result.albums.length == 0, result.positions.length == 0, result.xjhs.length == 0]
       });
     });
   },
@@ -51,21 +51,28 @@ Page({
     if (this.data.tab.disabled[0]) return;
 
     this.setData({
-      'tab.active': [true, false, false]
+      'tab.active': [true, false, false, false]
     });
   },
   clickTabAlbum() {
     if (this.data.tab.disabled[1]) return;
 
     this.setData({
-      'tab.active': [false, true, false]
+      'tab.active': [false, true, false, false]
     });
   },
-  clickTabXjh() {
+  clickTabPosition() {
     if (this.data.tab.disabled[2]) return;
 
     this.setData({
-      'tab.active': [false, false, true]
+      'tab.active': [false, false, true, false]
+    });
+  },
+  clickTabXjh() {
+    if (this.data.tab.disabled[3]) return;
+
+    this.setData({
+      'tab.active': [false, false, false, true]
     });
   },
   showImagePreview(e) {

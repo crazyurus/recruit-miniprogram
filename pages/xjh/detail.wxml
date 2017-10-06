@@ -29,11 +29,14 @@
     <view class="xjh-tab" bindtap="clickTabContent">
       <text style="border-bottom: 2px solid #{{bgcolor}}; color: #{{bgcolor}};" class="{{tab.active[0] ? '' : 'xjh-no-active'}} {{tab.disabled[0] ? 'xjh-tab-disabled' : ''}}">宣讲正文</text>
     </view>
-    <view class="xjh-tab" bindtap="clickTabAlbum">
+    <view class="xjh-tab" bindtap="clickTabAlbum" wx:if="{{!tab.disabled[1]}}">
       <text style="border-bottom: 2px solid #{{bgcolor}}; color: #{{bgcolor}};" class="{{tab.active[1] ? '' : 'xjh-no-active'}} {{tab.disabled[1] ? 'xjh-tab-disabled' : ''}}">公司相册</text>
     </view>
+    <view class="xjh-tab" bindtap="clickTabPosition" wx:if="{{!tab.disabled[2]}}">
+      <text style="border-bottom: 2px solid #{{bgcolor}}; color: #{{bgcolor}};" class="{{tab.active[2] ? '' : 'xjh-no-active'}} {{tab.disabled[2] ? 'xjh-tab-disabled' : ''}}">招聘岗位</text>
+    </view>
     <view class="xjh-tab" bindtap="clickTabXjh">
-      <text style="border-bottom: 2px solid #{{bgcolor}}; color: #{{bgcolor}};" class="{{tab.active[2] ? '' : 'xjh-no-active'}} {{tab.disabled[2] ? 'xjh-tab-disabled' : ''}}">其它宣讲</text>
+      <text style="border-bottom: 2px solid #{{bgcolor}}; color: #{{bgcolor}};" class="{{tab.active[3] ? '' : 'xjh-no-active'}} {{tab.disabled[3] ? 'xjh-tab-disabled' : ''}}">其它宣讲</text>
     </view>
   </view>
   <view class="xjh-content" wx:if="{{tab.active[0]}}">
@@ -46,20 +49,35 @@
   <view class="xjh-album" wx:if="{{tab.active[1]}}">
     <image src="{{item.thumbSmallUrl}}" wx:for="{{article.albums}}" wx:key="id" data-src="{{item.originalUrl}}" bindtap="showImagePreview" />
   </view>
-  <view class="xjh-others" wx:if="{{tab.active[2]}}">
+  <view class="xjh-position" wx:if="{{tab.active[2]}}">
     <view class="list-block media-list record-list">
-    <navigator url="detail?id={{item.id}}&bgcolor=45c8dc" open-type="{{child ? 'redirect' : 'navigate'}}" wx:for="{{article.xjhs}}" wx:key="id" class="item-link item-content">
-      <view class="item-inner">
-        <view class="item-title-row">
-          <view class="item-title">
-            <view class="circle" style="background: #{{bgcolor}};"></view>
-            <text>{{item.title}}</text>
+      <view wx:for="{{article.positions}}" wx:key="id" class="item-content">
+        <view class="item-inner">
+          <view class="item-title-row">
+            <view class="item-title">
+              <view class="circle" style="background: #{{bgcolor}};"></view>
+              <text>{{item.name}}</text>
+            </view>
           </view>
+          <view class="item-text">{{item.update_time}}</view>
         </view>
-        <view class="item-text">{{item.holdtime}} | {{item.universityName}}</view>
       </view>
-    </navigator>
+    </view>
   </view>
+  <view class="xjh-others" wx:if="{{tab.active[3]}}">
+    <view class="list-block media-list record-list">
+      <navigator url="detail?id={{item.id}}&bgcolor=45c8dc" open-type="{{child ? 'redirect' : 'navigate'}}" wx:for="{{article.xjhs}}" wx:key="id" class="item-link item-content">
+        <view class="item-inner">
+          <view class="item-title-row">
+            <view class="item-title">
+              <view class="circle" style="background: #{{bgcolor}};"></view>
+              <text>{{item.title}}</text>
+            </view>
+          </view>
+          <view class="item-text">{{item.holdtime}} | {{item.universityName}}</view>
+        </view>
+      </navigator>
+    </view>
   </view>
   <view class="xjh-share">
     <button open-type="share" plain="true" style="background: #{{bgcolor}};" hover-class="none">将此宣讲会分享给同学</button>

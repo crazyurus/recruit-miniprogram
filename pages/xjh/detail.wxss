@@ -95,7 +95,7 @@ page, .page-content {
   margin-right: 5px;
 }
 
-.xjh-content, .xjh-others, .xjh-album {
+.xjh-content, .xjh-others, .xjh-position, .xjh-album {
   background: #fff;
   padding: 15px;
   margin-bottom: 25px;
@@ -129,11 +129,11 @@ page, .page-content {
   height: 110px;
 }
 
-.xjh-others {
+.xjh-others, .xjh-position {
   padding: 0;
 }
 
-.xjh-others .list-block {
+.xjh-others .list-block, .xjh-position .list-block {
   margin: 0;
   border-top: none;
   font-size: 15px !important;
