@@ -3,7 +3,8 @@ Page({
   data: {
     list: [],
     page: 1,
-    loading: false
+    loading: false,
+    tab: 0
   },
   onLoad() {
     this.loadNoticeList();

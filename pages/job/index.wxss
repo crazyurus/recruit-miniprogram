@@ -1,4 +1,4 @@
-@import '../../component/list/list.wxss';
+@import '/component/list/list.wxss';
 
 .record-list .item-content {
   display: flex;

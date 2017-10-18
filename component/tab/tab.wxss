@@ -1,0 +1,66 @@
+.page-content {
+  padding-top: 40px;
+}
+
+.tabbar {
+  top: 0;
+  margin-top: 0;
+  position: fixed;
+  background: #45c8dc;
+  padding: 0 10%;
+  height: 40px;
+  width: 100%;
+  left: 0;
+  z-index: 20;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.tabbar .buttons-row {
+  width: 100%;
+  align-self: flex-start;
+  display: flex;
+  flex-wrap: nowrap;
+}
+
+.buttons-row .tab:first-child {
+  border-radius: 5px 0 0 5px;
+  border-left-width: 1px;
+  border-left-style: solid;
+}
+
+.buttons-row .tab:last-child {
+  border-radius: 0 5px 5px 0;
+  border-right-width: 1px;
+  border-right-style: solid;
+}
+
+.buttons-row .tab.active {
+  background: #fff;
+  color: #45c8dc;
+}
+
+.buttons-row .tab {
+  background: #45c8dc;
+  color: #fff;
+  border-radius: 0;
+  border-left-width: 0;
+  width: 100%;
+  border: 1px solid #fff;
+  text-align: center;
+  display: block;
+  line-height: 28px;
+  box-sizing: border-box;
+  background: 0 0;
+  padding: 0 10px;
+  margin: 0;
+  height: 30px;
+  white-space: nowrap;
+  position: relative;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: 14px;
+  outline: 0;
+}

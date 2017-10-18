@@ -1,0 +1,11 @@
+<template name="tabbar">
+  <view class="tabbar">
+    <view class="buttons-row">
+      <view class="tab {{tab == 1 ? 'active' : ''}}" data-tab="1" bindtap="switchTabs">面试</view>
+      <view class="tab {{tab == 2 ? 'active' : ''}}" data-tab="2" bindtap="switchTabs">笔试</view>
+      <view class="tab {{tab == 3 ? 'active' : ''}}" data-tab="3" bindtap="switchTabs">简历</view>
+      <view class="tab {{tab == 4 ? 'active' : ''}}" data-tab="4" bindtap="switchTabs">实习</view>
+      <view class="tab {{tab == 0 ? 'active' : ''}}" data-tab="0" bindtap="switchTabs">企业</view>
+    </view>
+  </view>
+</template>

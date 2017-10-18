@@ -33,7 +33,7 @@
       },
       {
         "pagePath": "pages/interview/index",
-        "text": "面经",
+        "text": "经验",
         "iconPath": "/image/interview.png",
         "selectedIconPath": "/image/interview_s.png"
       }
