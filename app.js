@@ -36,5 +36,8 @@ App({
       confirmColor: param.color || '#45c8dc',
       success: param.success || undefined
     });
+  },
+  showLoading(title) {
+    wx.showLoading({ title });
   }
 });

@@ -21,7 +21,7 @@ Page({
 
     app.getApiData('https://api.haitou.cc/xjh/view?client=wutnews&id=' + options.id, {}, false).then((result) => {
       result.isUniversityLogo = result.logoUrl.indexOf('/university') > -1;
-      result.content = result.content.replace(/<table border=1 cellspacing=0 cellpadding=0>/g, '<table style="border: 1px solid #c8c7cc">').replace(/src="http/g, 'style="max-width: 100%" src="http');
+      result.content = result.content.replace(/<table border=1 cellspacing=0 cellpadding=0>/g, '<table style="border: 1px solid #c8c7cc">').replace(/src="/g, 'style="max-width: 100%" src="');
 
       if (result.univ_id == 3) {
         let pos = result.content.indexOf('</b></p> <div> <div> <p>');
@@ -114,6 +114,34 @@ Page({
         wx.setClipboardData({
           data: self.data.article.apply_url
         });
+      }
+    });
+  },
+  showAddressMap() {
+    let self = this;
+    let QQMap = require('../../library/qqmap/jssdk.js');
+    let sdk = new QQMap({
+      key: 'BP7BZ-6FXRV-6CNP3-UDXK2-GJ36S-VFBN7'
+    });
+
+    app.showLoading('获取地理位置中');
+    sdk.geocoder({
+      address: self.data.article.universityName + self.data.article.address,
+      success(res) {
+        wx.openLocation({
+          latitude: res.result.location.lat,
+          longitude: res.result.location.lng,
+          name: self.data.article.universityName,
+          address: self.data.article.address
+        });
+      },
+      fail(res) {
+        app.showAlertModal({
+          content: res.message
+        });
+      },
+      complete() {
+        wx.hideLoading();
       }
     });
   }
