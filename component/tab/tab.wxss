@@ -46,9 +46,9 @@
   background: #45c8dc;
   color: #fff;
   border-radius: 0;
-  border-left-width: 0;
   width: 100%;
   border: 1px solid #fff;
+  border-left: none;
   text-align: center;
   display: block;
   line-height: 28px;

@@ -4,23 +4,24 @@
 		"urlCheck": true,
 		"es6": true,
 		"postcss": true,
-		"minified": true
+		"minified": true,
+		"newFeature": true
 	},
-	"compileType": "weapp",
-	"libVersion": "1.6.0",
+	"compileType": "miniprogram",
+	"libVersion": "1.6.4",
 	"appid": "wx21545de6d74f4b0b",
 	"projectname": "%E5%B0%B1%E4%B8%9A%E6%8B%9B%E8%81%98",
 	"condition": {
-		"weapp": {
-			"current": -1,
-			"list": []
-		},
 		"search": {
 			"current": -1,
 			"list": []
 		},
 		"conversation": {
 			"current": 0,
+			"list": []
+		},
+		"miniprogram": {
+			"current": -1,
 			"list": []
 		}
 	}

@@ -126,7 +126,7 @@ Page({
 
     app.showLoading('获取地理位置中');
     sdk.geocoder({
-      address: self.data.article.universityName + self.data.article.address,
+      address: self.data.article.universityName + ',' + self.data.article.address,
       success(res) {
         wx.openLocation({
           latitude: res.result.location.lat,

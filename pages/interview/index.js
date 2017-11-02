@@ -4,7 +4,7 @@ Page({
     list: [],
     page: 1,
     loading: false,
-    tab: 0
+    tab: 1
   },
   onLoad() {
     this.loadNoticeList();
@@ -30,12 +30,11 @@ Page({
   openWechatUrl(e) {
     let url = e.currentTarget.dataset.url;
 
-    /* 
-    wx.openUrl({
-      url: url
-    }); 
-    */
+    wx.navigateTo({
+      url: '/pages/common/webview?url=' + encodeURIComponent(url),
+    });
 
+    /* 
     wx.showModal({
       title: '就业招聘',
       content: '请在浏览器粘贴以下网址阅读面试经验：' + url,
@@ -48,7 +47,7 @@ Page({
           data: url
         });
       }
-    });
+    });*/
   },
   loadNoticeList() {
     if (this.data.loading) return;
