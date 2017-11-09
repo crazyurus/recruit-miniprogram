@@ -1,4 +1,4 @@
-var app = getApp();
+const app = getApp();
 Page({
   data: {
     list: [],
@@ -8,33 +8,33 @@ Page({
     city: {
       index: 3,
       id: 'wh',
-      name: '湖北'
+      name: '湖北',
     },
     university: {
       index: 3,
       id: 3,
-      name: '武汉理工大学'
+      name: '武汉理工大学',
     },
     picker: {
       city: [],
-      university: []
+      university: [],
     },
     search: {
       show: false,
-      keyword: ''
+      keyword: '',
     },
-    left: 0
+    left: 0,
   },
   onLoad() {
     const zoneArray = require('../../data/zone');
     this.setData({
-      'picker.city': zoneArray
+      'picker.city': zoneArray,
     });
     this.changeFilterCity({
       detail: {
         value: this.data.city.index,
-        flag: true
-      }
+        flag: true,
+      },
     });
   },
   onReachBottom() {
@@ -81,37 +81,39 @@ Page({
       this.data.page++;
 
       this.setData({
-        'list': this.data.list.concat(result)
+        list: this.data.list.concat(result),
       });
     });
   },
   changeFilterCity(e) {
-    let index = e.detail.value;
+    const index = e.detail.value;
     const zoneArray = require('../../data/zone');
     const univArray = require('../../data/university');
 
-    let university = univArray.filter((item) => {
+    const university = univArray.filter((item) => {
       return item.zone == zoneArray[index].id;
     });
 
     university.unshift({
       id: 0,
-      name: '全部学校'
+      name: '全部学校',
     });
 
-    let data = {
+    const data = {
       city: {
         id: zoneArray[index].id,
         name: zoneArray[index].name,
-        index: index
+        index,
       },
-      'picker.university': university
+      'picker.university': university,
     };
 
-    if (!e.detail.flag) data['university'] = {
-      index: 0,
-      id: 0,
-      name: '全部学校'
+    if (!e.detail.flag) {
+      data.university = {
+        index: 0,
+        id: 0,
+        name: '全部学校',
+      };
     }
 
     this.setData(data);
@@ -119,15 +121,15 @@ Page({
     this.loadNoticeList();
   },
   changeFilterUniversity(e) {
-    let index = e.detail.value;
+    const index = e.detail.value;
     const univArray = this.data.picker.university;
 
     this.setData({
       university: {
         id: univArray[index].id,
         name: univArray[index].name,
-        index: index
-      }
+        index,
+      },
     });
 
     this.reset();
@@ -139,7 +141,7 @@ Page({
       page: 1,
       kind: 'after',
       loading: false,
-      left: 0
+      left: 0,
     });
   },
   searchNoticeList(e) {
@@ -147,24 +149,24 @@ Page({
     this.setData({
       search: {
         show: false,
-        keyword: e.detail.value
-      }
+        keyword: e.detail.value,
+      },
     });
     this.loadNoticeList();
   },
   setSearchFocus() {
     this.setData({
-      'search.show': true
+      'search.show': true,
     });
   },
   lostSearchFocus() {
     this.setData({
-      'search.show': false
+      'search.show': false,
     });
-  }
+  },
 });
 
 function calc_remain(time) {
-  let hold = new Date(Date.parse(time.split(' ')[0].replace(/-/g, "/") + ' 23:59:59')).getTime();
+  const hold = new Date(Date.parse(`${time.split(' ')[0].replace(/-/g, '/')} 23:59:59`)).getTime();
   return Math.ceil((hold - Date.now()) / 86400000);
 }

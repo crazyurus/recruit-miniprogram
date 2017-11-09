@@ -1,9 +1,9 @@
-var app = getApp();
+const app = getApp();
 Page({
   data: {
     list: [],
     page: 1,
-    loading: false
+    loading: false,
   },
   onLoad() {
     this.loadNoticeList();
@@ -14,7 +14,7 @@ Page({
   onPullDownRefresh() {
     this.setData({
       page: 1,
-      loading: false
+      loading: false,
     });
     this.data.list = [];
     this.loadNoticeList();
@@ -23,7 +23,7 @@ Page({
     if (this.data.loading) return;
 
     this.data.loading = true;
-    app.getApiData('https://api.wutnews.net/recruit/dajie/lists?page=' + this.data.page).then((result) => {
+    app.getApiData(`https://api.wutnews.net/recruit/dajie/lists?page=${this.data.page}`).then((result) => {
       if (result.page >= result.pageTotal) return;
 
       this.data.loading = false;
@@ -31,8 +31,8 @@ Page({
       wx.stopPullDownRefresh();
 
       this.setData({
-        'list': this.data.list.concat(result.projectList)
+        list: this.data.list.concat(result.projectList),
       });
     });
-  }
+  },
 });

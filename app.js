@@ -2,15 +2,15 @@ App({
   globalData: {},
   getApiData(url, data = {}, loading = true) {
     if (loading) wx.showNavigationBarLoading();
-    return new Promise(function (resolve, reject) {
+    return new Promise(((resolve, reject) => {
       wx.request({
-        url: url,
+        url,
         method: data ? 'POST' : 'GET',
         dataType: 'json',
         header: {
-          'content-type': 'application/x-www-form-urlencoded'
+          'content-type': 'application/x-www-form-urlencoded',
         },
-        data: data,
+        data,
         success(result) {
           if (url.indexOf('api.haitou.cc') > -1) resolve(result.data.state ? result.data.info : result.data.data);
           else if (result.data.errCode == 0) resolve(result.data.data);
@@ -18,15 +18,15 @@ App({
         },
         fail(result) {
           wx.showToast({
-            title: '网络错误'
+            title: '网络错误',
           });
           if (reject) reject(result);
         },
         complete() {
           if (loading) wx.hideNavigationBarLoading();
-        }
+        },
       });
-    });
+    }));
   },
   showAlertModal(param) {
     wx.showModal({
@@ -34,10 +34,10 @@ App({
       content: param.content,
       showCancel: false,
       confirmColor: param.color || '#45c8dc',
-      success: param.success || undefined
+      success: param.success || undefined,
     });
   },
   showLoading(title) {
     wx.showLoading({ title });
-  }
+  },
 });
