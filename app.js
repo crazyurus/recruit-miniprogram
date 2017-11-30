@@ -40,4 +40,9 @@ App({
   showLoading(title) {
     wx.showLoading({ title });
   },
+  about() {
+    this.showAlertModal({
+      content: 'Token团队出品\r\n产品&设计&开发：廖星'
+    });
+  }
 });

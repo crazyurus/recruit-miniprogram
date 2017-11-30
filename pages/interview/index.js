@@ -31,7 +31,7 @@ Page({
     const url = e.currentTarget.dataset.url;
 
     wx.navigateTo({
-      url: `/pages/common/webview?url=${encodeURIComponent(url)}`,
+      url: '/pages/common/webview?url=' + encodeURIComponent(url),
     });
 
     /*

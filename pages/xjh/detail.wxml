@@ -84,7 +84,7 @@
     <button open-type="share" plain="true" style="background: #{{bgcolor == '45c8dc' && article.apply_url ? 'ed9d81' : bgcolor}};" hover-class="none">将此宣讲会分享给同学</button>
   </view>
   <view class="xjh-blank"></view>
-  <view class="xjh-token">
+  <view class="xjh-token" bindtap="about">
     <image src="http://web.wutnews.net/act/girlsday/img/token.png" />
   </view>
 </view>

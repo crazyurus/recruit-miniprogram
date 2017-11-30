@@ -19,7 +19,7 @@ Page({
       title: ' ',
     });
 
-    app.getApiData(`https://api.haitou.cc/xjh/view?client=wutnews&id=${options.id}`, {}, false).then((result) => {
+    app.getApiData('https://api.haitou.cc/xjh/view?client=wutnews&id=' + options.id, {}, false).then((result) => {
       result.isUniversityLogo = result.logoUrl.indexOf('/university') > -1;
       result.content = result.content.replace(/<table border=1 cellspacing=0 cellpadding=0>/g, '<table style="border: 1px solid #c8c7cc">').replace(/src="/g, 'style="max-width: 100%" src="');
 
@@ -105,7 +105,7 @@ Page({
     const self = this;
     wx.showModal({
       title: self.data.article.company,
-      content: `请在浏览器粘贴以下网址访问：${self.data.article.apply_url}`,
+      content: '请在浏览器粘贴以下网址访问：' + self.data.article.apply_url,
       showCancel: true,
       confirmText: '复制网址',
       confirmColor: `#${self.data.bgcolor}`,
@@ -126,13 +126,13 @@ Page({
 
     app.showLoading('获取地理位置中');
     sdk.geocoder({
-      address: `${self.data.article.universityName},${self.data.article.address}`,
+      address: self.data.article.universityName + ',' + self.data.article.address,
       success(res) {
         wx.openLocation({
           latitude: res.result.location.lat,
           longitude: res.result.location.lng,
           name: self.data.article.universityName,
-          address: self.data.article.address,
+          address: self.data.article.address + '(地理位置仅供参考)',
         });
       },
       fail(res) {
@@ -145,4 +145,7 @@ Page({
       },
     });
   },
+  about() {
+    app.about();
+  }
 });
