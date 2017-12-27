@@ -12,7 +12,7 @@ Page({
   },
   onLoad(options) {
     wx.setNavigationBarColor({
-      backgroundColor: `#${options.bgcolor}`,
+      backgroundColor: '#' + options.bgcolor,
       frontColor: '#ffffff',
     });
     wx.setNavigationBarTitle({
@@ -30,7 +30,7 @@ Page({
 
       this.setData({
         article: result,
-        child: getCurrentPages().length == 5,
+        child: getCurrentPages().length === 10,
         bgcolor: options.bgcolor,
         'tab.disabled': [result.content == '', result.albums.length == 0, result.positions.length == 0, result.xjhs.length == 0],
       });
@@ -39,7 +39,7 @@ Page({
   onShareAppMessage(res) {
     return {
       title: this.data.article.company,
-      path: `/pages/xjh/detail?id=${this.data.article.id}&bgcolor=${this.data.bgcolor}`,
+      path: '/pages/xjh/detail?id=' + this.data.article.id + '&bgcolor=' + this.data.bgcolor,
       success(res) {
         wx.showToast({
           title: '分享成功',
@@ -108,7 +108,7 @@ Page({
       content: '请在浏览器粘贴以下网址访问：' + self.data.article.apply_url,
       showCancel: true,
       confirmText: '复制网址',
-      confirmColor: `#${self.data.bgcolor}`,
+      confirmColor: '#' + self.data.bgcolor,
       cancelText: '关闭',
       success() {
         wx.setClipboardData({

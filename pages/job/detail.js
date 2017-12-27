@@ -19,7 +19,7 @@ Page({
         logo: options.logo,
       }, false).then((result) => {
         const logo = result.logo != 'https://fs1.dajie.com/corplogo/100x100.png';
-        result.logo = `https://api.wutnews.net/recruit/dajie/image?url=${result.logo}`;
+        result.logo = 'https://api.wutnews.net/recruit/dajie/image?url=' + result.logo;
 
         this.setData({
           article: result,

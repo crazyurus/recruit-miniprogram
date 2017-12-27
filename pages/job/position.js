@@ -15,7 +15,7 @@ Page({
   onShareAppMessage(res) {
     return {
       title: this.data.article.title,
-      path: `/pages/job/position?link=${this.data.article.link}`,
+      path: '/pages/job/position?link=' + this.data.article.link,
       success(res) {
         wx.showToast({
           title: '分享成功',

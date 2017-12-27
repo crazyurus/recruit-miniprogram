@@ -5,7 +5,7 @@ Page({
   },
   onLoad(options) {
     this.setData({
-      url: `https://web.wutnews.net/recruit/index/wechat?url=${encodeURIComponent(options.url)}`,
+      url: 'https://web.wutnews.net/recruit/index/wechat?url=' + encodeURIComponent(options.url),
     });
   },
   onShareAppMessage(options) {

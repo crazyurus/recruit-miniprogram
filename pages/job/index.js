@@ -23,7 +23,7 @@ Page({
     if (this.data.loading) return;
 
     this.data.loading = true;
-    app.getApiData(`https://api.wutnews.net/recruit/dajie/lists?page=${this.data.page}`).then((result) => {
+    app.getApiData('https://api.wutnews.net/recruit/dajie/lists?page=' + this.data.page).then((result) => {
       if (result.page >= result.pageTotal) return;
 
       this.data.loading = false;
