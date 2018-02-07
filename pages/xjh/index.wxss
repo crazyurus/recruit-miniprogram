@@ -1,4 +1,5 @@
 @import '/component/company/company.wxss';
+@import '/component/select/select.wxss';
 @import '/component/search/search.wxss';
 
 page, .page-content {
@@ -32,7 +33,7 @@ button[open-type] {
   display: flex;
 }
 
-.filter-area select {
+.filter-area picker {
   flex: 1;
 }
 

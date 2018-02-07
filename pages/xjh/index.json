@@ -1,7 +1,5 @@
 {
   "backgroundColor": "#efeff4",
   "enablePullDownRefresh": true,
-  "usingComponents": {
-    "select": "/component/select/select"
-  }
+  "usingComponents": {}
 }
