@@ -1,4 +1,7 @@
 {
   "backgroundColor": "#efeff4",
-  "enablePullDownRefresh": true
+  "enablePullDownRefresh": true,
+  "usingComponents": {
+    "company": "/component/company/company"
+  }
 }

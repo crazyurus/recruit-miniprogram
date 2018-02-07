@@ -73,7 +73,7 @@ Page({
       result.map((item, i) => {
         item.backgroundColor = colorArray[(i + this.data.left) % colorArray.length];
         item.universityName = item.univ_id === 0 ? item.universityShortName : univArray[item.univ_id - 1].name;
-        item.remain = (!item.isExpired && !item.is_cancel) ? calc_remain(item.holdtime) : false;
+        item.remain = item.isExpired || item.is_cancel ? false : this.remain(item.holdtime);
       });
 
       this.data.loading = false;
@@ -164,9 +164,8 @@ Page({
       'search.show': false
     });
   },
+  remain(time) {
+    const hold = new Date(Date.parse(time.split(' ')[0].replace(/-/g, '/') + ' 23:59:59')).getTime();
+    return Math.ceil((hold - Date.now()) / 86400000);
+  }
 });
-
-function calc_remain(time) {
-  const hold = new Date(Date.parse(time.split(' ')[0].replace(/-/g, '/') + ' 23:59:59')).getTime();
-  return Math.ceil((hold - Date.now()) / 86400000);
-}

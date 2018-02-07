@@ -1,4 +1,3 @@
-@import '/component/card/card.wxss';
 @import '/component/search/search.wxss';
 
 page, .page-content {

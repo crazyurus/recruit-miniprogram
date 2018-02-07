@@ -12,35 +12,5 @@
   </picker>
 </view>
 <view class="page-content">
-  <navigator class="card" wx:for="{{list}}" wx:key="id" url="detail?id={{item.id}}&bgcolor={{item.backgroundColor}}">
-    <view class="card-header" style="background: #{{item.backgroundColor}};">
-      <view class="card-no" wx:if="{{item.company_id}}">No.{{item.company_id}}</view>
-      <view class="card-title">{{item.company}}</view>
-    </view>
-    <view class="card-content">
-      <view class="card-content-inner">
-        <view class="card-content-title">
-          <text>{{item.title}}</text>
-          <image wx:if="{{item.is_official}}" class="card-content-verify" src="https://web.wutnews.net/Application/SecondHand/Assets/image/verify.png" />
-        </view>
-        <view class="card-content-line">
-          <image class="card-content-icon" src="https://web.wutnews.net/Application/Recruit/Assets/image/time.png" />
-          <text>{{item.holdtime}}</text>
-          <text wx:if="{{item.remain && item.remain == 1}}" class="card-content-tag tag-success">今日</text>
-          <text wx:if="{{item.remain && item.remain == 2}}" class="card-content-tag tag-success">明天</text>
-          <text wx:if="{{item.remain && item.remain > 2}}" class="card-content-tag tag-info">{{item.remain - 1}}天</text>
-          <text wx:if="{{item.isExpired}}" class="card-content-tag tag-danger">已结束</text>
-          <text wx:if="{{item.is_cancel}}" class="card-content-tag tag-warning">已取消</text>
-        </view>
-        <view class="card-content-line">
-          <image class="card-content-icon" src="https://web.wutnews.net/Application/Recruit/Assets/image/address.png" />
-          <text>{{item.address}}</text>
-        </view>        
-      </view>
-    </view>
-    <view class="card-footer">
-      <text class="card-school">{{item.universityName}}</text>
-      <text class="card-count">浏览：{{item.totalClicks}}</text>
-    </view>
-  </navigator>
+  <company info="{{item}}" wx:for="{{list}}" wx:key="id"></company>
 </view>
