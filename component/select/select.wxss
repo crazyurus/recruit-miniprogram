@@ -1,0 +1,18 @@
+.filter-tag {
+  font-size: 15px;
+  line-height: 34px;
+  height: 40px;
+  color: #fff;
+  text-align: center;
+}
+
+.caret {
+  display: inline-block;
+  width: 0;
+  height: 0;
+  margin-left: 4px;
+  vertical-align: middle;
+  border-top: 5px dashed;
+  border-right: 5px solid transparent;
+  border-left: 5px solid transparent;
+}

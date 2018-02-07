@@ -2,6 +2,6 @@
   "backgroundColor": "#efeff4",
   "enablePullDownRefresh": true,
   "usingComponents": {
-    "company": "/component/company/company"
+    "select": "/component/select/select"
   }
 }
