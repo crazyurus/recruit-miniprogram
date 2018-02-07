@@ -20,7 +20,7 @@
       <image class="xjh-info-icon" src="https://web.wutnews.net/Application/Recruit/Assets/image/university.png" />
       <text>举办学校：{{article.universityName}}</text>
     </view>
-    <view class="xjh-info-line xjh-info-address" bindtap="showAddressMap">
+    <view class="xjh-info-line xjh-info-address" bindtap="showAddressMap" wx:if="{{article.address}}">
       <image class="xjh-info-icon" src="https://web.wutnews.net/Application/Recruit/Assets/image/address.png" />
       <text>举办地点：{{article.address}}</text>
     </view>
