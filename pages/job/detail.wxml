@@ -21,10 +21,10 @@
       <text class="{{tab.active[1] ? 'active' : ''}} {{tab.disabled[1] ? 'disabled' : ''}}">招聘岗位</text>
     </view>
   </view>
-  <view class="job-content" wx:if="{{tab.active[0]}}">
+  <view class="job-content" hidden="{{!tab.active[0]}}">
     <rich-text nodes="{{article.content}}"></rich-text>
   </view>
-  <view class="job-position" wx:if="{{tab.active[1]}}">
+  <view class="job-position" hidden="{{!tab.active[1]}}">
     <view class="list-block media-list record-list">
     <navigator url="position?link={{item.url}}" wx:for="{{position}}" wx:key="url" class="item-link item-content">
       <view class="item-inner">
@@ -44,7 +44,7 @@
     <button open-type="share" plain="true" hover-class="none">将此校招信息分享给同学</button>
   </view>
   <view class="job-blank"></view>
-  <view class="job-token">
+  <view class="job-token" bindtap="about">
     <image src="http://web.wutnews.net/act/girlsday/img/token.png" />
   </view>
 </view>

@@ -39,17 +39,17 @@
       <text style="border-bottom: 2px solid #{{bgcolor}}; color: #{{bgcolor}};" class="{{tab.active[3] ? '' : 'xjh-no-active'}} {{tab.disabled[3] ? 'xjh-tab-disabled' : ''}}">其它宣讲</text>
     </view>
   </view>
-  <view class="xjh-content" wx:if="{{tab.active[0]}}">
+  <view class="xjh-content" hidden="{{!tab.active[0]}}">
     <rich-text nodes="{{article.content}}"></rich-text>
     <view class="xjh-content-after">
       <text>阅读 {{article.totalClicks}}</text>
       <button open-type="contact" plain="true" hover-class="none">反馈</button>
     </view>
   </view>
-  <view class="xjh-album" wx:if="{{tab.active[1]}}">
+  <view class="xjh-album" hidden="{{!tab.active[1]}}">
     <image src="{{item.thumbSmallUrl}}" wx:for="{{article.albums}}" wx:key="id" data-src="{{item.originalUrl}}" bindtap="showImagePreview" />
   </view>
-  <view class="xjh-position" wx:if="{{tab.active[2]}}">
+  <view class="xjh-position" hidden="{{!tab.active[2]}}">
     <view class="list-block media-list record-list">
       <view wx:for="{{article.positions}}" wx:key="id" class="item-content">
         <view class="item-inner">
@@ -64,7 +64,7 @@
       </view>
     </view>
   </view>
-  <view class="xjh-others" wx:if="{{tab.active[3]}}">
+  <view class="xjh-others" hidden="{{!tab.active[3]}}">
     <view class="list-block media-list record-list">
       <navigator url="detail?id={{item.id}}&bgcolor=45c8dc" open-type="{{child ? 'redirect' : 'navigate'}}" wx:for="{{article.xjhs}}" wx:key="id" class="item-link item-content">
         <view class="item-inner">

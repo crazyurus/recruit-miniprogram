@@ -8,7 +8,7 @@ App({
         method: data ? 'POST' : 'GET',
         dataType: 'json',
         header: {
-          'content-type': 'application/x-www-form-urlencoded',
+          'content-type': 'application/x-www-form-urlencoded'
         },
         data,
         success(result) {
@@ -17,32 +17,40 @@ App({
           else if (reject) reject(result.data);
         },
         fail(result) {
-          wx.showToast({
-            title: '网络错误',
-          });
+          wx.toast('网络错误');
           if (reject) reject(result);
         },
         complete() {
           if (loading) wx.hideNavigationBarLoading();
-        },
+        }
       });
     }));
   },
-  showAlertModal(param) {
+  alert(param) {
+    if (typeof param === 'string') {
+      param = {
+        content: param
+      };
+    }
+
     wx.showModal({
-      title: param.title || '就业招聘',
+      title: param.title || '电费查询',
       content: param.content,
       showCancel: false,
       confirmColor: param.color || '#45c8dc',
-      success: param.success || undefined,
+      success: param.success || undefined
     });
   },
-  showLoading(title) {
+  toast(title) {
+    wx.showToast({
+      title: title,
+      icon: 'none'
+    });
+  },
+  loading(title) {
     wx.showLoading({ title });
   },
   about() {
-    this.showAlertModal({
-      content: 'Token团队出品\r\n产品&设计&开发：廖星'
-    });
+    this.alert('Token团队出品\r\n产品&设计&开发：廖星');
   }
 });

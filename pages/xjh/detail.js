@@ -5,25 +5,25 @@ Page({
     bgcolor: '45c8dc',
     tab: {
       active: [true, false, false, false],
-      disabled: [false, true, false, false],
+      disabled: [false, true, false, false]
     },
     title: false,
-    child: false,
+    child: false
   },
   onLoad(options) {
     wx.setNavigationBarColor({
       backgroundColor: '#' + options.bgcolor,
-      frontColor: '#ffffff',
+      frontColor: '#ffffff'
     });
     wx.setNavigationBarTitle({
-      title: ' ',
+      title: ' '
     });
 
-    app.getApiData('https://api.haitou.cc/xjh/view?client=wutnews&id=' + options.id, {}, false).then((result) => {
+    app.getApiData('https://api.haitou.cc/xjh/view?client=wutnews&id=' + options.id, {}, false).then(result => {
       result.isUniversityLogo = result.logoUrl.indexOf('/university') > -1;
       result.content = result.content.replace(/<table border=1 cellspacing=0 cellpadding=0>/g, '<table style="border: 1px solid #c8c7cc">').replace(/src="/g, 'style="max-width: 100%" src="');
 
-      if (result.univ_id == 3) {
+      if (result.univ_id === 3) {
         const pos = result.content.indexOf('</b></p> <div> <div> <p>');
         if (pos > -1) result.content = result.content.substring(pos + 9);
       }
@@ -32,7 +32,7 @@ Page({
         article: result,
         child: getCurrentPages().length === 10,
         bgcolor: options.bgcolor,
-        'tab.disabled': [result.content == '', result.albums.length == 0, result.positions.length == 0, result.xjhs.length == 0],
+        'tab.disabled': [result.content == '', result.albums.length == 0, result.positions.length == 0, result.xjhs.length == 0]
       });
     });
   },
@@ -42,9 +42,9 @@ Page({
       path: '/pages/xjh/detail?id=' + this.data.article.id + '&bgcolor=' + this.data.bgcolor,
       success(res) {
         wx.showToast({
-          title: '分享成功',
+          title: '分享成功'
         });
-      },
+      }
     };
   },
   clickTabContent() {
@@ -58,46 +58,44 @@ Page({
     if (this.data.tab.disabled[1]) return;
 
     this.setData({
-      'tab.active': [false, true, false, false],
+      'tab.active': [false, true, false, false]
     });
   },
   clickTabPosition() {
     if (this.data.tab.disabled[2]) return;
 
     this.setData({
-      'tab.active': [false, false, true, false],
+      'tab.active': [false, false, true, false]
     });
   },
   clickTabXjh() {
     if (this.data.tab.disabled[3]) return;
 
     this.setData({
-      'tab.active': [false, false, false, true],
+      'tab.active': [false, false, false, true]
     });
   },
   showImagePreview(e) {
-    const imgArray = [];
-
-    this.data.article.albums.map((item) => {
-      imgArray.push(item.originalUrl);
+    let imgArray = this.data.article.albums.map(item => {
+      return item.originalUrl;
     });
 
     wx.previewImage({
       current: e.target.dataset.src,
-      urls: imgArray,
+      urls: imgArray
     });
   },
   onPageScroll(e) {
     if (e.scrollTop <= 60 && this.data.title) {
       this.data.title = false;
       wx.setNavigationBarTitle({
-        title: ' ',
+        title: ' '
       });
     }
     if (e.scrollTop > 60 && !this.data.title) {
       this.data.title = true;
       wx.setNavigationBarTitle({
-        title: this.data.article.company,
+        title: this.data.article.company
       });
     }
   },
@@ -113,8 +111,11 @@ Page({
       success() {
         wx.setClipboardData({
           data: self.data.article.apply_url,
+          success() {
+            app.toast('复制成功');
+          }
         });
-      },
+      }
     });
   },
   showAddressMap() {
@@ -124,7 +125,7 @@ Page({
       key: 'BP7BZ-6FXRV-6CNP3-UDXK2-GJ36S-VFBN7',
     });
 
-    app.showLoading('获取地理位置中');
+    app.loading('获取地理位置中');
     sdk.geocoder({
       address: self.data.article.universityName + ',' + self.data.article.address,
       success(res) {
@@ -132,17 +133,15 @@ Page({
           latitude: res.result.location.lat,
           longitude: res.result.location.lng,
           name: self.data.article.universityName,
-          address: self.data.article.address + '(地理位置仅供参考)',
+          address: self.data.article.address + '(地理位置仅供参考)'
         });
       },
       fail(res) {
-        app.showAlertModal({
-          content: res.message,
-        });
+        app.alert(res.message);
       },
       complete() {
         wx.hideLoading();
-      },
+      }
     });
   },
   about() {

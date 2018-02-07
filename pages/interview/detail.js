@@ -1,10 +1,10 @@
 const app = getApp();
 Page({
   data: {
-    article: {},
+    article: {}
   },
   onLoad(options) {
-    app.getApiData('https://api.haitou.cc/mjfx/view?client=m&encrypt=0&id=' + options.id, {}, false).then((result) => {
+    app.getApiData('https://api.haitou.cc/mjfx/view?client=m&encrypt=0&id=' + options.id, {}, false).then(result => {
       const position = [];
 
       for (const category of result.workCategorys) {
@@ -15,7 +15,7 @@ Page({
       result.info = result.info.replace(/(&ldquo;|&rdquo)/g, '"').replace(/&times;/g, '×').replace(/(&lsquo;|&rsquo;)/g, "'").replace('/&(.[2,6]);', '');
 
       this.setData({
-        article: result,
+        article: result
       });
     });
   },
@@ -28,7 +28,7 @@ Page({
         wx.showToast({
           title: '分享成功',
         });
-      },
+      }
     };
-  },
+  }
 });

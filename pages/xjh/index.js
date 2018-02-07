@@ -8,33 +8,33 @@ Page({
     city: {
       index: 3,
       id: 'wh',
-      name: '湖北',
+      name: '湖北'
     },
     university: {
       index: 3,
       id: 3,
-      name: '武汉理工大学',
+      name: '武汉理工大学'
     },
     picker: {
       city: [],
-      university: [],
+      university: []
     },
     search: {
       show: false,
-      keyword: '',
+      keyword: ''
     },
-    left: 0,
+    left: 0
   },
   onLoad() {
     const zoneArray = require('../../data/zone');
     this.setData({
-      'picker.city': zoneArray,
+      'picker.city': zoneArray
     });
     this.changeFilterCity({
       detail: {
         value: this.data.city.index,
-        flag: true,
-      },
+        flag: true
+      }
     });
   },
   onReachBottom() {
@@ -52,16 +52,16 @@ Page({
       '&zone=' + this.data.city.id + 
       '&page=' + this.data.page + 
       '&kind=' + this.data.kind + 
-      (this.data.university.id == 0 ? '' : '&univ=' + this.data.university.id) +
+      (this.data.university.id === 0 ? '' : '&univ=' + this.data.university.id) +
       (this.data.search.keyword.trim() == '' ? '' : '&key=' + this.data.search.keyword.trim())
-    ).then((result) => {
+    ).then(result => {
       const colorArray = ['ed9d81', 'a7d59a', '8c88ff', '56b8a4', '60bfd8', 'c9759d'];
       const univArray = require('../../data/university');
 
       wx.stopPullDownRefresh();
 
-      if (result.length == 0) {
-        if (this.data.kind == 'after') {
+      if (result.length === 0) {
+        if (this.data.kind === 'after') {
           this.data.page = 1;
           this.data.kind = 'before';
           this.data.loading = false;
@@ -72,7 +72,7 @@ Page({
 
       result.map((item, i) => {
         item.backgroundColor = colorArray[(i + this.data.left) % colorArray.length];
-        item.universityName = item.univ_id == 0 ? item.universityShortName : univArray[item.univ_id - 1].name;
+        item.universityName = item.univ_id === 0 ? item.universityShortName : univArray[item.univ_id - 1].name;
         item.remain = (!item.isExpired && !item.is_cancel) ? calc_remain(item.holdtime) : false;
       });
 
@@ -81,7 +81,7 @@ Page({
       this.data.page++;
 
       this.setData({
-        list: this.data.list.concat(result),
+        list: this.data.list.concat(result)
       });
     });
   },
@@ -90,29 +90,29 @@ Page({
     const zoneArray = require('../../data/zone');
     const univArray = require('../../data/university');
 
-    const university = univArray.filter((item) => {
-      return item.zone == zoneArray[index].id;
+    const university = univArray.filter(item => {
+      return item.zone === zoneArray[index].id;
     });
 
     university.unshift({
       id: 0,
-      name: '全部学校',
+      name: '全部学校'
     });
 
     const data = {
       city: {
         id: zoneArray[index].id,
         name: zoneArray[index].name,
-        index,
+        index
       },
-      'picker.university': university,
+      'picker.university': university
     };
 
     if (!e.detail.flag) {
       data.university = {
         index: 0,
         id: 0,
-        name: '全部学校',
+        name: '全部学校'
       };
     }
 
@@ -128,8 +128,8 @@ Page({
       university: {
         id: univArray[index].id,
         name: univArray[index].name,
-        index,
-      },
+        index
+      }
     });
 
     this.reset();
@@ -141,7 +141,7 @@ Page({
       page: 1,
       kind: 'after',
       loading: false,
-      left: 0,
+      left: 0
     });
   },
   searchNoticeList(e) {
@@ -149,19 +149,19 @@ Page({
     this.setData({
       search: {
         show: false,
-        keyword: e.detail.value,
-      },
+        keyword: e.detail.value
+      }
     });
     this.loadNoticeList();
   },
   setSearchFocus() {
     this.setData({
-      'search.show': true,
+      'search.show': true
     });
   },
   lostSearchFocus() {
     this.setData({
-      'search.show': false,
+      'search.show': false
     });
   },
 });
