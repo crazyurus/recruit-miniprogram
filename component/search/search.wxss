@@ -29,7 +29,6 @@
   font-weight: 400;
   padding: 0 28px;
   background-repeat: no-repeat;
-  background-position: 8px center;
   background-size: 13px 13px;
 }
 

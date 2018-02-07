@@ -23,12 +23,14 @@ Page({
       show: false,
       keyword: ''
     },
+    device: {},
     left: 0
   },
   onLoad() {
     const zoneArray = require('../../data/zone');
     this.setData({
-      'picker.city': zoneArray
+      'picker.city': zoneArray,
+      device: wx.getSystemInfoSync()
     });
     this.changeFilterCity({
       detail: {
