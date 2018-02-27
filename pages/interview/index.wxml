@@ -8,7 +8,7 @@
       <view class="item-inner">
         <view class="item-title-row">
           <view class="item-title">
-            <view class="circle bg-green"></view>
+            <view class="circle bg-blue"></view>
             <text>{{item.title}}</text>
           </view>
         </view>
@@ -22,7 +22,7 @@
       <view class="item-inner">
         <view class="item-title-row">
           <view class="item-title">
-            <view class="circle bg-green"></view>
+            <view class="circle bg-blue"></view>
             <text>{{item.title}}</text>
           </view>
         </view>

@@ -1,0 +1,9 @@
+@import '../interview/detail.wxss';
+
+.interview-header {
+  background: #56b8a4;
+}
+
+.interview-share button[open-type] {
+  background: #56b8a4;
+}

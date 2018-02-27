@@ -7,7 +7,9 @@
     "pages/interview/detail",
     "pages/job/detail",
     "pages/job/position",
-    "pages/common/webview"
+    "pages/common/webview",
+    "pages/bulletin/index",
+    "pages/bulletin/detail"
   ],
   "window": {
     "navigationBarBackgroundColor": "#45c8dc",
@@ -31,6 +33,12 @@
         "text": "校招",
         "iconPath": "/image/job.png",
         "selectedIconPath": "/image/job_s.png"
+      },
+      {
+        "pagePath": "pages/bulletin/index",
+        "text": "通知",
+        "iconPath": "/image/bulletin.png",
+        "selectedIconPath": "/image/bulletin_s.png"
       },
       {
         "pagePath": "pages/interview/index",
