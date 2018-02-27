@@ -21,6 +21,7 @@
       <view class="card-content-inner">
         <view class="card-content-title">
           <text>{{item.title}}</text>
+          <text wx:if="{{item.category}}" class="card-content-tag tag-warning">{{item.category}}</text>
           <image wx:if="{{item.is_official}}" class="card-content-verify" src="https://web.wutnews.net/Application/SecondHand/Assets/image/verify.png" />
         </view>
         <view class="card-content-line">

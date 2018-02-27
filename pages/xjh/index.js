@@ -76,6 +76,15 @@ Page({
         item.backgroundColor = colorArray[(i + this.data.left) % colorArray.length];
         item.universityName = item.univ_id === 0 ? item.universityShortName : univArray[item.univ_id - 1].name;
         item.remain = item.isExpired || item.is_cancel ? false : this.remain(item.holdtime);
+
+        // 类别处理
+        if (item.univ_id === 3) {
+          let temp = item.title.match(/\((\S+?)\)/);
+          if (temp && temp.length > 1) {
+            item.category = temp[1];
+            item.title = item.title.replace(`(${item.category})`, '');
+          }
+        }
       });
 
       this.data.loading = false;
