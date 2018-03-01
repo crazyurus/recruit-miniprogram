@@ -4,6 +4,8 @@
       <view class="tab {{tab === 'jiuye' ? 'active' : ''}}" data-tab="jiuye" data-label="资讯" bindtap="switchTabs">资讯</view>
       <view class="tab {{tab === 'fagui' ? 'active' : ''}}" data-tab="fagui" data-label="政策" bindtap="switchTabs">政策</view>
       <view class="tab {{tab === 'gonggao' ? 'active' : ''}}" data-label="公告" data-tab="gonggao" bindtap="switchTabs">公告</view>
+      <view class="tab {{tab === 'fdhd' ? 'active' : ''}}" data-label="辅导" data-tab="fdhd" bindtap="switchTabs">辅导</view>
+      <view class="tab {{tab === 'zhaopinginfo' ? 'active' : ''}}" data-label="招聘" data-tab="zhaopinginfo" bindtap="switchTabs">招聘</view>
     </view>
   </view>
 </template>

@@ -9,13 +9,20 @@
         <view class="item-title-row">
           <view class="item-title">
             <view class="circle bg-green"></view>
-            <text>{{item.name}}</text>
+            <text>{{util.removeTag(item.name)}}</text>
           </view>
         </view>
         <view class="item-text">
+          <text wx:if="{{item.category}}">{{item.category}}</text>
           <text class="item-count">{{item.time}}</text>
         </view>
       </view>
     </navigator>
   </view>
 </view>
+
+<wxs module="util">
+module.exports.removeTag = function (html) {
+  return html.replace(getRegExp('<[^>]+>', 'g'), '');
+};
+</wxs>

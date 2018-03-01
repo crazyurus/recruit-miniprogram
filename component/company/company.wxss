@@ -1,8 +1,8 @@
 @import '/component/card/card.wxss';
 
-.card:active .card-content {
+/* .card:active .card-content {
   background-color: #d9d9d9;
-}
+} */
 
 .card-no {
   position: absolute;
@@ -67,6 +67,7 @@
   padding: 1px 5px;
   display: inline-block;
   font-size: 13px;
+  font-weight: normal;
 }
 
 .tag-success {
