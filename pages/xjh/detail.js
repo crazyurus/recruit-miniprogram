@@ -133,7 +133,7 @@ Page({
           latitude: res.result.location.lat,
           longitude: res.result.location.lng,
           name: self.data.article.universityName,
-          address: self.data.article.address + '(地理位置仅供参考)'
+          address: self.data.article.address + '（位置仅供参考）'
         });
       },
       fail(res) {
