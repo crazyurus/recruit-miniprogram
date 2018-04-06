@@ -79,7 +79,7 @@ Page({
 
         // 类别处理
         if (item.univ_id === 3) {
-          let temp = item.title.match(/\((\S+?)\)/);
+          let temp = item.title.match(/^\((\S+?)\)/);
           if (temp && temp.length > 1) {
             item.category = temp[1];
             item.title = item.title.replace(`(${item.category})`, '');

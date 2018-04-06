@@ -34,7 +34,7 @@ App({
     }
 
     wx.showModal({
-      title: param.title || '电费查询',
+      title: param.title || '就业招聘',
       content: param.content,
       showCancel: false,
       confirmColor: param.color || '#45c8dc',
