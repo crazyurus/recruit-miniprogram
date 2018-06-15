@@ -28,8 +28,8 @@ Page({
     this.loadNoticeList();
   },
   openWechatUrl(e) {
-    wx.openUrl({
-      url: e.currentTarget.dataset.url
+    wx.navigateTo({
+      url: '/pages/common/webview?url=' + encodeURIComponent(e.currentTarget.dataset.url)
     });
   },
   loadNoticeList() {
