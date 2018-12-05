@@ -41,6 +41,7 @@ page, .page-content {
 .xjh-title {
   flex: 1;
   width: calc(100% - 90px);
+  padding: 0 33px;
 }
 
 .xjh-company {

@@ -3,7 +3,6 @@ Page({
   data: {
     list: [],
     page: 1,
-    kind: 'after',
     loading: false,
     city: {
       index: 3,
@@ -11,7 +10,7 @@ Page({
       name: '湖北'
     },
     university: {
-      index: 3,
+      short: 'wut',
       id: 3,
       name: '武汉理工大学'
     },
@@ -50,41 +49,24 @@ Page({
     if (this.data.loading) return;
 
     this.data.loading = true;
-    app.getApiData('https://api.haitou.cc/xjh/list?client=wutnews' + 
-      '&zone=' + this.data.city.id + 
-      '&page=' + this.data.page + 
-      '&kind=' + this.data.kind + 
-      (this.data.university.id === 0 ? '' : '&univ=' + this.data.university.id) +
-      (this.data.search.keyword.trim() == '' ? '' : '&key=' + this.data.search.keyword.trim())
-    ).then(result => {
+    app.getApiData(`https://api-iwut.wutnews.net/recruit/recruit/${this.data.search.keyword ? 'search_recruit' : 'get_recruit'}`, {
+      page: this.data.page,
+      order_type: 'time',
+      source: this.data.university.short,
+      keyword: this.data.search.keyword,
+    }).then(result => {
       const colorArray = ['ed9d81', 'a7d59a', '8c88ff', '56b8a4', '60bfd8', 'c9759d'];
       const univArray = require('../../data/university');
 
       wx.stopPullDownRefresh();
+      if (result.length === 0) return;
 
-      if (result.length === 0) {
-        if (this.data.kind === 'after') {
-          this.data.page = 1;
-          this.data.kind = 'before';
-          this.data.loading = false;
-          this.loadNoticeList();
-        }
-        return;
-      }
-
-      result.map((item, i) => {
+      result.forEach((item, i) => {
         item.backgroundColor = colorArray[(i + this.data.left) % colorArray.length];
-        item.universityName = item.univ_id === 0 ? item.universityShortName : univArray[item.univ_id - 1].name;
-        item.remain = item.isExpired || item.is_cancel ? false : this.remain(item.holdtime);
-
-        // 类别处理
-        if (item.univ_id === 3) {
-          let temp = item.title.match(/^\((\S+?)\)/);
-          if (temp && temp.length > 1) {
-            item.category = temp[1];
-            item.title = item.title.replace(`(${item.category})`, '');
-          }
-        }
+        item.university = univArray.find(u => u.short === item.source);
+        item.universityName = item.university ? item.university.name : item.source;
+        item.remain = this.remain(item.time);
+        item.time = new Date(item.time * 1000).toLocaleString();
       });
 
       this.data.loading = false;
@@ -94,16 +76,14 @@ Page({
       this.setData({
         list: this.data.list.concat(result)
       });
+    }).catch(msg => {
+      console.log(msg);
     });
   },
   changeFilterCity(e) {
     const index = e.detail.value;
     const zoneArray = require('../../data/zone');
-    const univArray = require('../../data/university');
-
-    const university = univArray.filter(item => {
-      return item.zone === zoneArray[index].id;
-    });
+    const university = require('../../data/university');
 
     university.unshift({
       id: 0,
@@ -112,8 +92,8 @@ Page({
 
     const data = {
       city: {
-        id: zoneArray[index].id,
-        name: zoneArray[index].name,
+        id: zoneArray[0].id,
+        name: zoneArray[0].name,
         index
       },
       'picker.university': university
@@ -139,7 +119,7 @@ Page({
       university: {
         id: univArray[index].id,
         name: univArray[index].name,
-        index
+        short: univArray[index].short || ''
       }
     });
 
@@ -176,7 +156,7 @@ Page({
     });
   },
   remain(time) {
-    const hold = new Date(Date.parse(time.split(' ')[0].replace(/-/g, '/') + ' 23:59:59')).getTime();
+    const hold = new Date(time * 1000).getTime();
     return Math.ceil((hold - Date.now()) / 86400000);
   }
 });

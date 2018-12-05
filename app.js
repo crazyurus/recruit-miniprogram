@@ -12,9 +12,12 @@ App({
         },
         data,
         success(result) {
-          if (url.indexOf('api.haitou.cc') > -1) resolve(result.data.state ? result.data.info : result.data.data);
-          else if (result.data.errCode == 0) resolve(result.data.data);
-          else if (reject) reject(result.data);
+          if (result.statusCode !== 200) {
+            wx.toast('服务器错误');
+            reject('Server Error')
+          }
+          else if (result.data.code === 0) resolve(result.data.data);
+          else if (reject) reject(result.msg);
         },
         fail(result) {
           wx.toast('网络错误');
@@ -51,6 +54,6 @@ App({
     wx.showLoading({ title });
   },
   about() {
-    this.alert('Token团队出品\r\n产品&设计&开发：廖星');
+    this.alert('Token团队出品\r\n产品&设计&开发：廖星 谢泽丰');
   }
 });

@@ -5,12 +5,13 @@ Page({
     bgcolor: '45c8dc',
     tab: {
       active: [true, false, false, false],
-      disabled: [false, true, false, false]
+      disabled: [false, true, true, true]
     },
     title: false,
     child: false
   },
   onLoad(options) {
+    const univArray = require('../../data/university');
     wx.setNavigationBarColor({
       backgroundColor: '#' + options.bgcolor,
       frontColor: '#ffffff'
@@ -19,26 +20,24 @@ Page({
       title: ' '
     });
 
-    app.getApiData('https://api.haitou.cc/xjh/view?client=wutnews&id=' + options.id, {}, false).then(result => {
-      result.isUniversityLogo = result.logoUrl.indexOf('/university') > -1;
-      result.content = result.content.replace(/<table border=1 cellspacing=0 cellpadding=0>/g, '<table style="border: 1px solid #c8c7cc">').replace(/src="/g, 'style="max-width: 100%" src="');
-
-      if (result.univ_id === 3) {
-        const pos = result.content.indexOf('</b></p> <div> <div> <p>');
-        if (pos > -1) result.content = result.content.substring(pos + 9);
-      }
+    app.getApiData('https://api-iwut.wutnews.net/recruit/recruit/detail_recruit', {
+      id: options.id,
+    }, false).then(result => {
+      result.time = new Date(result.time * 1000).toLocaleString();
+      result.source = univArray.find(u => u.short === result.source);
+      if (result.source) result.universityName = result.source.name;
+      result.source = result.source.source;
 
       this.setData({
         article: result,
         child: getCurrentPages().length === 10,
         bgcolor: options.bgcolor,
-        'tab.disabled': [result.content == '', result.albums.length == 0, result.positions.length == 0, result.xjhs.length == 0]
       });
     });
   },
   onShareAppMessage(res) {
     return {
-      title: this.data.article.company,
+      title: this.data.article.title,
       path: '/pages/xjh/detail?id=' + this.data.article.id + '&bgcolor=' + this.data.bgcolor,
       success(res) {
         wx.showToast({
@@ -95,22 +94,22 @@ Page({
     if (e.scrollTop > 60 && !this.data.title) {
       this.data.title = true;
       wx.setNavigationBarTitle({
-        title: this.data.article.company
+        title: this.data.article.title
       });
     }
   },
   showApplyWebsite() {
     const self = this;
     wx.showModal({
-      title: self.data.article.company,
-      content: '请在浏览器粘贴以下网址访问：' + self.data.article.apply_url,
+      title: self.data.article.title,
+      content: '请在浏览器粘贴以下网址访问：' + self.data.article.url,
       showCancel: true,
       confirmText: '复制网址',
       confirmColor: '#' + self.data.bgcolor,
       cancelText: '关闭',
       success() {
         wx.setClipboardData({
-          data: self.data.article.apply_url,
+          data: self.data.article.url,
           success() {
             app.toast('复制成功');
           }
@@ -127,13 +126,13 @@ Page({
 
     app.loading('获取地理位置中');
     sdk.geocoder({
-      address: self.data.article.universityName + ',' + self.data.article.address,
+      address: self.data.article.universityName + ',' + self.data.article.place,
       success(res) {
         wx.openLocation({
           latitude: res.result.location.lat,
           longitude: res.result.location.lng,
           name: self.data.article.universityName,
-          address: self.data.article.address + '（位置仅供参考）'
+          address: self.data.article.place + '（位置仅供参考）'
         });
       },
       fail(res) {

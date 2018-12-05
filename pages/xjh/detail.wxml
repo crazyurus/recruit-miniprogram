@@ -1,28 +1,25 @@
 <view class="page-content">
   <view class="xjh-header" style="background: #{{bgcolor}}">
-    <view class="xjh-logo {{article.isUniversityLogo ? 'xjh-logo-university' : ''}}">
-      <image src="{{article.logoUrl}}" />
-    </view>
     <view class="xjh-title">
       <view class="xjh-company">
-        <text>{{article.company}}</text>
-        <image wx:if="{{article.is_official}}" class="xjh-company-verify" src="https://web.wutnews.net/Application/SecondHand/Assets/image/verify.png" />
+        <text>{{article.title}}</text>
+        <image wx:if="{{article.isOfficial}}" class="xjh-company-verify" src="https://web.wutnews.net/Application/SecondHand/Assets/image/verify.png" />
       </view>
-      <view class="xjh-source">来源：{{article.web}}</view>
+      <view class="xjh-source">来源：{{article.source}}</view>
     </view>
   </view>
   <view class="xjh-info">
     <view class="xjh-info-line">
       <image class="xjh-info-icon" src="https://web.wutnews.net/Application/Recruit/Assets/image/time.png" />
-      <text>举办时间：{{article.holdtime}}</text>
+      <text>举办时间：{{article.time}}</text>
     </view>
     <view class="xjh-info-line" wx:if="{{article.universityName}}">
       <image class="xjh-info-icon" src="https://web.wutnews.net/Application/Recruit/Assets/image/university.png" />
       <text>举办学校：{{article.universityName}}</text>
     </view>
-    <view class="xjh-info-line xjh-info-address" bindtap="showAddressMap" wx:if="{{article.address}}">
+    <view class="xjh-info-line xjh-info-address" bindtap="showAddressMap" wx:if="{{article.place}}">
       <image class="xjh-info-icon" src="https://web.wutnews.net/Application/Recruit/Assets/image/address.png" />
-      <text>举办地点：{{article.address}}</text>
+      <text>举办地点：{{article.place}}</text>
     </view>
   </view>
   <view class="xjh-tabs">
@@ -42,8 +39,8 @@
   <view class="xjh-content" hidden="{{!tab.active[0]}}">
     <rich-text nodes="{{article.content}}"></rich-text>
     <view class="xjh-content-after">
-      <text>阅读 {{article.totalClicks}}</text>
-      <button open-type="contact" plain="true" hover-class="none">反馈</button>
+      <text>阅读 {{article.view}}</text>
+      <button open-type="feedback" plain="true" hover-class="none">反馈</button>
     </view>
   </view>
   <view class="xjh-album" hidden="{{!tab.active[1]}}">
@@ -80,8 +77,8 @@
     </view>
   </view>
   <view class="xjh-share">
-    <button open-type="button" plain="true" hover-class="none" style="background: #45c8dc; margin-bottom: 10px" bindtap="showApplyWebsite" wx:if="{{article.apply_url}}">访问校园招聘网站</button>
-    <button open-type="share" plain="true" style="background: #{{bgcolor == '45c8dc' && article.apply_url ? 'ed9d81' : bgcolor}};" hover-class="none">将此宣讲会分享给同学</button>
+    <button open-type="button" plain="true" hover-class="none" style="background: #45c8dc; margin-bottom: 10px" bindtap="showApplyWebsite" wx:if="{{article.url}}">访问校园招聘网站</button>
+    <button open-type="share" plain="true" style="background: #{{bgcolor == '45c8dc' && article.url ? 'ed9d81' : bgcolor}};" hover-class="none">将此宣讲会分享给同学</button>
   </view>
   <view class="xjh-blank"></view>
   <view class="xjh-token" bindtap="about">
