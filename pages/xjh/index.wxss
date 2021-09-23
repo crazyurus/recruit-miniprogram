@@ -7,7 +7,7 @@ page, .page-content {
 }
 
 .page-content {
-  margin-top: 90px;
+  margin-top: 50px;
 }
 
 button[open-type] {

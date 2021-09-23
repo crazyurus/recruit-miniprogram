@@ -1,1 +1,0 @@
-module.exports = [{ "id": "wh", "name": "湖北", "sort": 4 }];

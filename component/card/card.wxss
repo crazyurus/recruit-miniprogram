@@ -5,6 +5,13 @@
   position: relative;
   border-radius: 2px;
   font-size: 14px;
+  transition: transform .2s;
+  will-change: transform;
+  transform-origin: center center;
+}
+
+.card:active {
+  transform: scale(.97) translate3d(0, 0, 0);
 }
 
 .card-header {

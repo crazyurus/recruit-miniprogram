@@ -5,12 +5,19 @@ App({
     return new Promise(((resolve, reject) => {
       wx.request({
         url,
-        method: data ? 'POST' : 'GET',
+        method: 'POST',
         dataType: 'json',
         header: {
-          'content-type': 'application/x-www-form-urlencoded'
+          'content-type': 'application/x-www-form-urlencoded',
+          auth: 'Baisc MTAyNDY6MTAyNDY=',
         },
-        data,
+        data: {
+          school_id: 'b525083d-b83c-4c7e-892f-29909421d961',
+          login_user_id: 1,
+          login_admin_school_code: '',
+          login_admin_school_id: 'b525083d-b83c-4c7e-892f-29909421d961',
+          ...data,
+        },
         success(result) {
           if (result.statusCode !== 200) {
             wx.toast('服务器错误');
@@ -54,6 +61,6 @@ App({
     wx.showLoading({ title });
   },
   about() {
-    this.alert('Token团队出品\r\n产品&设计&开发：廖星 谢泽丰');
+    this.alert('Token团队出品\r\n产品&设计&开发：廖星');
   }
 });

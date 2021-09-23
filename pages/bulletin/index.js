@@ -4,8 +4,8 @@ Page({
     list: [],
     page: 1,
     loading: false,
-    tab: 'jiuye',
-    label: '资讯'
+    tab: 'gonggao',
+    label: '公告'
   },
   onLoad() {
     this.loadNoticeList();

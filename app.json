@@ -1,13 +1,7 @@
 {
   "pages": [
     "pages/xjh/index",
-    "pages/interview/index",
-    "pages/job/index",
     "pages/xjh/detail",
-    "pages/interview/detail",
-    "pages/job/detail",
-    "pages/job/position",
-    "pages/common/webview",
     "pages/bulletin/index",
     "pages/bulletin/detail"
   ],
@@ -16,5 +10,25 @@
     "navigationBarTitleText": "就业招聘",
     "onReachBottomDistance": 100,
     "backgroundTextStyle": "dark"
-  }
+  },
+  "tabBar": {
+    "color": "#929292",
+    "selectedColor": "#45c8dc",
+    "backgroundColor": "#f7f7f8",
+    "list": [
+      {
+        "pagePath": "pages/xjh/index",
+        "text": "宣讲会",
+        "iconPath": "/image/xjh.png",
+        "selectedIconPath": "/image/xjh_s.png"
+      },
+      {
+        "pagePath": "pages/bulletin/index",
+        "text": "通知",
+        "iconPath": "/image/bulletin.png",
+        "selectedIconPath": "/image/bulletin_s.png"
+      }
+    ]
+  },
+  "sitemapLocation": "sitemap.json"
 }

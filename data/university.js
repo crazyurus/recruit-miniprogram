@@ -1,1 +1,0 @@
-module.exports = [{ "id": 3, "name": "武汉理工大学", "short": "wut", "zone": "wh", "order": 3, source: '武汉理工大学学生就业指导中心' }, { "id": 1, "name": "华中科技大学", "short": "hust", "zone": "wh", "order": 1, source: '华中科技大学大学生就业指导中心' }, { "id": 2, "name": "武汉大学", "short": "whu", "zone": "wh", "order": 2, source: '武汉大学学生就业指导与服务中心' }];
