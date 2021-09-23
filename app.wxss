@@ -1,6 +1,7 @@
 page, .page-content {
   height: 100%;
 }
+
 .page-content {
   height: 100%;
   position: relative;

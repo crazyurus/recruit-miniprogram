@@ -1,66 +1,26 @@
-// pages/xjh/company.js
+const app = getApp();
 Page({
-
-  /**
-   * 页面的初始数据
-   */
   data: {
-
+    company: {},
   },
-
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
-
+  onLoad(options) {
+    app.request('https://a.jiuyeb.cn/mobile.php/com/detail', {
+      id: options.id,
+    }).then(result => {
+      this.setData({
+        company: {
+          ...result,
+          start_time: new Date(result.start_time * 1000).toLocaleDateString().replace(/\//g, '-'),
+        }
+      });
+    });
   },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
+  openLocation() {
+    wx.openLocation({
+      name: this.data.company.name,
+      address: this.data.company.address,
+      latitude: Number.parseFloat(this.data.company.latitude),
+      longitude: Number.parseFloat(this.data.company.longitude),
+    });
   },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
-  }
-})
+});
