@@ -5,6 +5,7 @@ Page({
     company: {},
     positions: [],
     title: false,
+    isExpired: true,
   },
   onLoad(options) {
     wx.setNavigationBarColor({
@@ -23,6 +24,8 @@ Page({
           title: result.title,
           source: '武汉理工大学学生就业指导中心',
           time: result.hold_date + ' ' + result.hold_starttime + '-' + result.hold_endtime,
+          startTime: new Date(result.hold_date.replace(/-/g, '/') + ' ' + result.hold_starttime + ':00').getTime() / 1000,
+          endTime: new Date(result.hold_date.replace(/-/g, '/') + ' ' + result.hold_endtime + ':00').getTime() / 1000,
           universityName: result.school_id_name,
           place: result.address || result.tmp_field_name,
           view: result.viewcount,
@@ -34,8 +37,9 @@ Page({
           id: result.comInfo.id,
           name: result.comInfo.name,
           logo: result.comInfo.logo_src,
-          description: result.comInfo.city_name + ' ' + result.comInfo.xingzhi_id_name + ' ' + result.comInfo.business_name,
+          description: (result.comInfo.city_name === '市辖区' ? result.comInfo.province_name : result.comInfo.city_name) + ' ' + result.comInfo.xingzhi_id_name + ' ' + result.comInfo.business_name,
         },
+        isExpired: result.timestatus === 3,
       });
     });
   },
@@ -98,6 +102,18 @@ Page({
       complete() {
         wx.hideLoading();
       }
+    });
+  },
+  addToCalendar() {
+    wx.addPhoneCalendar({
+      title: this.data.article.title,
+      description: '来自武汉理工大学就业招聘小程序',
+      location: this.data.article.universityName + this.data.article.place,
+      startTime: this.data.article.startTime,
+      endTime: this.data.article.endTime,
+      success() {
+        app.toast('添加成功');
+      },
     });
   },
 });

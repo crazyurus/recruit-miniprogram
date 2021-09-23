@@ -8,7 +8,7 @@
     </view>
   </view>
   <view class="xjh-info">
-    <view class="xjh-info-line">
+    <view class="xjh-info-line xjh-info-address" bindtap="addToCalendar">
       <image class="xjh-info-icon" src="https://web.wutnews.net/Application/Recruit/Assets/image/time.png" />
       <text>举办时间：{{article.time}}</text>
     </view>
@@ -21,7 +21,7 @@
       <text>举办地点：{{article.place}}</text>
     </view>
   </view>
-  <navigator class="xjh-company" url="company?id={{company.id}}">
+  <navigator wx:if="{{company.id}}" class="xjh-company" url="company?id={{company.id}}">
     <view class="xjh-company_title">{{company.name}}</view>
     <view class="xjh-company_text">{{company.description}}</view>
   </navigator>
@@ -44,6 +44,7 @@
     </view>
   </view>
   <view class="xjh-share">
-    <button open-type="share" plain="true" hover-class="none">将此宣讲会分享给同学</button>
+    <button hidden="{{isExpired}}" plain="true" hover-class="none" bindtap="addToCalendar">添加到日程</button>
+    <button open-type="share" plain="true" hover-class="none">分享给同学</button>
   </view>
 </view>

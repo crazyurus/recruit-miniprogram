@@ -195,18 +195,23 @@ page, .page-content {
 
 .xjh-share {
   text-align: center;
-  height: 80px;
+  height: 120px;
 }
 
-.xjh-share button[open-type] {
+.xjh-share button {
   display: block;
-  width: 160px;
+  width: 140px;
   font-size: 14px;
   border: none;
   line-height: 2;
-  padding: 1px 10px;
+  padding: 3px 10px;
+  margin: 16px auto;
   border-radius: 2px;
   color: #fff;
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
   background-color: #45c8dc;
+}
+
+.xjh-share button:first-child {
+  background-color: #ed9d81;
 }
