@@ -4,7 +4,7 @@ Page({
     article: {}
   },
   onLoad(options) {
-    app.getApiData('https://api.wutnews.net/recruit/whut/detail', {
+    app.request('https://api.wutnews.net/recruit/whut/detail', {
       id: options.id
     }, false).then(result => {
       this.setData({

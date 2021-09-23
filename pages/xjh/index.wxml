@@ -2,7 +2,7 @@
 
 <template is="searchbar" data="{{ placeholder: '职位/公司名', showCancelButton: search.show, width: device.windowWidth }}" ></template>
 <view class="page-content">
-  <navigator wx:for="{{list}}" wx:key="id" class="card" url="detail?id={{item.id}}&bgcolor={{item.backgroundColor}}">
+  <navigator wx:for="{{list}}" wx:key="id" class="card" url="detail?id={{item.id}}">
     <view class="card-header" style="background: #{{item.backgroundColor}};">
       <view class="card-no">No.{{index + 1}}</view>
       <view class="card-title">{{item.company}}</view>
@@ -17,8 +17,8 @@
           <image class="card-content-icon" src="https://web.wutnews.net/Application/Recruit/Assets/image/time.png" />
           <text>{{item.time}}</text>
           <text wx:if="{{item.isInProgress}}" class="card-content-tag tag-info">进行中</text>
-          <text wx:if="{{item.isExpired}}" class="card-content-tag tag-danger">已结束</text>
-          <text wx:if="{{item.isCancel}}" class="card-content-tag tag-warning">已取消</text>
+          <text wx:elif="{{item.isExpired}}" class="card-content-tag tag-danger">已结束</text>
+          <text wx:elif="{{item.isCancel}}" class="card-content-tag tag-warning">已取消</text>
         </view>
         <view class="card-content-line" wx:if="{{item.place}}">
           <image class="card-content-icon" src="https://web.wutnews.net/Application/Recruit/Assets/image/address.png" />

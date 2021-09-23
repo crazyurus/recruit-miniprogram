@@ -2,77 +2,53 @@ const app = getApp();
 Page({
   data: {
     article: {},
-    bgcolor: '45c8dc',
-    tab: {
-      active: [true, false, false, false],
-      disabled: [false, true, true, true]
-    },
+    company: {},
+    positions: [],
     title: false,
-    child: false
   },
   onLoad(options) {
-    const univArray = require('../../data/university');
     wx.setNavigationBarColor({
-      backgroundColor: '#' + options.bgcolor,
+      backgroundColor: '#45c8dc',
       frontColor: '#ffffff'
     });
     wx.setNavigationBarTitle({
       title: ' '
     });
 
-    app.getApiData('https://api-iwut.wutnews.net/recruit/recruit/detail_recruit', {
+    app.request('https://a.jiuyeb.cn/mobile.php/preach/detail', {
       id: options.id,
     }, false).then(result => {
-      result.time = new Date(result.time * 1000).toLocaleString();
-      result.source = univArray.find(u => u.short === result.source);
-      if (result.source) result.universityName = result.source.name;
-      result.source = result.source.source;
-
       this.setData({
-        article: result,
-        child: getCurrentPages().length === 10,
-        bgcolor: options.bgcolor,
+        article: {
+          title: result.title,
+          source: '武汉理工大学学生就业指导中心',
+          time: result.hold_date + ' ' + result.hold_starttime + '-' + result.hold_endtime,
+          universityName: result.school_id_name,
+          place: result.address || result.tmp_field_name,
+          view: result.viewcount,
+          content: result.remarks,
+          tips: result.schoolwarn,
+        },
+        positions: result.ProfessionalList.map(item => item.professional_id_name),
+        company: {
+          id: result.comInfo.id,
+          name: result.comInfo.name,
+          logo: result.comInfo.logo_src,
+          description: result.comInfo.city_name + ' ' + result.comInfo.xingzhi_id_name + ' ' + result.comInfo.business_name,
+        },
       });
     });
   },
   onShareAppMessage(res) {
     return {
       title: this.data.article.title,
-      path: '/pages/xjh/detail?id=' + this.data.article.id + '&bgcolor=' + this.data.bgcolor,
+      path: '/pages/xjh/detail?id=' + this.data.article.id,
       success(res) {
         wx.showToast({
           title: '分享成功'
         });
       }
     };
-  },
-  clickTabContent() {
-    if (this.data.tab.disabled[0]) return;
-
-    this.setData({
-      'tab.active': [true, false, false, false],
-    });
-  },
-  clickTabAlbum() {
-    if (this.data.tab.disabled[1]) return;
-
-    this.setData({
-      'tab.active': [false, true, false, false]
-    });
-  },
-  clickTabPosition() {
-    if (this.data.tab.disabled[2]) return;
-
-    this.setData({
-      'tab.active': [false, false, true, false]
-    });
-  },
-  clickTabXjh() {
-    if (this.data.tab.disabled[3]) return;
-
-    this.setData({
-      'tab.active': [false, false, false, true]
-    });
   },
   showImagePreview(e) {
     let imgArray = this.data.article.albums.map(item => {
@@ -98,25 +74,6 @@ Page({
       });
     }
   },
-  showApplyWebsite() {
-    const self = this;
-    wx.showModal({
-      title: self.data.article.title,
-      content: '请在浏览器粘贴以下网址访问：' + self.data.article.url,
-      showCancel: true,
-      confirmText: '复制网址',
-      confirmColor: '#' + self.data.bgcolor,
-      cancelText: '关闭',
-      success() {
-        wx.setClipboardData({
-          data: self.data.article.url,
-          success() {
-            app.toast('复制成功');
-          }
-        });
-      }
-    });
-  },
   showAddressMap() {
     const self = this;
     const QQMap = require('../../library/qqmap/jssdk.js');
@@ -132,7 +89,7 @@ Page({
           latitude: res.result.location.lat,
           longitude: res.result.location.lng,
           name: self.data.article.universityName,
-          address: self.data.article.place + '（位置仅供参考）'
+          address: self.data.article.place
         });
       },
       fail(res) {
@@ -143,7 +100,4 @@ Page({
       }
     });
   },
-  about() {
-    app.about();
-  }
 });

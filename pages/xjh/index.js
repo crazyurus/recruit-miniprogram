@@ -28,7 +28,7 @@ Page({
     if (this.data.loading) return;
 
     this.data.loading = true;
-    app.getApiData('https://a.jiuyeb.cn/mobile.php/preach/getlist', {
+    app.request('https://a.jiuyeb.cn/mobile.php/preach/getlist', {
       page: this.data.page,
       size: 10,
       isunion: 2,

@@ -33,7 +33,7 @@ Page({
     if (this.data.loading) return;
     this.data.loading = true;
 
-    app.getApiData('https://api.wutnews.net/recruit/whut/index', {
+    app.request('https://api.wutnews.net/recruit/whut/index', {
       type: this.data.tab,
       page: this.data.page
     }).then(result => {

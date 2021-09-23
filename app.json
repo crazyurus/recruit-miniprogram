@@ -2,6 +2,7 @@
   "pages": [
     "pages/xjh/index",
     "pages/xjh/detail",
+    "pages/xjh/company",
     "pages/bulletin/index",
     "pages/bulletin/detail"
   ],

@@ -1,5 +1,3 @@
-@import '../interview/detail.wxss';
-
 .interview-header {
   background: #56b8a4;
 }

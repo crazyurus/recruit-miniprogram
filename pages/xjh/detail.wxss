@@ -1,5 +1,3 @@
-@import '../../component/list/list.wxss';
-
 page, .page-content {
   background: #efeff4;
 }
@@ -13,6 +11,7 @@ page, .page-content {
   height: 60px;
   display: flex;
   padding-top: 5px;
+  background-color: #45c8dc;
 }
 
 .xjh-logo {
@@ -44,7 +43,7 @@ page, .page-content {
   padding: 0 33px;
 }
 
-.xjh-company {
+.xjh-title_text {
   font-size: 16px;
   line-height: 1.6;
   color: #fff;
@@ -52,15 +51,6 @@ page, .page-content {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-}
-
-.xjh-company-verify {
-  display: inline-block;
-  vertical-align: middle;
-  margin-top: -2px;
-  margin-left: 6px;
-  width: 15px;
-  height: 15px;
 }
 
 .xjh-source {
@@ -87,12 +77,20 @@ page, .page-content {
   text-overflow: ellipsis;
 }
 
-.xjh-info-address {
+.xjh-info-address, .xjh-company {
   padding-right: 15px;
   background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg%20viewBox%3D'0%200%2060%20120'%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%3E%3Cpath%20d%3D'm60%2061.5-38.25%2038.25-9.75-9.75%2029.25-28.5-29.25-28.5%209.75-9.75z'%20fill%3D'%23c7c7cc'%2F%3E%3C%2Fsvg%3E");
   background-size: 10px 20px;
   background-repeat: no-repeat;
   background-position: 100% center;
+}
+
+.xjh-company {
+  background-position: calc(100% - 16px) center;
+}
+
+.xjh-company:active {
+  background-color: #d9d9d9;
 }
 
 .xjh-info-icon {
@@ -104,11 +102,20 @@ page, .page-content {
   margin-right: 5px;
 }
 
-.xjh-content, .xjh-others, .xjh-position, .xjh-album {
-  background: #fff;
+.xjh-content, .xjh-company {
+  background-color: #fff;
   padding: 15px;
-  margin-bottom: 25px;
+  margin: 16px 0;
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.xjh-company_title {
+  font-size: 16px;
+  margin-bottom: 4px;
+}
+
+.xjh-company_text {
+  color: #666;
 }
 
 .xjh-content-after {
@@ -136,16 +143,6 @@ page, .page-content {
   width: calc(33.33% - 10px);
   margin: 5px;
   height: 110px;
-}
-
-.xjh-others, .xjh-position {
-  padding: 0;
-}
-
-.xjh-others .list-block, .xjh-position .list-block {
-  margin: 0;
-  border-top: none;
-  font-size: 15px !important;
 }
 
 .xjh-tabs {
@@ -183,16 +180,13 @@ page, .page-content {
   color: #bbb !important;
 }
 
-.xjh-token {
-  width: 100%;
-  position: absolute;
-  text-align: center;
-  bottom: 15px;
-}
-
-.xjh-token image {
-  width: 160rpx;
-  height: 60rpx;
+.xjh-content_title {
+  display: inline-block;
+  font-size: 16px;
+  font-weight: bold;
+  line-height: 0.7;
+  margin: 16px 0 10px;
+  border-bottom: 6px solid rgba(69,200,220,0.6);
 }
 
 .xjh-blank {
@@ -201,7 +195,7 @@ page, .page-content {
 
 .xjh-share {
   text-align: center;
-  margin-bottom: 80px;
+  height: 80px;
 }
 
 .xjh-share button[open-type] {
@@ -214,4 +208,5 @@ page, .page-content {
   border-radius: 2px;
   color: #fff;
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+  background-color: #45c8dc;
 }
