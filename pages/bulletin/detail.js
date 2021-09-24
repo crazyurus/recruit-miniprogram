@@ -28,6 +28,7 @@ Page({
       success(res) {
         wx.openDocument({
           filePath: res.tempFilePath,
+          showMenu: true,
           fail() {
             app.toast('打开失败');
           }

@@ -24,7 +24,7 @@
   height: 28px;
   flex-shrink: 1;
   border-radius: 5px;
-  color: #000;
+  color: #1f2329;
   font-size: 14px;
   font-weight: 400;
   padding: 0 28px;

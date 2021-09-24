@@ -6,7 +6,42 @@ page, .page-content {
 }
 
 .page-content {
-  margin-top: 50px;
+  margin-top: 56px;
+}
+
+.calendar {
+  box-sizing: border-box;
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 200;
+  width: 100%;
+  height: 44px;
+  background-color: #45c8dc;
+  color: #fff;
+  padding: 0 10px;
+}
+
+.calendar-group {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.calendar-item {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 26px;
+  font-family: 'DIN Alternate', monospace;
+  font-size: 15px;
+}
+
+.calendar-item.active {
+  background-color: #fff;
+  color: #45c8dc;
+  font-size: 13px;
 }
 
 button[open-type] {

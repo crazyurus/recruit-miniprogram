@@ -14,7 +14,7 @@
         </view>
         <view class="item-text">
           <text>{{item.time}}</text>
-          <text class="item-count">{{item.view}}</text>
+          <text class="item-count">浏览：{{item.view}}</text>
         </view>
       </view>
     </navigator>

@@ -1,7 +1,9 @@
-<import src="/component/search/search.wxml" />
-
-<template is="searchbar" data="{{ placeholder: '职位/公司名', showCancelButton: search.show, width: device.windowWidth }}" ></template>
 <view class="page-content">
+  <swiper class="calendar" current="{{calendar.group}}" bindchange="onCalendarChange">
+    <swiper-item class="calendar-group" wx:for="{{calendar.list}}" wx:for-index="group">
+      <view wx:for="{{item}}" class="calendar-item {{calendar.current === index && calendar.group === group ? 'active' : ''}}" data-index="{{index}}" data-group="{{group}}" bindtap="changeDay">{{item.display}}</view>
+    </swiper-item>
+  </swiper>
   <navigator wx:for="{{list}}" wx:key="id" class="card" url="detail?id={{item.id}}">
     <view class="card-header" style="background: #{{item.backgroundColor}};">
       <view class="card-no">No.{{index + 1}}</view>

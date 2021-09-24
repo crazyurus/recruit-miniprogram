@@ -3,3 +3,16 @@
 .xjh-share button[open-type]:first-child {
   background-color: #45c8dc;
 }
+
+.xjh-header {
+  height: auto;
+  min-height: 60px;
+}
+
+.xjh-title_text {
+  white-space: normal;
+}
+
+.xjh-source {
+  margin-bottom: 12px;
+}

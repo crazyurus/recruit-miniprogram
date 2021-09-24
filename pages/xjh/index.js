@@ -4,18 +4,12 @@ Page({
     list: [],
     page: 1,
     loading: false,
-    search: {
-      show: false,
-      keyword: ''
-    },
-    device: {},
-    left: 0
+    left: 0,
+    calendar: {},
   },
   onLoad() {
+    this.calcCalendar();
     this.loadNoticeList();
-    this.setData({
-      device: wx.getSystemInfoSync()
-    });
   },
   onReachBottom() {
     this.loadNoticeList();
@@ -23,6 +17,40 @@ Page({
   onPullDownRefresh() {
     this.reset();
     this.loadNoticeList();
+  },
+  calcCalendar() {
+    const now = new Date();
+    const weekday = now.getDay();
+    const timestamp = now.getTime();
+    const weekCount = 12;
+    const dates = new Array(weekCount * 2 - 1);
+    let group = 0;
+
+    for (let i = 0; i < dates.length; i++) {
+      dates[i] = [];
+    }
+
+    for(let i = (weekCount - 1) * -7; i < weekCount * 7; i++) {
+      const isToday = i - (weekday + 6) % 7;
+      const day = new Date(timestamp + 24 * 60 * 60 * 1000 * isToday);
+
+      if (dates[group].length === 7) {
+        group++;
+      }
+
+      dates[group].push({
+        display: isToday === 0 ? '今' : day.getDate(),
+        value: day.getTime(),
+      });
+    }
+
+    this.setData({
+      calendar: {
+        list: dates,
+        current: now.getDay() - 1,
+        group: weekCount - 1,
+      },
+    });
   },
   loadNoticeList() {
     if (this.data.loading) return;
@@ -34,7 +62,8 @@ Page({
       isunion: 2,
       laiyuan: 0,
       isair: 3,
-      keywords: this.data.search.keyword,
+      keywords: '',
+      hold_date: new Date(this.data.calendar.list[this.data.calendar.group][this.data.calendar.current].value).toLocaleDateString(),
     }).then(result => {
       const colorArray = ['ed9d81', 'a7d59a', '8c88ff', '56b8a4', '60bfd8', 'c9759d'];
 
@@ -75,24 +104,24 @@ Page({
       left: 0
     });
   },
-  searchNoticeList(e) {
-    this.reset();
+  changeDay(e) {
+    const { index, group } = e.currentTarget.dataset;
+
     this.setData({
-      search: {
-        show: false,
-        keyword: e.detail.value
-      }
+      'calendar.current': index,
+      'calendar.group': group,
     });
+
+    this.reset();
     this.loadNoticeList();
   },
-  setSearchFocus() {
-    this.setData({
-      'search.show': true
-    });
-  },
-  lostSearchFocus() {
-    this.setData({
-      'search.show': false
-    });
+  onCalendarChange(e) {
+    const { current } = e.detail;
+    const day = this.data.calendar.list[current][0].value;
+    const month = new Date(day).getMonth() + 1;
+
+    wx.setNavigationBarTitle({
+      title: month + ' 月',
+    })
   },
 });

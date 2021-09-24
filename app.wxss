@@ -1,12 +1,12 @@
-page, .page-content {
+page {
   box-sizing: border-box;
   height: 100%;
   overflow-x: hidden;
 }
 
 .page-content {
-  height: 100%;
-  position: relative;
+  min-height: 100%;
+  color: #1f2329;
   font-size: 14px;
   line-height: 1.4;
 }

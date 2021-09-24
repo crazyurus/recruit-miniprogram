@@ -76,5 +76,30 @@ App({
   },
   about() {
     this.alert('Token团队出品\r\n产品&设计&开发：廖星');
-  }
+  },
+  address(address, title, description) {
+    const QQMap = require('./library/qqmap/jssdk.js');
+    const sdk = new QQMap({
+      key: 'BP7BZ-6FXRV-6CNP3-UDXK2-GJ36S-VFBN7',
+    });
+
+    this.loading('获取地理位置中');
+    sdk.geocoder({
+      address,
+      success(res) {
+        wx.openLocation({
+          latitude: res.result.location.lat,
+          longitude: res.result.location.lng,
+          name: title,
+          address: description,
+        });
+      },
+      fail(res) {
+        this.alert(res.message);
+      },
+      complete() {
+        wx.hideLoading();
+      }
+    });
+  },
 });

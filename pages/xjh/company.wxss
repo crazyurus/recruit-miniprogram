@@ -14,7 +14,7 @@ page, .page-content {
 }
 
 .form-label {
-  color: #666;
+  color: #646a73;
   margin-bottom: 4px;
 }
 
@@ -31,6 +31,6 @@ page, .page-content {
 }
 
 .form-footer {
-  color: #666;
+  color: #646a73;
   margin-top: 24px;
 }

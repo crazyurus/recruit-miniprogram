@@ -106,7 +106,7 @@ page, .page-content {
 }
 
 .xjh-company_text {
-  color: #666;
+  color: #646a73;
 }
 
 .xjh-content-after {
@@ -163,7 +163,7 @@ page, .page-content {
 
 .xjh-no-active {
   border-bottom: 2px solid #fff !important;
-  color: #666 !important;
+  color: #646a73 !important;
 }
 
 .xjh-tab-disabled {

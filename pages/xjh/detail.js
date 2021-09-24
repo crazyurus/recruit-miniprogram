@@ -74,30 +74,7 @@ Page({
     }
   },
   showAddressMap() {
-    const self = this;
-    const QQMap = require('../../library/qqmap/jssdk.js');
-    const sdk = new QQMap({
-      key: 'BP7BZ-6FXRV-6CNP3-UDXK2-GJ36S-VFBN7',
-    });
-
-    app.loading('获取地理位置中');
-    sdk.geocoder({
-      address: self.data.article.universityName + ',' + self.data.article.place,
-      success(res) {
-        wx.openLocation({
-          latitude: res.result.location.lat,
-          longitude: res.result.location.lng,
-          name: self.data.article.universityName,
-          address: self.data.article.place
-        });
-      },
-      fail(res) {
-        app.alert(res.message);
-      },
-      complete() {
-        wx.hideLoading();
-      }
-    });
+    app.address(this.data.article.universityName + ',' + this.data.article.place, this.data.article.universityName, this.data.article.place);
   },
   addToCalendar() {
     wx.addPhoneCalendar({
