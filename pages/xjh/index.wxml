@@ -11,17 +11,14 @@
       <view class="card-content-inner">
         <view class="card-content-title">
           <text>{{item.title}}</text>
-          <image wx:if="{{item.isOfficial}}" class="card-content-verify" src="https://web.wutnews.net/Application/SecondHand/Assets/image/verify.png" />
         </view>
         <view class="card-content-line">
-          <image class="card-content-icon" src="https://web.wutnews.net/Application/Recruit/Assets/image/time.png" />
           <text>{{item.time}}</text>
           <text wx:if="{{item.isInProgress}}" class="card-content-tag tag-info">进行中</text>
           <text wx:elif="{{item.isExpired}}" class="card-content-tag tag-danger">已结束</text>
           <text wx:elif="{{item.isCancel}}" class="card-content-tag tag-warning">已取消</text>
         </view>
         <view class="card-content-line" wx:if="{{item.place}}">
-          <image class="card-content-icon" src="https://web.wutnews.net/Application/Recruit/Assets/image/address.png" />
           <text>{{item.place}}</text>
         </view>        
       </view>

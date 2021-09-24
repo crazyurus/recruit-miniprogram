@@ -17,14 +17,14 @@ page, .page-content {
 .xjh-title {
   flex: 1;
   width: calc(100% - 90px);
-  padding: 0 33px;
+  padding: 0 16px;
 }
 
 .xjh-title_text {
   font-size: 16px;
   line-height: 1.6;
   color: #fff;
-  width: calc(100% - 15px);
+  width: calc(100% - 16px);
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -34,16 +34,17 @@ page, .page-content {
   font-size: 14px;
   line-height: 1.33;
   color: rgba(255, 255, 255, 0.6);
-  width: calc(100% - 15px);
+  width: calc(100% - 16px);
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  margin-top: 4px;
 }
 
 .xjh-info {
   background: #fff;
   border-bottom: 1rpx solid #c8c7cc;
-  padding: 12px 15px;
+  padding: 12px 16px;
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
 }
 
@@ -55,7 +56,7 @@ page, .page-content {
 }
 
 .xjh-info-address, .xjh-company {
-  padding-right: 15px;
+  padding-right: 16px;
   background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg%20viewBox%3D'0%200%2060%20120'%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%3E%3Cpath%20d%3D'm60%2061.5-38.25%2038.25-9.75-9.75%2029.25-28.5-29.25-28.5%209.75-9.75z'%20fill%3D'%23c7c7cc'%2F%3E%3C%2Fsvg%3E");
   background-size: 10px 20px;
   background-repeat: no-repeat;
@@ -83,7 +84,7 @@ page, .page-content {
 
 .xjh-content, .xjh-company {
   background-color: #fff;
-  padding: 15px;
+  padding: 16px;
   margin: 16px 0;
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
 }
@@ -143,7 +144,7 @@ page, .page-content {
   top: 0;
   width: 100%;
   height: 40px;
-  margin-top: 15px;
+  margin-top: 16px;
 }
 
 .xjh-tab {

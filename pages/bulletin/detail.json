@@ -1,4 +1,5 @@
 {
-  "navigationBarTitleText": "就业通知",
-  "backgroundColor": "#efeff4"
+  "navigationBarTitleText": "",
+  "backgroundColorTop": "#45c8dc",
+  "backgroundColorBottom": "#efeff4"
 }

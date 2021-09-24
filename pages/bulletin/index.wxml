@@ -9,12 +9,12 @@
         <view class="item-title-row">
           <view class="item-title">
             <view class="circle bg-green"></view>
-            <text>{{util.removeTag(item.name)}}</text>
+            <text>{{item.title}}</text>
           </view>
         </view>
         <view class="item-text">
-          <text wx:if="{{item.category}}">{{item.category}}</text>
-          <text class="item-count">{{item.time}}</text>
+          <text>{{item.time}}</text>
+          <text class="item-count">{{item.view}}</text>
         </view>
       </view>
     </navigator>

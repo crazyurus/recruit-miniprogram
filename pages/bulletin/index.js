@@ -4,7 +4,7 @@ Page({
     list: [],
     page: 1,
     loading: false,
-    tab: 'gonggao',
+    tab: '17c226b1-6fe3-8ea5-9a8d-6ecb2e89f70c',
     label: '公告'
   },
   onLoad() {
@@ -33,18 +33,29 @@ Page({
     if (this.data.loading) return;
     this.data.loading = true;
 
-    app.request('https://api.wutnews.net/recruit/whut/index', {
-      type: this.data.tab,
-      page: this.data.page
+    app.request('https://a.jiuyeb.cn/mobile.php/Article/getlist', {
+      page: this.data.page,
+      size: 10,
+      show_type: 2,
+      cate_id: this.data.tab,
     }).then(result => {
-      if (result.length === 0) return;
+      if (this.data.page > 1 && result.list.length === 0) return;
 
       this.data.loading = false;
       this.data.page++;
       wx.stopPullDownRefresh();
 
+      const list = result.list.map(item => {
+        return {
+          id: item.id,
+          title: item.title,
+          time: new Date(item.addtime * 1000).toLocaleDateString().replace(/\//g, '-'),
+          view: item.views,
+        };
+      });
+
       this.setData({
-        list: this.data.list.concat(result)
+        list: this.data.list.concat(list)
       });
     });
   },

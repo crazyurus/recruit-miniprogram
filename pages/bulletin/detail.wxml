@@ -1,17 +1,10 @@
 <view class="page-content">
-  <view class="interview-header">
-    <view class="interview-title">{{article.title}}</view>
-    <view class="interview-line">来源：{{article.source}}</view>
-    <view class="interview-line">发布时间：{{article.time}}</view>
-  </view>
-  <view class="interview-content">
+  <view class="header">{{article.title}}</view>
+  <view class="content">
     <rich-text nodes="{{article.content}}"></rich-text>
-    <view class="interview-count">
-      <text>阅读 {{article.count}}</text>
-      <button open-type="contact" plain="true" hover-class="none">反馈</button>
-    </view>
+    <view class="link" wx:for="{{article.attachments}}" data-url="{{item.url}}" bindtap="openAttachment">{{item.name}}</view>
   </view>
-  <view class="interview-share">
-    <button open-type="share" plain="true" hover-class="none">将就业通知分享给同学</button>
+  <view class="footer">
+    <button class="button" open-type="share" hover-class="button-active">分享</button>
   </view>
 </view>

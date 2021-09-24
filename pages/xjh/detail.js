@@ -59,16 +59,6 @@ Page({
       imageUrl: this.data.company.logo,
     };
   },
-  showImagePreview(e) {
-    let imgArray = this.data.article.albums.map(item => {
-      return item.originalUrl;
-    });
-
-    wx.previewImage({
-      current: e.target.dataset.src,
-      urls: imgArray
-    });
-  },
   onPageScroll(e) {
     if (e.scrollTop <= 60 && this.data.title) {
       this.data.title = false;

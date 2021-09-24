@@ -1,7 +1,52 @@
-.interview-header {
-  background: #56b8a4;
+page, .page-content {
+  height: 100%;
 }
 
-.interview-share button[open-type] {
-  background: #56b8a4;
+.header {
+  background-color: #45c8dc;
+  color: #fff;
+  font-size: 22px;
+  font-weight: bold;
+  padding: 240rpx 40rpx 40rpx 40rpx;
+}
+.content {
+  word-break: break-all;
+  margin: 40rpx 0;
+  padding: 0 40rpx;
+  font-size: 16px;
+  color: #666;
+  min-height: calc(100% - 592rpx);
+}
+.footer {
+  margin: 70rpx auto 0;
+  padding-bottom: 70rpx;
+  text-align: center;
+}
+
+.link {
+  color: #45c8dc;
+}
+
+.button {
+  display: inline-block;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 6px 24px;
+  box-sizing: border-box;
+  font-weight: bold;
+  font-size: 16px;
+  text-align: center;
+  text-decoration: none;
+  color: #45c8dc;
+  background-color: #F2F2F2;
+  line-height: 1.5;
+  border-radius: 4px;
+  overflow: hidden;
+  border: none;
+  cursor: pointer;
+  outline: none;
+}
+
+.button-active {
+  background-color: #D9D9D9;
 }
