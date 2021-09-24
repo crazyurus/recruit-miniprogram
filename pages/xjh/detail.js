@@ -31,27 +31,32 @@ Page({
           view: result.viewcount,
           content: result.remarks,
           tips: result.schoolwarn,
+          poster: result.haibao_id_src ? 'https:' + result.haibao_id_src.linkpath + '!y' : '',
         },
         positions: result.ProfessionalList.map(item => item.professional_id_name),
         company: {
           id: result.comInfo.id,
           name: result.comInfo.name,
-          logo: result.comInfo.logo_src,
+          logo: result.comInfo.logo_src + '!y',
           description: (result.comInfo.city_name === '市辖区' ? result.comInfo.province_name : result.comInfo.city_name) + ' ' + result.comInfo.xingzhi_id_name + ' ' + result.comInfo.business_name,
+          email: result.email,
         },
         isExpired: result.timestatus === 3,
       });
     });
   },
-  onShareAppMessage(res) {
+  onShareAppMessage() {
     return {
       title: this.data.article.title,
-      path: '/pages/xjh/detail?id=' + this.data.article.id,
-      success(res) {
-        wx.showToast({
-          title: '分享成功'
-        });
+      success() {
+        app.toast('分享成功');
       }
+    };
+  },
+  onShareTimeline() {
+    return {
+      title: this.data.article.title,
+      imageUrl: this.data.company.logo,
     };
   },
   showImagePreview(e) {
@@ -116,4 +121,9 @@ Page({
       },
     });
   },
+  openPoster() {
+    wx.previewImage({
+      urls: [this.data.article.poster],
+    })
+  }
 });

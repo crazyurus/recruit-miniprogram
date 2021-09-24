@@ -14,29 +14,6 @@ page, .page-content {
   background-color: #45c8dc;
 }
 
-.xjh-logo {
-  width: 45px;
-  height: 45px;
-  border-radius: 2px;
-  margin: 0 15px 15px;
-  overflow: hidden;
-}
-
-.xjh-logo-university {
-  background-color: #fff;
-}
-
-.xjh-logo > image {
-  width: 45px;
-  height: 45px;
-}
-
-.xjh-logo-university > image {
-  width: 39px;
-  height: 39px;
-  margin: 3px;
-}
-
 .xjh-title {
   flex: 1;
   width: calc(100% - 90px);
@@ -86,6 +63,8 @@ page, .page-content {
 }
 
 .xjh-company {
+  display: flex;
+  align-items: center;
   background-position: calc(100% - 16px) center;
 }
 
@@ -109,6 +88,17 @@ page, .page-content {
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
 }
 
+.xjh-company_logo {
+  width: 42px;
+  height: 42px;
+  flex-shrink: 0;
+  margin-right: 12px;
+}
+
+.xjh-company_content {
+  flex-grow: 1;
+}
+
 .xjh-company_title {
   font-size: 16px;
   margin-bottom: 4px;
@@ -127,7 +117,7 @@ page, .page-content {
 }
 
 .xjh-content-after button {
-  color: #607fa6;
+  color: #45c8dc;
   border: none;
   margin: 0;
   padding: 0;
@@ -214,4 +204,8 @@ page, .page-content {
 
 .xjh-share button:first-child {
   background-color: #ed9d81;
+}
+
+.link {
+  color: #45c8dc;
 }

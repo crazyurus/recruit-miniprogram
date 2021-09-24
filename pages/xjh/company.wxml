@@ -14,8 +14,11 @@
     <view class="form-value">{{company.catype_name}}</view>
     <view class="form-label">成立时间</view>
     <view class="form-value">{{company.start_time}}</view>
-    <view class="form-label">企业网站</view>
-    <view class="form-value form-link">{{company.weburl}}</view>
+    <block wx:if="{{company.weburl}}">
+      <view class="form-label">企业网站</view>
+      <view class="form-value form-link">{{company.weburl}}</view>
+    </block>
     <view wx:if="{{company.latitude}}" class="form-link" bindtap="openLocation">查看企业所在位置</view>
+    <view class="form-footer">该企业已于 {{company.verify_time}} 通过审核</view>
   </view>
 </view>

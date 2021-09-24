@@ -22,17 +22,25 @@
     </view>
   </view>
   <navigator wx:if="{{company.id}}" class="xjh-company" url="company?id={{company.id}}">
-    <view class="xjh-company_title">{{company.name}}</view>
-    <view class="xjh-company_text">{{company.description}}</view>
+    <image class="xjh-company_logo" src="{{company.logo}}" />
+    <view class="xjh-company_content">
+      <view class="xjh-company_title">{{company.name}}</view>
+      <view class="xjh-company_text">{{company.description}}</view>
+    </view>
   </navigator>
   <view class="xjh-content">
     <block wx:if="{{article.content}}">
       <view class="xjh-content_title">宣讲会内容</view>
       <rich-text nodes="{{article.content}}"></rich-text>
+      <view wx:if="{{article.poster}}" class="link" style="margin-top: 16px;" bindtap="openPoster">查看海报</view>
     </block>
     <block wx:if="{{positions.length > 0}}">
       <view class="xjh-content_title">招聘专业</view>
       <view wx:for="{{positions}}">{{item}}</view>
+    </block>
+    <block wx:if="{{company.email}}">
+      <view class="xjh-content_title">联系方式</view>
+      <view class="link">{{company.email}}</view>
     </block>
     <block wx:if="{{article.tips}}">
       <view class="xjh-content_title">本校提醒</view>

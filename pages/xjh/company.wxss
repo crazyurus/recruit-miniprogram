@@ -29,3 +29,8 @@ page, .page-content {
   font-size: 14px;
   color: #45c8dc;
 }
+
+.form-footer {
+  color: #666;
+  margin-top: 24px;
+}
