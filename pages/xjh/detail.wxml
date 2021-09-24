@@ -49,7 +49,7 @@
     </view>
   </view>
   <view class="xjh-share">
-    <button hidden="{{isExpired}}" plain="true" hover-class="none" bindtap="addToCalendar">添加到日程</button>
-    <button open-type="share" plain="true" hover-class="none">分享给同学</button>
+    <button hidden="{{isExpired || isQQ}}" plain="true" hover-class="none" bindtap="addToCalendar">添加到日程</button>
+    <button open-type="share" plain="true" share-mode="{{['qq', 'qzone', 'wechatFriends', 'wechatMoment']}}" hover-class="none">分享给同学</button>
   </view>
 </view>

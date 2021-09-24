@@ -102,4 +102,14 @@ App({
       }
     });
   },
+  isQQ() {
+    return typeof qq !== 'undefined';
+  },
+  sharePath(page) {
+    const query = Object.entries(page.options).map(([key, value]) => {
+      return `${key}=${value}`;
+    });
+
+    return '/' + page.route + '?' + query.join('&');
+  },
 });

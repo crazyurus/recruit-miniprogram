@@ -6,6 +6,7 @@ Page({
     positions: [],
     title: false,
     isExpired: true,
+    isQQ: false,
   },
   onLoad(options) {
     wx.setNavigationBarColor({
@@ -42,12 +43,14 @@ Page({
           email: result.email,
         },
         isExpired: result.timestatus === 3,
+        isQQ: app.isQQ(),
       });
     });
   },
   onShareAppMessage() {
     return {
       title: this.data.article.title,
+      path: app.sharePath(this),
       success() {
         app.toast('分享成功');
       }

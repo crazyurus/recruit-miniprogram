@@ -42,6 +42,7 @@ Page({
   onShareAppMessage() {
     return {
       title: this.data.article.title,
+      path: app.sharePath(this),
       success() {
         wx.showToast({
           title: '分享成功',

@@ -5,6 +5,6 @@
     <view class="link" wx:for="{{article.attachments}}" data-url="{{item.url}}" bindtap="openAttachment">{{item.name}}</view>
   </view>
   <view class="footer">
-    <button class="button" open-type="share" hover-class="button-active">分享</button>
+    <button class="button" open-type="share" share-mode="{{['qq', 'qzone', 'wechatFriends', 'wechatMoment']}}" hover-class="button-active">分享</button>
   </view>
 </view>

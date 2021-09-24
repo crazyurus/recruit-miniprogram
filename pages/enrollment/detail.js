@@ -41,6 +41,7 @@ Page({
   onShareAppMessage() {
     return {
       title: this.data.article.title,
+      path: app.sharePath(this),
       success() {
         app.toast('分享成功');
       }

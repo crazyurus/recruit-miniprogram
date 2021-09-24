@@ -10,6 +10,7 @@
   ],
   "window": {
     "navigationBarBackgroundColor": "#45c8dc",
+    "navigationBarTextStyle": "white",
     "navigationBarTitleText": "就业招聘",
     "onReachBottomDistance": 100,
     "backgroundTextStyle": "dark"
