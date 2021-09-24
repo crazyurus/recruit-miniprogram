@@ -1,5 +1,4 @@
 @import '/component/company/company.wxss';
-@import '/component/select/select.wxss';
 @import '/component/search/search.wxss';
 
 page, .page-content {

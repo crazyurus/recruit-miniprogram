@@ -1,0 +1,5 @@
+@import "../xjh/detail.wxss";
+
+.xjh-share button[open-type]:first-child {
+  background-color: #45c8dc;
+}

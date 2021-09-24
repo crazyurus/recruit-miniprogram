@@ -1,0 +1,46 @@
+<view class="page-content">
+  <view class="xjh-header">
+    <view class="xjh-title">
+      <view class="xjh-title_text">
+        <text>{{article.title}}</text>
+      </view>
+      <view class="xjh-source">{{article.source}}</view>
+    </view>
+  </view>
+  <navigator wx:if="{{company.id}}" class="xjh-company" url="../xjh/company?id={{company.id}}">
+    <image class="xjh-company_logo" src="{{company.logo}}" />
+    <view class="xjh-company_content">
+      <view class="xjh-company_title">{{company.name}}</view>
+      <view class="xjh-company_text">{{company.description}}</view>
+    </view>
+  </navigator>
+  <view class="xjh-content">
+    <block wx:if="{{article.content}}">
+      <view class="xjh-content_title">招聘内容</view>
+      <rich-text nodes="{{article.content}}"></rich-text>
+    </block>
+    <block wx:if="{{positions.length > 0}}">
+      <view class="xjh-content_title">招聘专业</view>
+      <view wx:for="{{positions}}">{{item}}</view>
+    </block>
+    <block wx:if="{{company.telephone}}">
+      <view class="xjh-content_title">联系方式</view>
+      <view class="link" bindtap="makePhoneCall">{{company.telephone}}</view>
+    </block>
+    <block wx:if="{{company.address}}">
+      <view class="xjh-content_title">地址</view>
+      <view class="link" bindtap="showAddressMap">{{company.address}}</view>
+    </block>
+    <block wx:if="{{article.tips}}">
+      <view class="xjh-content_title">本校提醒</view>
+      <rich-text nodes="{{article.tips}}"></rich-text>
+    </block>
+    <view class="xjh-content-after">
+      <text>阅读 {{article.view}}</text>
+      <button open-type="feedback" plain="true" hover-class="none">反馈</button>
+    </view>
+  </view>
+  <view class="xjh-share">
+    <button open-type="share" plain="true" hover-class="none">分享给同学</button>
+  </view>
+</view>

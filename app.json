@@ -4,7 +4,9 @@
     "pages/xjh/detail",
     "pages/xjh/company",
     "pages/bulletin/index",
-    "pages/bulletin/detail"
+    "pages/bulletin/detail",
+    "pages/enrollment/index",
+    "pages/enrollment/detail"
   ],
   "window": {
     "navigationBarBackgroundColor": "#45c8dc",
@@ -22,6 +24,12 @@
         "text": "宣讲会",
         "iconPath": "/image/xjh.png",
         "selectedIconPath": "/image/xjh_s.png"
+      },
+      {
+        "pagePath": "pages/enrollment/index",
+        "text": "招聘",
+        "iconPath": "/image/job.png",
+        "selectedIconPath": "/image/job_s.png"
       },
       {
         "pagePath": "pages/bulletin/index",

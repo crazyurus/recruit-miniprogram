@@ -1,0 +1,2 @@
+@import "../bulletin/index.wxss";
+@import '/component/search/search.wxss';
