@@ -1,5 +1,16 @@
 App({
   globalData: {},
+  onLaunch() {
+    const updateManager = wx.getUpdateManager();
+
+    updateManager.onUpdateReady(async () => {
+      const result = await this.alert('新版本已经准备好，是否重启应用？');
+
+      if (result.confirm) {
+        updateManager.applyUpdate()
+      }
+    });
+  },
   request(url, data = {}, loading = true) {
     if (loading) wx.showNavigationBarLoading();
     return new Promise(((resolve, reject) => {
@@ -43,12 +54,15 @@ App({
       };
     }
 
-    wx.showModal({
-      title: param.title || '就业招聘',
-      content: param.content,
-      showCancel: false,
-      confirmColor: param.color || '#45c8dc',
-      success: param.success || undefined
+    return new Promise((resolve, reject) => {
+      wx.showModal({
+        title: param.title || '就业招聘',
+        content: param.content,
+        showCancel: false,
+        confirmColor: param.color || '#45c8dc',
+        success: resolve,
+        fail: reject,
+      });
     });
   },
   toast(title) {
