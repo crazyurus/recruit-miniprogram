@@ -1,5 +1,5 @@
 .page-content {
-  padding-top: 40px;
+  padding-top: 48px;
 }
 
 .tabbar {
@@ -7,8 +7,8 @@
   margin-top: 0;
   position: fixed;
   background: #45c8dc;
-  padding: 0 10%;
-  height: 40px;
+  padding: 5px 10%;
+  height: 48px;
   width: 100%;
   left: 0;
   z-index: 20;

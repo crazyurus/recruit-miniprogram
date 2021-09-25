@@ -9,7 +9,7 @@
   top: 0;
   z-index: 200;
   background: #45c8dc;
-  height: 44px;
+  height: 48px;
   box-sizing: border-box;
   padding: 0 8px;
   overflow: hidden;

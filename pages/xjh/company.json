@@ -1,4 +1,6 @@
 {
   "backgroundColor": "#efeff4",
+  "navigationBarBackgroundColor": "#efeff4",
+  "navigationBarTextStyle": "black",
   "navigationBarTitleText": "企业信息"
 }

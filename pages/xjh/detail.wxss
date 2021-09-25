@@ -65,6 +65,7 @@ page, .page-content {
   display: flex;
   align-items: center;
   background-position: calc(100% - 16px) center;
+  padding: 16px 32px 16px 16px !important;
 }
 
 .xjh-company.navigator-hover {
@@ -132,41 +133,6 @@ page, .page-content {
   width: calc(33.33% - 10px);
   margin: 5px;
   height: 110px;
-}
-
-.xjh-tabs {
-  background: #fff;
-  border-bottom: 1rpx solid #c8c7cc;
-  display: flex;
-  position: sticky;
-  top: 0;
-  width: 100%;
-  height: 40px;
-  margin-top: 16px;
-}
-
-.xjh-tab {
-  flex: 1;
-  text-align: center;
-  align-self: center;
-  position: relative;
-}
-
-.xjh-tab text {
-  height: 38x;
-  line-height: 38px;
-  padding: 0 8px;
-  display: inline-block;
-}
-
-.xjh-no-active {
-  border-bottom: 2px solid #fff !important;
-  color: #646a73 !important;
-}
-
-.xjh-tab-disabled {
-  border-bottom: 2px solid #fff !important;
-  color: #bbb !important;
 }
 
 .xjh-content_title {

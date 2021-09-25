@@ -5,7 +5,7 @@
     <view class="form-label">企业类型</view>
     <view class="form-value">{{company.xingzhi_id_name}}</view>
     <view class="form-label">所在地区</view>
-    <view class="form-value">{{company.province_name}}{{company.city_name}}{{company.region_name}}</view>
+    <view class="form-value">{{company.province_name}}{{company.city_name === '市辖区' ? '' : company.city_name}}{{company.region_name}}</view>
     <view class="form-label">行业</view>
     <view class="form-value">{{company.business_name}}</view>
     <view class="form-label">企业规模</view>
