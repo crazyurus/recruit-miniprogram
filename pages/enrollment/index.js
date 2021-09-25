@@ -66,6 +66,9 @@ Page({
       page: 1,
       loading: false
     });
+    wx.pageScrollTo({
+      scrollTop: 0,
+    });
   },
   searchNoticeList(e) {
     this.reset();

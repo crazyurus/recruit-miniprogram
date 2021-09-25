@@ -103,6 +103,9 @@ Page({
       loading: false,
       left: 0
     });
+    wx.pageScrollTo({
+      scrollTop: 0,
+    });
   },
   changeDay(e) {
     const { index, group } = e.currentTarget.dataset;

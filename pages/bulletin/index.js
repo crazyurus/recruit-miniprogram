@@ -65,5 +65,8 @@ Page({
       page: 1,
       loading: false
     });
+    wx.pageScrollTo({
+      scrollTop: 0,
+    });
   }
 });
