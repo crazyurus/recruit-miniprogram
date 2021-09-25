@@ -1,4 +1,0 @@
-<picker class="filter-tag" bindchange="change" range="{{range}}" range-key="name" value="{{value.id}}">
-  <text>{{value.name}}</text>
-  <text class="caret"></text>
-</picker>

@@ -44,5 +44,5 @@
 }
 
 .button-active {
-  background-color: #D9D9D9;
+  background-color: #d9d9d9;
 }

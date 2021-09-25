@@ -14,6 +14,11 @@
   transform: scale(.97) translate3d(0, 0, 0);
 }
 
+.card.navigator-hover {
+  background-color: #fff;
+  opacity: 1;
+}
+
 .card-header {
   color: #fff;
   border-radius: 2px 2px 0 0;
