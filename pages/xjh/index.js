@@ -48,7 +48,7 @@ Page({
     this.setData({
       calendar: {
         list: dates,
-        current: weekday - 1,
+        current: weekday === 0 ? 6 : weekday - 1,
         group: weekCount - 1,
       },
     });
