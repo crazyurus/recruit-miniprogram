@@ -1,4 +1,5 @@
 const app = getApp();
+
 Page({
   data: {
     company: {},
@@ -10,8 +11,8 @@ Page({
       this.setData({
         company: {
           ...result,
-          start_time: new Date(result.start_time * 1000).toLocaleDateString().replace(/\//g, '-'),
-          verify_time: new Date(result.verify_time * 1000).toLocaleDateString().replace(/\//g, '-'),
+          start_time: app.formatTimestamp(result.start_time),
+          verify_time: result.verify_time === 0 ? '' : app.formatTimestamp(result.verify_time),
         }
       });
     });

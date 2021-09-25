@@ -32,7 +32,7 @@ Page({
           name: result.comInfo.name,
           address: result.address,
           logo: result.comInfo.logo_src + '!y',
-          description: (result.comInfo.city_name === '市辖区' ? result.comInfo.province_name : result.comInfo.city_name) + ' ' + result.comInfo.xingzhi_id_name + ' ' + result.comInfo.business_name,
+          description: (result.city_id_name === '市辖区' ? result.province_id_name : result.city_id_name) + ' ' + result.comInfo.xingzhi_id_name + ' ' + result.comInfo.business_name,
           telephone: result.tel,
         },
       });

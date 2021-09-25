@@ -1,4 +1,6 @@
+const dayjs = require('dayjs');
 const app = getApp();
+
 Page({
   data: {
     list: [],
@@ -19,9 +21,8 @@ Page({
     this.loadNoticeList();
   },
   calcCalendar() {
-    const now = new Date();
-    const weekday = now.getDay();
-    const timestamp = now.getTime();
+    const now = dayjs();
+    const weekday = now.day();
     const weekCount = 12;
     const dates = new Array(weekCount * 2 - 1);
     let group = 0;
@@ -31,23 +32,23 @@ Page({
     }
 
     for(let i = (weekCount - 1) * -7; i < weekCount * 7; i++) {
-      const isToday = i - (weekday + 6) % 7;
-      const day = new Date(timestamp + 24 * 60 * 60 * 1000 * isToday);
+      const isToday = i - (weekday + 6) % 7; 
+      const day = now.add(isToday, 'day');
 
       if (dates[group].length === 7) {
         group++;
       }
 
       dates[group].push({
-        display: isToday === 0 ? '今' : day.getDate(),
-        value: day.getTime(),
+        display: isToday === 0 ? '今' : day.date(),
+        value: day.valueOf(),
       });
     }
 
     this.setData({
       calendar: {
         list: dates,
-        current: now.getDay() - 1,
+        current: weekday - 1,
         group: weekCount - 1,
       },
     });
@@ -63,7 +64,7 @@ Page({
       laiyuan: 0,
       isair: 3,
       keywords: '',
-      hold_date: new Date(this.data.calendar.list[this.data.calendar.group][this.data.calendar.current].value).toLocaleDateString(),
+      hold_date: dayjs(this.data.calendar.list[this.data.calendar.group][this.data.calendar.current].value).format('YYYY-M-D'),
     }).then(result => {
       const colorArray = ['ed9d81', 'a7d59a', '8c88ff', '56b8a4', '60bfd8', 'c9759d'];
 
@@ -121,7 +122,7 @@ Page({
   onCalendarChange(e) {
     const { current } = e.detail;
     const day = this.data.calendar.list[current][0].value;
-    const month = new Date(day).getMonth() + 1;
+    const month = dayjs(day).month() + 1;
 
     wx.setNavigationBarTitle({
       title: month + ' 月',

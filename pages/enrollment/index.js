@@ -1,4 +1,5 @@
 const app = getApp();
+
 Page({
   data: {
     list: [],
@@ -50,7 +51,7 @@ Page({
         return {
           id: item.id,
           title: item.title,
-          time: new Date(item.addtime * 1000).toLocaleDateString().replace(/\//g, '-'),
+          time: app.formatTimestamp(item.addtime),
           view: item.viewcount,
         };
       });

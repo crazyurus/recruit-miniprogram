@@ -1,3 +1,5 @@
+const dayjs = require('dayjs');
+
 App({
   globalData: {},
   onLaunch() {
@@ -111,5 +113,8 @@ App({
     });
 
     return '/' + page.route + '?' + query.join('&');
+  },
+  formatTimestamp(timestamp) {
+    return dayjs(timestamp * 1000).format('YYYY-M-D');
   },
 });

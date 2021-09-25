@@ -19,6 +19,6 @@
       <view class="form-value form-link">{{company.weburl}}</view>
     </block>
     <view wx:if="{{company.latitude}}" class="form-link" bindtap="openLocation">查看企业所在位置</view>
-    <view class="form-footer">该企业已于 {{company.verify_time}} 通过审核</view>
+    <view wx:if="{{company.verify_time}}" class="form-footer">该企业已于 {{company.verify_time}} 通过审核</view>
   </view>
 </view>

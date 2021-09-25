@@ -11,6 +11,7 @@
   "author": "廖星 <crazyurus@vip.qq.com>",
   "license": "ISC",
   "dependencies": {
+    "dayjs": "^1.10.7",
     "mp-html": "^2.1.5"
   }
 }
