@@ -11,7 +11,7 @@
   padding: 0 40rpx;
   font-size: 16px;
   color: #1f2329;
-  min-height: calc(100% - 592rpx);
+  min-height: calc(100vh - 620rpx);
 }
 .footer {
   margin: 70rpx auto 0;
