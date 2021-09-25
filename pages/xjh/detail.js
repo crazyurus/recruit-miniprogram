@@ -9,6 +9,9 @@ Page({
     title: false,
     isExpired: true,
     isQQ: false,
+    contentStyle: {
+      a: 'color: #45c8dc',
+    },
   },
   onLoad(options) {
     wx.setNavigationBarColor({

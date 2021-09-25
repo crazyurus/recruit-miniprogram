@@ -28,7 +28,7 @@
   <view class="xjh-content">
     <block wx:if="{{article.content}}">
       <view class="xjh-content_title">宣讲会内容</view>
-      <mp-html content="{{article.content}}"></mp-html>
+      <mp-html content="{{article.content}}" scroll-table tag-style="{{contentStyle}}"></mp-html>
       <view wx:if="{{article.poster}}" class="link" style="margin-top: 16px;" bindtap="openPoster">查看海报</view>
     </block>
     <block wx:if="{{positions.length > 0}}">

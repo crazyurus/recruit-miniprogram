@@ -1,7 +1,10 @@
 const app = getApp();
 Page({
   data: {
-    article: {}
+    article: {},
+    contentStyle: {
+      a: 'color: #45c8dc',
+    },
   },
   onLoad(options) {
     app.request('https://a.jiuyeb.cn/mobile.php/Article/detail', {

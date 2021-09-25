@@ -5,6 +5,9 @@ Page({
     company: {},
     positions: [],
     title: false,
+    contentStyle: {
+      a: 'color: #45c8dc',
+    },
   },
   onLoad(options) {
     wx.setNavigationBarColor({
