@@ -1,0 +1,16 @@
+{
+  "name": "recruit-weapp",
+  "version": "1.0.0",
+  "description": "武汉理工大学就业招聘",
+  "main": "app.js",
+  "repository": {
+    "type": "git",
+    "url": "git@git.weixin.qq.com:crazyurus/recruit-wx.git"
+  },
+  "keywords": [],
+  "author": "廖星 <crazyurus@vip.qq.com>",
+  "license": "ISC",
+  "dependencies": {
+    "mp-html": "^2.1.5"
+  }
+}

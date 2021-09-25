@@ -17,7 +17,7 @@
   <view class="xjh-content">
     <block wx:if="{{article.content}}">
       <view class="xjh-content_title">招聘内容</view>
-      <rich-text nodes="{{article.content}}"></rich-text>
+      <mp-html content="{{article.content}}"></mp-html>
     </block>
     <block wx:if="{{positions.length > 0}}">
       <view class="xjh-content_title">招聘专业</view>
@@ -33,7 +33,7 @@
     </block>
     <block wx:if="{{article.tips}}">
       <view class="xjh-content_title">本校提醒</view>
-      <rich-text nodes="{{article.tips}}"></rich-text>
+      <mp-html content="{{article.tips}}"></mp-html>
     </block>
     <view class="xjh-content-after">
       <text>阅读 {{article.view}}</text>

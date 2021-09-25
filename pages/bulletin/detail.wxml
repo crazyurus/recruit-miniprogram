@@ -1,7 +1,7 @@
 <view class="page-content">
   <view class="header">{{article.title}}</view>
   <view class="content">
-    <rich-text nodes="{{article.content}}"></rich-text>
+    <mp-html content="{{article.content}}" />
     <view class="link" wx:for="{{article.attachments}}" data-url="{{item.url}}" bindtap="openAttachment">{{item.name}}</view>
   </view>
   <view class="footer">

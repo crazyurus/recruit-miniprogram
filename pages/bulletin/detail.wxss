@@ -1,7 +1,3 @@
-page, .page-content {
-  height: 100%;
-}
-
 .header {
   background-color: #45c8dc;
   color: #fff;

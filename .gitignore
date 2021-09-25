@@ -1,0 +1,4 @@
+node_modules
+miniprogram_npm
+.vscode
+package-lock.json
