@@ -18,12 +18,19 @@ Page({
     });
   },
   openLocation() {
-    app.openLocation({
-      name: this.data.company.name,
-      address: this.data.company.address,
-      latitude: Number.parseFloat(this.data.company.latitude),
-      longitude: Number.parseFloat(this.data.company.longitude),
-    });
+    if (this.data.company.latitude) {
+      app.openLocation({
+        name: this.data.company.name,
+        address: this.data.company.address,
+        latitude: Number.parseFloat(this.data.company.latitude),
+        longitude: Number.parseFloat(this.data.company.longitude),
+      });
+    } else {
+      app.address({
+        name: this.data.company.name,
+        address: this.data.company.address,
+      });
+    }
   },
   onShareAppMessage() {
     return {

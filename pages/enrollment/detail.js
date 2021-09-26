@@ -76,6 +76,9 @@ Page({
     });
   },
   showAddressMap() {
-    app.address(this.data.company.address, this.data.company.name, this.data.company.address);
+    app.address({
+      name: this.data.company.name, 
+      address: this.data.company.address,
+    });
   },
 });

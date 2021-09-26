@@ -79,7 +79,8 @@ App({
   about() {
     this.alert('Token团队出品\r\n产品&设计&开发：廖星');
   },
-  address(address, title, description) {
+  address(options) {
+    const { address, name, description } = options;
     const QQMap = require('./library/qqmap/jssdk.js');
     const sdk = new QQMap({
       key: 'BP7BZ-6FXRV-6CNP3-UDXK2-GJ36S-VFBN7',
@@ -92,8 +93,8 @@ App({
         this.openLocation({
           latitude: res.result.location.lat,
           longitude: res.result.location.lng,
-          name: title,
-          address: description,
+          name,
+          address: description || address,
         });
       },
       fail: res => {

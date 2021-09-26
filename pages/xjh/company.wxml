@@ -18,7 +18,10 @@
       <view class="form-label">企业网站</view>
       <view class="form-value form-link">{{company.weburl}}</view>
     </block>
-    <view wx:if="{{company.latitude}}" class="form-link" bindtap="openLocation">查看企业所在位置</view>
+    <block wx:if="{{company.address}}">
+      <view class="form-label">地址</view>
+      <view class="form-value form-link" bindtap="openLocation">{{company.address}}</view>
+    </block>
     <view wx:if="{{company.verify_time}}" class="form-footer">该企业已于 {{company.verify_time}} 通过审核</view>
   </view>
 </view>

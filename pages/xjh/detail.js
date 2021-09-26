@@ -82,7 +82,11 @@ Page({
     }
   },
   showAddressMap() {
-    app.address(this.data.article.universityName + ',' + this.data.article.place, this.data.article.universityName, this.data.article.place);
+    app.address({
+      name: this.data.article.universityName, 
+      description: this.data.article.place,
+      address: this.data.article.universityName + ',' + this.data.article.place,
+    });
   },
   addToCalendar() {
     wx.addPhoneCalendar({

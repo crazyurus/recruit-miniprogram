@@ -35,13 +35,13 @@ page, .page-content {
   text-align: center;
   line-height: 26px;
   font-family: 'DIN Alternate', monospace;
-  font-size: 15px;
+  font-size: 16px;
 }
 
 .calendar-item.active {
   background-color: #fff;
   color: #45c8dc;
-  font-size: 13px;
+  font-size: 14px;
 }
 
 button[open-type] {
