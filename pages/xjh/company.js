@@ -18,7 +18,7 @@ Page({
     });
   },
   openLocation() {
-    wx.openLocation({
+    app.openLocation({
       name: this.data.company.name,
       address: this.data.company.address,
       latitude: Number.parseFloat(this.data.company.latitude),

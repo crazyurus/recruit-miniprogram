@@ -88,15 +88,15 @@ App({
     this.loading('获取地理位置中');
     sdk.geocoder({
       address,
-      success(res) {
-        wx.openLocation({
+      success: res => {
+        this.openLocation({
           latitude: res.result.location.lat,
           longitude: res.result.location.lng,
           name: title,
           address: description,
         });
       },
-      fail(res) {
+      fail: res => {
         this.alert(res.message);
       },
       complete() {
@@ -104,7 +104,19 @@ App({
       }
     });
   },
-  isQQ() {
+  openLocation(options) {
+    if (this.isQQ) {
+      wx.navigateTo({
+        url: this.sharePath({
+          route: 'pages/common/map',
+          options,
+        }),
+      });
+    } else {
+      wx.openLocation(options);
+    }
+  },
+  get isQQ() {
     return typeof qq !== 'undefined';
   },
   sharePath(page) {

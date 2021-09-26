@@ -48,7 +48,7 @@ Page({
           email: result.email,
         },
         isExpired: result.timestatus === 3,
-        isQQ: app.isQQ(),
+        isQQ: app.isQQ
       });
     });
   },
