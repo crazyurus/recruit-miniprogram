@@ -1,9 +1,9 @@
 page {
-  box-sizing: border-box;
   height: 100%;
 }
 
 .page-content {
+  box-sizing: border-box;
   min-height: 100%;
   color: #1f2329;
   font-size: 14px;
