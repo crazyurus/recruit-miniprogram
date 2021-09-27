@@ -79,30 +79,47 @@ App({
   about() {
     this.alert('Token团队出品\r\n产品&设计&开发：廖星');
   },
-  address(options) {
-    const { address, name, description } = options;
-    const QQMap = require('./library/qqmap/jssdk.js');
-    const sdk = new QQMap({
-      key: 'BP7BZ-6FXRV-6CNP3-UDXK2-GJ36S-VFBN7',
-    });
+  async address(options) {
+    const { address, name, description, latitude, longitude } = options;
+    let location;
 
-    this.loading('获取地理位置中');
-    sdk.geocoder({
-      address,
-      success: res => {
-        this.openLocation({
-          latitude: res.result.location.lat,
-          longitude: res.result.location.lng,
-          name,
-          address: description || address,
+    if (latitude && longitude) {
+      location = {
+        latitude,
+        longitude,
+      };
+    } else {
+      const QQMap = require('./library/qqmap/jssdk.js');
+      const SDK = new QQMap({
+        key: 'BP7BZ-6FXRV-6CNP3-UDXK2-GJ36S-VFBN7',
+      });
+
+      this.loading('获取地理位置中');
+      location = await new Promise((resolve, reject) => {
+        SDK.geocoder({
+          address,
+          success(res) {
+            resolve({
+              latitude: res.result.location.lat,
+              longitude: res.result.location.lng,
+            });
+          },
+          fail(res) {
+            reject(res.message);
+          },
+          complete() {
+            wx.hideLoading();
+          }
         });
-      },
-      fail: res => {
-        this.alert(res.message);
-      },
-      complete() {
-        wx.hideLoading();
-      }
+      }).catch(errMsg => {
+        this.alert(errMsg);
+      });
+    }
+
+    this.openLocation({
+      ...location,
+      name,
+      address: description || address,
     });
   },
   openLocation(options) {
