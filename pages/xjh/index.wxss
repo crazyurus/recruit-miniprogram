@@ -19,7 +19,6 @@ page, .page-content {
   height: 48px;
   background-color: #45c8dc;
   color: #fff;
-  padding: 0 10px;
 }
 
 .calendar-group {
