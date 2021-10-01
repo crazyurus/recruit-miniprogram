@@ -3,6 +3,7 @@ const app = getApp();
 
 Page({
   data: {
+    backgroundColor: '#45c8dc',
     loading: true,
     article: {
       source: '武汉理工大学学生就业指导中心',
@@ -18,10 +19,6 @@ Page({
     },
   },
   onLoad(options) {
-    wx.setNavigationBarColor({
-      backgroundColor: '#45c8dc',
-      frontColor: '#ffffff'
-    });
     wx.setNavigationBarTitle({
       title: ' '
     });
@@ -59,11 +56,17 @@ Page({
   },
   onReady() {
     if (app.globalData.article) {
+      const { backgroundColor } = app.globalData.article;
       this.setData({
+        backgroundColor,
         article: {
           ...this.data.article,
           ...app.globalData.article,
         },
+      });
+      wx.setNavigationBarColor({
+        backgroundColor,
+        frontColor: '#ffffff'
       });
     }
   },

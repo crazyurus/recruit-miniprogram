@@ -5,7 +5,7 @@
     </swiper-item>
   </swiper>
   <navigator wx:for="{{list}}" wx:key="id" class="card" url="detail?id={{item.id}}" data-index="{{index}}" bindtap="openDetail">
-    <view class="card-header" style="background: #{{item.backgroundColor}};">
+    <view class="card-header" style="background: {{item.backgroundColor}};">
       <view class="card-no">No.{{index + 1}}</view>
       <view class="card-title">{{item.company}}</view>
     </view>
