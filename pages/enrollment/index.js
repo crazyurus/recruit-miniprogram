@@ -91,4 +91,14 @@ Page({
       'search.show': false
     });
   },
+  openDetail(e) {
+    const { index } = e.currentTarget.dataset;
+    const item = this.data.list[index];
+
+    app.globalData.article = {
+      id: item.id,
+      title: item.title,
+      source: '其它企业',
+    };
+  },
 });

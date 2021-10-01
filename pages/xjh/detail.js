@@ -3,7 +3,11 @@ const app = getApp();
 
 Page({
   data: {
-    article: {},
+    loading: true,
+    article: {
+      source: '武汉理工大学学生就业指导中心',
+      universityName: '武汉理工大学',
+    },
     company: {},
     positions: [],
     title: false,
@@ -26,9 +30,10 @@ Page({
       id: options.id,
     }, false).then(result => {
       this.setData({
+        loading: false,
         article: {
+          ...this.data.article,
           title: result.title,
-          source: '武汉理工大学学生就业指导中心',
           time: result.hold_date + ' ' + result.hold_starttime + '-' + result.hold_endtime,
           startTime: dayjs(result.hold_date + ' ' + result.hold_starttime + ':00').unix(),
           endTime: dayjs(result.hold_date + ' ' + result.hold_endtime + ':00').unix(),
@@ -51,6 +56,19 @@ Page({
         isQQ: app.isQQ
       });
     });
+  },
+  onReady() {
+    if (app.globalData.article) {
+      this.setData({
+        article: {
+          ...this.data.article,
+          ...app.globalData.article,
+        },
+      });
+    }
+  },
+  onUnload() {
+    app.globalData.article = null;
   },
   onShareAppMessage() {
     return {

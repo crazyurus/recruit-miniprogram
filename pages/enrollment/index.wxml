@@ -4,7 +4,7 @@
 <view class="page-content">
   <view class="content-block-title">招聘信息</view>
   <view class="list-block media-list record-list">
-    <navigator url="detail?id={{item.id}}" wx:for="{{list}}" wx:key="id" class="item-link item-content">
+    <navigator url="detail?id={{item.id}}" wx:for="{{list}}" wx:key="id" class="item-link item-content" data-index="{{index}}" bindtap="openDetail">
       <view class="item-inner">
         <view class="item-title-row">
           <view class="item-title">

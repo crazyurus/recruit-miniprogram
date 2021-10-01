@@ -1,6 +1,7 @@
 const app = getApp();
 Page({
   data: {
+    loading: true,
     article: {},
     company: {},
     positions: [],
@@ -22,6 +23,7 @@ Page({
       id: options.id,
     }, false).then(result => {
       this.setData({
+        loading: false,
         article: {
           title: result.title,
           source: result.comInfo.tag || '其它企业',
@@ -40,6 +42,19 @@ Page({
         },
       });
     });
+  },
+  onReady() {
+    if (app.globalData.article) {
+      this.setData({
+        article: {
+          ...this.data.article,
+          ...app.globalData.article,
+        },
+      });
+    }
+  },
+  onUnload() {
+    app.globalData.article = null;
   },
   onShareAppMessage() {
     return {

@@ -1,0 +1,33 @@
+<template name="skeleton">
+  <navigator class="xjh-company sk-no-arrow">
+    <image class="xjh-company_logo sk-image"></image>
+    <view class="xjh-company_content">
+      <view class="xjh-company_title sk-transparent sk-text-14-2857-399 sk-text">中国银行股份有限公司湖北省分行</view>
+      <view class="xjh-company_text sk-transparent sk-text-14-2857-64 sk-text">武汉市 国有企业 金融业</view>
+    </view>
+  </navigator>
+  <view class="xjh-content">
+    <view class="xjh-content_title sk-transparent sk-text--21-4286-539 sk-text" style="border: none;">宣讲会内容</view>
+    <view is="miniprogram_npm/mp-html/index">
+      <view class="index--_root" style="true">
+        <view is="miniprogram_npm/mp-html/node/node"></view>
+      </view>
+    </view>
+    <view class="xjh-content_title sk-transparent sk-text--21-4286-233 sk-text" style="border: none;">招聘专业</view>
+    <view class="sk-transparent sk-text-14-2857-811 sk-text">不限专业</view>
+    <view class="xjh-content_title sk-transparent sk-text--21-4286-932 sk-text" style="border: none;">联系方式</view>
+    <view class="link sk-transparent sk-text-14-2857-488 sk-text">13072771253@163.com</view>
+    <view class="xjh-content_title sk-transparent sk-text--21-4286-516 sk-text" style="border: none;">本校提醒</view>
+    <view is="miniprogram_npm/mp-html/index">
+      <view class="index--_root" style="true">
+        <view is="miniprogram_npm/mp-html/node/node">
+          <text decode="true" class="sk-transparent sk-text-14-2857-462 sk-text">请各位同学在求职时提高警惕，凡涉及收取各种费用；几乎不面试就给出录取通知，且到外地就职的招聘等情况，要仔细辨别，谨防上当受骗。</text>
+        </view>
+      </view>
+    </view>
+    <view class="xjh-content-after">
+      <text class="sk-transparent sk-text-14-2857-232 sk-text">阅读 643</text>
+      <button hover-class="none" open-type="feedback" plain="true" class="sk-transparent sk-button sk-pseudo sk-pseudo-circle">反馈</button>
+    </view>
+  </view>
+</template>

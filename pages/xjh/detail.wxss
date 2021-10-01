@@ -1,3 +1,5 @@
+@import "./detail.skeleton.wxss";
+
 page, .page-content {
   background: #efeff4;
 }
@@ -173,4 +175,8 @@ page, .page-content {
 
 .link {
   color: #45c8dc;
+}
+
+.sk-no-arrow {
+  background-image: none;
 }
