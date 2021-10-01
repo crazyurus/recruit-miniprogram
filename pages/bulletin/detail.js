@@ -1,6 +1,7 @@
 const app = getApp();
 Page({
   data: {
+    title: false,
     article: {},
     contentStyle: {
       a: 'color: #45c8dc',
@@ -22,6 +23,20 @@ Page({
         },
       });
     });
+  },
+  onPageScroll(e) {
+    if (e.scrollTop <= 200 && this.data.title) {
+      this.data.title = false;
+      wx.setNavigationBarTitle({
+        title: ' '
+      });
+    }
+    if (e.scrollTop > 200 && !this.data.title) {
+      this.data.title = true;
+      wx.setNavigationBarTitle({
+        title: this.data.article.title
+      });
+    }
   },
   openAttachment(e) {
     const { url } = e.currentTarget.dataset;
