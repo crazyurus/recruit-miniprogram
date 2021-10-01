@@ -5,9 +5,14 @@ function unique(arr) {
   return Array.from(new Set(arr));
 }
 
+function hexToRgba(color, opacity) {
+  return "rgba(" + parseInt("0x" + color.slice(1, 3)) + "," + parseInt("0x" + color.slice(3, 5)) + "," + parseInt("0x" + color.slice(5, 7)) + "," + opacity + ")";
+}
+
 Page({
   data: {
     backgroundColor: '#45c8dc',
+    opacityColor: 'rgba(69,200,220,0.6)',
     loading: true,
     article: {
       source: '武汉理工大学学生就业指导中心',
@@ -26,6 +31,7 @@ Page({
     wx.setNavigationBarTitle({
       title: ' '
     });
+    this.onCache();
 
     app.request('https://a.jiuyeb.cn/mobile.php/preach/detail', {
       id: options.id,
@@ -58,20 +64,30 @@ Page({
       });
     });
   },
-  onReady() {
+  onCache() {
     if (app.globalData.article) {
       const { backgroundColor } = app.globalData.article;
       this.setData({
         backgroundColor,
+        opacityColor: hexToRgba(backgroundColor, 0.6),
         article: {
           ...this.data.article,
           ...app.globalData.article,
+        },
+        contentStyle: {
+          a: 'color: ' + backgroundColor,
         },
       });
       wx.setNavigationBarColor({
         backgroundColor,
         frontColor: '#ffffff'
       });
+      setTimeout(() => {
+        wx.setBackgroundColor({
+          backgroundColorTop: backgroundColor,
+          backgroundColorBottom: '#efeff4',
+        });
+      }, 300);
     }
   },
   onUnload() {
