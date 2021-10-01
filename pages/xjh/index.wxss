@@ -53,3 +53,11 @@ button[open-type] {
   height: 20px;
   top: 10px;
 }
+
+.xjh-empty {
+  display: flex;
+  height: calc(100vh - 48px);
+  align-items: center;
+  color: #646a73;
+  justify-content: center;
+}

@@ -79,7 +79,7 @@ page, .page-content {
   height: 14px;
   vertical-align: middle;
   margin-top: -2px;
-  margin-right: 5px;
+  margin-right: 8px;
 }
 
 .xjh-content, .xjh-company {
