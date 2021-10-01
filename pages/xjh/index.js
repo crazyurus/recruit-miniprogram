@@ -5,7 +5,7 @@ Page({
   data: {
     list: [],
     page: 1,
-    loading: false,
+    loading: true,
     left: 0,
     calendar: {},
   },
@@ -50,13 +50,11 @@ Page({
         list: dates,
         current: weekday === 0 ? 6 : weekday - 1,
         group: weekCount - 1,
+        today: now.format('M 月 D 日')
       },
     });
   },
   loadNoticeList() {
-    if (this.data.loading) return;
-
-    this.data.loading = true;
     app.request('https://a.jiuyeb.cn/mobile.php/preach/getlist', {
       page: this.data.page,
       size: 10,
@@ -88,11 +86,11 @@ Page({
         };
       });
 
-      this.data.loading = false;
       this.data.left += list.length % colorArray.length;
       this.data.page++;
 
       this.setData({
+        loading: false,
         list: this.data.list.concat(list)
       });
     });
@@ -101,7 +99,7 @@ Page({
     this.data.list = [];
     this.setData({
       page: 1,
-      loading: false,
+      loading: true,
       left: 0
     });
     wx.pageScrollTo({
@@ -110,13 +108,14 @@ Page({
   },
   changeDay(e) {
     const { index, group } = e.currentTarget.dataset;
+    const now = dayjs(this.data.calendar.list[group][index].value);
 
+    this.reset();
     this.setData({
       'calendar.current': index,
       'calendar.group': group,
+      'calendar.today': now.format('M 月 D 日'),
     });
-
-    this.reset();
     this.loadNoticeList();
   },
   onCalendarChange(e) {

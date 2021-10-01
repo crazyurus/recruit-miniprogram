@@ -1,6 +1,10 @@
 const dayjs = require('dayjs');
 const app = getApp();
 
+function unique(arr) {
+  return Array.from(new Set(arr));
+}
+
 Page({
   data: {
     backgroundColor: '#45c8dc',
@@ -41,7 +45,7 @@ Page({
           tips: result.schoolwarn,
           poster: result.haibao_id_src ? 'https:' + result.haibao_id_src.linkpath + '!y' : '',
         },
-        positions: result.ProfessionalList.map(item => item.professional_id_name),
+        positions: unique(result.ProfessionalList.map(item => item.professional_id_name)),
         company: {
           id: result.comInfo.id,
           name: result.comInfo.name,

@@ -1,4 +1,4 @@
-<import src="./detail.skeleton.wxml"/>
+<import src="../xjh/detail.skeleton.wxml"/>
 
 <view class="page-content">
   <view class="xjh-header">
