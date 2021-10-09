@@ -58,7 +58,8 @@
     </view>
   </block>
   <view class="xjh-share">
+    <button hidden="{{!isQQ}}" plain="true" hover-class="none" style="background-color: {{backgroundColor}}" open-type="addColorSign">添加到彩签</button>
     <button hidden="{{isExpired || isQQ}}" plain="true" hover-class="none" style="background-color: {{backgroundColor}}" bindtap="addToCalendar">添加到日程</button>
-    <button open-type="share" plain="true" share-mode="{{['qq', 'qzone', 'wechatFriends', 'wechatMoment']}}" hover-class="none" style="background-color: {{isExpired || isQQ ? backgroundColor : '#45c8dc'}}">分享给同学</button>
+    <button open-type="share" plain="true" share-mode="{{['qq', 'qzone', 'wechatFriends', 'wechatMoment']}}" hover-class="none" style="background-color: {{isExpired && !isQQ ? backgroundColor : '#45c8dc'}}">分享给同学</button>
   </view>
 </view>
