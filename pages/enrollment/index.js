@@ -4,7 +4,7 @@ Page({
   data: {
     list: [],
     page: 1,
-    loading: false,
+    loading: true,
     device: {},
     search: {
       show: false,
@@ -23,15 +23,12 @@ Page({
   onPullDownRefresh() {
     this.setData({
       page: 1,
-      loading: false
+      loading: true
     });
     this.data.list = [];
     this.loadNoticeList();
   },
   loadNoticeList() {
-    if (this.data.loading) return;
-    this.data.loading = true;
-
     app.request('https://a.jiuyeb.cn/mobile.php/enrollment/getlist', {
       page: this.data.page,
       size: 10,
@@ -43,7 +40,6 @@ Page({
     }).then(result => {
       if (this.data.page > 1 && result.list.length === 0) return;
 
-      this.data.loading = false;
       this.data.page++;
       wx.stopPullDownRefresh();
 
@@ -57,6 +53,7 @@ Page({
       });
 
       this.setData({
+        loading: list.length > 0,
         list: this.data.list.concat(list)
       });
     });
@@ -65,7 +62,7 @@ Page({
     this.data.list = [];
     this.setData({
       page: 1,
-      loading: false
+      loading: true
     });
     wx.pageScrollTo({
       scrollTop: 0,

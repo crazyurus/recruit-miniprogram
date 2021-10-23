@@ -19,6 +19,7 @@
       </view>
     </navigator>
   </view>
+  <loading wx:if="{{loading}}" />
 </view>
 
 <wxs module="utils">

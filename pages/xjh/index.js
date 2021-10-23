@@ -89,7 +89,7 @@ Page({
       this.data.page++;
 
       this.setData({
-        loading: false,
+        loading: list.length > 0,
         list: this.data.list.concat(list)
       });
     });

@@ -1,6 +1,6 @@
 .list-block {
   position: relative;
-  margin: 35px 0;
+  margin: 35px 0 20px;
   font-size: 17px;
 }
 

@@ -1,0 +1,12 @@
+<view class="preloader">
+  <view class="preloader-inner">
+    <view class="preloader-inner-line"></view>
+    <view class="preloader-inner-line"></view>
+    <view class="preloader-inner-line"></view>
+    <view class="preloader-inner-line"></view>
+    <view class="preloader-inner-line"></view>
+    <view class="preloader-inner-line"></view>
+    <view class="preloader-inner-line"></view>
+    <view class="preloader-inner-line"></view>
+  </view>
+</view>

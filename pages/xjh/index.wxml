@@ -1,9 +1,10 @@
+<swiper class="calendar" current="{{calendar.group}}" bindchange="onCalendarChange">
+  <swiper-item class="calendar-group" wx:for="{{calendar.list}}" wx:for-index="group">
+    <view wx:for="{{item}}" class="calendar-item {{calendar.current === index && calendar.group === group ? 'active' : ''}}" data-index="{{index}}" data-group="{{group}}" bindtap="changeDay">{{item.display}}</view>
+  </swiper-item>
+</swiper>
+
 <view class="page-content">
-  <swiper class="calendar" current="{{calendar.group}}" bindchange="onCalendarChange">
-    <swiper-item class="calendar-group" wx:for="{{calendar.list}}" wx:for-index="group">
-      <view wx:for="{{item}}" class="calendar-item {{calendar.current === index && calendar.group === group ? 'active' : ''}}" data-index="{{index}}" data-group="{{group}}" bindtap="changeDay">{{item.display}}</view>
-    </swiper-item>
-  </swiper>
   <navigator wx:for="{{list}}" wx:key="id" class="card" url="detail?id={{item.id}}" data-index="{{index}}" bindtap="openDetail">
     <view class="card-header" style="background: {{item.backgroundColor}};">
       <view class="card-no">No.{{index + 1}}</view>
@@ -31,4 +32,5 @@
     </view>
   </navigator>
   <view wx:if="{{list.length === 0 && !loading}}" class="xjh-empty">{{calendar.today}}暂无宣讲会安排</view>
+  <loading wx:if="{{loading}}" />
 </view>

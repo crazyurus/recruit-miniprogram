@@ -19,4 +19,5 @@
       </view>
     </navigator>
   </view>
+  <loading wx:if="{{loading}}" />
 </view>

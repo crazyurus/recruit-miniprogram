@@ -1,3 +1,6 @@
 {
-  "backgroundColor": "#efeff4"
+  "backgroundColor": "#efeff4",
+  "usingComponents": {
+    "loading": "../../component/loading/index"
+  }
 }
