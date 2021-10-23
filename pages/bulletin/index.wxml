@@ -8,7 +8,7 @@
       <view class="item-inner">
         <view class="item-title-row">
           <view class="item-title">
-            <view class="circle bg-{{label === '公告' ? 'green' : (label === '资讯' ? 'purple' : 'orange')}}"></view>
+            <view class="circle bg-{{utils.getColor(label)}}"></view>
             <text>{{item.title}}</text>
           </view>
         </view>
@@ -20,3 +20,16 @@
     </navigator>
   </view>
 </view>
+
+<wxs module="utils">
+  function getColor(name) {
+    switch (name) {
+      case '公告': return 'green';
+      case '资讯': return 'purple';
+      case '政策': return 'yellow';
+      case '指南': return 'orange';
+    }
+  }
+
+  module.exports.getColor = getColor;
+</wxs>

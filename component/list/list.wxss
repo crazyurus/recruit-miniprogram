@@ -141,3 +141,7 @@
 .circle.bg-red {
   background: rgb(254, 50, 101);
 }
+
+.circle.bg-yellow {
+  background: #fc0;
+}
