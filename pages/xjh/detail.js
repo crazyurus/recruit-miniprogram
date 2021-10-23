@@ -132,6 +132,9 @@ Page({
     }
   },
   showAddressMap() {
+    if (this.data.article.place === '空中宣讲会') {
+      return;
+    }
     app.address({
       name: this.data.article.universityName, 
       description: this.data.article.place,
