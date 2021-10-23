@@ -1,11 +1,10 @@
 <template name="tabbar">
   <view class="tabbar">
     <view class="buttons-row">
-      <view class="tab {{tab == 1 ? 'active' : ''}}" data-tab="1" bindtap="switchTabs">面试</view>
-      <view class="tab {{tab == 2 ? 'active' : ''}}" data-tab="2" bindtap="switchTabs">笔试</view>
-      <view class="tab {{tab == 3 ? 'active' : ''}}" data-tab="3" bindtap="switchTabs">简历</view>
-      <view class="tab {{tab == 4 ? 'active' : ''}}" data-tab="4" bindtap="switchTabs">实习</view>
-      <view class="tab {{tab == 0 ? 'active' : ''}}" data-tab="0" bindtap="switchTabs">企业</view>
+      <view class="tab {{tab === '17c226b1-6fe3-8ea5-9a8d-6ecb2e89f70c' ? 'active' : ''}}" data-label="公告" data-tab="17c226b1-6fe3-8ea5-9a8d-6ecb2e89f70c" bindtap="switchTabs">公告</view>
+      <view class="tab {{tab === '8ff59fcc-831a-ebd4-c018-a30eddc693a8' ? 'active' : ''}}" data-tab="8ff59fcc-831a-ebd4-c018-a30eddc693a8" data-label="资讯" bindtap="switchTabs">资讯</view>
+      <view class="tab {{tab === '0e58a885-bc2f-1b52-4aab-4586308cdf30' ? 'active' : ''}}" data-tab="0e58a885-bc2f-1b52-4aab-4586308cdf30" data-label="政策" bindtap="switchTabs">政策</view>
+      <view class="tab {{tab === 'cfd0d61b-2137-f943-7c9d-219a9242022c' ? 'active' : ''}}" data-label="指南" data-tab="cfd0d61b-2137-f943-7c9d-219a9242022c" bindtap="switchTabs">指南</view>
     </view>
   </view>
 </template>

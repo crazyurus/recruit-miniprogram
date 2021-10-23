@@ -1,4 +1,4 @@
-<import src="/component/tab/tab2.wxml" />
+<import src="/component/tab/tab.wxml" />
 
 <template is="tabbar" data="{{tab: tab}}" ></template>
 <view class="page-content">

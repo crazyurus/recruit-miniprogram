@@ -108,6 +108,15 @@ Page({
       imageUrl: this.data.company.logo,
     };
   },
+  onAddToFavorites() {
+    return {
+      title: this.data.article.title,
+      imageUrl: this.data.company.logo,
+      success() {
+        app.toast('收藏成功');
+      }
+    };
+  },
   onPageScroll(e) {
     if (e.scrollTop <= 60 && this.data.title) {
       this.data.title = false;
