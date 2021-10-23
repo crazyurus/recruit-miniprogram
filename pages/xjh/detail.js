@@ -45,7 +45,7 @@ Page({
           startTime: dayjs(result.hold_date + ' ' + result.hold_starttime + ':00').unix(),
           endTime: dayjs(result.hold_date + ' ' + result.hold_endtime + ':00').unix(),
           universityName: result.school_id_name,
-          place: result.address || result.tmp_field_name,
+          place: result.address || result.tmp_field_name || '空中宣讲会',
           view: result.viewcount,
           content: result.remarks,
           tips: result.schoolwarn,

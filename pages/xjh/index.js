@@ -60,7 +60,6 @@ Page({
       size: 10,
       isunion: 2,
       laiyuan: 0,
-      isair: 3,
       keywords: '',
       hold_date: dayjs(this.data.calendar.list[this.data.calendar.group][this.data.calendar.current].value).format('YYYY-M-D'),
     }).then(result => {
@@ -76,7 +75,7 @@ Page({
           company: item.com_id_name,
           backgroundColor: colorArray[(i + this.data.left) % colorArray.length],
           universityName: item.school_id_name,
-          place: item.address || item.tmp_field_name,
+          place: item.address || item.tmp_field_name || '空中宣讲会',
           view: item.viewcount,
           time: item.hold_date + ' ' + item.hold_starttime + '-' + item.hold_endtime,
           isExpired: item.timestatus === 3,
