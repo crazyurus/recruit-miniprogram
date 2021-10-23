@@ -61,7 +61,7 @@ button[open-type] {
 
 .xjh-empty {
   display: flex;
-  height: calc(100vh - 48px);
+  height: calc(100vh - 72px);
   align-items: center;
   color: #646a73;
   justify-content: center;

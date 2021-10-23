@@ -37,7 +37,12 @@ Page({
       show_type: 2,
       cate_id: this.data.tab,
     }).then(result => {
-      if (this.data.page > 1 && result.list.length === 0) return;
+      if (result.list.length === 0) {
+        this.setData({
+          loading: false,
+        });
+        return;
+      }
 
       this.data.page++;
       wx.stopPullDownRefresh();
@@ -52,7 +57,7 @@ Page({
       });
 
       this.setData({
-        loading: list.length > 0,
+        loading: list.length >= 10,
         list: this.data.list.concat(list)
       });
     });
