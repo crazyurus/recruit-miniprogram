@@ -51,7 +51,7 @@ button.list-item[plain] {
   color: #1f2329;
 }
 
-navigator.list-item.navigator-hover, button.list-item:active { 
+navigator.list-item.navigator-hover, button.list-item:active, view.list-item:active { 
   background-color: #ececec;
   opacity: 1;
 }

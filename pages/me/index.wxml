@@ -20,7 +20,7 @@
       <image class="icon" src="../../images/module/feedback.png" />
       <view class="text">反馈</view>
     </button>
-    <navigator class="list-item">
+    <navigator class="list-item" target="miniProgram" open-type="navigate" app-id="wx8abaf00ee8c3202e" extra-data="{{tocaoExtraData}}" version="release">
       <image class="icon" src="../../images/module/tucao.png" />
       <view class="text">吐槽</view>
     </navigator>
@@ -28,9 +28,9 @@
       <image class="icon" src="../../images/module/help.png" />
       <view class="text">联系我们</view>
     </button>
-    <navigator class="list-item">
+    <view class="list-item" bindtap="about">
       <image class="icon" src="../../images/module/about.png" />
       <view class="text">关于</view>
-    </navigator>
+    </view>
   </view>
 </view>
