@@ -13,41 +13,68 @@ App({
       }
     });
   },
-  request(url, data = {}, loading = true) {
-    if (loading) wx.showNavigationBarLoading();
-    return new Promise(((resolve, reject) => {
-      wx.request({
-        url,
-        method: 'POST',
-        dataType: 'json',
-        header: {
-          'content-type': 'application/x-www-form-urlencoded',
-          auth: 'Baisc MTAyNDY6MTAyNDY=',
-        },
-        data: {
-          school_id: 'b525083d-b83c-4c7e-892f-29909421d961',
-          login_user_id: 1,
-          login_admin_school_code: '',
-          login_admin_school_id: 'b525083d-b83c-4c7e-892f-29909421d961',
-          ...data,
-        },
-        success(result) {
-          if (result.statusCode !== 200) {
-            wx.toast('服务器错误');
-            reject('Server Error')
+  request: {
+    scc(url, data = {}, loading = true) {
+      if (loading) wx.showNavigationBarLoading();
+      return new Promise(((resolve, reject) => {
+        wx.request({
+          url: 'https://a.jiuyeb.cn/mobile.php' + url,
+          method: 'POST',
+          dataType: 'json',
+          header: {
+            'Content-Type': 'application/x-www-form-urlencoded',
+            Auth: 'Baisc MTAyNDY6MTAyNDY=',
+          },
+          data: {
+            school_id: 'b525083d-b83c-4c7e-892f-29909421d961',
+            login_user_id: 1,
+            login_admin_school_code: '',
+            login_admin_school_id: 'b525083d-b83c-4c7e-892f-29909421d961',
+            ...data,
+          },
+          success(result) {
+            if (result.statusCode !== 200) {
+              wx.toast('服务器错误');
+              reject('Server Error')
+            }
+            else if (result.data.code === 0) resolve(result.data.data);
+            else if (reject) reject(result.msg);
+          },
+          fail(result) {
+            wx.toast('网络错误');
+            if (reject) reject(result);
+          },
+          complete() {
+            if (loading) wx.hideNavigationBarLoading();
           }
-          else if (result.data.code === 0) resolve(result.data.data);
-          else if (reject) reject(result.msg);
-        },
-        fail(result) {
-          wx.toast('网络错误');
-          if (reject) reject(result);
-        },
-        complete() {
-          if (loading) wx.hideNavigationBarLoading();
-        }
-      });
-    }));
+        });
+      }));
+    },
+    iwut(url, loading = true) {
+      if (loading) wx.showNavigationBarLoading();
+      return new Promise(((resolve, reject) => {
+        wx.request({
+          url: 'https://test-api-iwut.itoken.team/v1/news' + url,
+          method: 'GET',
+          dataType: 'json',
+          success(result) {
+            if (result.statusCode !== 200) {
+              wx.toast('服务器错误');
+              reject('Server Error')
+            }
+            else if (result.data.code === 0) resolve(result.data.data);
+            else if (reject) reject(result.message);
+          },
+          fail(result) {
+            wx.toast('网络错误');
+            if (reject) reject(result);
+          },
+          complete() {
+            if (loading) wx.hideNavigationBarLoading();
+          }
+        });
+      }));
+    }
   },
   alert(param) {
     if (typeof param === 'string') {

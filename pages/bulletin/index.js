@@ -31,7 +31,7 @@ Page({
     this.loadNoticeList();
   },
   loadNoticeList() {
-    app.request('https://a.jiuyeb.cn/mobile.php/Article/getlist', {
+    app.request.scc('/Article/getlist', {
       page: this.data.page,
       size: 10,
       show_type: 2,

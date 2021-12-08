@@ -21,36 +21,30 @@ Page({
     this.loadNoticeList();
   },
   loadNoticeList() {
-    wx.request({
-      method: 'GET',
-      url: 'https://test-api-iwut.itoken.team/v1/news/list?page=' + this.data.page + '&pagesize=10',
-      success: result => {
-        result.list = result.data.data;
-
-        if (result.list.length === 0) {
-          this.setData({
-            loading: false,
-          });
-          return;
-        }
-  
-        this.data.page++;
-        wx.stopPullDownRefresh();
-  
-        const list = result.list.map(item => {
-          return {
-            id: item.postId,
-            title: item.title.replace(/^【(\S+)】/, ''),
-            time: app.formatTimestamp(item.publishDate),
-            source: item.source,
-          };
-        });
-  
+    app.request.iwut('/list?page=' + this.data.page + '&pagesize=10').then(result => {
+      if (result.length === 0) {
         this.setData({
-          loading: list.length >= 10,
-          list: this.data.list.concat(list)
+          loading: false,
         });
-      },
+        return;
+      }
+
+      this.data.page++;
+      wx.stopPullDownRefresh();
+
+      const list = result.map(item => {
+        return {
+          id: item.postId,
+          title: item.title.replace(/^【(\S+)】/, ''),
+          time: app.formatTimestamp(item.publishDate),
+          source: item.source,
+        };
+      });
+
+      this.setData({
+        loading: list.length >= 10,
+        list: this.data.list.concat(list)
+      });
     });
   },
   reset() {

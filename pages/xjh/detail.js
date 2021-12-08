@@ -33,7 +33,7 @@ Page({
     });
     this.onCache();
 
-    app.request('https://a.jiuyeb.cn/mobile.php/preach/detail', {
+    app.request.scc('/preach/detail', {
       id: options.id,
     }, false).then(result => {
       this.setData({

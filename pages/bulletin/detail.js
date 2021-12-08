@@ -8,7 +8,7 @@ Page({
     },
   },
   onLoad(options) {
-    app.request('https://a.jiuyeb.cn/mobile.php/Article/detail', {
+    app.request.scc('/Article/detail', {
       id: options.id,
       show_type: 2
     }, false).then(result => {

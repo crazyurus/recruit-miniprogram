@@ -55,7 +55,7 @@ Page({
     });
   },
   loadNoticeList() {
-    app.request('https://a.jiuyeb.cn/mobile.php/preach/getlist', {
+    app.request.scc('/preach/getlist', {
       page: this.data.page,
       size: 10,
       isunion: 2,

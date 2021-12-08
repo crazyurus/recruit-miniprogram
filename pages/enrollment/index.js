@@ -29,7 +29,7 @@ Page({
     this.loadNoticeList();
   },
   loadNoticeList() {
-    app.request('https://a.jiuyeb.cn/mobile.php/enrollment/getlist', {
+    app.request.scc('/enrollment/getlist', {
       page: this.data.page,
       size: 10,
       keywords: this.data.search.keyword,

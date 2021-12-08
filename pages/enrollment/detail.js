@@ -19,7 +19,7 @@ Page({
       title: ' '
     });
 
-    app.request('https://a.jiuyeb.cn/mobile.php/enrollment/detail', {
+    app.request.scc('/enrollment/detail', {
       id: options.id,
     }, false).then(result => {
       this.setData({

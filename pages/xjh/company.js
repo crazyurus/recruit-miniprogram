@@ -5,7 +5,7 @@ Page({
     company: {},
   },
   onLoad(options) {
-    app.request('https://a.jiuyeb.cn/mobile.php/com/detail', {
+    app.request.scc('/com/detail', {
       id: options.id,
     }).then(result => {
       this.setData({

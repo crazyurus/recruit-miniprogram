@@ -15,16 +15,10 @@ Page({
       });
     }
 
-    wx.request({
-      method: 'GET',
-      url: 'https://test-api-iwut.itoken.team/v1/news/content?postId=' + options.id,
-      success: result => {
-        const article = result.data.data;
-
-        this.setData({
-          'article.content':  article.content.replace(/font/g, 'f').replace('<div class="art_tit">', '<div class="art_tit" style="display: none">').replace('<title>新闻详情</title>', ''),
-        });
-      },
+    app.request.iwut('/content?postId=' + options.id, false).then(article => {
+      this.setData({
+        'article.content':  article.content.replace(/font/g, 'f').replace('<div class="art_tit">', '<div class="art_tit" style="display: none">').replace('<title>新闻详情</title>', ''),
+      });
     });
   },
   onUnload() {
