@@ -27,7 +27,7 @@
     switch (name) {
       case '公告': return 'green';
       case '资讯': return 'purple';
-      case '政策': return 'yellow';
+      case '政策': return 'pink';
       case '指南': return 'orange';
     }
   }

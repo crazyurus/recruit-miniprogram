@@ -11,15 +11,15 @@
   </view>
   <view class="xjh-info">
     <view class="xjh-info-line xjh-info-address" bindtap="addToCalendar">
-      <image class="xjh-info-icon" src="../../images/time.png" />
+      <image class="xjh-info-icon" src="../../images/icon/time.png" />
       <text>举办时间：{{article.time}}</text>
     </view>
     <view class="xjh-info-line">
-      <image class="xjh-info-icon" src="../../images/university.png" />
+      <image class="xjh-info-icon" src="../../images/icon/university.png" />
       <text>举办学校：{{article.universityName}}</text>
     </view>
     <view class="xjh-info-line {{article.place === '空中宣讲会' ? '' : 'xjh-info-address'}}" bindtap="showAddressMap" wx:if="{{article.place}}">
-      <image class="xjh-info-icon" src="../../images/address.png" />
+      <image class="xjh-info-icon" src="../../images/icon/address.png" />
       <text wx:if="{{article.place == '空中宣讲会'}}">{{article.place}}</text>
       <text wx:else>举办地点：{{article.place}}</text>
     </view>

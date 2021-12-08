@@ -7,7 +7,9 @@
     "pages/bulletin/detail",
     "pages/enrollment/index",
     "pages/enrollment/detail",
-    "pages/common/map"
+    "pages/me/index",
+    "pages/common/map",
+    "pages/common/webview"
   ],
   "window": {
     "navigationBarBackgroundColor": "#45c8dc",
@@ -24,20 +26,26 @@
       {
         "pagePath": "pages/xjh/index",
         "text": "宣讲会",
-        "iconPath": "/images/xjh.png",
-        "selectedIconPath": "/images/xjh_s.png"
+        "iconPath": "/images/tabbar/xjh.png",
+        "selectedIconPath": "/images/tabbar/xjh_s.png"
       },
       {
         "pagePath": "pages/enrollment/index",
         "text": "招聘",
-        "iconPath": "/images/job.png",
-        "selectedIconPath": "/images/job_s.png"
+        "iconPath": "/images/tabbar/job.png",
+        "selectedIconPath": "/images/tabbar/job_s.png"
       },
       {
         "pagePath": "pages/bulletin/index",
         "text": "通知",
-        "iconPath": "/images/bulletin.png",
-        "selectedIconPath": "/images/bulletin_s.png"
+        "iconPath": "/images/tabbar/bulletin.png",
+        "selectedIconPath": "/images/tabbar/bulletin_s.png"
+      },
+      {
+        "pagePath": "pages/me/index",
+        "text": "我",
+        "iconPath": "/images/tabbar/me.png",
+        "selectedIconPath": "/images/tabbar/me_s.png"
       }
     ]
   },

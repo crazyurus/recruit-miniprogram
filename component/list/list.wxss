@@ -138,8 +138,8 @@
   background: rgb(139, 135, 254);
 }
 
-.circle.bg-red {
-  background: rgb(254, 50, 101);
+.circle.bg-pink {
+  background: #ffc0Cb;
 }
 
 .circle.bg-yellow {
