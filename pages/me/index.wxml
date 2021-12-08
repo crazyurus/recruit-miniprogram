@@ -20,10 +20,10 @@
       <image class="icon" src="../../images/module/feedback.png" />
       <view class="text">反馈</view>
     </button>
-    <navigator class="list-item" target="miniProgram" open-type="navigate" app-id="wx8abaf00ee8c3202e" extra-data="{{tocaoExtraData}}" version="release">
+    <view class="list-item" bindtap="tucao">
       <image class="icon" src="../../images/module/tucao.png" />
       <view class="text">吐槽</view>
-    </navigator>
+    </view>
     <button class="list-item" open-type="contact" plain="true" hover-class="none">
       <image class="icon" src="../../images/module/help.png" />
       <view class="text">联系我们</view>
