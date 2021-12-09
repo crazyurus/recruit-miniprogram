@@ -4,6 +4,7 @@ App({
   globalData: {},
   onLaunch() {
     const updateManager = wx.getUpdateManager();
+    this.logger = wx.getRealtimeLogManager();
 
     updateManager.onUpdateReady(async () => {
       const result = await this.alert('新版本已经准备好，是否重启应用？');
@@ -12,6 +13,9 @@ App({
         updateManager.applyUpdate()
       }
     });
+
+    this.request.scc = this.request.scc.bind(this);
+    this.request.iwut = this.request.iwut.bind(this);
   },
   request: {
     scc(url, data = {}, loading = true) {
@@ -33,22 +37,21 @@ App({
             ...data,
           },
           success(result) {
-            if (result.statusCode !== 200) {
-              wx.toast('服务器错误');
-              reject('Server Error')
-            }
+            if (result.statusCode !== 200) reject('服务器错误 ' + result.statusCode);
             else if (result.data.code === 0) resolve(result.data.data);
-            else if (reject) reject(result.msg);
+            else reject(result.msg);
           },
           fail(result) {
-            wx.toast('网络错误');
-            if (reject) reject(result);
+            if (reject) reject(result.errMsg);
           },
           complete() {
             if (loading) wx.hideNavigationBarLoading();
           }
         });
-      }));
+      })).catch(error => {
+        this.logger.error('[Request] scc', url, error);
+        this.toast(error);
+      });
     },
     iwut(url, loading = true) {
       if (loading) wx.showNavigationBarLoading();
@@ -58,22 +61,21 @@ App({
           method: 'GET',
           dataType: 'json',
           success(result) {
-            if (result.statusCode !== 200) {
-              wx.toast('服务器错误');
-              reject('Server Error')
-            }
+            if (result.statusCode !== 200) reject('服务器错误 ' + result.statusCode);
             else if (result.data.code === 0) resolve(result.data.data);
-            else if (reject) reject(result.message);
+            else reject(result.message);
           },
           fail(result) {
-            wx.toast('网络错误');
-            if (reject) reject(result);
+            reject(result.errMsg);
           },
           complete() {
             if (loading) wx.hideNavigationBarLoading();
           }
         });
-      }));
+      })).catch(error => {
+        this.logger.error('[Request] iwut', url, error);
+        this.toast('网络错误');
+      });
     }
   },
   alert(param) {
@@ -173,5 +175,8 @@ App({
   },
   formatTimestamp(timestamp) {
     return dayjs(timestamp * 1000).format('YYYY-M-D');
+  },
+  logger() {
+    return this.logger;
   },
 });
