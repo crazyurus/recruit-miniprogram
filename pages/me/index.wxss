@@ -4,7 +4,7 @@ page, .page-content {
 
 .header-top {
   background-color: #45c8dc;
-  height: 160rpx;
+  height: 190rpx;
 }
 
 .header-bottom {
@@ -17,7 +17,7 @@ page, .page-content {
 .user-avatar {
   position: relative;
   left: 48rpx;
-  top: 64rpx;
+  top: 100rpx;
   display: block;
   width: 160rpx;
   height: 160rpx;

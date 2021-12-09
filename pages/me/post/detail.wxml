@@ -4,6 +4,6 @@
     <mp-html content="{{article.content}}" scroll-table tag-style="{{contentStyle}}" />
   </view>
   <view class="footer">
-    <button class="button" open-type="share" share-mode="{{['qq', 'qzone', 'wechatFriends', 'wechatMoment']}}" hover-class="button-active">分享</button>
+    <button class="button" open-type="share" hover-class="button-active">分享</button>
   </view>
 </view>

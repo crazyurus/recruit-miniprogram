@@ -47,6 +47,6 @@
     </view>
   </block>
   <view class="xjh-share">
-    <button open-type="share" plain="true" share-mode="{{['qq', 'qzone', 'wechatFriends', 'wechatMoment']}}" hover-class="none">分享给同学</button>
+    <button open-type="share" plain="true" hover-class="none">分享给同学</button>
   </view>
 </view>
