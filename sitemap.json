@@ -3,7 +3,23 @@
   "rules": [
     {
       "action": "allow",
-      "page": "*"
+      "page": "pages/xjh/detail",
+      "params": [
+        "id"
+      ],
+      "matching": "inclusive"
+    },
+    {
+      "action": "disallow",
+      "page": "pages/me/index"
+    },
+    {
+      "action": "disallow",
+      "page": "pages/me/post/index"
+    },
+    {
+      "action": "disallow",
+      "page": "pages/me/post/detail"
     }
   ]
 }
