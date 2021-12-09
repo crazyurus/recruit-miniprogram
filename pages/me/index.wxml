@@ -1,6 +1,6 @@
 <view class="page-content">
   <view class="header">
-    <view class="header-top">
+    <view class="header-top" bindlongpress="showPostModule">
       <open-data class="user-avatar" type="userAvatarUrl" />
     </view>
     <view class="header-bottom">
@@ -8,7 +8,7 @@
     </view>
   </view>
   <view class="list">
-    <navigator class="list-item" url="./post/index">
+    <navigator wx:if="{{enablePostModule}}" class="list-item" url="./post/index">
       <image class="icon" src="../../images/module/post.png" />
       <view class="text">校园资讯</view>
     </navigator>

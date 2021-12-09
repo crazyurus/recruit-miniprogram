@@ -3,6 +3,19 @@ const app = getApp();
 Page({
   data: {
     isQQ: app.isQQ,
+    enablePostModule: false,
+  },
+  showPostModule() {
+    if (this.data.enablePostModule) {
+      return;
+    }
+
+    wx.vibrateShort({
+      type: 'heavy',
+    });
+    this.setData({
+      enablePostModule: true,
+    });
   },
   tucao() {
     if (this.data.isQQ) {
