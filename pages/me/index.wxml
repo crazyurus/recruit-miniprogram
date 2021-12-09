@@ -24,10 +24,14 @@
       <image class="icon" src="../../images/module/tucao.png" />
       <view class="text">吐槽</view>
     </view>
-    <view wx:if="{{isQQ}}" class="list-item" bindtap="privacy">
-      <image class="icon" src="../../images/module/help.png" />
+    <view class="list-item" bindtap="privacy">
+      <image class="icon" src="../../images/module/privacy.png" />
       <view class="text">隐私协议</view>
     </view>
+    <button wx:if="{{isQQ}}" class="list-item" open-type="openGroupProfile" group-id="420082599" plain="true" hover-class="none">
+      <image class="icon" src="../../images/module/help.png" />
+      <view class="text">联系我们</view>
+    </button>
     <button wx:else class="list-item" open-type="contact" plain="true" hover-class="none">
       <image class="icon" src="../../images/module/help.png" />
       <view class="text">联系我们</view>

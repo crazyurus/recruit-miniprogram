@@ -51,5 +51,11 @@
       }
     ]
   },
-  "sitemapLocation": "sitemap.json"
+  "sitemapLocation": "sitemap.json",
+  "groupIdList": [
+    "420082599"
+  ],
+  "navigateToMiniProgramAppIdList": [
+    "1108338344"
+  ]
 }
