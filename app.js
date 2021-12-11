@@ -7,7 +7,7 @@ App({
     this.logger = wx.getRealtimeLogManager();
 
     updateManager.onUpdateReady(async () => {
-      const result = await this.alert('新版本已经准备好，是否重启应用？');
+      const result = await this.confirm('新版本已经准备好，是否重启应用？');
 
       if (result.confirm) {
         updateManager.applyUpdate()
@@ -78,32 +78,47 @@ App({
       });
     }
   },
-  alert(param) {
-    if (typeof param === 'string') {
-      param = {
-        content: param
+  alert(params) {
+    if (typeof params === 'string') {
+      params = {
+        content: params
       };
     }
 
     return new Promise((resolve, reject) => {
       wx.showModal({
-        title: param.title || '就业招聘',
-        content: param.content,
-        showCancel: false,
-        confirmColor: param.color || '#45c8dc',
+        title: params.title || '就业招聘',
+        content: params.content,
+        showCancel: params.showCancel || false,
+        confirmColor: '#45c8dc',
+        confirmText: params.confirmText || '确定',
         success: resolve,
         fail: reject,
       });
     });
   },
-  toast(title) {
+  confirm(params) {
+    if (typeof params === 'string') {
+      params = {
+        content: params,
+      };
+    }
+
+    params.showCancel = true;
+
+    return this.alert(params);
+  },
+  toast(title, icon = 'none') {
     wx.showToast({
       title: title,
-      icon: 'none'
+      icon,
+      duration: 1500,
     });
   },
   loading(title) {
     wx.showLoading({ title });
+
+    return wx.hideLoading;
   },
   about() {
     this.alert('Token团队出品\r\n产品&设计&开发：廖星');
@@ -122,8 +137,8 @@ App({
       const SDK = new QQMap({
         key: 'BP7BZ-6FXRV-6CNP3-UDXK2-GJ36S-VFBN7',
       });
+      const hideLoading = this.loading('获取地理位置中');
 
-      this.loading('获取地理位置中');
       location = await new Promise((resolve, reject) => {
         SDK.geocoder({
           address,
@@ -137,7 +152,7 @@ App({
             reject(res.message);
           },
           complete() {
-            wx.hideLoading();
+            hideLoading();
           }
         });
       }).catch(errMsg => {
@@ -178,5 +193,10 @@ App({
   },
   logger() {
     return this.logger;
+  },
+  openURL(url) {
+    wx.navigateTo({
+      url: '/pages/common/webview?url=' + encodeURIComponent(url),
+    });
   },
 });

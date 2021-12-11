@@ -61,7 +61,7 @@ Page({
       title: this.data.article.title,
       path: app.sharePath(this),
       success() {
-        app.toast('分享成功');
+        app.toast('分享成功', 'success');
       }
     };
   },

@@ -1,3 +1,7 @@
+page {
+  padding-bottom: 16rpx;
+}
+
 .section {
   margin: 32rpx 48rpx 64rpx;
 }
@@ -19,21 +23,21 @@
 
 .calendar {
   width: 100%;
-  min-height: 480rpx;
-  border-radius: 12rpx;
+  min-height: 482rpx;
+  border-radius: 6px;
   box-shadow: 0 2rpx 8rpx 2rpx #dcdcdc;
   background-color: #efeff4;
   margin-bottom: 32rpx;
 }
 
 .button {
-  height: 56rpx;
-  padding: 16rpx 48rpx;
+  height: 28px;
+  padding: 8px 24px;
   background-color: #45c8dc;
   color: #fff;
   text-align: center;
-  line-height: 56rpx;
-  border-radius: 12rpx;
+  line-height: 28px;
+  border-radius: 6px;
   font-size: 16px;
 }
 
@@ -56,7 +60,8 @@ audio {
   position: relative;
   text-decoration: none;
   display: flex;
-  height: 44px;
+  height: 48px;
+  line-height: 0;
   align-items: center;
   padding: 0 48rpx;
   background-size: 8px 13px;
@@ -84,14 +89,14 @@ audio {
 }
 
 .list-item > .icon {
-  width: 20px;
-  height: 20px;
-  margin-left: 10px;
+  width: 22px;
+  height: 22px;
+  margin-left: 8px;
 }
 
 .list-item > .text {
   flex-grow: 1;
-  margin-left: 20px;
+  margin-left: 32rpx;
   color: #787878;
   font-size: 16px;
 }

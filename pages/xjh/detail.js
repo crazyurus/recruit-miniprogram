@@ -98,7 +98,7 @@ Page({
       title: this.data.article.title,
       path: app.sharePath(this),
       success() {
-        app.toast('分享成功');
+        app.toast('分享成功', 'success');
       }
     };
   },
@@ -113,7 +113,7 @@ Page({
       title: this.data.article.title,
       imageUrl: this.data.company.logo,
       success() {
-        app.toast('收藏成功');
+        app.toast('收藏成功', 'success');
       }
     };
   },
@@ -149,7 +149,7 @@ Page({
       startTime: this.data.article.startTime,
       endTime: this.data.article.endTime,
       success() {
-        app.toast('添加成功');
+        app.toast('添加成功', 'success');
       },
     });
   },
