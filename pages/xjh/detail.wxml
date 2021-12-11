@@ -54,13 +54,13 @@
       </block>
       <view class="xjh-content-after">
         <text>阅读 {{article.view}}</text>
-        <button open-type="feedback" plain="true" hover-class="none" style="color: {{backgroundColor}}">反馈</button>
+        <button open-type="feedback" plain hover-class="none" style="color: {{backgroundColor}}">反馈</button>
       </view>
     </view>
   </block>
   <view class="xjh-share">
-    <button hidden="{{!isQQ}}" plain="true" hover-class="none" style="background-color: {{backgroundColor}}" open-type="addToFavorites">添加到收藏</button>
-    <button hidden="{{isExpired || isQQ}}" plain="true" hover-class="none" style="background-color: {{backgroundColor}}" bindtap="addToCalendar">添加到日程</button>
-    <button open-type="share" plain="true" hover-class="none" style="background-color: {{isExpired && !isQQ ? backgroundColor : '#45c8dc'}}">分享给同学</button>
+    <button hidden="{{!isQQ}}" plain hover-class="none" style="background-color: {{backgroundColor}}" open-type="addToFavorites">添加到收藏</button>
+    <button hidden="{{isExpired || isQQ}}" plain hover-class="none" style="background-color: {{backgroundColor}}" bindtap="addToCalendar">添加到日程</button>
+    <button open-type="share" plain hover-class="none" style="background-color: {{isExpired && !isQQ ? backgroundColor : '#45c8dc'}}">分享给同学</button>
   </view>
 </view>

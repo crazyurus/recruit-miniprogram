@@ -19,15 +19,12 @@ page, .page-content {
 }
 
 .form-value {
-  font-size: 16px;
-  font-weight: bold;
   margin-bottom: 12px;
 }
 
-.form-link {
-  font-weight: normal;
-  font-size: 14px;
-  color: #45c8dc;
+.form-value:not(.link) {
+  font-size: 16px;
+  font-weight: bold;
 }
 
 .form-footer {

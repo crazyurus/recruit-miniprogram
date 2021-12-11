@@ -173,10 +173,6 @@ page, .page-content {
   background-color: #ed9d81;
 }
 
-.link {
-  color: #45c8dc;
-}
-
 .sk-no-arrow {
   background-image: none;
 }

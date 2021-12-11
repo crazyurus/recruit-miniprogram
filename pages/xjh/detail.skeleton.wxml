@@ -27,7 +27,7 @@
     </view>
     <view class="xjh-content-after">
       <text class="sk-transparent sk-text-14-2857-232 sk-text">阅读 643</text>
-      <button hover-class="none" open-type="feedback" plain="true" class="sk-transparent sk-button sk-pseudo sk-pseudo-circle">反馈</button>
+      <button hover-class="none" open-type="feedback" plain class="sk-transparent sk-button sk-pseudo sk-pseudo-circle">反馈</button>
     </view>
   </view>
 </template>

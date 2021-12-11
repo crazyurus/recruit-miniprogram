@@ -16,11 +16,11 @@
     <view class="form-value">{{company.start_time}}</view>
     <block wx:if="{{company.weburl}}">
       <view class="form-label">企业网站</view>
-      <view class="form-value form-link">{{company.weburl}}</view>
+      <view class="form-value link">{{company.weburl}}</view>
     </block>
     <block wx:if="{{company.address}}">
       <view class="form-label">地址</view>
-      <view class="form-value form-link" bindtap="openLocation">{{company.address}}</view>
+      <view class="form-value link" bindtap="openLocation">{{company.address}}</view>
     </block>
     <view wx:if="{{company.verify_time}}" class="form-footer">该企业已于 {{company.verify_time}} 通过审核</view>
   </view>

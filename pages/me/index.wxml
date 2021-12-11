@@ -12,11 +12,15 @@
       <image class="icon" src="../../images/module/post.png" />
       <view class="text">校园资讯</view>
     </navigator>
-    <button class="list-item" open-type="openSetting" plain="true" hover-class="none">
+    <navigator class="list-item" url="./calendar/index">
+      <image class="icon" src="../../images/module/calendar.png" />
+      <view class="text">校历</view>
+    </navigator>
+    <button class="list-item" open-type="openSetting" plain hover-class="none">
       <image class="icon" src="../../images/module/setting.png" />
       <view class="text">设置</view>
     </button>
-    <button class="list-item" open-type="feedback" plain="true" hover-class="none">
+    <button class="list-item" open-type="feedback" plain hover-class="none">
       <image class="icon" src="../../images/module/feedback.png" />
       <view class="text">反馈</view>
     </button>
@@ -28,11 +32,11 @@
       <image class="icon" src="../../images/module/privacy.png" />
       <view class="text">隐私协议</view>
     </view>
-    <button wx:if="{{isQQ}}" class="list-item" open-type="openGroupProfile" group-id="420082599" plain="true" hover-class="none">
+    <button wx:if="{{isQQ}}" class="list-item" open-type="openGroupProfile" group-id="420082599" plain hover-class="none">
       <image class="icon" src="../../images/module/help.png" />
       <view class="text">联系我们</view>
     </button>
-    <button wx:else class="list-item" open-type="contact" plain="true" hover-class="none">
+    <button wx:else class="list-item" open-type="contact" plain hover-class="none">
       <image class="icon" src="../../images/module/help.png" />
       <view class="text">联系我们</view>
     </button>

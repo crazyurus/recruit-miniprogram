@@ -23,10 +23,6 @@ page {
   text-align: center;
 }
 
-.link {
-  color: #45c8dc;
-}
-
 .button {
   display: inline-block;
   margin-left: auto;

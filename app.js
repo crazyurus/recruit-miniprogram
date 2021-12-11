@@ -50,7 +50,7 @@ App({
         });
       })).catch(error => {
         this.logger.error('[Request] scc', url, error);
-        this.toast(error);
+        this.toast('网络错误');
       });
     },
     iwut(url, loading = true) {

@@ -20,6 +20,10 @@
     {
       "action": "disallow",
       "page": "pages/me/post/detail"
+    },
+    {
+      "action": "disallow",
+      "page": "pages/me/calendar/index"
     }
   ]
 }

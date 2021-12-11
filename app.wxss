@@ -24,20 +24,11 @@
   margin: 35px 15px 10px;
 }
 
-button[type="primary"] {
-  background-color: #45c8dc;
-  font-size: 17px;
-  height: 44px;
-  line-height: 42px;
-  border-radius: 5px;
-  margin: 0 15px;
-}
-
-.button-hover, button[disabled][type="primary"] {
-  background-color: #45c8dc !important;
-  opacity: 0.8;
-}
-
 button::after {
   border: none;
+}
+
+.link {
+  color: #45c8dc;
+  font-size: 14px;
 }
