@@ -23,19 +23,11 @@ Page({
 
     const hideLoading = app.loading('保存中');
     try {
-      const { tempFilePath } = await new Promise((resolve, reject) => {
-        wx.downloadFile({
-          url: this.data.calendarURL,
-          success: resolve,
-          fail: reject,
-        });
+      const { tempFilePath } = await wx.promises.downloadFile({
+        url: this.data.calendarURL,
       });
-      await new Promise((resolve, reject) => {
-        wx.saveImageToPhotosAlbum({
-          filePath: tempFilePath,
-          success: resolve,
-          fail: reject,
-        });
+      await wx.promises.saveImageToPhotosAlbum({
+        filePath: tempFilePath,
       });
 
       hideLoading();

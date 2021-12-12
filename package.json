@@ -12,6 +12,7 @@
   "license": "ISC",
   "dependencies": {
     "dayjs": "^1.10.7",
+    "miniprogram-api-promise": "^1.0.4",
     "mp-html": "^2.1.5"
   }
 }

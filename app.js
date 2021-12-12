@@ -1,4 +1,8 @@
 const dayjs = require('dayjs');
+const { promisifyAll } = require('miniprogram-api-promise');
+
+wx.promises = {};
+promisifyAll(wx, wx.promises);
 
 App({
   globalData: {},
@@ -20,61 +24,51 @@ App({
   request: {
     scc(url, data = {}, loading = true) {
       if (loading) wx.showNavigationBarLoading();
-      return new Promise(((resolve, reject) => {
-        wx.request({
-          url: 'https://a.jiuyeb.cn/mobile.php' + url,
-          method: 'POST',
-          dataType: 'json',
-          header: {
-            'Content-Type': 'application/x-www-form-urlencoded',
-            Auth: 'Baisc MTAyNDY6MTAyNDY=',
-          },
-          data: {
-            school_id: 'b525083d-b83c-4c7e-892f-29909421d961',
-            login_user_id: 1,
-            login_admin_school_code: '',
-            login_admin_school_id: 'b525083d-b83c-4c7e-892f-29909421d961',
-            ...data,
-          },
-          success(result) {
-            if (result.statusCode !== 200) reject('服务器错误 ' + result.statusCode);
-            else if (result.data.code === 0) resolve(result.data.data);
-            else reject(result.msg);
-          },
-          fail(result) {
-            if (reject) reject(result.errMsg);
-          },
-          complete() {
-            if (loading) wx.hideNavigationBarLoading();
-          }
-        });
-      })).catch(error => {
+      return wx.promises.request({
+        url: 'https://a.jiuyeb.cn/mobile.php' + url,
+        method: 'POST',
+        dataType: 'json',
+        header: {
+          'Content-Type': 'application/x-www-form-urlencoded',
+          Auth: 'Baisc MTAyNDY6MTAyNDY=',
+        },
+        data: {
+          school_id: 'b525083d-b83c-4c7e-892f-29909421d961',
+          login_user_id: 1,
+          login_admin_school_code: '',
+          login_admin_school_id: 'b525083d-b83c-4c7e-892f-29909421d961',
+          ...data,
+        }
+      }).then(result => {
+        if (result.statusCode !== 200) return Promise.reject('服务器错误 ' + result.statusCode);
+        else if (result.data.code === 0) return result.data.data;
+        else Promise.reject(result.msg);
+      }, result => {
+        return Promise.reject(result.errMsg);
+      }).catch(error => {
         this.logger.error('[Request] scc', url, error);
         this.toast('网络错误');
+      }).finally(() => {
+        if (loading) wx.hideNavigationBarLoading();
       });
     },
     iwut(url, loading = true) {
       if (loading) wx.showNavigationBarLoading();
-      return new Promise(((resolve, reject) => {
-        wx.request({
-          url: 'https://test-api-iwut.itoken.team/v1/news' + url,
-          method: 'GET',
-          dataType: 'json',
-          success(result) {
-            if (result.statusCode !== 200) reject('服务器错误 ' + result.statusCode);
-            else if (result.data.code === 0) resolve(result.data.data);
-            else reject(result.message);
-          },
-          fail(result) {
-            reject(result.errMsg);
-          },
-          complete() {
-            if (loading) wx.hideNavigationBarLoading();
-          }
-        });
-      })).catch(error => {
+      return wx.promises.request({
+        url: 'https://test-api-iwut.itoken.team/v1/news' + url,
+        method: 'GET',
+        dataType: 'json',
+      }).then(result => {
+        if (result.statusCode !== 200) return Promise.reject('服务器错误 ' + result.statusCode);
+        else if (result.data.code === 0) return result.data.data;
+        else return Promise.reject(result.message);
+      }, result => {
+        return Promise.reject(result.errMsg);
+      }).catch(error => {
         this.logger.error('[Request] iwut', url, error);
         this.toast('网络错误');
+      }).finally(() => {
+        if (loading) wx.hideNavigationBarLoading();
       });
     }
   },
@@ -85,16 +79,12 @@ App({
       };
     }
 
-    return new Promise((resolve, reject) => {
-      wx.showModal({
-        title: params.title || '就业招聘',
-        content: params.content,
-        showCancel: params.showCancel || false,
-        confirmColor: '#45c8dc',
-        confirmText: params.confirmText || '确定',
-        success: resolve,
-        fail: reject,
-      });
+    return wx.promises.showModal({
+      title: params.title || '就业招聘',
+      content: params.content,
+      showCancel: params.showCancel || false,
+      confirmColor: '#45c8dc',
+      confirmText: params.confirmText || '确定',
     });
   },
   confirm(params) {

@@ -38,24 +38,21 @@ Page({
       });
     }
   },
-  openAttachment(e) {
+  async openAttachment(e) {
     const { url } = e.currentTarget.dataset;
+    const hideLoading = app.loading('下载中');
 
-    wx.downloadFile({
-      url,
-      success(res) {
-        wx.openDocument({
-          filePath: res.tempFilePath,
-          showMenu: true,
-          fail() {
-            app.toast('打开失败');
-          }
-        });
-      },
-      fail() {
-        app.toast('下载失败');
-      }
-    });
+    try {
+      const { tempFilePath } = await wx.promises.downloadFile({ url });
+      await wx.promises.openDocument({
+        filePath: tempFilePath,
+        showMenu: true,
+      });
+    } catch (error) {
+      app.toast('打开失败');
+    }
+
+    hideLoading();
   },
   onShareAppMessage() {
     return {
