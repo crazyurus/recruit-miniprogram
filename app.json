@@ -29,26 +29,26 @@
       {
         "pagePath": "pages/xjh/index",
         "text": "宣讲会",
-        "iconPath": "/images/tabbar/xjh.png",
-        "selectedIconPath": "/images/tabbar/xjh_s.png"
+        "iconPath": "./images/tabbar/xjh.png",
+        "selectedIconPath": "./images/tabbar/xjh_s.png"
       },
       {
         "pagePath": "pages/enrollment/index",
         "text": "招聘",
-        "iconPath": "/images/tabbar/job.png",
-        "selectedIconPath": "/images/tabbar/job_s.png"
+        "iconPath": "./images/tabbar/job.png",
+        "selectedIconPath": "./images/tabbar/job_s.png"
       },
       {
         "pagePath": "pages/bulletin/index",
         "text": "通知",
-        "iconPath": "/images/tabbar/bulletin.png",
-        "selectedIconPath": "/images/tabbar/bulletin_s.png"
+        "iconPath": "./images/tabbar/bulletin.png",
+        "selectedIconPath": "./images/tabbar/bulletin_s.png"
       },
       {
         "pagePath": "pages/me/index",
         "text": "我",
-        "iconPath": "/images/tabbar/me.png",
-        "selectedIconPath": "/images/tabbar/me_s.png"
+        "iconPath": "./images/tabbar/me.png",
+        "selectedIconPath": "./images/tabbar/me_s.png"
       }
     ]
   },
