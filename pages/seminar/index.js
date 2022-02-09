@@ -1,6 +1,6 @@
 const dayjs = require('dayjs');
-const app = getApp();
 const request = require('../../library/request');
+const store = require('../../store/index');
 
 Page({
   data: {
@@ -131,12 +131,15 @@ Page({
     const { index } = e.currentTarget.dataset;
     const item = this.data.list[index];
 
-    app.globalData.article = {
-      id: item.id,
-      title: item.title,
-      time: item.time,
-      place: item.place,
-      backgroundColor: item.backgroundColor,
-    };
+    store.dispatch({
+      type: 'SET_ARTICLE',
+      payload: {
+        id: item.id,
+        title: item.title,
+        time: item.time,
+        place: item.place,
+        backgroundColor: item.backgroundColor,
+      },
+    });
   }
 });

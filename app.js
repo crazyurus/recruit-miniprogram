@@ -5,7 +5,6 @@ wx.promises = {};
 promisifyAll(wx, wx.promises);
 
 App({
-  globalData: {},
   onLaunch() {
     const updateManager = wx.getUpdateManager();
 

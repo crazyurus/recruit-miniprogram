@@ -1,6 +1,6 @@
-const app = getApp();
 const request = require('../../library/request');
 const utils = require('../../library/utils');
+const store = require('../../store/index');
 
 Page({
   data: {
@@ -99,10 +99,13 @@ Page({
     const { index } = e.currentTarget.dataset;
     const item = this.data.list[index];
 
-    app.globalData.article = {
-      id: item.id,
-      title: item.title,
-      source: '其它企业',
-    };
+    store.dispatch({
+      type: 'SET_ARTICLE',
+      payload: {
+        id: item.id,
+        title: item.title,
+        source: '其它企业',
+      },
+    });
   },
 });

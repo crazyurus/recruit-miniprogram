@@ -1,7 +1,7 @@
-const app = getApp();
 const request = require('../../library/request');
 const utils = require('../../library/utils');
 const location = require('../../library/location');
+const store = require('../../store/index');
 
 Page({
   data: {
@@ -48,17 +48,21 @@ Page({
     });
   },
   onReady() {
-    if (app.globalData.article) {
+    const { article } = store.getState();
+
+    if (article) {
       this.setData({
         article: {
           ...this.data.article,
-          ...app.globalData.article,
+          ...article,
         },
       });
     }
   },
   onUnload() {
-    app.globalData.article = null;
+    store.dispatch({
+      type: 'CLEAR_ARTICLE',
+    });
   },
   onShareAppMessage() {
     return {

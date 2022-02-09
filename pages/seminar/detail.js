@@ -1,9 +1,9 @@
 const dayjs = require('dayjs');
-const app = getApp();
 const request = require('../../library/request');
 const ui = require('../../library/ui');
 const location = require('../../library/location');
 const utils = require('../../library/utils');
+const store = require('../../store/index');
 
 function unique(arr) {
   return Array.from(new Set(arr));
@@ -69,14 +69,16 @@ Page({
     });
   },
   onCache() {
-    if (app.globalData.article) {
-      const { backgroundColor } = app.globalData.article;
+    const { article } = store.getState();
+
+    if (article) {
+      const { backgroundColor } = article;
       this.setData({
         backgroundColor,
         opacityColor: hexToRgba(backgroundColor, 0.6),
         article: {
           ...this.data.article,
-          ...app.globalData.article,
+          ...article,
         },
         contentStyle: {
           a: 'color: ' + backgroundColor,
@@ -95,7 +97,9 @@ Page({
     }
   },
   onUnload() {
-    app.globalData.article = null;
+    store.dispatch({
+      type: 'CLEAR_ARTICLE',
+    });
   },
   onShareAppMessage() {
     return {

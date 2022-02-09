@@ -8,6 +8,7 @@
   "dependencies": {
     "dayjs": "^1.10.7",
     "miniprogram-api-promise": "^1.0.4",
+    "miniprogram-redux": "^1.1.1",
     "mp-html": "^2.1.5"
   }
 }
