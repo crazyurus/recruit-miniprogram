@@ -1,8 +1,8 @@
 {
   "pages": [
-    "pages/xjh/index",
-    "pages/xjh/detail",
-    "pages/xjh/company",
+    "pages/seminar/index",
+    "pages/seminar/detail",
+    "pages/seminar/company",
     "pages/bulletin/index",
     "pages/bulletin/detail",
     "pages/enrollment/index",
@@ -25,10 +25,10 @@
     "backgroundColor": "#f7f7f8",
     "list": [
       {
-        "pagePath": "pages/xjh/index",
+        "pagePath": "pages/seminar/index",
         "text": "宣讲会",
-        "iconPath": "./images/tabbar/xjh.png",
-        "selectedIconPath": "./images/tabbar/xjh_s.png"
+        "iconPath": "./images/tabbar/seminar.png",
+        "selectedIconPath": "./images/tabbar/seminar_s.png"
       },
       {
         "pagePath": "pages/enrollment/index",

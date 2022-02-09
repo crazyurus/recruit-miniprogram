@@ -59,7 +59,7 @@ button[open-type] {
   top: 10px;
 }
 
-.xjh-empty {
+.seminar-empty {
   display: flex;
   height: calc(100vh - 72px);
   align-items: center;

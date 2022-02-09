@@ -1,25 +1,25 @@
 <import src="./detail.skeleton.wxml"/>
 
 <view class="page-content">
-  <view class="xjh-header" style="background-color: {{backgroundColor}}">
-    <view class="xjh-title">
-      <view class="xjh-title_text">
+  <view class="seminar-header" style="background-color: {{backgroundColor}}">
+    <view class="seminar-title">
+      <view class="seminar-title_text">
         <text>{{article.title}}</text>
       </view>
-      <view class="xjh-source">来源：{{article.source}}</view>
+      <view class="seminar-source">来源：{{article.source}}</view>
     </view>
   </view>
-  <view class="xjh-info">
-    <view class="xjh-info-line xjh-info-address" bindtap="addToCalendar">
-      <image class="xjh-info-icon" src="../../images/icon/time.png" />
+  <view class="seminar-info">
+    <view class="seminar-info-line seminar-info-address" bindtap="addToCalendar">
+      <image class="seminar-info-icon" src="../../images/icon/time.png" />
       <text>举办时间：{{article.time}}</text>
     </view>
-    <view class="xjh-info-line">
-      <image class="xjh-info-icon" src="../../images/icon/university.png" />
+    <view class="seminar-info-line">
+      <image class="seminar-info-icon" src="../../images/icon/university.png" />
       <text>举办学校：{{article.universityName}}</text>
     </view>
-    <view class="xjh-info-line {{article.place === '空中宣讲会' ? '' : 'xjh-info-address'}}" bindtap="showAddressMap" wx:if="{{article.place}}">
-      <image class="xjh-info-icon" src="../../images/icon/address.png" />
+    <view class="seminar-info-line {{article.place === '空中宣讲会' ? '' : 'seminar-info-address'}}" bindtap="showAddressMap" wx:if="{{article.place}}">
+      <image class="seminar-info-icon" src="../../images/icon/address.png" />
       <text wx:if="{{article.place == '空中宣讲会'}}">{{article.place}}</text>
       <text wx:else>举办地点：{{article.place}}</text>
     </view>
@@ -27,38 +27,38 @@
 
   <template is="skeleton" wx-if="{{loading}}" />
   <block wx:else>
-    <navigator wx:if="{{company.id}}" class="xjh-company" url="company?id={{company.id}}">
-      <image class="xjh-company_logo" src="{{company.logo}}" />
-      <view class="xjh-company_content">
-        <view class="xjh-company_title">{{company.name}}</view>
-        <view class="xjh-company_text">{{company.description}}</view>
+    <navigator wx:if="{{company.id}}" class="seminar-company" url="company?id={{company.id}}">
+      <image class="seminar-company_logo" src="{{company.logo}}" />
+      <view class="seminar-company_content">
+        <view class="seminar-company_title">{{company.name}}</view>
+        <view class="seminar-company_text">{{company.description}}</view>
       </view>
     </navigator>
-    <view class="xjh-content">
+    <view class="seminar-content">
       <block wx:if="{{article.content}}">
-        <view class="xjh-content_title" style="border-bottom-color: {{opacityColor}}">宣讲会内容</view>
+        <view class="seminar-content_title" style="border-bottom-color: {{opacityColor}}">宣讲会内容</view>
         <mp-html content="{{article.content}}" scroll-table tag-style="{{contentStyle}}"></mp-html>
         <view wx:if="{{article.poster}}" class="link" style="margin-top: 16px; color: {{backgroundColor}}" bindtap="openPoster">查看海报</view>
       </block>
       <block wx:if="{{positions.length > 0}}">
-        <view class="xjh-content_title" style="border-bottom-color: {{opacityColor}}">招聘专业</view>
+        <view class="seminar-content_title" style="border-bottom-color: {{opacityColor}}">招聘专业</view>
         <view wx:for="{{positions}}">{{item}}</view>
       </block>
       <block wx:if="{{company.email}}">
-        <view class="xjh-content_title" style="border-bottom-color: {{opacityColor}}">联系方式</view>
+        <view class="seminar-content_title" style="border-bottom-color: {{opacityColor}}">联系方式</view>
         <view class="link" style="color: {{backgroundColor}}">{{company.email}}</view>
       </block>
       <block wx:if="{{article.tips}}">
-        <view class="xjh-content_title" style="border-bottom-color: {{opacityColor}}">本校提醒</view>
+        <view class="seminar-content_title" style="border-bottom-color: {{opacityColor}}">本校提醒</view>
         <mp-html content="{{article.tips}}"></mp-html>
       </block>
-      <view class="xjh-content-after">
+      <view class="seminar-content-after">
         <text>阅读 {{article.view}}</text>
         <button open-type="feedback" plain hover-class="none" style="color: {{backgroundColor}}">反馈</button>
       </view>
     </view>
   </block>
-  <view class="xjh-share">
+  <view class="seminar-share">
     <button hidden="{{!isQQ}}" plain hover-class="none" style="background-color: {{backgroundColor}}" open-type="addToFavorites">添加到收藏</button>
     <button hidden="{{isExpired || isQQ}}" plain hover-class="none" style="background-color: {{backgroundColor}}" bindtap="addToCalendar">添加到日程</button>
     <button open-type="share" plain hover-class="none" style="background-color: {{isExpired && !isQQ ? backgroundColor : '#45c8dc'}}">分享给同学</button>

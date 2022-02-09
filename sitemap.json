@@ -3,7 +3,7 @@
   "rules": [
     {
       "action": "allow",
-      "page": "pages/xjh/detail",
+      "page": "pages/seminar/detail",
       "params": [
         "id"
       ],
