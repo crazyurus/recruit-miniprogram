@@ -33,7 +33,7 @@ Page({
     });
     this.onCache();
 
-    app.request.scc('/preach/detail', {
+    app.request('/preach/detail', {
       id: options.id,
     }, false).then(result => {
       this.setData({
@@ -136,7 +136,7 @@ Page({
       return;
     }
     app.address({
-      name: this.data.article.universityName, 
+      name: this.data.article.universityName,
       description: this.data.article.place,
       address: this.data.article.universityName + ',' + this.data.article.place,
     });

@@ -17,60 +17,36 @@ App({
         updateManager.applyUpdate()
       }
     });
-
-    this.request.scc = this.request.scc.bind(this);
-    this.request.iwut = this.request.iwut.bind(this);
   },
-  request: {
-    scc(url, data = {}, loading = true) {
-      if (loading) wx.showNavigationBarLoading();
-      return wx.promises.request({
-        url: 'https://a.jiuyeb.cn/mobile.php' + url,
-        method: 'POST',
-        dataType: 'json',
-        header: {
-          'Content-Type': 'application/x-www-form-urlencoded',
-          Auth: 'Baisc MTAyNDY6MTAyNDY=',
-        },
-        data: {
-          school_id: 'b525083d-b83c-4c7e-892f-29909421d961',
-          login_user_id: 1,
-          login_admin_school_code: '',
-          login_admin_school_id: 'b525083d-b83c-4c7e-892f-29909421d961',
-          ...data,
-        }
-      }).then(result => {
-        if (result.statusCode !== 200) return Promise.reject('服务器错误 ' + result.statusCode);
-        else if (result.data.code === 0) return result.data.data;
-        else Promise.reject(result.msg);
-      }, result => {
-        return Promise.reject(result.errMsg);
-      }).catch(error => {
-        this.logger.error('[Request] scc', url, error);
-        this.toast('网络错误');
-      }).finally(() => {
-        if (loading) wx.hideNavigationBarLoading();
-      });
-    },
-    iwut(url, loading = true) {
-      if (loading) wx.showNavigationBarLoading();
-      return wx.promises.request({
-        url: 'https://test-api-iwut.itoken.team/v1/news' + url,
-        method: 'GET',
-        dataType: 'json',
-      }).then(result => {
-        if (result.statusCode !== 200) return Promise.reject('服务器错误 ' + result.statusCode);
-        else if (result.data.code === 0) return result.data.data;
-        else return Promise.reject(result.message);
-      }, result => {
-        return Promise.reject(result.errMsg);
-      }).catch(error => {
-        this.logger.error('[Request] iwut', url, error);
-        this.toast('网络错误');
-      }).finally(() => {
-        if (loading) wx.hideNavigationBarLoading();
-      });
-    }
+  request(url, data = {}, loading = true) {
+    if (loading) wx.showNavigationBarLoading();
+    return wx.promises.request({
+      url: 'https://a.jiuyeb.cn/mobile.php' + url,
+      method: 'POST',
+      dataType: 'json',
+      header: {
+        'Content-Type': 'application/x-www-form-urlencoded',
+        Auth: 'Baisc MTAyNDY6MTAyNDY=',
+      },
+      data: {
+        school_id: 'b525083d-b83c-4c7e-892f-29909421d961',
+        login_user_id: 1,
+        login_admin_school_code: '',
+        login_admin_school_id: 'b525083d-b83c-4c7e-892f-29909421d961',
+        ...data,
+      }
+    }).then(result => {
+      if (result.statusCode !== 200) return Promise.reject('服务器错误 ' + result.statusCode);
+      else if (result.data.code === 0) return result.data.data;
+      else Promise.reject(result.msg);
+    }, result => {
+      return Promise.reject(result.errMsg);
+    }).catch(error => {
+      this.logger.error('[Request] scc', url, error);
+      this.toast('网络错误');
+    }).finally(() => {
+      if (loading) wx.hideNavigationBarLoading();
+    });
   },
   alert(params) {
     if (typeof params === 'string') {
@@ -111,7 +87,7 @@ App({
     return wx.hideLoading;
   },
   about() {
-    this.alert('Token团队出品\r\n产品&设计&开发：廖星');
+    this.alert('Token团队出品');
   },
   async address(options) {
     const { address, name, description, latitude, longitude } = options;

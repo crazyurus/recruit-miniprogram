@@ -5,7 +5,7 @@ Page({
     company: {},
   },
   onLoad(options) {
-    app.request.scc('/com/detail', {
+    app.request('/com/detail', {
       id: options.id,
     }).then(result => {
       this.setData({

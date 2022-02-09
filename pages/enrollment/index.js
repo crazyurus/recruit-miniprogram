@@ -29,7 +29,7 @@ Page({
     this.loadNoticeList();
   },
   loadNoticeList() {
-    app.request.scc('/enrollment/getlist', {
+    app.request('/enrollment/getlist', {
       page: this.data.page,
       size: 10,
       keywords: this.data.search.keyword,

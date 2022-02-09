@@ -8,10 +8,6 @@
     </view>
   </view>
   <view class="list">
-    <navigator wx:if="{{enablePostModule}}" class="list-item" url="./post/index">
-      <image class="icon" src="../../images/module/post.png" />
-      <view class="text">校园资讯</view>
-    </navigator>
     <navigator class="list-item" url="./calendar/index">
       <image class="icon" src="../../images/module/calendar.png" />
       <view class="text">校历</view>

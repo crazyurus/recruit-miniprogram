@@ -31,8 +31,8 @@ Page({
       dates[i] = [];
     }
 
-    for(let i = (weekCount - 1) * -7; i < weekCount * 7; i++) {
-      const isToday = i - (weekday + 6) % 7; 
+    for (let i = (weekCount - 1) * -7; i < weekCount * 7; i++) {
+      const isToday = i - (weekday + 6) % 7;
       const day = now.add(isToday, 'day');
 
       if (dates[group].length === 7) {
@@ -55,7 +55,7 @@ Page({
     });
   },
   loadNoticeList() {
-    app.request.scc('/preach/getlist', {
+    app.request('/preach/getlist', {
       page: this.data.page,
       size: 10,
       isunion: 2,

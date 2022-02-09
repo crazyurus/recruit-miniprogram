@@ -51,6 +51,6 @@
     </view>
   </view>
   <view class="content">
-    <audio src="https://sf3-cn.feishucdn.com/obj/eden-cn/eseh7nupevhps/calendar/song.mp3" loop controls poster="https://sf3-cn.feishucdn.com/obj/eden-cn/eseh7nupevhps/calendar/logo.png" name="卓越之歌" author="武汉理工大学校歌" />
+    <audio src="https://sf3-cdn-tos.douyinstatic.com/obj/eden-cn/eseh7nupevhps/calendar/song.mp3" loop controls poster="https://sf3-cdn-tos.douyinstatic.com/obj/eden-cn/eseh7nupevhps/calendar/logo.png" name="卓越之歌" author="武汉理工大学校歌" />
   </view>
 </view>

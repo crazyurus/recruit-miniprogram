@@ -1,5 +1,0 @@
-@import "../../bulletin/index.wxss";
-
-.page-content {
-  padding-top: 0;
-}

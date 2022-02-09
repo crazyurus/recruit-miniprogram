@@ -8,8 +8,6 @@
     "pages/enrollment/index",
     "pages/enrollment/detail",
     "pages/me/index",
-    "pages/me/post/index",
-    "pages/me/post/detail",
     "pages/me/calendar/index",
     "pages/common/map",
     "pages/common/webview"

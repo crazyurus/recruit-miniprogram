@@ -8,7 +8,7 @@ Page({
     },
   },
   onLoad(options) {
-    app.request.scc('/Article/detail', {
+    app.request('/Article/detail', {
       id: options.id,
       show_type: 2
     }, false).then(result => {

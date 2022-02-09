@@ -3,7 +3,7 @@ const app = getApp();
 Page({
   data: {
     isQQ: app.isQQ,
-    calendarURL: 'https://sf3-cn.feishucdn.com/obj/eden-cn/eseh7nupevhps/calendar/calendar.jpg',
+    calendarURL: 'https://sf3-cdn-tos.douyinstatic.com/obj/eden-cn/eseh7nupevhps/calendar/calendar.jpg',
   },
   previewCalendar() {
     wx.previewImage({

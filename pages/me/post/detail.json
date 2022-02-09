@@ -1,8 +1,0 @@
-{
-  "navigationBarTitleText": "",
-  "backgroundColorTop": "#45c8dc",
-  "backgroundColorBottom": "#ffffff",
-  "usingComponents": {
-    "mp-html": "mp-html"
-  }
-}

@@ -19,7 +19,7 @@ Page({
       title: ' '
     });
 
-    app.request.scc('/enrollment/detail', {
+    app.request('/enrollment/detail', {
       id: options.id,
     }, false).then(result => {
       this.setData({
@@ -92,7 +92,7 @@ Page({
   },
   showAddressMap() {
     app.address({
-      name: this.data.company.name, 
+      name: this.data.company.name,
       address: this.data.company.address,
     });
   },

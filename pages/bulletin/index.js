@@ -31,7 +31,7 @@ Page({
     this.loadNoticeList();
   },
   loadNoticeList() {
-    app.request.scc('/Article/getlist', {
+    app.request('/Article/getlist', {
       page: this.data.page,
       size: 10,
       show_type: 2,
