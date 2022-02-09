@@ -1,5 +1,6 @@
 const dayjs = require('dayjs');
 const app = getApp();
+const request = require('../../library/request');
 
 Page({
   data: {
@@ -55,7 +56,7 @@ Page({
     });
   },
   loadNoticeList() {
-    app.request('/preach/getlist', {
+    request('/preach/getlist', {
       page: this.data.page,
       size: 10,
       isunion: 2,

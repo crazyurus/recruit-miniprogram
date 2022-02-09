@@ -1,18 +1,21 @@
-const app = getApp();
+const request = require('../../library/request');
+const ui = require('../../library/ui');
+const location = require('../../library/location');
+const utils = require('../../library/utils');
 
 Page({
   data: {
     company: {},
   },
   onLoad(options) {
-    app.request('/com/detail', {
+    request('/com/detail', {
       id: options.id,
     }).then(result => {
       this.setData({
         company: {
           ...result,
-          start_time: app.formatTimestamp(result.start_time),
-          verify_time: result.verify_time === 0 ? '' : app.formatTimestamp(result.verify_time),
+          start_time: utils.formatTimestamp(result.start_time),
+          verify_time: result.verify_time === 0 ? '' : utils.formatTimestamp(result.verify_time),
         }
       });
     });
@@ -32,14 +35,14 @@ Page({
         address: this.data.company.address,
       };
     }
-    app.address(options);
+    location.getAddress(options);
   },
   onShareAppMessage() {
     return {
       title: this.data.company.name,
-      path: app.sharePath(this),
+      path: utils.sharePath(this),
       success() {
-        app.toast('分享成功', 'success');
+        ui.toast('分享成功', 'success');
       }
     };
   },

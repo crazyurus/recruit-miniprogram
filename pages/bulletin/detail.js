@@ -1,4 +1,7 @@
-const app = getApp();
+const request = require('../../library/request');
+const ui = require('../../library/ui');
+const utils = require('../../library/utils');
+
 Page({
   data: {
     title: false,
@@ -8,7 +11,7 @@ Page({
     },
   },
   onLoad(options) {
-    app.request('/Article/detail', {
+    request('/Article/detail', {
       id: options.id,
       show_type: 2
     }, false).then(result => {
@@ -40,7 +43,7 @@ Page({
   },
   async openAttachment(e) {
     const { url } = e.currentTarget.dataset;
-    const hideLoading = app.loading('下载中');
+    const hideLoading = ui.loading('下载中');
 
     try {
       const { tempFilePath } = await wx.promises.downloadFile({ url });
@@ -49,7 +52,7 @@ Page({
         showMenu: true,
       });
     } catch (error) {
-      app.toast('打开失败');
+      ui.toast('打开失败');
     }
 
     hideLoading();
@@ -57,9 +60,9 @@ Page({
   onShareAppMessage() {
     return {
       title: this.data.article.title,
-      path: app.sharePath(this),
+      path: utils.sharePath(this),
       success() {
-        app.toast('分享成功', 'success');
+        ui.toast('分享成功', 'success');
       }
     };
   },

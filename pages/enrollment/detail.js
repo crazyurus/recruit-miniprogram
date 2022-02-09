@@ -1,4 +1,8 @@
 const app = getApp();
+const request = require('../../library/request');
+const utils = require('../../library/utils');
+const location = require('../../library/location');
+
 Page({
   data: {
     loading: true,
@@ -19,7 +23,7 @@ Page({
       title: ' '
     });
 
-    app.request('/enrollment/detail', {
+    request('/enrollment/detail', {
       id: options.id,
     }, false).then(result => {
       this.setData({
@@ -59,9 +63,9 @@ Page({
   onShareAppMessage() {
     return {
       title: this.data.article.title,
-      path: app.sharePath(this),
+      path: utils.sharePath(this),
       success() {
-        app.toast('分享成功', 'success');
+        ui.toast('分享成功', 'success');
       }
     };
   },
@@ -91,7 +95,7 @@ Page({
     });
   },
   showAddressMap() {
-    app.address({
+    location.getAddress({
       name: this.data.company.name,
       address: this.data.company.address,
     });

@@ -1,10 +1,3 @@
-/**
- * 微信小程序JavaScriptSDK
- * 
- * @version 1.2
- * @date 2019-03-06
- */
-
 var ERROR_CONF = {
   KEY_ERR: 311,
   KEY_ERR_MSG: 'key格式错误',

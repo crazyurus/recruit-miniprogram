@@ -1,4 +1,5 @@
-const app = getApp();
+const request = require('../../library/request');
+const utils = require('../../library/utils');
 
 Page({
   data: {
@@ -31,7 +32,7 @@ Page({
     this.loadNoticeList();
   },
   loadNoticeList() {
-    app.request('/Article/getlist', {
+    request('/Article/getlist', {
       page: this.data.page,
       size: 10,
       show_type: 2,
@@ -51,7 +52,7 @@ Page({
         return {
           id: item.id,
           title: item.title,
-          time: app.formatTimestamp(item.addtime),
+          time: utils.formatTimestamp(item.addtime),
           view: item.views,
         };
       });

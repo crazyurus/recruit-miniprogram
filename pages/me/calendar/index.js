@@ -1,8 +1,10 @@
-const app = getApp();
+const ui = require('../../../library/ui');
+const utils = require('../../../library/utils');
+const logger = require('../../../library/logger')
 
 Page({
   data: {
-    isQQ: app.isQQ,
+    isQQ: utils.isQQ,
     calendarURL: 'https://sf3-cdn-tos.douyinstatic.com/obj/eden-cn/eseh7nupevhps/calendar/calendar.jpg',
   },
   previewCalendar() {
@@ -11,7 +13,7 @@ Page({
     });
   },
   async saveCalendar() {
-    const result = await app.confirm({
+    const result = await ui.confirm({
       title: '提示',
       content: '确定要保存本学期校历到手机相册吗？',
       confirmText: '保存',
@@ -21,7 +23,7 @@ Page({
       return;
     }
 
-    const hideLoading = app.loading('保存中');
+    const hideLoading = ui.loading('保存中');
     try {
       const { tempFilePath } = await wx.promises.downloadFile({
         url: this.data.calendarURL,
@@ -31,11 +33,11 @@ Page({
       });
 
       hideLoading();
-      app.toast('保存成功', 'success');
+      ui.toast('保存成功', 'success');
     } catch (error) {
       hideLoading();
-      app.toast('校历保存失败');
-      app.logger.error('[Download] calendar', error);
+      ui.toast('校历保存失败');
+      logger.error('[Download] calendar', error);
     }
   },
   openWUTGuide() {
@@ -52,6 +54,6 @@ Page({
     });
   },
   openTimeTable() {
-    app.openURL('https://mp.weixin.qq.com/s/tJPE98kpUcB4ZoacUcmWvw');
+    utils.openURL('https://mp.weixin.qq.com/s/tJPE98kpUcB4ZoacUcmWvw');
   },
 });

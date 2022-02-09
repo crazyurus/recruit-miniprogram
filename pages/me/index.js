@@ -1,12 +1,12 @@
-const app = getApp();
+const utils = require('../../library/utils');
 
 Page({
   data: {
-    isQQ: app.isQQ,
+    isQQ: utils.isQQ,
   },
   tucao() {
     if (this.data.isQQ) {
-      app.openURL('https://support.qq.com/products/23796');
+      utils.openURL('https://support.qq.com/products/23796');
     } else {
       wx.navigateToMiniProgram({
         appId: 'wx8abaf00ee8c3202e',
@@ -24,6 +24,6 @@ Page({
     });
   },
   about() {
-    app.openURL('https://mp.weixin.qq.com/s/HbXW7A87ilgW_CbEI-1ODQ');
+    utils.openURL('https://mp.weixin.qq.com/s/HbXW7A87ilgW_CbEI-1ODQ');
   },
 });

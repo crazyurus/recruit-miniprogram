@@ -1,4 +1,6 @@
 const app = getApp();
+const request = require('../../library/request');
+const utils = require('../../library/utils');
 
 Page({
   data: {
@@ -29,7 +31,7 @@ Page({
     this.loadNoticeList();
   },
   loadNoticeList() {
-    app.request('/enrollment/getlist', {
+    request('/enrollment/getlist', {
       page: this.data.page,
       size: 10,
       keywords: this.data.search.keyword,
@@ -52,7 +54,7 @@ Page({
         return {
           id: item.id,
           title: item.title,
-          time: app.formatTimestamp(item.addtime),
+          time: utils.formatTimestamp(item.addtime),
           view: item.viewcount,
         };
       });

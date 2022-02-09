@@ -1,5 +1,9 @@
 const dayjs = require('dayjs');
 const app = getApp();
+const request = require('../../library/request');
+const ui = require('../../library/ui');
+const location = require('../../library/location');
+const utils = require('../../library/utils');
 
 function unique(arr) {
   return Array.from(new Set(arr));
@@ -33,7 +37,7 @@ Page({
     });
     this.onCache();
 
-    app.request('/preach/detail', {
+    request('/preach/detail', {
       id: options.id,
     }, false).then(result => {
       this.setData({
@@ -60,7 +64,7 @@ Page({
           email: result.email,
         },
         isExpired: result.timestatus === 3,
-        isQQ: app.isQQ
+        isQQ: utils.isQQ
       });
     });
   },
@@ -96,9 +100,9 @@ Page({
   onShareAppMessage() {
     return {
       title: this.data.article.title,
-      path: app.sharePath(this),
+      path: utils.sharePath(this),
       success() {
-        app.toast('分享成功', 'success');
+        ui.toast('分享成功', 'success');
       }
     };
   },
@@ -113,7 +117,7 @@ Page({
       title: this.data.article.title,
       imageUrl: this.data.company.logo,
       success() {
-        app.toast('收藏成功', 'success');
+        ui.toast('收藏成功', 'success');
       }
     };
   },
@@ -135,7 +139,7 @@ Page({
     if (this.data.article.place === '空中宣讲会') {
       return;
     }
-    app.address({
+    location.getAddress({
       name: this.data.article.universityName,
       description: this.data.article.place,
       address: this.data.article.universityName + ',' + this.data.article.place,
@@ -149,7 +153,7 @@ Page({
       startTime: this.data.article.startTime,
       endTime: this.data.article.endTime,
       success() {
-        app.toast('添加成功', 'success');
+        ui.toast('添加成功', 'success');
       },
     });
   },

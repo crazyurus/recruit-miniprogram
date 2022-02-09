@@ -1,4 +1,4 @@
-const app = getApp();
+const { toast } = require('../../library/ui');
 
 Page({
   data: {
@@ -12,7 +12,7 @@ Page({
   onShareAppMessage() {
     return {
       success() {
-        app.toast('分享成功', 'success');
+        toast('分享成功', 'success');
       }
     };
   }
