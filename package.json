@@ -6,9 +6,14 @@
   "keywords": [],
   "author": "Crazy Urus <crazyurus@vip.qq.com>",
   "dependencies": {
+    "axios": "^0.26.0",
+    "axios-miniprogram-adapter": "^0.3.2",
     "dayjs": "^1.10.7",
     "miniprogram-api-promise": "^1.0.4",
     "miniprogram-redux": "^1.1.1",
     "mp-html": "^2.1.5"
+  },
+  "resolutions": {
+    "axios": "^0.26.0"
   }
 }
