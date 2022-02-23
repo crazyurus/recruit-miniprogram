@@ -49,7 +49,7 @@ Page({
           startTime: dayjs(result.hold_date + ' ' + result.hold_starttime + ':00').unix(),
           endTime: dayjs(result.hold_date + ' ' + result.hold_endtime + ':00').unix(),
           universityName: result.school_id_name,
-          place: result.address || result.tmp_field_name || '空中宣讲会',
+          address: result.address || result.tmp_field_name || '线上宣讲会',
           view: result.viewcount,
           content: result.remarks,
           tips: result.schoolwarn,
@@ -140,20 +140,20 @@ Page({
     }
   },
   showAddressMap() {
-    if (this.data.article.place === '空中宣讲会') {
+    if (this.data.article.address === '线上宣讲会') {
       return;
     }
     location.getAddress({
       name: this.data.article.universityName,
-      description: this.data.article.place,
-      address: this.data.article.universityName + ',' + this.data.article.place,
+      description: this.data.article.address,
+      address: this.data.article.universityName + ',' + this.data.article.address,
     });
   },
   addToCalendar() {
     wx.addPhoneCalendar({
       title: this.data.article.title,
       description: '来自武汉理工大学就业招聘小程序',
-      location: this.data.article.universityName + this.data.article.place,
+      location: this.data.article.universityName + this.data.article.address,
       startTime: this.data.article.startTime,
       endTime: this.data.article.endTime,
       success() {

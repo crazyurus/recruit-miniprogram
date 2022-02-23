@@ -76,7 +76,7 @@ Page({
           company: item.com_id_name,
           backgroundColor: colorArray[(i + this.data.left) % colorArray.length],
           universityName: item.school_id_name,
-          place: item.address || item.tmp_field_name || '空中宣讲会',
+          address: item.address || item.tmp_field_name || '线上宣讲会',
           view: item.viewcount,
           time: item.hold_date + ' ' + item.hold_starttime + '-' + item.hold_endtime,
           isExpired: item.timestatus === 3,
@@ -137,7 +137,7 @@ Page({
         id: item.id,
         title: item.title,
         time: item.time,
-        place: item.place,
+        address: item.address,
         backgroundColor: item.backgroundColor,
       },
     });

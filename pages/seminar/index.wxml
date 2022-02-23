@@ -21,8 +21,8 @@
           <text wx:elif="{{item.isCancel}}" class="card-content-tag tag-warning">已取消</text>
           <text wx:elif="{{item.isExpired}}" class="card-content-tag tag-danger">已结束</text>
         </view>
-        <view class="card-content-line" wx:if="{{item.place}}">
-          <text>{{item.place}}</text>
+        <view class="card-content-line" wx:if="{{item.address}}">
+          <text>{{item.address}}</text>
         </view>        
       </view>
     </view>
