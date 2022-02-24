@@ -33,7 +33,7 @@
   </navigator>
   <view class="seminar-empty" wx:if="{{list.length === 0 && !loading}}">
     <view class="seminar-empty__title">{{calendar.today}}暂无宣讲会安排</view>
-    <view class="link" bindtap="showMore">查看其它宣讲会</view>
+    <view class="link" bindtap="showMore">查看所有宣讲会</view>
   </view>
   <loading wx:if="{{loading}}" />
 </view>

@@ -1,10 +1,12 @@
 <view class="page-content">
   <view class="header">
-    <view class="header-top" bindlongpress="showPostModule">
-      <open-data class="user-avatar" type="userAvatarUrl" />
+    <view class="header-top" bindtap="getUserInfo">
+      <image wx:if="{{userInfo.avatar}}" class="user-avatar" src="{{userInfo.avatar}}" />
+      <open-data wx:else class="user-avatar" type="userAvatarUrl" />
     </view>
     <view class="header-bottom">
-      <open-data class="user-name" type="userNickName" />
+      <view wx:if="{{userInfo.name}}" class="user-name">{{userInfo.name}}</view>
+      <open-data wx:else class="user-name" type="userNickName" />
     </view>
   </view>
   <view class="list">

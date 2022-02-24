@@ -57,5 +57,6 @@
   "navigateToMiniProgramAppIdList": [
     "1108338344",
     "1109701341"
-  ]
+  ],
+  "lazyCodeLoading": "requiredComponents"
 }
