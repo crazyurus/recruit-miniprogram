@@ -40,7 +40,7 @@ Page({
           id: result.com_id,
           name: result.comInfo.name,
           address: result.address,
-          logo: result.comInfo.logo_src + '!y',
+          logo: utils.getCDNURL(result.comInfo.logo_src),
           description: (result.city_id_name === '市辖区' ? result.province_id_name : result.city_id_name) + ' ' + result.comInfo.xingzhi_id_name + ' ' + result.comInfo.business_name,
           telephone: result.tel,
         },

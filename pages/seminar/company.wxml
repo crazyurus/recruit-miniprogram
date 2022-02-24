@@ -2,26 +2,28 @@
   <view class="form">
     <view class="form-label">企业名称</view>
     <view class="form-value">{{company.name}}</view>
+    <view class="form-label">统一社会信用代码</view>
+    <view class="form-value">{{company.license}}</view>
     <view class="form-label">企业类型</view>
-    <view class="form-value">{{company.xingzhi_id_name}}</view>
+    <view class="form-value">{{company.type}}</view>
     <view class="form-label">所在地区</view>
-    <view class="form-value">{{company.province_name}}{{company.city_name === '市辖区' ? '' : company.city_name}}{{company.region_name}}</view>
+    <view class="form-value">{{company.region}}</view>
     <view class="form-label">行业</view>
-    <view class="form-value">{{company.business_name}}</view>
+    <view class="form-value">{{company.industry}}</view>
     <view class="form-label">企业规模</view>
-    <view class="form-value">{{company.guimo_id_name}}</view>
+    <view class="form-value">{{company.scale}}</view>
     <view class="form-label">注册资本</view>
-    <view class="form-value">{{company.catype_name}}</view>
+    <view class="form-value">{{company.registeredCapital}}</view>
     <view class="form-label">成立时间</view>
-    <view class="form-value">{{company.start_time}}</view>
-    <block wx:if="{{company.weburl}}">
+    <view class="form-value">{{company.createTime}}</view>
+    <block wx:if="{{company.website}}">
       <view class="form-label">企业网站</view>
-      <view class="form-value link">{{company.weburl}}</view>
+      <view class="form-value link">{{company.website}}</view>
     </block>
     <block wx:if="{{company.address}}">
       <view class="form-label">地址</view>
       <view class="form-value link" bindtap="openLocation">{{company.address}}</view>
     </block>
-    <view wx:if="{{company.verify_time}}" class="form-footer">该企业已于 {{company.verify_time}} 通过审核</view>
+    <view wx:if="{{company.verifyTime}}" class="form-footer">该企业已于 {{company.verifyTime}} 通过审核</view>
   </view>
 </view>

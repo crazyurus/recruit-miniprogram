@@ -20,7 +20,7 @@ Page({
     loading: true,
     article: {
       source: '武汉理工大学学生就业指导中心',
-      universityName: '武汉理工大学',
+      university: '武汉理工大学',
     },
     company: {},
     positions: [],
@@ -43,25 +43,31 @@ Page({
       this.setData({
         loading: false,
         article: {
-          ...this.data.article,
+          id: result.id,
           title: result.title,
-          time: result.hold_date + ' ' + result.hold_starttime + '-' + result.hold_endtime,
-          startTime: dayjs(result.hold_date + ' ' + result.hold_starttime + ':00').unix(),
-          endTime: dayjs(result.hold_date + ' ' + result.hold_endtime + ':00').unix(),
-          universityName: result.school_id_name,
+          university: result.school_id_name,
           address: result.address || result.tmp_field_name || '线上宣讲会',
           view: result.viewcount,
           content: result.remarks,
           tips: result.schoolwarn,
-          poster: result.haibao_id_src ? 'https:' + result.haibao_id_src.linkpath + '!y' : '',
+          poster: result.haibao_id_src ? utils.getCDNURL(result.haibao_id_src.linkpath) : '',
+          time: result.hold_date + ' ' + result.hold_starttime + '-' + result.hold_endtime,
+          timestamp: {
+            start: dayjs(result.hold_date + ' ' + result.hold_starttime + ':00').unix(),
+            end: dayjs(result.hold_date + ' ' + result.hold_endtime + ':00').unix(),
+          },
+          source: '武汉理工大学学生就业指导中心',
         },
         positions: unique(result.ProfessionalList.map(item => item.professional_id_name)),
         company: {
           id: result.comInfo.id,
           name: result.comInfo.name,
-          logo: result.comInfo.logo_src + '!y',
+          logo: utils.getCDNURL(result.comInfo.logo_src),
           description: (!result.comInfo.city_name || result.comInfo.city_name === '市辖区' ? result.comInfo.province_name : result.comInfo.city_name) + ' ' + result.comInfo.xingzhi_id_name + ' ' + result.comInfo.business_name,
+        },
+        contact: {
           email: result.email,
+          telephone: result.phone,
         },
         isExpired: result.timestatus === 3,
         isQQ: utils.isQQ
@@ -144,18 +150,18 @@ Page({
       return;
     }
     location.getAddress({
-      name: this.data.article.universityName,
+      name: this.data.article.university,
       description: this.data.article.address,
-      address: this.data.article.universityName + ',' + this.data.article.address,
+      address: this.data.article.university + ',' + this.data.article.address,
     });
   },
   addToCalendar() {
     wx.addPhoneCalendar({
       title: this.data.article.title,
       description: '来自武汉理工大学就业招聘小程序',
-      location: this.data.article.universityName + this.data.article.address,
-      startTime: this.data.article.startTime,
-      endTime: this.data.article.endTime,
+      location: this.data.article.university + this.data.article.address,
+      startTime: this.data.article.timestamp.start,
+      endTime: this.data.article.timestamp.end,
       success() {
         ui.toast('添加成功', 'success');
       },

@@ -5,7 +5,9 @@ const utils = require('../../library/utils');
 
 Page({
   data: {
-    company: {},
+    company: {
+      position: {},
+    },
   },
   onLoad(options) {
     request('/com/detail', {
@@ -13,21 +15,36 @@ Page({
     }).then(result => {
       this.setData({
         company: {
-          ...result,
-          start_time: utils.formatTimestamp(result.start_time),
-          verify_time: result.verify_time === 0 ? '' : utils.formatTimestamp(result.verify_time),
-        }
+          id: result.id,
+          name: result.name,
+          logo: utils.getCDNURL(result.logo_src),
+          description: (!result.city_name || result.city_name === '市辖区' ? result.province_name : result.city_name) + ' ' + result.xingzhi_id_name + ' ' + result.business_name,
+          type: result.xingzhi_id_name,
+          region: result.province_name + (result.city_name === '市辖区' ? '' : result.city_name) + result.region_name,
+          industry: result.business_name,
+          scale: result.guimo_id_name,
+          registeredCapital: result.catype_name,
+          website: result.weburl,
+          address: result.address,
+          createTime: utils.formatTimestamp(result.start_time),
+          verifyTime: result.verify_time === 0 ? '' : utils.formatTimestamp(result.verify_time),
+          license: result.license,
+          position: {
+            latitude: Number.parseFloat(result.latitude),
+            longitude: Number.parseFloat(result.longitude),
+          },
+        },
       });
     });
   },
   openLocation() {
     let options;
-    if (this.data.company.latitude) {
+    if (this.data.company.position.latitude) {
       options = {
         name: this.data.company.name,
         address: this.data.company.address,
-        latitude: Number.parseFloat(this.data.company.latitude),
-        longitude: Number.parseFloat(this.data.company.longitude),
+        latitude: this.data.company.position.latitude,
+        longitude: this.data.company.position.longitude,
       };
     } else {
       options = {

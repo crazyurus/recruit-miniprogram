@@ -16,7 +16,7 @@
     </view>
     <view class="seminar-info-line">
       <image class="seminar-info-icon" src="../../images/icon/university.png" />
-      <text>举办学校：{{article.universityName}}</text>
+      <text>举办学校：{{article.university}}</text>
     </view>
     <view class="seminar-info-line {{article.address === '线上宣讲会' ? '' : 'seminar-info-address'}}" bindtap="showAddressMap" wx:if="{{article.address}}">
       <image class="seminar-info-icon" src="../../images/icon/address.png" />
@@ -44,9 +44,9 @@
         <view class="seminar-content_title" style="border-bottom-color: {{opacityColor}}">招聘专业</view>
         <view wx:for="{{positions}}">{{item}}</view>
       </block>
-      <block wx:if="{{company.email}}">
+      <block wx:if="{{contact.email}}">
         <view class="seminar-content_title" style="border-bottom-color: {{opacityColor}}">联系方式</view>
-        <view class="link" style="color: {{backgroundColor}}">{{company.email}}</view>
+        <view class="link" style="color: {{backgroundColor}}">{{contact.email}}</view>
       </block>
       <block wx:if="{{article.tips}}">
         <view class="seminar-content_title" style="border-bottom-color: {{opacityColor}}">本校提醒</view>

@@ -18,10 +18,16 @@ function openURL(url) {
   });
 }
 
+function getCDNURL(url) {
+  if (url.startsWith('//')) url = 'https:' + url;
+  return url + '!y';
+}
+
 module.exports = {
   sharePath,
   formatTimestamp,
   openURL,
+  getCDNURL,
   get isQQ() {
     return typeof qq !== 'undefined';
   },
