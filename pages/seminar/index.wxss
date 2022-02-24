@@ -61,8 +61,13 @@ button[open-type] {
 
 .seminar-empty {
   display: flex;
+  flex-direction: column;
   height: calc(100vh - 72px);
   align-items: center;
-  color: #646a73;
   justify-content: center;
+}
+
+.seminar-empty__title {
+  color: #646a73;
+  margin-bottom: 8px;
 }

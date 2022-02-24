@@ -31,6 +31,9 @@
       <text class="card-count">浏览：{{item.view}}</text>
     </view>
   </navigator>
-  <view wx:if="{{list.length === 0 && !loading}}" class="seminar-empty">{{calendar.today}}暂无宣讲会安排</view>
+  <view class="seminar-empty" wx:if="{{list.length === 0 && !loading}}">
+    <view class="seminar-empty__title">{{calendar.today}}暂无宣讲会安排</view>
+    <view class="link" bindtap="showMore">查看其它宣讲会</view>
+  </view>
   <loading wx:if="{{loading}}" />
 </view>

@@ -42,7 +42,7 @@
       </block>
       <block wx:if="{{positions.length > 0}}">
         <view class="seminar-content_title" style="border-bottom-color: {{opacityColor}}">招聘专业</view>
-        <view wx:for="{{positions}}">{{item}}</view>
+        <view wx:for="{{positions}}" wx:key="index">{{item}}</view>
       </block>
       <block wx:if="{{contact.email}}">
         <view class="seminar-content_title" style="border-bottom-color: {{opacityColor}}">联系方式</view>

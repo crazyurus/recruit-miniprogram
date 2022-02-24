@@ -62,7 +62,7 @@ Page({
       isunion: 2,
       laiyuan: 0,
       keywords: '',
-      hold_date: dayjs(this.data.calendar.list[this.data.calendar.group][this.data.calendar.current].value).format('YYYY-M-D'),
+      hold_date: this.data.calendar.current === 7 ? '' : dayjs(this.data.calendar.list[this.data.calendar.group][this.data.calendar.current].value).format('YYYY-M-D'),
     }).then(result => {
       const colorArray = ['#ed9d81', '#a7d59a', '#8c88ff', '#56b8a4', '#60bfd8', '#c9759d'];
 
@@ -141,5 +141,12 @@ Page({
         backgroundColor: item.backgroundColor,
       },
     });
-  }
+  },
+  showMore() {
+    this.reset();
+    this.setData({
+      'calendar.current': 7,
+    });
+    this.loadNoticeList();
+  },
 });
