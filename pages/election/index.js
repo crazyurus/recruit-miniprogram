@@ -1,3 +1,4 @@
+const store = require('../../store/index');
 const request = require('../../library/request');
 const { getCDNURL, formatTimestamp, openURL } = require('../../library/utils');
 
@@ -7,8 +8,8 @@ Page({
     carousel: [],
   },
   onLoad() {
-    this.loadList();
     this.loadCarousel();
+    this.loadList();
   },
   loadCarousel() {
     request('/phone/index', {
@@ -42,12 +43,11 @@ Page({
           id: item.id,
           title: item.title,
           university: item.school_id_name,
-          backgroundImage: getCDNURL(item.image_id_src || '//s11.jiuyeb.cn/static/images/sxbanner2.png'),
+          poster: getCDNURL(item.image_id_src || '//s11.jiuyeb.cn/static/images/sxbanner2.png'),
           view: item.view_count,
           time: formatTimestamp(item.start_time) + ' 至 ' + formatTimestamp(item.end_time),
           statistics: {
             company: item.verify_count,
-            enroll: item.enroll_count,
             job: item.job_count,
             recruit: item.recruit_count,
           },
@@ -65,5 +65,14 @@ Page({
     const { link } = e.currentTarget.dataset;
 
     openURL(link);
-  }
+  },
+  openDetail(e) {
+    const { index } = e.currentTarget.dataset;
+    const item = this.data.list[index];
+
+    store.dispatch({
+      type: 'SET_ARTICLE',
+      payload: item,
+    });
+  },
 });

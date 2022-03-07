@@ -1,3 +1,5 @@
+<view class="header"></view>
+
 <swiper class="carousel" indicator-dots	indicator-active-color="#45c8dc" autoplay circular>
   <swiper-item wx:for="{{carousel}}" wx:key="id">
     <view class="carousel-item" data-link="{{item.link}}" bindtap="openCarousel">
@@ -7,8 +9,8 @@
 </swiper>
 
 <view class="page-content">
-  <navigator wx:for="{{list}}" wx:key="id" class="card" url="detail?id={{item.id}}" data-index="{{index}}">
-    <view class="card-header" style="background-image: url('{{item.backgroundImage}}');">
+  <navigator wx:for="{{list}}" wx:key="id" class="card" url="detail?id={{item.id}}" data-index="{{index}}" bindtap="openDetail">
+    <view class="card-header" style="background-image: url('{{item.poster}}');">
       <view class="card-no">No.{{index + 1}}</view>
     </view>
     <view class="card-content">
@@ -24,7 +26,7 @@
         <view class="card-content-line">
           <text>{{item.statistics.company}} 家企业 ｜ </text>
           <text>{{item.statistics.job}} 个职位 ｜ </text>
-          <text>{{item.statistics.recruit}} 人参与</text>
+          <text>招聘 {{item.statistics.recruit}} 人</text>
         </view>        
       </view>
     </view>

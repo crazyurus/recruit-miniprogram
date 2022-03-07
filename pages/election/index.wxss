@@ -8,6 +8,13 @@ page, .page-content {
   padding: 12px;
 }
 
+.header {
+  position: absolute;
+  height: 48px;
+  width: 100%;
+  background-color: #45c8dc;
+}
+
 .card {
   margin-bottom: 12px;
 }
@@ -15,6 +22,7 @@ page, .page-content {
 .card-header {
   height: 129px;
   background-size: cover;
+  background-position: center;
 }
 
 .carousel {

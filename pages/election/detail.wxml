@@ -1,0 +1,70 @@
+<import src="../seminar/detail.skeleton.wxml"/>
+
+<view class="page-content">
+  <view class="seminar-header">
+    <view class="seminar-title">
+      <view class="seminar-title_text">
+        <text>{{article.title}}</text>
+      </view>
+      <view class="seminar-source">{{article.source}}</view>
+    </view>
+  </view>
+   <view class="seminar-info">
+    <view class="seminar-info-line">
+      <image class="seminar-info-icon" src="../../images/icon/time.png" />
+      <text>举办时间：{{article.time}}</text>
+    </view>
+    <view class="seminar-info-line">
+      <image class="seminar-info-icon" src="../../images/icon/university.png" />
+      <text>举办学校：{{article.university}}</text>
+    </view>
+  </view>
+
+  <template is="skeleton" wx:if="{{loading}}" />
+  <block wx:else>
+    <view class="seminar-content">
+      <view class="seminar-content_title">统计数据</view>
+      <view class="statistics">
+        <view class="statistics-item">
+          <view class="title">参会企业</view>
+          <view class="number">{{statistics.company}}</view>
+        </view>
+        <view class="statistics-item">
+          <view class="title">招聘岗位</view>
+          <view class="number">{{statistics.job}}</view>
+        </view>
+        <view class="statistics-item">
+          <view class="title">招聘人数</view>
+          <view class="number">{{statistics.recruit}}</view>
+        </view>
+        <view class="statistics-item">
+          <view class="title">投递简历</view>
+          <view class="number">{{statistics.resume}}</view>
+        </view>
+        <view class="statistics-item">
+          <view class="title">面试邀请</view>
+          <view class="number">{{statistics.invite}}</view>
+        </view>
+        <view class="statistics-item">
+          <view class="title">录取意向</view>
+          <view class="number">{{statistics.accept}}</view>
+        </view>
+      </view>
+      <block wx:if="{{article.content}}">
+        <view class="seminar-content_title">双选会内容</view>
+        <mp-html content="{{article.content}}" scroll-table tag-style="{{contentStyle}}"></mp-html>
+      </block>
+      <block wx:if="{{article.telephone}}">
+        <view class="seminar-content_title">咨询电话</view>
+        <view class="link" bindtap="makePhoneCall">{{article.telephone}}</view>
+      </block>
+      <view class="seminar-content-after">
+        <text>阅读 {{article.view}}</text>
+        <button open-type="feedback" plain hover-class="none">反馈</button>
+      </view>
+    </view>
+  </block>
+  <view class="seminar-share">
+    <button open-type="share" plain hover-class="none">分享给同学</button>
+  </view>
+</view>

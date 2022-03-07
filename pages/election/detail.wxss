@@ -1,0 +1,43 @@
+@import "../seminar/detail.wxss";
+
+.seminar-share button[open-type]:first-child {
+  background-color: #45c8dc;
+}
+
+.seminar-header {
+  height: auto;
+  min-height: 60px;
+}
+
+.seminar-title_text {
+  white-space: normal;
+}
+
+.seminar-source {
+  margin-bottom: 12px;
+}
+
+.statistics {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  margin-bottom: 16px;
+}
+
+.statistics-item {
+  background-color: #eef3f4;
+  width: 80%;
+  margin: 16px auto 0;
+  border-radius: 8px;
+  text-align: center;
+  padding: 8px 0;
+}
+
+.statistics-item > .title {
+  color: #646a73;
+  margin-bottom: 4px;
+}
+
+.statistics-item > .number {
+  font-size: 18px;
+  font-family: 'DIN Alternate', monospace;
+}
