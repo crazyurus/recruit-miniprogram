@@ -6,7 +6,7 @@
 
 <view class="page-content">
   <navigator wx:for="{{list}}" wx:key="id" class="card" url="detail?id={{item.id}}" data-index="{{index}}" bindtap="openDetail">
-    <view class="card-header" style="background: {{item.backgroundColor}};">
+    <view class="card-header" style="background-color: {{item.backgroundColor}};">
       <view class="card-no">No.{{index + 1}}</view>
       <view class="card-title">{{item.company}}</view>
     </view>
@@ -27,7 +27,7 @@
       </view>
     </view>
     <view class="card-footer">
-      <text class="card-school">{{item.universityName}}</text>
+      <text class="card-school">{{item.university}}</text>
       <text class="card-count">浏览：{{item.view}}</text>
     </view>
   </navigator>

@@ -19,6 +19,7 @@ function openURL(url) {
 }
 
 function getCDNURL(url) {
+  if (!url) return '';
   if (url.startsWith('//')) url = 'https:' + url;
   return url + '!y';
 }

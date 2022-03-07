@@ -1,5 +1,4 @@
 @import '/component/company/company.wxss';
-@import '/component/search/search.wxss';
 
 page, .page-content {
   background: #efeff4;
@@ -7,7 +6,7 @@ page, .page-content {
 
 .page-content {
   margin-top: 48px;
-  padding: 12px 10px;
+  padding: 12px;
 }
 
 .calendar {
@@ -45,18 +44,7 @@ page, .page-content {
 }
 
 .card {
-  margin-bottom: 10px;
-}
-
-button[open-type] {
-  position: absolute;
-  width: 30px;
-  padding: 0;
-  opacity: 0;
-  z-index: 99;
-  right: 12px;
-  height: 20px;
-  top: 10px;
+  margin-bottom: 12px;
 }
 
 .seminar-empty {

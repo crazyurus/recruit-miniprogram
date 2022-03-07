@@ -1,0 +1,36 @@
+<swiper class="carousel" indicator-dots	indicator-active-color="#45c8dc" autoplay circular>
+  <swiper-item wx:for="{{carousel}}" wx:key="id">
+    <view class="carousel-item" data-link="{{item.link}}" bindtap="openCarousel">
+      <image src="{{item.image}}" />
+    </view>
+  </swiper-item>
+</swiper>
+
+<view class="page-content">
+  <navigator wx:for="{{list}}" wx:key="id" class="card" url="detail?id={{item.id}}" data-index="{{index}}">
+    <view class="card-header" style="background-image: url('{{item.backgroundImage}}');">
+      <view class="card-no">No.{{index + 1}}</view>
+    </view>
+    <view class="card-content">
+      <view class="card-content-inner">
+        <view class="card-content-title">
+          <text>{{item.title}}</text>
+        </view>
+        <view class="card-content-line">
+          <text>{{item.time}}</text>
+          <text wx:if="{{item.isInProgress}}" class="card-content-tag tag-info">进行中</text>
+          <text wx:elif="{{item.isExpired}}" class="card-content-tag tag-danger">已结束</text>
+        </view>
+        <view class="card-content-line">
+          <text>{{item.statistics.company}} 家企业 ｜ </text>
+          <text>{{item.statistics.job}} 个职位 ｜ </text>
+          <text>{{item.statistics.recruit}} 人参与</text>
+        </view>        
+      </view>
+    </view>
+    <view class="card-footer">
+      <text class="card-school">{{item.university}}</text>
+      <text class="card-count">浏览：{{item.view}}</text>
+    </view>
+  </navigator>
+</view>

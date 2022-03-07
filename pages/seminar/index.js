@@ -75,7 +75,7 @@ Page({
           title: item.title,
           company: item.com_id_name,
           backgroundColor: colorArray[(i + this.data.left) % colorArray.length],
-          universityName: item.school_id_name,
+          university: item.school_id_name,
           address: item.address || item.tmp_field_name || '线上宣讲会',
           view: item.viewcount,
           time: item.hold_date + ' ' + item.hold_starttime + '-' + item.hold_endtime,

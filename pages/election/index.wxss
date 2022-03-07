@@ -1,0 +1,33 @@
+@import '/component/company/company.wxss';
+
+page, .page-content {
+  background: #efeff4;
+}
+
+.page-content {
+  padding: 12px;
+}
+
+.card {
+  margin-bottom: 12px;
+}
+
+.card-header {
+  height: 129px;
+  background-size: cover;
+}
+
+.carousel {
+  height: 194px;
+}
+
+.carousel-item {
+  padding: 12px 12px 0;
+}
+
+.carousel-item > image {
+  width: 100%;
+  height: 180px;
+  border-radius: 2px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}

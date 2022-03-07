@@ -10,7 +10,9 @@
     "pages/me/index",
     "pages/me/calendar/index",
     "pages/common/map",
-    "pages/common/webview"
+    "pages/common/webview",
+    "pages/election/index",
+    "pages/election/detail"
   ],
   "window": {
     "navigationBarBackgroundColor": "#45c8dc",
@@ -35,6 +37,12 @@
         "text": "招聘",
         "iconPath": "./images/tabbar/job.png",
         "selectedIconPath": "./images/tabbar/job_s.png"
+      },
+      {
+        "pagePath": "pages/election/index",
+        "text": "双选会",
+        "iconPath": "./images/tabbar/election.png",
+        "selectedIconPath": "./images/tabbar/election_s.png"
       },
       {
         "pagePath": "pages/bulletin/index",
