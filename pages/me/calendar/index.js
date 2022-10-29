@@ -43,14 +43,12 @@ Page({
   openWUTGuide() {
     wx.navigateToMiniProgram({
       appId: this.data.isQQ ? '1109701341' : 'wx6e47fc71914f0254',
-      envVersion: 'release',
     });
   },
   openNeteaseMusic() {
     wx.navigateToMiniProgram({
       appId: 'wx32431e4d2e38cc7b',
       path: 'pages/song/song?id=449577766',
-      envVersion: 'release',
     });
   },
   openTimeTable() {

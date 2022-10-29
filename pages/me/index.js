@@ -9,17 +9,16 @@ Page({
     if (this.data.isQQ) {
       utils.openURL('https://support.qq.com/products/23796');
     } else {
-      wx.navigateToMiniProgram({
+      wx.openEmbeddedMiniProgram({
         appId: 'wx8abaf00ee8c3202e',
         extraData: {
           id: 23796,
         },
-        envVersion: 'release',
       });
     }
   },
   privacy() {
-    wx.navigateToMiniProgram({
+    wx[this.data.isQQ ? 'navigateToMiniProgram' : 'openEmbeddedMiniProgram']({
       appId: this.data.isQQ ? '1108338344' : 'wxd45c635d754dbf59',
       path: 'pages/detail/detail?url=' + encodeURIComponent('https://docs.qq.com/doc/DRVRrVFZpZllsWU9k'),
     });
