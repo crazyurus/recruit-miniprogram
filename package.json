@@ -1,8 +1,8 @@
 {
-  "name": "recruit-weapp",
+  "name": "recruit-miniprogram",
   "version": "1.0.0",
   "description": "武汉理工大学就业招聘",
-  "repository": "https://github.com/crazyurus/recruit-weapp.git",
+  "repository": "https://github.com/crazyurus/recruit-miniprogram.git",
   "keywords": [],
   "author": "Crazy Urus <crazyurus@vip.qq.com>",
   "dependencies": {
