@@ -1,2 +1,2 @@
-@import "../bulletin/index.wxss";
+@import "../notification/index.wxss";
 @import '/component/search/search.wxss';

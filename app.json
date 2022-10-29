@@ -3,8 +3,8 @@
     "pages/seminar/index",
     "pages/seminar/detail",
     "pages/seminar/company",
-    "pages/bulletin/index",
-    "pages/bulletin/detail",
+    "pages/notification/index",
+    "pages/notification/detail",
     "pages/enrollment/index",
     "pages/enrollment/detail",
     "pages/me/index",
@@ -46,10 +46,10 @@
         "selectedIconPath": "./images/tabbar/election_s.png"
       },
       {
-        "pagePath": "pages/bulletin/index",
+        "pagePath": "pages/notification/index",
         "text": "通知",
-        "iconPath": "./images/tabbar/bulletin.png",
-        "selectedIconPath": "./images/tabbar/bulletin_s.png"
+        "iconPath": "./images/tabbar/notification.png",
+        "selectedIconPath": "./images/tabbar/notification_s.png"
       },
       {
         "pagePath": "pages/me/index",
