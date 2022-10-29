@@ -145,3 +145,7 @@
 .circle.bg-yellow {
   background: #fc0;
 }
+
+.circle.bg-red {
+  background: #f76964;
+}

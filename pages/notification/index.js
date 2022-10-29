@@ -1,16 +1,38 @@
 const request = require('../../library/request');
 const utils = require('../../library/utils');
+const store = require('../../store/index');
+const tabMap = require('../../data/notification');
 
 Page({
   data: {
     list: [],
     page: 1,
     loading: true,
-    tab: '17c226b1-6fe3-8ea5-9a8d-6ecb2e89f70c',
-    label: '公告'
+    school: {},
+    tabs: [],
+    active: {},
   },
-  onLoad() {
-    this.loadNoticeList();
+  onShow() {
+    const { school } = store.getState();
+    const colorArray = ['green', 'purple', 'pink', 'orange', 'red'];
+
+    if (school.id !== this.data.school.id) {
+      const tabs = (tabMap[school.id] || []).map((tab, index) => ({
+        ...tab,
+        color: colorArray[index],
+      }));
+
+      this.reset();
+      this.setData({
+        school,
+        tabs,
+        active: tabs.length > 0 ? tabs[0] : {},
+      });
+
+      if (tabs.length > 0) {
+        this.loadNoticeList();
+      }
+    }
   },
   onReachBottom() {
     this.loadNoticeList();
@@ -24,9 +46,10 @@ Page({
     this.loadNoticeList();
   },
   switchTabs(e) {
+    const tab = this.data.tabs.find(tab => tab.id === e.currentTarget.dataset.tab);
+
     this.setData({
-      tab: e.currentTarget.dataset.tab,
-      label: e.currentTarget.dataset.label
+      active: tab,
     });
     this.reset();
     this.loadNoticeList();
@@ -36,7 +59,7 @@ Page({
       page: this.data.page,
       size: 10,
       show_type: 2,
-      cate_id: this.data.tab,
+      cate_id: this.data.active.id,
     }).then(result => {
       if (result.list.length === 0) {
         this.setData({

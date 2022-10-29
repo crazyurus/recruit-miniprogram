@@ -13,3 +13,12 @@
   background: none;
   padding-right: 20px;
 }
+
+.blank {
+  position: absolute;
+  top: calc(50% - 10px);
+  width: 100%;
+  text-align: center;
+  color: #646a73;
+  font-size: 14px;
+}
