@@ -10,7 +10,7 @@
     </view>
   </view>
   <view class="list">
-    <navigator class="list-item" url="./calendar/index">
+    <navigator wx:if="{{school.id === 'b525083d-b83c-4c7e-892f-29909421d961'}}" class="list-item" url="./calendar/index">
       <image class="icon" src="../../images/module/calendar.png" />
       <view class="text">校历</view>
     </navigator>
@@ -38,6 +38,11 @@
       <image class="icon" src="../../images/module/help.png" />
       <view class="text">联系我们</view>
     </button>
+    <navigator class="list-item" url="./school/index">
+      <image class="icon" src="../../images/module/switch.png" />
+      <view class="text">切换学校</view>
+      <view class="after">{{school.name}}</view>
+    </navigator>
     <view class="list-item" bindtap="about">
       <image class="icon" src="../../images/module/about.png" />
       <view class="text">关于</view>

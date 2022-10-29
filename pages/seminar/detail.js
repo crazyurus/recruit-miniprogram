@@ -19,8 +19,8 @@ Page({
     opacityColor: 'rgba(69,200,220,0.6)',
     loading: true,
     article: {
-      source: '武汉理工大学学生就业指导中心',
-      university: '武汉理工大学',
+      source: '学生就业指导中心',
+      university: '',
     },
     company: {},
     positions: [],
@@ -56,7 +56,7 @@ Page({
             start: dayjs(result.hold_date + ' ' + result.hold_starttime + ':00').unix(),
             end: dayjs(result.hold_date + ' ' + result.hold_endtime + ':00').unix(),
           },
-          source: '武汉理工大学学生就业指导中心',
+          source: '学生就业指导中心',
         },
         positions: unique(result.ProfessionalList.map(item => item.professional_id_name)),
         company: {
@@ -158,7 +158,7 @@ Page({
   addToCalendar() {
     wx.addPhoneCalendar({
       title: this.data.article.title,
-      description: '来自武汉理工大学就业招聘小程序',
+      description: '来自就业招聘小程序',
       location: this.data.article.university + this.data.article.address,
       startTime: this.data.article.timestamp.start,
       endTime: this.data.article.timestamp.end,

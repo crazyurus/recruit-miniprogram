@@ -7,8 +7,8 @@ Page({
   data: {
     loading: true,
     article: {
-      source: '武汉理工大学学生就业指导中心',
-      university: '武汉理工大学',
+      source: '学生就业指导中心',
+      university: '',
     },
     statistics: {
       company: 0,
@@ -63,7 +63,7 @@ Page({
           poster: utils.getCDNURL(result.image_id_src || '//s11.jiuyeb.cn/static/images/sxbanner2.png'),
           view: result.view_count,
           content: result.remarks,
-          source: '武汉理工大学学生就业指导中心',
+          source: '学生就业指导中心',
           telephone: result.phone,
         },
         'statistics.company': result.verify_count,

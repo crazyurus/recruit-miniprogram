@@ -1,0 +1,63 @@
+@import '/component/list/list.wxss';
+@import '/component/search/search.wxss';
+
+.page-content {
+  padding: 48px 0 28px;
+  z-index: 1;
+}
+
+.list-block .item-content {
+  box-sizing: border-box;
+  padding-left: 15px;
+  min-height: 44px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.list-block .item-link-active {
+  background-color: #ececec;
+  opacity: 1;
+}
+
+.list-block .item-inner {
+  border-bottom: 1rpx solid #c8c7cc;
+}
+
+.list-block .item-check:last-child .item-inner {
+  border-bottom: none;
+}
+
+.list-block .item-title.label {
+  width: 35%;
+  flex-shrink: 0;
+}
+
+.list-block .item-after {
+  white-space: nowrap;
+  color: #8e8e93;
+  flex-shrink: 0;
+  margin-left: auto;
+  padding-left: 5px;
+  display: flex;
+  max-height: 28px;
+}
+
+.list-block + .list-block-label {
+  margin: -25px 0 35px;
+  padding: 0 15px;
+  font-size: 14px;
+  color: #8f8f94;
+}
+
+.list-block .item-check .item-inner {
+  padding-right: 35px;
+  background: none;
+}
+
+.item-check.active {
+  background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%2013%2010'%3E%3Cpolygon%20fill%3D'%2345c8dc'%20points%3D'11.6%2C0%204.4%2C7.2%201.4%2C4.2%200%2C5.6%204.4%2C10%204.4%2C10%204.4%2C10%2013%2C1.4%20'%2F%3E%3C%2Fsvg%3E") !important;
+  background-position: calc(-15px + 100%) center;
+  background-size: 13px 10px;
+  background-repeat: no-repeat;
+}

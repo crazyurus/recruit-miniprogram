@@ -8,11 +8,22 @@ Page({
     page: 1,
     loading: true,
     left: 0,
+    school: {},
     calendar: {},
   },
   onLoad() {
     this.calcCalendar();
-    this.loadNoticeList();
+  },
+  onShow() {
+    const { school } = store.getState();
+
+    if (school.id !== this.data.school.id) {
+      this.reset();
+      this.loadNoticeList();
+      this.setData({
+        school,
+      });
+    }
   },
   onReachBottom() {
     this.loadNoticeList();

@@ -1,9 +1,18 @@
+const store = require('../../store/index');
 const utils = require('../../library/utils');
 
 Page({
   data: {
     isQQ: utils.isQQ,
     userInfo: null,
+    school: {},
+  },
+  onShow() {
+    const { school } = store.getState();
+
+    this.setData({
+      school,
+    });
   },
   tucao() {
     if (this.data.isQQ) {

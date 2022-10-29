@@ -97,6 +97,6 @@ audio {
 .list-item > .text {
   flex-grow: 1;
   margin-left: 32rpx;
-  color: #787878;
+  color: #646a73;
   font-size: 16px;
 }

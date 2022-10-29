@@ -7,17 +7,28 @@ Page({
     list: [],
     page: 1,
     loading: true,
+    school: {},
     device: {},
     search: {
       show: false,
       keyword: ''
     },
   },
+  onShow() {
+    const { school } = store.getState();
+
+    if (school.id !== this.data.school.id) {
+      this.reset();
+      this.loadNoticeList();
+      this.setData({
+        school,
+      });
+    }
+  },
   onLoad() {
     this.setData({
       device: wx.getSystemInfoSync()
     });
-    this.loadNoticeList();
   },
   onReachBottom() {
     this.loadNoticeList();

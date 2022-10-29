@@ -52,12 +52,12 @@
   transform: scaleY(0.5);
 }
 
-.list-block .item-link {  
-  display: block; 
+.list-block .item-link {
+  display: block;
 }
 
-.list-block .item-link.navigator-hover { 
-  background-color: #ececec; 
+.list-block .item-link.navigator-hover {
+  background-color: #ececec;
   opacity: 1;
 }
 
@@ -79,13 +79,13 @@
 }
 
 .list-block .item-text {
+  display: flex;
   font-size: 15px;
   color: #8e8e93;
   line-height: 21px;
   position: relative;
   overflow: hidden;
   text-overflow: ellipsis;
-  display: flex;
 }
 
 .list-block .item-content:last-child .item-inner::after {

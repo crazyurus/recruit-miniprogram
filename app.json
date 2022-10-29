@@ -9,6 +9,7 @@
     "pages/enrollment/detail",
     "pages/me/index",
     "pages/me/calendar/index",
+    "pages/me/school/index",
     "pages/common/map",
     "pages/common/webview",
     "pages/election/index",

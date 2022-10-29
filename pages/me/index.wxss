@@ -36,6 +36,7 @@ page, .page-content {
 }
 
 .list-item {
+  position: relative;
   display: flex;
   align-items: center;
   height: 96rpx;
@@ -65,4 +66,10 @@ navigator.list-item.navigator-hover, button.list-item:active, view.list-item:act
 .list-item > .text {
   font-size: 16px;
   font-weight: bold;
+}
+
+.list-item > .after {
+  position: absolute;
+  right: 24rpx;
+  color: #646a73;
 }

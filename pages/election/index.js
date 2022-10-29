@@ -6,10 +6,18 @@ Page({
   data: {
     list: [],
     carousel: [],
+    school: {},
   },
-  onLoad() {
-    this.loadCarousel();
-    this.loadList();
+  onShow() {
+    const { school } = store.getState();
+
+    if (school.id !== this.data.school.id) {
+      this.loadCarousel();
+      this.loadList();
+      this.setData({
+        school,
+      });
+    }
   },
   loadCarousel() {
     request('/phone/index', {

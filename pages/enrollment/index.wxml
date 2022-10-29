@@ -1,6 +1,6 @@
 <import src="/component/search/search.wxml" />
 
-<template is="searchbar" data="{{ placeholder: '职位/公司名', showCancelButton: search.show, width: device.windowWidth }}" ></template>
+<template is="searchbar" data="{{ placeholder: '职位/公司名', showCancelButton: search.show, width: device.windowWidth }}"></template>
 <view class="page-content">
   <view class="content-block-title">招聘信息</view>
   <view class="list-block media-list record-list">

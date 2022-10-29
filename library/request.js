@@ -1,5 +1,6 @@
 const axios = require('axios');
 const adapter = require('axios-miniprogram-adapter');
+const store = require('../store/index');
 const { toast } = require('./ui');
 const logger = require('./logger');
 
@@ -15,11 +16,13 @@ const instance = axios.create({
 });
 
 instance.interceptors.request.use(config => {
+  const { school } = store.getState();
+
   Object.assign(config.data, {
-    school_id: 'b525083d-b83c-4c7e-892f-29909421d961',
+    school_id: school.id,
     login_user_id: 1,
     login_admin_school_code: '',
-    login_admin_school_id: 'b525083d-b83c-4c7e-892f-29909421d961',
+    login_admin_school_id: school.id,
   });
 
   return config;
