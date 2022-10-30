@@ -1,5 +1,5 @@
 @import '/component/list/list.wxss';
-@import '/component/tab/tab.wxss';
+@import '/component/tabbar/tabbar.wxss';
 
 .list-block .item-text {
   display: block;

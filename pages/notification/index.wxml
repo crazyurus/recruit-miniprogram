@@ -1,4 +1,4 @@
-<import src="/component/tab/tab.wxml" />
+<import src="/component/tabbar/tabbar.wxml" />
 
 <block wx:if="{{tabs.length > 0}}">
   <template is="tabbar" data="{{ tabs: tabs, active: active.id }}"></template>
