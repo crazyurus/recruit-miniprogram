@@ -43,6 +43,10 @@ Page({
     const { id } = e.currentTarget.dataset;
     const school = schools.find(school => school.id === id);
 
+    this.setData({
+      active: school,
+    });
+
     store.dispatch({
       type: 'SET_SCHOOL',
       payload: school,

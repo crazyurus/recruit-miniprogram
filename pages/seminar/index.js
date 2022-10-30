@@ -101,7 +101,7 @@ Page({
       this.data.page++;
 
       this.setData({
-        loading: list.length > 0,
+        loading: list.length > 0 && this.data.page <= result.allpage,
         list: this.data.list.concat(list)
       });
     });
@@ -149,6 +149,7 @@ Page({
         title: item.title,
         time: item.time,
         address: item.address,
+        university: item.university,
         backgroundColor: item.backgroundColor,
       },
     });
