@@ -2,7 +2,6 @@ const axios = require('axios');
 const adapter = require('axios-miniprogram-adapter');
 const store = require('../store/index');
 const { toast } = require('./ui');
-const logger = require('./logger');
 
 axios.defaults.adapter = adapter;
 
@@ -49,7 +48,6 @@ function request(url, data = {}, loading = true) {
     url,
     data,
   }).catch(error => {
-    logger.error('[Request] scc', url, error.message);
     toast(error.message);
   }).finally(() => {
     if (loading) wx.hideNavigationBarLoading();

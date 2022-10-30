@@ -1,6 +1,5 @@
 const ui = require('../../../library/ui');
 const utils = require('../../../library/utils');
-const logger = require('../../../library/logger')
 
 Page({
   data: {
@@ -37,7 +36,6 @@ Page({
     } catch (error) {
       hideLoading();
       ui.toast('校历保存失败');
-      logger.error('[Download] calendar', error);
     }
   },
   openWUTGuide() {
