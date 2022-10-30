@@ -46,7 +46,48 @@
   "qqappid": "1109884680",
   "projectname": "%E5%B0%B1%E4%B8%9A%E6%8B%9B%E8%81%98",
   "packOptions": {
-    "ignore": [],
+    "ignore": [
+      {
+        "value": "package.json",
+        "type": "file"
+      },
+      {
+        "value": "package-lock.json",
+        "type": "file"
+      },
+      {
+        "value": "miniprogram_npm/reselect/index.js",
+        "type": "file"
+      },
+      {
+        "value": "miniprogram_npm/debug/index.js",
+        "type": "file"
+      },
+      {
+        "value": "miniprogram_npm/regenerator-runtime/index.js",
+        "type": "file"
+      },
+      {
+        "value": "miniprogram_npm/follow-redirects/index.js",
+        "type": "file"
+      },
+      {
+        "value": "miniprogram_npm/ms/index.js",
+        "type": "file"
+      },
+      {
+        "value": "miniprogram_npm/axios-miniprogram-adapter/miniprogram_npm/follow-redirects/index.js",
+        "type": "file"
+      },
+      {
+        "value": "miniprogram_npm/axios-miniprogram-adapter/miniprogram_npm/axios/index.js",
+        "type": "file"
+      },
+      {
+        "value": "miniprogram_npm/redux/index.js",
+        "type": "file"
+      }
+    ],
     "include": []
   },
   "editorSetting": {
