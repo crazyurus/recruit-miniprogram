@@ -1,4 +1,3 @@
-const schools = require('../data/school');
 const SET_SCHOOL = 'SET_SCHOOL';
 
 function getDefaultSchool() {
@@ -8,7 +7,10 @@ function getDefaultSchool() {
     return school;
   }
 
-  return schools[0];
+  return {
+    id: 'b525083d-b83c-4c7e-892f-29909421d961',
+    name: '武汉理工大学',
+  };
 }
 
 function reducer(state = getDefaultSchool(), action) {

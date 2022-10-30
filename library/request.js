@@ -17,12 +17,13 @@ const instance = axios.create({
 
 instance.interceptors.request.use(config => {
   const { school } = store.getState();
+  const schoolID = config.url === '/School/getlistName' ? '' : school.id;
 
   Object.assign(config.data, {
-    school_id: school.id,
+    school_id: schoolID,
     login_user_id: 1,
     login_admin_school_code: '',
-    login_admin_school_id: school.id,
+    login_admin_school_id: schoolID,
   });
 
   return config;
