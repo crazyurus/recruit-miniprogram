@@ -1,0 +1,18 @@
+name: 上传小程序
+on:
+  push:
+    tags:
+      - "*.*.*"
+jobs:
+  upload:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Upload
+        uses: crazyurus/miniprogram-action@1.0.0
+        with:
+          action_type: upload
+          version: ${{ github.ref_name }}
+        env:
+          PRIVATE_KEY: ${{ secrets.PRIVATE_KEY }}
