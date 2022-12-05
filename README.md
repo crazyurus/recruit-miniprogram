@@ -1,6 +1,9 @@
 # 就业招聘
 
-武汉理工大学就业招聘小程序，支持多个学校使用
+![预览](https://github.com/crazyurus/recruit-miniprogram/actions/workflows/preview.yml/badge.svg) 
+![上传](https://github.com/crazyurus/recruit-miniprogram/actions/workflows/upload.yml/badge.svg)
+
+就业招聘小程序，支持多个学校使用
 
 ## 使用
 
