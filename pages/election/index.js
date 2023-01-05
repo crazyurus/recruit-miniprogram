@@ -1,6 +1,6 @@
 const store = require('../../store/index');
-const request = require('../../library/request/scc');
-const { getCDNURL, formatTimestamp, openURL } = require('../../library/utils');
+const request = require('../../libs/request/scc');
+const { getCDNURL, formatTimestamp, openURL } = require('../../libs/utils');
 
 Page({
   data: {

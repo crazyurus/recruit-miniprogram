@@ -1,4 +1,4 @@
-@import '/component/list/list.wxss';
+@import '/styles/list.wxss';
 @import '/component/tabbar/tabbar.wxss';
 
 .list-block .item-text {

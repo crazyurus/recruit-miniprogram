@@ -12,6 +12,10 @@ function formatTimestamp(timestamp) {
   return dayjs(timestamp * 1000).format('YYYY-M-D');
 }
 
+function formatDateTime(dateTime) {
+  return dayjs(dateTime).format('YYYY-M-D');
+}
+
 function openURL(url) {
   wx.navigateTo({
     url: '/pages/common/webview?url=' + encodeURIComponent(url),
@@ -27,6 +31,7 @@ function getCDNURL(url) {
 module.exports = {
   sharePath,
   formatTimestamp,
+  formatDateTime,
   openURL,
   getCDNURL,
   get isQQ() {

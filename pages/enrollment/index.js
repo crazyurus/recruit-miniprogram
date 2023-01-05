@@ -1,5 +1,5 @@
-const request = require('../../library/request/scc');
-const utils = require('../../library/utils');
+const request = require('../../libs/request/scc');
+const utils = require('../../libs/utils');
 const store = require('../../store/index');
 
 Page({

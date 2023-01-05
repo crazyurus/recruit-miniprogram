@@ -1,6 +1,6 @@
-const request = require('../../library/request/scc');
-const utils = require('../../library/utils');
-const location = require('../../library/location');
+const request = require('../../libs/request/scc');
+const utils = require('../../libs/utils');
+const location = require('../../libs/location');
 const store = require('../../store/index');
 
 Page({

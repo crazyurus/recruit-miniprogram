@@ -1,6 +1,6 @@
-const request = require('../../library/request/scc');
-const ui = require('../../library/ui');
-const utils = require('../../library/utils');
+const request = require('../../libs/request/scc');
+const ui = require('../../libs/ui');
+const utils = require('../../libs/utils');
 
 Page({
   data: {

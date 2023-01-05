@@ -1,4 +1,4 @@
-const { toast } = require('../../library/ui');
+const { toast } = require('../../libs/ui');
 
 Page({
   data: {

@@ -1,5 +1,5 @@
-const ui = require('../../../library/ui');
-const utils = require('../../../library/utils');
+const ui = require('../../../libs/ui');
+const utils = require('../../../libs/utils');
 
 Page({
   data: {
