@@ -4,7 +4,7 @@ const utils = require('../../../library/utils');
 Page({
   data: {
     isQQ: utils.isQQ,
-    calendarURL: 'https://sf3-cdn-tos.douyinstatic.com/obj/eden-cn/eseh7nupevhps/calendar/calendar.jpg',
+    calendarURL: 'https://wx.whut.edu.cn/img/pic.0465e666.jpg',
   },
   previewCalendar() {
     wx.previewImage({
