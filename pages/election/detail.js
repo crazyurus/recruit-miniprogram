@@ -1,4 +1,4 @@
-const request = require('../../library/request');
+const request = require('../../library/request/scc');
 const ui = require('../../library/ui');
 const utils = require('../../library/utils');
 const store = require('../../store/index');

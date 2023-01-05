@@ -1,5 +1,5 @@
 const dayjs = require('dayjs');
-const request = require('../../library/request');
+const request = require('../../library/request/scc');
 const ui = require('../../library/ui');
 const location = require('../../library/location');
 const utils = require('../../library/utils');

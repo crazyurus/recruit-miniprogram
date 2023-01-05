@@ -1,4 +1,4 @@
-const request = require('../../../library/request');
+const request = require('../../../library/request/scc');
 const store = require('../../../store/index');
 
 Page({

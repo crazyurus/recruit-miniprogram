@@ -1,5 +1,5 @@
 const store = require('../../store/index');
-const request = require('../../library/request');
+const request = require('../../library/request/scc');
 const { getCDNURL, formatTimestamp, openURL } = require('../../library/utils');
 
 Page({
