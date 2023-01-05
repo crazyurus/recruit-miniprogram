@@ -16,6 +16,19 @@ async function openDocument(url) {
   hideLoading();
 }
 
+function exist(filePath) {
+  const fs = wx.getFileSystemManager();
+
+  try {
+    fs.accessSync(filePath);
+
+    return true;
+  } catch (e) {
+    return false;
+  }
+}
+
 module.exports = {
   openDocument,
+  exist,
 };

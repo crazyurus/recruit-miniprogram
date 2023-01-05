@@ -1,15 +1,40 @@
 const store = require('../../store/index');
 const utils = require('../../libs/utils');
 const ui = require('../../libs/ui');
+const { exist } = require('../../libs/file');
 const { WUTSchoolID } = require('../../libs/const');
+
+const avatarFilePath = wx.env.USER_DATA_PATH + '/avatar.jpg';
+const nickNameStorageKey = 'nickName';
 
 Page({
   data: {
     isQQ: utils.isQQ,
     isLogin: false,
     school: {},
-    avatar: 'https://mmbiz.qpic.cn/mmbiz/icTdbqWNOwNRna42FI242Lcia07jQodd2FJGIYQfG0LAJGFxM4FbnQP6yfMxBgJ0F3YRqJCJ1aPAK2dQagdusBZg/0',
+    userInfo: {
+      name: '',
+      avatar: 'https://mmbiz.qpic.cn/mmbiz/icTdbqWNOwNRna42FI242Lcia07jQodd2FJGIYQfG0LAJGFxM4FbnQP6yfMxBgJ0F3YRqJCJ1aPAK2dQagdusBZg/0',
+    },
     enablePostModule: false,
+  },
+  onLoad() {
+    const self = this;
+
+    if (exist(avatarFilePath)) {
+      this.setData({
+        'userInfo.avatar': avatarFilePath,
+      });
+    }
+
+    wx.getStorage({
+      key: nickNameStorageKey,
+      success({ data }) {
+        self.setData({
+          'userInfo.name': data,
+        });
+      }
+    })
   },
   onShow() {
     const { school } = store.getState();
@@ -45,19 +70,55 @@ Page({
   about() {
     utils.openURL('https://mp.weixin.qq.com/s/HbXW7A87ilgW_CbEI-1ODQ');
   },
-  getUserInfo() {
-    ui.toast('登录成功', 'success');
+  getUserInfo(e) {
+    const { errMsg } = e.detail;
 
-    this.setData({
-      enablePostModule: this.data.school.id === WUTSchoolID,
-      isLogin: true,
+    if (errMsg === 'getPhoneNumber:ok') {
+      ui.toast('登录成功', 'success');
+
+      this.setData({
+        enablePostModule: this.data.school.id === WUTSchoolID,
+        isLogin: true,
+      });
+    }
+  },
+  changeNickName() {
+    const self = this;
+
+    wx.showModal({
+      title: '修改昵称',
+      content: this.data.userInfo.name,
+      showCancel: true,
+      confirmColor: '#45c8dc',
+      confirmText: '保存',
+      editable: true,
+      placeholderText: '输入你的昵称',
+      success({ content }) {
+        if (!content) {
+          return;
+        }
+
+        wx.setStorage({
+          key: nickNameStorageKey,
+          data: content,
+        });
+
+        self.setData({
+          'userInfo.name': content,
+        });
+      }
     });
   },
   chooseAvatar(e) {
     const { avatarUrl } = e.detail;
 
     this.setData({
-      avatar: avatarUrl,
+      'userInfo.avatar': avatarUrl,
+    }, () => {
+      wx.getFileSystemManager().saveFile({
+        tempFilePath: avatarUrl,
+        filePath: avatarFilePath,
+      });
     });
   },
 });
