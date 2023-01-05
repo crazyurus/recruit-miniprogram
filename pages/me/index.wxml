@@ -14,6 +14,10 @@
       <image class="icon" src="../../images/module/calendar.png" />
       <view class="text">校历</view>
     </navigator>
+    <navigator wx:if="{{enablePostModule}}" class="list-item" url="./news/index">
+      <image class="icon" src="../../images/module/news.png" />
+      <view class="text">校园资讯</view>
+    </navigator>
     <button class="list-item" open-type="openSetting" plain hover-class="none">
       <image class="icon" src="../../images/module/setting.png" />
       <view class="text">设置</view>

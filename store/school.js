@@ -1,3 +1,5 @@
+const { WUTSchoolID } = require('../libs/const');
+
 const SET_SCHOOL = 'SET_SCHOOL';
 
 function getDefaultSchool() {
@@ -8,7 +10,7 @@ function getDefaultSchool() {
   }
 
   return {
-    id: 'b525083d-b83c-4c7e-892f-29909421d961',
+    id: WUTSchoolID,
     name: '武汉理工大学',
   };
 }

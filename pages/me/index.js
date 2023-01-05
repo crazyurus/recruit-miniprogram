@@ -1,18 +1,26 @@
 const store = require('../../store/index');
-const utils = require('../../library/utils');
-const ui = require('../../library/ui');
+const utils = require('../../libs/utils');
+const ui = require('../../libs/ui');
+const { WUTSchoolID } = require('../../libs/const');
 
 Page({
   data: {
     isQQ: utils.isQQ,
     userInfo: null,
     school: {},
+    enablePostModule: false,
   },
   onShow() {
     const { school } = store.getState();
+    let { enablePostModule } = this.data;
+
+    if (school.id !== WUTSchoolID) {
+      enablePostModule = false;
+    }
 
     this.setData({
       school,
+      enablePostModule,
     });
   },
   tucao() {
@@ -46,6 +54,7 @@ Page({
       desc: '用于在界面中展示用户头像和昵称',
       success(res) {
         self.setData({
+          enablePostModule: self.data.school.id === WUTSchoolID,
           userInfo: {
             name: res.userInfo.nickName,
             avatar: res.userInfo.avatarUrl,

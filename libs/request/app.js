@@ -1,7 +1,7 @@
 const { axios, createRequest, responseSuccessInterceptor, responseFailInterceptor } = require('./common');
 
 const instance = axios.create({
-  baseURL: 'https://app1.whut.edu.cn/information/news/',
+  baseURL: 'https://app1.whut.edu.cn/information/',
   method: 'POST',
   headers: {
     'Content-Type': 'application/x-www-form-urlencoded',

@@ -10,6 +10,8 @@
     "pages/me/index",
     "pages/me/calendar/index",
     "pages/me/school/index",
+    "pages/me/news/index",
+    "pages/me/news/detail",
     "pages/common/map",
     "pages/common/webview",
     "pages/election/index",

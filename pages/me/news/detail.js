@@ -1,7 +1,7 @@
-const request = require('../../libs/request/scc');
-const ui = require('../../libs/ui');
-const { openDocument } = require('../../libs/file');
-const utils = require('../../libs/utils');
+const request = require('../../../libs/request/app');
+const ui = require('../../../libs/ui');
+const { openDocument } = require('../../../libs/file');
+const utils = require('../../../libs/utils');
 
 Page({
   data: {
@@ -10,19 +10,22 @@ Page({
     contentStyle: {
       a: 'color: #45c8dc',
     },
+    domain: 'https://app1.whut.edu.cn/news_static/',
   },
   onLoad(options) {
-    request('/Article/detail', {
+    request('/news/get', {
       id: options.id,
-      show_type: 2
     }, false).then(result => {
+      const href = result.newsHref.split(',');
+      const html = result.html.replace(/font/g, 'f');
+
       this.setData({
         article: {
-          title: result.title,
-          content: result.content.replace(/font/g, 'f'),
-          attachments: (result.attInfo || []).map(item => ({
-            name: item.fujian_des,
-            url: 'https:' + item.fujian_name,
+          title: result.newsTitle,
+          content: html.slice(html.indexOf('<div class=\"TRS_Editor\">'), html.indexOf('<div class=\"file_box\">')),
+          attachments: (result.fileName.split(',') || []).map((item, index) => ({
+            name: item,
+            url: this.data.domain + href[index],
           })),
         },
       });
