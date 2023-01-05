@@ -31,6 +31,16 @@ page, .page-content {
   font-weight: bold;
 }
 
+.user-blank {
+  position: absolute;
+  left: 48rpx;
+  top: 100rpx;
+  display: block;
+  width: 180rpx;
+  height: 180rpx;
+  opacity: 0;
+}
+
 .list {
   padding: 64rpx 48rpx;
 }

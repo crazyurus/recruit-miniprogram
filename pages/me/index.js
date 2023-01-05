@@ -6,8 +6,9 @@ const { WUTSchoolID } = require('../../libs/const');
 Page({
   data: {
     isQQ: utils.isQQ,
-    userInfo: null,
+    isLogin: false,
     school: {},
+    avatar: 'https://mmbiz.qpic.cn/mmbiz/icTdbqWNOwNRna42FI242Lcia07jQodd2FJGIYQfG0LAJGFxM4FbnQP6yfMxBgJ0F3YRqJCJ1aPAK2dQagdusBZg/0',
     enablePostModule: false,
   },
   onShow() {
@@ -45,22 +46,18 @@ Page({
     utils.openURL('https://mp.weixin.qq.com/s/HbXW7A87ilgW_CbEI-1ODQ');
   },
   getUserInfo() {
-    if (this.data.userInfo) {
-      return;
-    }
+    ui.toast('登录成功', 'success');
 
-    const self = this;
-    wx.getUserProfile({
-      desc: '用于在界面中展示用户头像和昵称',
-      success(res) {
-        self.setData({
-          enablePostModule: self.data.school.id === WUTSchoolID,
-          userInfo: {
-            name: res.userInfo.nickName,
-            avatar: res.userInfo.avatarUrl,
-          },
-        });
-      },
+    this.setData({
+      enablePostModule: this.data.school.id === WUTSchoolID,
+      isLogin: true,
+    });
+  },
+  chooseAvatar(e) {
+    const { avatarUrl } = e.detail;
+
+    this.setData({
+      avatar: avatarUrl,
     });
   },
 });
