@@ -1,5 +1,6 @@
 const store = require('../../store/index');
 const utils = require('../../library/utils');
+const ui = require('../../library/ui');
 
 Page({
   data: {
@@ -16,7 +17,7 @@ Page({
   },
   tucao() {
     if (this.data.isQQ) {
-      utils.openURL('https://support.qq.com/products/23796');
+      ui.toast('QQ 小程序暂不支持此功能');
     } else {
       wx.openEmbeddedMiniProgram({
         appId: 'wx8abaf00ee8c3202e',
