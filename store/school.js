@@ -1,4 +1,4 @@
-const { WUTSchoolID } = require('../libs/const');
+const { WUTSchoolID } = require('../data/const');
 
 const SET_SCHOOL = 'SET_SCHOOL';
 

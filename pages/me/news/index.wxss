@@ -7,3 +7,14 @@
 .item-count {
   float: right;
 }
+
+.content-block-title {
+  display: flex;
+  justify-content: space-between;
+}
+
+.category {
+  position: relative;
+  cursor: pointer;
+  color: #45c8dc;
+}

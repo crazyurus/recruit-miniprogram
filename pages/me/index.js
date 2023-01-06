@@ -2,7 +2,7 @@ const store = require('../../store/index');
 const utils = require('../../libs/utils');
 const ui = require('../../libs/ui');
 const { exist } = require('../../libs/file');
-const { WUTSchoolID } = require('../../libs/const');
+const { WUTSchoolID } = require('../../data/const');
 
 const avatarFilePath = wx.env.USER_DATA_PATH + '/avatar.jpg';
 const nickNameStorageKey = 'nickName';
