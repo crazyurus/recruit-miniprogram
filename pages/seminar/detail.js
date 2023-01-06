@@ -1,4 +1,5 @@
 const dayjs = require('dayjs');
+const articleBehavior = require('../../behaviors/article');
 const request = require('../../libs/request/scc');
 const ui = require('../../libs/ui');
 const location = require('../../libs/location');
@@ -14,6 +15,8 @@ function hexToRgba(color, opacity) {
 }
 
 Page({
+  behaviors: [articleBehavior],
+  scrollTop: 60,
   data: {
     backgroundColor: '#45c8dc',
     opacityColor: 'rgba(69,200,220,0.6)',
@@ -24,54 +27,51 @@ Page({
     },
     company: {},
     positions: [],
-    title: false,
     isExpired: true,
     isQQ: false,
-    contentStyle: {
-      a: 'color: #45c8dc',
-    },
   },
-  onLoad(options) {
+  async onLoad(options) {
     wx.setNavigationBarTitle({
       title: ' '
     });
     this.onCache();
 
-    request('/preach/detail', {
+    const result = await request('/preach/detail', {
       id: options.id,
-    }, false).then(result => {
-      this.setData({
-        loading: false,
-        article: {
-          id: result.id,
-          title: result.title,
-          university: result.school_id_name,
-          address: result.address || result.tmp_field_name || '线上宣讲会',
-          view: result.viewcount,
-          content: result.remarks,
-          tips: result.schoolwarn,
-          poster: result.haibao_id_src ? utils.getCDNURL(result.haibao_id_src.linkpath) : '',
-          time: result.hold_date + ' ' + result.hold_starttime + '-' + result.hold_endtime,
-          timestamp: {
-            start: dayjs(result.hold_date + ' ' + result.hold_starttime + ':00').unix(),
-            end: dayjs(result.hold_date + ' ' + result.hold_endtime + ':00').unix(),
-          },
-          source: '学生就业指导中心',
+    }, false);
+
+    this.icon = utils.getCDNURL(result.comInfo.logo_src);
+    this.setData({
+      loading: false,
+      article: {
+        id: result.id,
+        title: result.title,
+        university: result.school_id_name,
+        address: result.address || result.tmp_field_name || '线上宣讲会',
+        view: result.viewcount,
+        content: result.remarks,
+        tips: result.schoolwarn,
+        poster: result.haibao_id_src ? utils.getCDNURL(result.haibao_id_src.linkpath) : '',
+        time: result.hold_date + ' ' + result.hold_starttime + '-' + result.hold_endtime,
+        timestamp: {
+          start: dayjs(result.hold_date + ' ' + result.hold_starttime + ':00').unix(),
+          end: dayjs(result.hold_date + ' ' + result.hold_endtime + ':00').unix(),
         },
-        positions: unique(result.ProfessionalList.map(item => item.professional_id_name)),
-        company: {
-          id: result.comInfo.id,
-          name: result.comInfo.name,
-          logo: utils.getCDNURL(result.comInfo.logo_src),
-          description: (!result.comInfo.city_name || result.comInfo.city_name === '市辖区' ? result.comInfo.province_name : result.comInfo.city_name) + ' ' + result.comInfo.xingzhi_id_name + ' ' + result.comInfo.business_name,
-        },
-        contact: {
-          email: result.email,
-          telephone: result.phone,
-        },
-        isExpired: result.timestatus === 3,
-        isQQ: utils.isQQ
-      });
+        source: '学生就业指导中心',
+      },
+      positions: unique(result.ProfessionalList.map(item => item.professional_id_name)),
+      company: {
+        id: result.comInfo.id,
+        name: result.comInfo.name,
+        logo: this.icon,
+        description: (!result.comInfo.city_name || result.comInfo.city_name === '市辖区' ? result.comInfo.province_name : result.comInfo.city_name) + ' ' + result.comInfo.xingzhi_id_name + ' ' + result.comInfo.business_name,
+      },
+      contact: {
+        email: result.email,
+        telephone: result.phone,
+      },
+      isExpired: result.timestatus === 3,
+      isQQ: utils.isQQ
     });
   },
   onCache() {
@@ -106,44 +106,6 @@ Page({
     store.dispatch({
       type: 'CLEAR_ARTICLE',
     });
-  },
-  onShareAppMessage() {
-    return {
-      title: this.data.article.title,
-      path: utils.sharePath(this),
-      success() {
-        ui.toast('分享成功', 'success');
-      }
-    };
-  },
-  onShareTimeline() {
-    return {
-      title: this.data.article.title,
-      imageUrl: this.data.company.logo,
-    };
-  },
-  onAddToFavorites() {
-    return {
-      title: this.data.article.title,
-      imageUrl: this.data.company.logo,
-      success() {
-        ui.toast('收藏成功', 'success');
-      }
-    };
-  },
-  onPageScroll(e) {
-    if (e.scrollTop <= 60 && this.data.title) {
-      this.data.title = false;
-      wx.setNavigationBarTitle({
-        title: ' '
-      });
-    }
-    if (e.scrollTop > 60 && !this.data.title) {
-      this.data.title = true;
-      wx.setNavigationBarTitle({
-        title: this.data.article.title
-      });
-    }
   },
   showAddressMap() {
     if (this.data.article.address === '线上宣讲会') {
