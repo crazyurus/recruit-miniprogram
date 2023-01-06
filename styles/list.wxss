@@ -114,6 +114,23 @@
   justify-content: space-between;
 }
 
+.list-block .item-multiple {
+  align-items: center;
+  justify-content: space-between;
+}
+
+.list-block .item-multiple > text:first-child {
+  flex-grow: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-right: 8px;
+}
+
+.list-block .item-multiple > text:last-child {
+  flex-shrink: 0;
+}
+
 .circle {
   display: inline-block;
   width: 12.8px;

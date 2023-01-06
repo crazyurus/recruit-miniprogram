@@ -2,14 +2,6 @@
 @import '/styles/page.wxss';
 @import '/component/search/search.wxss';
 
-.list-block .item-text {
-  display: block;
-}
-
-.item-count {
-  float: right;
-}
-
 .list-block .item-link .item-inner {
   background: none;
   padding-right: 20px;

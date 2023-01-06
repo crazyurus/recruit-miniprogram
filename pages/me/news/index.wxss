@@ -1,14 +1,6 @@
 @import '/styles/list.wxss';
 @import '/styles/page.wxss';
 
-.list-block .item-text {
-  display: block;
-}
-
-.item-count {
-  float: right;
-}
-
 .content-block-title {
   display: flex;
   justify-content: space-between;

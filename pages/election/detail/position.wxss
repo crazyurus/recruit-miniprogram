@@ -1,11 +1,6 @@
 @import '/styles/list.wxss';
 @import '/styles/page.wxss';
 
-.list-block .item-text {
-  display: block;
-}
-
 .item-count {
-  float: right;
   color: #d9534f;
 }
