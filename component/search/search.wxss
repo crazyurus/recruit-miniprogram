@@ -1,7 +1,3 @@
-.page-content {
-  z-index: 1;
-}
-
 .searchbar {
   position: fixed;
   width: 100%;

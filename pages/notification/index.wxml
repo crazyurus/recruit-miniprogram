@@ -2,7 +2,7 @@
 
 <block wx:if="{{tabs.length > 0}}">
   <template is="tabbar" data="{{ tabs: tabs, active: active.id }}"></template>
-  <view class="page-content">
+  <view class="page-content page-content-top">
     <view class="content-block-title">就业{{active.name}}</view>
     <view class="list-block media-list record-list">
       <navigator url="detail?id={{item.id}}" wx:for="{{list}}" wx:key="id" class="item-link item-content">

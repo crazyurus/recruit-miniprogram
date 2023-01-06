@@ -1,0 +1,7 @@
+.page-content {
+  padding-bottom: 12px;
+}
+
+.page-content-top {
+  padding-top: 48px;
+}
