@@ -3,11 +3,15 @@ const listBehavior = require('../../../behaviors/list');
 
 Page({
   behaviors: [listBehavior],
+  data: {
+    search: '',
+  },
   async fetchData() {
     const result = await request('/jobfair/getjoblist', {
       fair_id: this.options.id,
       page: this.data.page,
       size: 10,
+      keywords: this.data.search,
       isunion: 2,
     });
 
@@ -27,5 +31,12 @@ Page({
       list,
       total: result.count,
     };
+  },
+  search(e) {
+    this.reset();
+    this.setData({
+      search: e.detail.value,
+    });
+    this.loadList();
   },
 });

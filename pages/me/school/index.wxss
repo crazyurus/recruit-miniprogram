@@ -1,5 +1,4 @@
 @import '/styles/list.wxss';
-@import '/components/search/search.wxss';
 
 .page-content {
   padding: 48px 0 28px;

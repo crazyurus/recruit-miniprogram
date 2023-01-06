@@ -5,11 +5,7 @@ Page({
   data: {
     list: [],
     active: {},
-    device: {},
-    search: {
-      show: false,
-      keyword: '',
-    },
+    search: '',
   },
   onLoad() {
     const { school } = store.getState();
@@ -17,7 +13,6 @@ Page({
     this.loadList();
     this.setData({
       active: school,
-      device: wx.getSystemInfoSync(),
     });
   },
   async loadList() {
@@ -31,23 +26,13 @@ Page({
       list,
     });
   },
-  searchNoticeList(e) {
+  search(e) {
     this.setData({
       list: this.data.originList.filter(school => school.name.includes(e.detail.value)),
       search: {
         show: false,
         keyword: e.detail.value,
       },
-    });
-  },
-  setSearchFocus() {
-    this.setData({
-      'search.show': true,
-    });
-  },
-  lostSearchFocus() {
-    this.setData({
-      'search.show': false,
     });
   },
   choose(e) {

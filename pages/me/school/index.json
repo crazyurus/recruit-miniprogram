@@ -1,4 +1,7 @@
 {
   "navigationBarTitleText": "选择学校",
-  "backgroundColor": "#ffffff"
+  "backgroundColor": "#ffffff",
+  "usingComponents": {
+    "search": "../../../components/search/index"
+  }
 }

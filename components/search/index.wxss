@@ -38,7 +38,7 @@
 }
 
 .mask {
-  position: absolute;
+  position: fixed;
   left: 0;
   top: 44px;
   width: 100%;

@@ -3,6 +3,7 @@
   "enablePullDownRefresh": true,
   "navigationBarTitleText": "招聘岗位",
   "usingComponents": {
-    "loading": "../../../components/loading/index"
+    "loading": "../../../components/loading/index",
+    "search": "../../../components/search/index"
   }
 }

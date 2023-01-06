@@ -6,22 +6,13 @@ const schoolBehavior = require('../../behaviors/school');
 Page({
   behaviors: [schoolBehavior],
   data: {
-    device: {},
-    search: {
-      show: false,
-      keyword: ''
-    },
-  },
-  onLoad() {
-    this.setData({
-      device: wx.getSystemInfoSync()
-    });
+    search: '',
   },
   async fetchData() {
     const result = await request('/enrollment/getlist', {
       page: this.data.page,
       size: 10,
-      keywords: this.data.search.keyword,
+      keywords: this.data.search,
       isben: 1,
       day: 0,
       type: 0,
@@ -44,25 +35,12 @@ Page({
       total: result.count,
     };
   },
-  searchNoticeList(e) {
+  search(e) {
     this.reset();
     this.setData({
-      search: {
-        show: false,
-        keyword: e.detail.value
-      }
+      search: e.detail.value,
     });
     this.loadList();
-  },
-  setSearchFocus() {
-    this.setData({
-      'search.show': true
-    });
-  },
-  lostSearchFocus() {
-    this.setData({
-      'search.show': false
-    });
   },
   openDetail(e) {
     const { index } = e.currentTarget.dataset;

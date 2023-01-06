@@ -1,4 +1,5 @@
-<view class="page-content">
+<search placeholder="搜索职位" bindsearch="search" />
+<view class="page-content page-content-top">
   <view class="content-block-title">招聘岗位</view>
   <view class="list-block media-list record-list">
     <view wx:for="{{list}}" wx:key="id" class="item-link item-content">
