@@ -1,20 +1,32 @@
+const computedBehavior = require('miniprogram-computed').behavior;
 const request = require('../../../libs/request/app');
 const utils = require('../../../libs/utils');
 const categories = require('../../../data/news');
 
 Page({
+  behaviors: [computedBehavior],
   data: {
     list: [],
     page: 1,
     loading: true,
     category: {
-      value: '',
+      first: true,
+      index: [0, 0],
       range: [[], []],
+    },
+  },
+  computed: {
+    categoryText(data) {
+      if (data.category.first) {
+        return '';
+      }
+
+      return data.category.range[0][data.category.index[0]] + '-' + data.category.range[1][data.category.index[1]];
     },
   },
   onLoad() {
     this.loadList();
-    this.calcCategory(0);
+    this.calcCategory();
   },
   onReachBottom() {
     this.loadList();
@@ -25,11 +37,11 @@ Page({
       wx.stopPullDownRefresh();
     });
   },
-  calcCategory(index) {
+  calcCategory() {
     this.setData({
       'category.range': [
         categories.map(item => item.label),
-        categories[index].children.map(item => item.label),
+        categories[this.data.category.index[0]].children.map(item => item.label),
       ],
     });
   },
@@ -41,7 +53,7 @@ Page({
     return request('/news/listTitles', {
       pageNumber: this.data.page,
       pageSize: 10,
-      newsType: this.data.category.value,
+      newsType: this.data.categoryText,
     }).then(result => {
       this.data.page++;
 
@@ -74,14 +86,18 @@ Page({
     const { column, value } = e.detail;
 
     if (column === 0) {
-      this.calcCategory(value);
+      this.setData({
+        'category.index[0]': value,
+      });
+      this.calcCategory();
     }
   },
   changeCategory(e) {
     const { value } = e.detail;
 
     this.setData({
-      'category.value': this.data.category.range[0][value[0]] + '-' + this.data.category.range[1][value[1]],
+      'category.first': false,
+      'category.index': value,
     });
     this.reset();
     this.loadList();

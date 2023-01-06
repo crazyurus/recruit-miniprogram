@@ -1,3 +1,4 @@
+const computedBehavior = require('miniprogram-computed').behavior;
 const store = require('../../store/index');
 const utils = require('../../libs/utils');
 const ui = require('../../libs/ui');
@@ -8,6 +9,7 @@ const avatarFilePath = wx.env.USER_DATA_PATH + '/avatar.jpg';
 const nickNameStorageKey = 'nickName';
 
 Page({
+  behaviors: [computedBehavior],
   data: {
     isQQ: utils.isQQ,
     isLogin: false,
@@ -16,7 +18,11 @@ Page({
       name: '',
       avatar: 'https://mmbiz.qpic.cn/mmbiz/icTdbqWNOwNRna42FI242Lcia07jQodd2FJGIYQfG0LAJGFxM4FbnQP6yfMxBgJ0F3YRqJCJ1aPAK2dQagdusBZg/0',
     },
-    enablePostModule: false,
+  },
+  computed: {
+    enablePostModule(data) {
+      return data.school.id === WUTSchoolID && data.isLogin;
+    },
   },
   onLoad() {
     const self = this;
@@ -38,15 +44,9 @@ Page({
   },
   onShow() {
     const { school } = store.getState();
-    let { enablePostModule } = this.data;
-
-    if (school.id !== WUTSchoolID) {
-      enablePostModule = false;
-    }
 
     this.setData({
       school,
-      enablePostModule,
     });
   },
   tucao() {
@@ -77,7 +77,6 @@ Page({
       ui.toast('登录成功', 'success');
 
       this.setData({
-        enablePostModule: this.data.school.id === WUTSchoolID,
         isLogin: true,
       });
     }

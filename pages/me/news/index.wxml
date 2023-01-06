@@ -1,8 +1,8 @@
 <view class="page-content">
   <view class="content-block-title">
     <text>校园资讯</text>
-    <picker header-text="资讯分类" mode="multiSelector" range="{{category.range}}" bindchange="changeCategory" bindcolumnchange="changeCategoryColumn">
-      <text class="category">{{category.value || '全部分类'}}</text>
+    <picker header-text="资讯分类" mode="multiSelector" value="{{category.index}}" range="{{category.range}}" bindchange="changeCategory" bindcolumnchange="changeCategoryColumn">
+      <text class="category">{{categoryText || '全部分类'}}</text>
     </picker>
   </view>
   <view class="list-block media-list record-list">
