@@ -1,10 +1,11 @@
-const request = require('../../libs/request/scc');
-const ui = require('../../libs/ui');
-const utils = require('../../libs/utils');
-const store = require('../../store/index');
+const request = require('../../../libs/request/scc');
+const ui = require('../../../libs/ui');
+const utils = require('../../../libs/utils');
+const store = require('../../../store/index');
 
 Page({
   data: {
+    id: 0,
     loading: true,
     article: {
       source: '学生就业指导中心',
@@ -54,6 +55,7 @@ Page({
       id: this.options.id,
     }, false).then(result => {
       this.setData({
+        id: this.options.id,
         loading: false,
         article: {
           id: result.id,

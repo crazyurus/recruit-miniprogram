@@ -15,7 +15,9 @@
     "pages/common/map",
     "pages/common/webview",
     "pages/election/index",
-    "pages/election/detail"
+    "pages/election/detail/index",
+    "pages/election/detail/company",
+    "pages/election/detail/position"
   ],
   "window": {
     "navigationBarBackgroundColor": "#45c8dc",

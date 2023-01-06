@@ -1,0 +1,10 @@
+@import '/styles/list.wxss';
+
+.list-block .item-text {
+  display: block;
+}
+
+.item-count {
+  float: right;
+  color: #d9534f;
+}

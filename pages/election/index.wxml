@@ -9,7 +9,7 @@
 </swiper>
 
 <view class="page-content">
-  <navigator wx:for="{{list}}" wx:key="id" class="card" url="detail?id={{item.id}}" data-index="{{index}}" bindtap="openDetail">
+  <navigator wx:for="{{list}}" wx:key="id" class="card" url="detail/index?id={{item.id}}" data-index="{{index}}" bindtap="openDetail">
     <view class="card-header" style="background-image: url('{{item.poster}}');">
       <view class="card-no">No.{{index + 1}}</view>
     </view>
@@ -27,7 +27,7 @@
           <text>{{item.statistics.company}} 家企业 ｜ </text>
           <text>{{item.statistics.job}} 个职位 ｜ </text>
           <text>招聘 {{item.statistics.recruit}} 人</text>
-        </view>        
+        </view>
       </view>
     </view>
     <view class="card-footer">

@@ -15,6 +15,5 @@
 
 .category {
   position: relative;
-  cursor: pointer;
   color: #45c8dc;
 }

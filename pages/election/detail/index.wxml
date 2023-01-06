@@ -1,4 +1,4 @@
-<import src="../seminar/detail.skeleton.wxml"/>
+<import src="../../seminar/detail.skeleton.wxml"/>
 
 <view class="page-content">
   <view class="seminar-header">
@@ -11,11 +11,11 @@
   </view>
    <view class="seminar-info">
     <view class="seminar-info-line">
-      <image class="seminar-info-icon" src="../../images/icon/time.png" />
+      <image class="seminar-info-icon" src="../../../images/icon/time.png" />
       <text>举办时间：{{article.time}}</text>
     </view>
     <view class="seminar-info-line">
-      <image class="seminar-info-icon" src="../../images/icon/university.png" />
+      <image class="seminar-info-icon" src="../../../images/icon/university.png" />
       <text>举办学校：{{article.university}}</text>
     </view>
   </view>
@@ -25,14 +25,14 @@
     <view class="seminar-content">
       <view class="seminar-content_title">统计数据</view>
       <view class="statistics">
-        <view class="statistics-item">
+        <navigator class="statistics-item" url="company?id={{id}}">
           <view class="title">参会企业</view>
           <view class="number">{{statistics.company}}</view>
-        </view>
-        <view class="statistics-item">
+        </navigator>
+        <navigator class="statistics-item" url="position?id={{id}}">
           <view class="title">招聘岗位</view>
           <view class="number">{{statistics.job}}</view>
-        </view>
+        </navigator>
         <view class="statistics-item">
           <view class="title">招聘人数</view>
           <view class="number">{{statistics.recruit}}</view>

@@ -1,4 +1,4 @@
-@import "../seminar/detail.wxss";
+@import "../../seminar/detail.wxss";
 
 .seminar-share button[open-type]:first-child {
   background-color: #45c8dc;
