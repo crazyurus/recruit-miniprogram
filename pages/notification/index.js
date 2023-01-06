@@ -1,8 +1,8 @@
-const request = require('../../libs/request/scc');
-const utils = require('../../libs/utils');
-const store = require('../../store/index');
-const tabMap = require('../../data/notification');
-const schoolBehavior = require('../../behaviors/school');
+import request from '../../libs/request/scc';
+import { formatTimestamp } from '../../libs/utils';
+import store from '../../store/index';
+import tabMap from '../../data/notification';
+import schoolBehavior from '../../behaviors/school';
 
 Page({
   behaviors: [schoolBehavior],
@@ -55,7 +55,7 @@ Page({
       return {
         id: item.id,
         title: item.title,
-        time: utils.formatTimestamp(item.addtime),
+        time: formatTimestamp(item.addtime),
         view: item.views,
       };
     });

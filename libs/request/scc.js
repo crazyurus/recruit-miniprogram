@@ -1,5 +1,5 @@
-const store = require('../../store/index');
-const { axios, createRequest, responseSuccessInterceptor, responseFailInterceptor } = require('./common');
+import store from '../../store/index';
+import { axios, createRequest, responseSuccessInterceptor, responseFailInterceptor } from './common';
 
 const instance = axios.create({
   baseURL: 'https://a.jiuyeb.cn/mobile.php',
@@ -26,4 +26,4 @@ instance.interceptors.request.use(config => {
 
 instance.interceptors.response.use(responseSuccessInterceptor, responseFailInterceptor);
 
-module.exports = createRequest(instance);
+export default createRequest(instance);

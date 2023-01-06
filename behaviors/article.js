@@ -1,4 +1,4 @@
-module.exports = Behavior({
+export default Behavior({
   data: {
     title: false,
     article: {},

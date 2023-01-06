@@ -1,5 +1,5 @@
-const { promisifyAll } = require('miniprogram-api-promise');
-const { confirm } = require('./libs/ui');
+import { promisifyAll } from 'miniprogram-api-promise';
+import { confirm } from './libs/ui';
 
 wx.promises = {};
 promisifyAll(wx, wx.promises);

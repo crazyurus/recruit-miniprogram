@@ -1,6 +1,6 @@
-const store = require('../../store/index');
-const request = require('../../libs/request/scc');
-const { getCDNURL, formatTimestamp, openURL } = require('../../libs/utils');
+import store from '../../store/index';
+import request from '../../libs/request/scc';
+import { getCDNURL, formatTimestamp, openURL } from '../../libs/utils';
 
 Page({
   data: {

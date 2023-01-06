@@ -1,6 +1,6 @@
-const request = require('../../../libs/request/scc');
-const utils = require('../../../libs/utils');
-const listBehavior = require('../../../behaviors/list');
+import request from '../../../libs/request/scc';
+import { getCDNURL } from '../../../libs/utils';
+import listBehavior from '../../../behaviors/list';
 
 Page({
   behaviors: [listBehavior],
@@ -20,7 +20,7 @@ Page({
       return {
         id: item.com_id,
         name: item.com_id_info.name,
-        logo: utils.getCDNURL(item.com_id_info.logo_src),
+        logo: getCDNURL(item.com_id_info.logo_src),
         count: {
           position: item.check_zhiwei_count,
           person: item.check_zhiwei_person,

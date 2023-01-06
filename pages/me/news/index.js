@@ -1,8 +1,8 @@
-const computedBehavior = require('miniprogram-computed').behavior;
-const request = require('../../../libs/request/app');
-const utils = require('../../../libs/utils');
-const categories = require('../../../data/news');
-const listBehavior = require('../../../behaviors/list');
+import { behavior as computedBehavior } from 'miniprogram-computed';
+import request from '../../../libs/request/app';
+import { formatDateTime } from '../../../libs/utils';
+import categories from '../../../data/news';
+import listBehavior from '../../../behaviors/list';
 
 Page({
   behaviors: [listBehavior, computedBehavior],
@@ -46,7 +46,7 @@ Page({
       return {
         id: item.id,
         title: item.newsTitle.replace(/^【(.*?)】/, ''),
-        time: utils.formatDateTime(item.date),
+        time: formatDateTime(item.date),
         source: item.dept.trim(),
       };
     });

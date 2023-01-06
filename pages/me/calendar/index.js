@@ -1,9 +1,9 @@
-const ui = require('../../../libs/ui');
-const utils = require('../../../libs/utils');
+import * as ui from '../../../libs/ui';
+import { isQQ, openURL } from '../../../libs/utils';
 
 Page({
   data: {
-    isQQ: utils.isQQ,
+    isQQ: isQQ(),
     calendarURL: 'https://wx.whut.edu.cn/img/pic.0465e666.jpg',
   },
   previewCalendar() {
@@ -50,6 +50,6 @@ Page({
     });
   },
   openTimeTable() {
-    utils.openURL('https://mp.weixin.qq.com/s/tJPE98kpUcB4ZoacUcmWvw');
+    openURL('https://mp.weixin.qq.com/s/tJPE98kpUcB4ZoacUcmWvw');
   },
 });

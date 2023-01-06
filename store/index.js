@@ -1,9 +1,10 @@
-const { Redux } = require('miniprogram-redux');
-const { createStore, combineReducers } = Redux;
-const article = require('./article');
-const school = require('./school');
+import { Redux } from 'miniprogram-redux';
+import article from './article';
+import school from './school';
 
-module.exports = createStore(combineReducers({
+const { createStore, combineReducers } = Redux;
+
+export default createStore(combineReducers({
   article,
   school,
 }));

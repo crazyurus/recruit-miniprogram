@@ -1,4 +1,4 @@
-module.exports = Behavior({
+export default Behavior({
   lock: false,
   data: {
     list: [],

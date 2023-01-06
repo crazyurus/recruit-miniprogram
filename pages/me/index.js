@@ -1,9 +1,9 @@
-const computedBehavior = require('miniprogram-computed').behavior;
-const store = require('../../store/index');
-const utils = require('../../libs/utils');
-const ui = require('../../libs/ui');
-const { exist } = require('../../libs/file');
-const { WUTSchoolID } = require('../../data/const');
+import { behavior as computedBehavior } from 'miniprogram-computed';
+import store from '../../store/index';
+import { isQQ, openURL } from '../../libs/utils';
+import { toast } from '../../libs/ui';
+import { exist } from '../../libs/file';
+import { WUTSchoolID } from '../../data/const';
 
 const avatarFilePath = wx.env.USER_DATA_PATH + '/avatar.jpg';
 const nickNameStorageKey = 'nickName';
@@ -11,7 +11,7 @@ const nickNameStorageKey = 'nickName';
 Page({
   behaviors: [computedBehavior],
   data: {
-    isQQ: utils.isQQ,
+    isQQ: isQQ(),
     isLogin: false,
     school: {},
     userInfo: {
@@ -51,7 +51,7 @@ Page({
   },
   tucao() {
     if (this.data.isQQ) {
-      ui.toast('QQ 小程序暂不支持此功能');
+      toast('QQ 小程序暂不支持此功能');
     } else {
       wx.openEmbeddedMiniProgram({
         appId: 'wx8abaf00ee8c3202e',
@@ -68,13 +68,13 @@ Page({
     });
   },
   about() {
-    utils.openURL('https://mp.weixin.qq.com/s/HbXW7A87ilgW_CbEI-1ODQ');
+    openURL('https://mp.weixin.qq.com/s/HbXW7A87ilgW_CbEI-1ODQ');
   },
   getUserInfo(e) {
     const { errMsg } = e.detail;
 
     if (errMsg === 'getPhoneNumber:ok') {
-      ui.toast('登录成功', 'success');
+      toast('登录成功', 'success');
 
       this.setData({
         isLogin: true,

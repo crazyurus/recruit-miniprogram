@@ -1,4 +1,4 @@
-const { WUTSchoolID } = require('../data/const');
+import { WUTSchoolID } from '../data/const';
 
 const SET_SCHOOL = 'SET_SCHOOL';
 
@@ -29,4 +29,4 @@ function reducer(state = getDefaultSchool(), action) {
   }
 }
 
-module.exports = reducer;
+export default reducer;

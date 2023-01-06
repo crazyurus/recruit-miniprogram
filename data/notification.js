@@ -1,4 +1,4 @@
-module.exports = {
+export default {
   'b525083d-b83c-4c7e-892f-29909421d961': [
     {
       id: '17c226b1-6fe3-8ea5-9a8d-6ecb2e89f70c',

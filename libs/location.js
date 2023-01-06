@@ -1,5 +1,6 @@
-const { alert, loading } = require('./ui');
-const utils = require('./utils');
+import QQMap from './qqmap';
+import { alert, loading } from './ui';
+import { isQQ, sharePath } from './utils';
 
 async function getAddress(options) {
   const { address, name, description, latitude, longitude } = options;
@@ -11,7 +12,6 @@ async function getAddress(options) {
       longitude,
     };
   } else {
-    const QQMap = require('./qqmap');
     const SDK = new QQMap({
       key: 'BP7BZ-6FXRV-6CNP3-UDXK2-GJ36S-VFBN7',
     });
@@ -46,9 +46,9 @@ async function getAddress(options) {
 }
 
 function openLocation(options) {
-  if (utils.isQQ) {
+  if (isQQ()) {
     wx.navigateTo({
-      url: utils.sharePath({
+      url: sharePath({
         route: 'pages/common/map',
         options,
       }),
@@ -58,7 +58,7 @@ function openLocation(options) {
   }
 }
 
-module.exports = {
+export {
   getAddress,
   openLocation,
 };

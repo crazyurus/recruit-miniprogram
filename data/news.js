@@ -186,7 +186,7 @@ const department = [
   }
 ];
 
-module.exports = [
+export default [
   {
     label: '学校通知公告',
     children: department,

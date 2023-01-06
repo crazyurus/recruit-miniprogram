@@ -1,6 +1,6 @@
-const request = require('../../libs/request/scc');
-const location = require('../../libs/location');
-const utils = require('../../libs/utils');
+import request from '../../libs/request/scc';
+import { getAddress } from '../../libs/location';
+import { getCDNURL, formatTimestamp, sharePath } from '../../libs/utils';
 
 Page({
   data: {
@@ -17,7 +17,7 @@ Page({
       company: {
         id: result.id,
         name: result.name,
-        logo: utils.getCDNURL(result.logo_src),
+        logo: getCDNURL(result.logo_src),
         description: (!result.city_name || result.city_name === '市辖区' ? result.province_name : result.city_name) + ' ' + result.xingzhi_id_name + ' ' + result.business_name,
         type: result.xingzhi_id_name,
         region: result.province_name + (result.city_name === '市辖区' ? '' : result.city_name || '') + (result.region_name || ''),
@@ -26,8 +26,8 @@ Page({
         registeredCapital: result.catype_name,
         website: result.weburl,
         address: result.address,
-        createTime: utils.formatTimestamp(result.start_time),
-        verifyTime: result.verify_time === 0 ? '' : utils.formatTimestamp(result.verify_time),
+        createTime: formatTimestamp(result.start_time),
+        verifyTime: result.verify_time === 0 ? '' : formatTimestamp(result.verify_time),
         license: result.license,
         position: {
           latitude: Number.parseFloat(result.latitude),
@@ -51,12 +51,13 @@ Page({
         address: this.data.company.address,
       };
     }
-    location.getAddress(options);
+
+    getAddress(options);
   },
   onShareAppMessage() {
     return {
       title: this.data.company.name,
-      path: utils.sharePath(this),
+      path: sharePath(this),
     };
   },
 });

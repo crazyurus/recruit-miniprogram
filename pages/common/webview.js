@@ -1,4 +1,4 @@
-const { toast } = require('../../libs/ui');
+import { toast } from '../../libs/ui';
 
 Page({
   data: {

@@ -1,6 +1,6 @@
-const articleBehavior = require('../../../behaviors/article');
-const request = require('../../../libs/request/app');
-const { openDocument } = require('../../../libs/file');
+import articleBehavior from '../../../behaviors/article';
+import request from '../../../libs/request/app';
+import { openDocument } from '../../../libs/file';
 
 Page({
   behaviors: [articleBehavior],

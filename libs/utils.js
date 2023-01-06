@@ -1,4 +1,4 @@
-const dayjs = require('dayjs');
+import dayjs from 'dayjs';
 
 function sharePath(page) {
   const query = Object.entries(page.options).map(([key, value]) => {
@@ -28,13 +28,15 @@ function getCDNURL(url) {
   return url + '!y';
 }
 
-module.exports = {
+function isQQ() {
+  return typeof qq !== 'undefined';
+}
+
+export {
   sharePath,
   formatTimestamp,
   formatDateTime,
   openURL,
   getCDNURL,
-  get isQQ() {
-    return typeof qq !== 'undefined';
-  },
+  isQQ,
 };

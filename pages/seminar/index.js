@@ -1,7 +1,7 @@
-const dayjs = require('dayjs');
-const request = require('../../libs/request/scc');
-const store = require('../../store/index');
-const schoolBehavior = require('../../behaviors/school');
+import dayjs from 'dayjs';
+import request from '../../libs/request/scc';
+import store from '../../store/index';
+import schoolBehavior from '../../behaviors/school';
 
 Page({
   behaviors: [schoolBehavior],

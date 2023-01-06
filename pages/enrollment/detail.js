@@ -1,8 +1,8 @@
-const articleBehavior = require('../../behaviors/article');
-const request = require('../../libs/request/scc');
-const utils = require('../../libs/utils');
-const location = require('../../libs/location');
-const store = require('../../store/index');
+import articleBehavior from '../../behaviors/article';
+import request from '../../libs/request/scc';
+import { getCDNURL } from '../../libs/utils';
+import { getAddress } from '../../libs/location';
+import store from '../../store/index';
 
 Page({
   behaviors: [articleBehavior],
@@ -25,7 +25,7 @@ Page({
       id: options.id,
     }, false);
 
-    this.icon = utils.getCDNURL(result.comInfo.logo_src);
+    this.icon = getCDNURL(result.comInfo.logo_src);
     this.setData({
       loading: false,
       article: {
@@ -69,7 +69,7 @@ Page({
     });
   },
   showAddressMap() {
-    location.getAddress({
+    getAddress({
       name: this.data.company.name,
       address: this.data.company.address,
     });

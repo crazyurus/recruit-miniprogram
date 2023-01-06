@@ -1,8 +1,7 @@
-const articleBehavior = require('../../../behaviors/article');
-const request = require('../../../libs/request/scc');
-const ui = require('../../../libs/ui');
-const utils = require('../../../libs/utils');
-const store = require('../../../store/index');
+import articleBehavior from '../../../behaviors/article';
+import request from '../../../libs/request/scc';
+import { getCDNURL, formatTimestamp } from '../../../libs/utils';
+import store from '../../../store/index';
 
 Page({
   behaviors: [articleBehavior],
@@ -54,7 +53,7 @@ Page({
       id: this.options.id,
     }, false);
 
-    this.icon = utils.getCDNURL(result.image_id_src || '//s11.jiuyeb.cn/static/images/sxbanner2.png');
+    this.icon = getCDNURL(result.image_id_src || '//s11.jiuyeb.cn/static/images/sxbanner2.png');
     this.setData({
       id: this.options.id,
       loading: false,
@@ -62,7 +61,7 @@ Page({
         id: result.id,
         title: result.title,
         university: result.school_id_name,
-        time: utils.formatTimestamp(result.start_time) + ' 至 ' + utils.formatTimestamp(result.end_time),
+        time: formatTimestamp(result.start_time) + ' 至 ' + formatTimestamp(result.end_time),
         poster: this.icon,
         view: result.view_count,
         content: result.remarks,

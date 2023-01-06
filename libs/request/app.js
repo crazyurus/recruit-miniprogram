@@ -1,4 +1,4 @@
-const { axios, createRequest, responseFailInterceptor } = require('./common');
+import { axios, createRequest, responseFailInterceptor } from './common';
 
 const instance = axios.create({
   baseURL: 'https://app1.whut.edu.cn/information/',
@@ -27,4 +27,4 @@ instance.interceptors.response.use(response => {
   return Promise.reject(response.data.msg);
 }, responseFailInterceptor);
 
-module.exports = createRequest(instance);
+export default createRequest(instance);

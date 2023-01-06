@@ -1,6 +1,6 @@
-const axios = require('axios');
-const adapter = require('axios-miniprogram-adapter');
-const { toast } = require('../ui');
+import axios from 'axios';
+import adapter from 'axios-miniprogram-adapter';
+import { toast } from '../ui';
 
 axios.defaults.adapter = adapter;
 
@@ -34,7 +34,7 @@ function createRequest(instance) {
   }
 }
 
-module.exports = {
+export {
   axios,
   createRequest,
   responseSuccessInterceptor,

@@ -1,10 +1,10 @@
-const dayjs = require('dayjs');
-const articleBehavior = require('../../behaviors/article');
-const request = require('../../libs/request/scc');
-const ui = require('../../libs/ui');
-const location = require('../../libs/location');
-const utils = require('../../libs/utils');
-const store = require('../../store/index');
+import dayjs from 'dayjs';
+import articleBehavior from '../../behaviors/article';
+import request from '../../libs/request/scc';
+import { toast } from '../../libs/ui';
+import { getAddress } from '../../libs/location';
+import { isQQ, getCDNURL} from '../../libs/utils';
+import store from '../../store/index';
 
 function unique(arr) {
   return Array.from(new Set(arr));
@@ -28,7 +28,7 @@ Page({
     company: {},
     positions: [],
     isExpired: true,
-    isQQ: false,
+    isQQ: isQQ(),
   },
   async onLoad(options) {
     wx.setNavigationBarTitle({
@@ -40,7 +40,7 @@ Page({
       id: options.id,
     }, false);
 
-    this.icon = utils.getCDNURL(result.comInfo.logo_src);
+    this.icon = getCDNURL(result.comInfo.logo_src);
     this.setData({
       loading: false,
       article: {
@@ -51,7 +51,7 @@ Page({
         view: result.viewcount,
         content: result.remarks,
         tips: result.schoolwarn,
-        poster: result.haibao_id_src ? utils.getCDNURL(result.haibao_id_src.linkpath) : '',
+        poster: result.haibao_id_src ? getCDNURL(result.haibao_id_src.linkpath) : '',
         time: result.hold_date + ' ' + result.hold_starttime + '-' + result.hold_endtime,
         timestamp: {
           start: dayjs(result.hold_date + ' ' + result.hold_starttime + ':00').unix(),
@@ -71,7 +71,6 @@ Page({
         telephone: result.phone,
       },
       isExpired: result.timestatus === 3,
-      isQQ: utils.isQQ
     });
   },
   onCache() {
@@ -111,7 +110,8 @@ Page({
     if (this.data.article.address === '线上宣讲会') {
       return;
     }
-    location.getAddress({
+
+    getAddress({
       name: this.data.article.university,
       description: this.data.article.address,
       address: this.data.article.university + ',' + this.data.article.address,
@@ -125,7 +125,7 @@ Page({
       startTime: this.data.article.timestamp.start,
       endTime: this.data.article.timestamp.end,
       success() {
-        ui.toast('添加成功', 'success');
+        toast('添加成功', 'success');
       },
     });
   },

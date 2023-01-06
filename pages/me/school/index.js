@@ -1,5 +1,5 @@
-const request = require('../../../libs/request/scc');
-const store = require('../../../store/index');
+import request from '../../../libs/request/scc';
+import store from '../../../store/index';
 
 Page({
   data: {

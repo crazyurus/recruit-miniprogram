@@ -42,7 +42,7 @@ function loading(title) {
   return wx.hideLoading;
 }
 
-module.exports = {
+export {
   alert,
   confirm,
   toast,

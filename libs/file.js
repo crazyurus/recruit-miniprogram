@@ -1,7 +1,7 @@
-const ui = require('./ui');
+import { loading, toast } from './ui';
 
 async function openDocument(url) {
-  const hideLoading = ui.loading('下载中');
+  const hideLoading = loading('下载中');
 
   try {
     const { tempFilePath } = await wx.promises.downloadFile({ url });
@@ -10,7 +10,7 @@ async function openDocument(url) {
       showMenu: true,
     });
   } catch (error) {
-    ui.toast('打开失败');
+    toast('打开失败');
   }
 
   hideLoading();
@@ -28,7 +28,7 @@ function exist(filePath) {
   }
 }
 
-module.exports = {
+export {
   openDocument,
   exist,
 };

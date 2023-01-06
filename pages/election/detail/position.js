@@ -1,5 +1,5 @@
-const request = require('../../../libs/request/scc');
-const listBehavior = require('../../../behaviors/list');
+import request from '../../../libs/request/scc';
+import listBehavior from '../../../behaviors/list';
 
 Page({
   behaviors: [listBehavior],

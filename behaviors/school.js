@@ -1,7 +1,7 @@
-const store = require('../store/index');
-const listBehavior = require('./list');
+import store from '../store/index';
+import listBehavior from './list';
 
-module.exports = Behavior({
+export default Behavior({
   behaviors: [listBehavior],
   data: {
     school: {},
