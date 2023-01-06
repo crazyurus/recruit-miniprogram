@@ -2,13 +2,11 @@ const computedBehavior = require('miniprogram-computed').behavior;
 const request = require('../../../libs/request/app');
 const utils = require('../../../libs/utils');
 const categories = require('../../../data/news');
+const listBehavior = require('../../../behaviors/list');
 
 Page({
-  behaviors: [computedBehavior],
+  behaviors: [listBehavior, computedBehavior],
   data: {
-    list: [],
-    page: 1,
-    loading: true,
     category: {
       first: true,
       index: [0, 0],
@@ -24,18 +22,8 @@ Page({
       return data.category.range[0][data.category.index[0]] + '-' + data.category.range[1][data.category.index[1]];
     },
   },
-  onLoad() {
-    this.loadList();
+  onReady() {
     this.calcCategory();
-  },
-  onReachBottom() {
-    this.loadList();
-  },
-  onPullDownRefresh() {
-    this.reset();
-    this.loadList().then(() => {
-      wx.stopPullDownRefresh();
-    });
   },
   calcCategory() {
     this.setData({
@@ -45,42 +33,28 @@ Page({
       ],
     });
   },
-  loadList() {
-    if (!this.data.loading) {
-      return;
-    }
-
-    return request('/news/listTitles', {
+  async fetchData() {
+    const result = await request('/news/listTitles', {
       pageNumber: this.data.page,
       pageSize: 10,
       newsType: this.data.categoryText,
-    }).then(result => {
-      this.data.page++;
+    });
 
-      const list = result.list.map(item => {
-        return {
-          id: item.id,
-          title: item.newsTitle.replace(/^【(.*?)】/, ''),
-          time: utils.formatDateTime(item.date),
-          source: item.dept.trim(),
-        };
-      });
+    this.data.page++;
 
-      this.setData({
-        loading: list.length > 0 && this.data.list.length <= result.total,
-        list: this.data.list.concat(list),
-      });
+    const list = result.list.map(item => {
+      return {
+        id: item.id,
+        title: item.newsTitle.replace(/^【(.*?)】/, ''),
+        time: utils.formatDateTime(item.date),
+        source: item.dept.trim(),
+      };
     });
-  },
-  reset() {
-    this.setData({
-      list: [],
-      page: 1,
-      loading: true,
-    });
-    wx.pageScrollTo({
-      scrollTop: 0,
-    });
+
+    return {
+      list,
+      total: result.total,
+    };
   },
   changeCategoryColumn(e) {
     const { column, value } = e.detail;

@@ -2,13 +2,11 @@ const request = require('../../libs/request/scc');
 const utils = require('../../libs/utils');
 const store = require('../../store/index');
 const tabMap = require('../../data/notification');
+const schoolBehavior = require('../../behaviors/school');
 
 Page({
+  behaviors: [schoolBehavior],
   data: {
-    list: [],
-    page: 1,
-    loading: true,
-    school: {},
     tabs: [],
     active: {},
   },
@@ -34,15 +32,6 @@ Page({
       }
     }
   },
-  onReachBottom() {
-    this.loadList();
-  },
-  onPullDownRefresh() {
-    this.reset();
-    this.loadList().then(() => {
-      wx.stopPullDownRefresh();
-    });
-  },
   switchTabs(e) {
     const tab = this.data.tabs.find(tab => tab.id === e.currentTarget.dataset.tab);
 
@@ -52,42 +41,28 @@ Page({
     this.reset();
     this.loadList();
   },
-  loadList() {
-    if (!this.data.loading) {
-      return;
-    }
-
-    return request('/Article/getlist', {
+  async fetchData() {
+    const result = await request('/Article/getlist', {
       page: this.data.page,
       size: 10,
       show_type: 2,
       cate_id: this.data.active.id,
-    }).then(result => {
-      this.data.page++;
-
-      const list = result.list.map(item => {
-        return {
-          id: item.id,
-          title: item.title,
-          time: utils.formatTimestamp(item.addtime),
-          view: item.views,
-        };
-      });
-
-      this.setData({
-        loading: list.length > 0 && this.data.page <= result.allpage,
-        list: this.data.list.concat(list),
-      });
     });
+
+    this.data.page++;
+
+    const list = result.list.map(item => {
+      return {
+        id: item.id,
+        title: item.title,
+        time: utils.formatTimestamp(item.addtime),
+        view: item.views,
+      };
+    });
+
+    return {
+      list,
+      total: result.count,
+    };
   },
-  reset() {
-    this.setData({
-      list: [],
-      page: 1,
-      loading: true,
-    });
-    wx.pageScrollTo({
-      scrollTop: 0,
-    });
-  }
 });
