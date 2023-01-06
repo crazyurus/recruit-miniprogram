@@ -2,6 +2,6 @@
   "backgroundColor": "#fff",
   "enablePullDownRefresh": true,
   "usingComponents": {
-    "loading": "../../component/loading/index"
+    "loading": "../../components/loading/index"
   }
 }

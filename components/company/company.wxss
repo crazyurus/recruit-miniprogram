@@ -1,4 +1,4 @@
-@import '/component/card/card.wxss';
+@import '/components/card/card.wxss';
 
 .card-no {
   position: absolute;

@@ -1,6 +1,6 @@
 @import '/styles/list.wxss';
 @import '/styles/page.wxss';
-@import '/component/tabbar/tabbar.wxss';
+@import '/components/tabbar/tabbar.wxss';
 
 .list-block .item-link .item-inner {
   background: none;

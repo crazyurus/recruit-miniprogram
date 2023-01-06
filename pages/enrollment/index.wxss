@@ -1,6 +1,6 @@
 @import '/styles/list.wxss';
 @import '/styles/page.wxss';
-@import '/component/search/search.wxss';
+@import '/components/search/search.wxss';
 
 .list-block .item-link .item-inner {
   background: none;

@@ -1,4 +1,4 @@
-<import src="/component/search/search.wxml" />
+<import src="/components/search/search.wxml" />
 
 <template is="searchbar" data="{{ placeholder: '搜索学校', showCancelButton: search.show, width: device.windowWidth }}"></template>
 <view class="page-content">

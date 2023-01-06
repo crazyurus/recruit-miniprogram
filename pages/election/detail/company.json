@@ -3,6 +3,6 @@
   "enablePullDownRefresh": true,
   "navigationBarTitleText": "参会企业",
   "usingComponents": {
-    "loading": "../../../component/loading/index"
+    "loading": "../../../components/loading/index"
   }
 }

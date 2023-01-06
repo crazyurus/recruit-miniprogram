@@ -1,4 +1,4 @@
-@import '/component/company/company.wxss';
+@import '/components/company/company.wxss';
 
 page, .page-content {
   background: #efeff4;
