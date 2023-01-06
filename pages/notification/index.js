@@ -30,20 +30,18 @@ Page({
       });
 
       if (tabs.length > 0) {
-        this.loadNoticeList();
+        this.loadList();
       }
     }
   },
   onReachBottom() {
-    this.loadNoticeList();
+    this.loadList();
   },
   onPullDownRefresh() {
-    this.setData({
-      page: 1,
-      loading: true
+    this.reset();
+    this.loadList().then(() => {
+      wx.stopPullDownRefresh();
     });
-    this.data.list = [];
-    this.loadNoticeList();
   },
   switchTabs(e) {
     const tab = this.data.tabs.find(tab => tab.id === e.currentTarget.dataset.tab);
@@ -52,24 +50,20 @@ Page({
       active: tab,
     });
     this.reset();
-    this.loadNoticeList();
+    this.loadList();
   },
-  loadNoticeList() {
-    request('/Article/getlist', {
+  loadList() {
+    if (!this.data.loading) {
+      return;
+    }
+
+    return request('/Article/getlist', {
       page: this.data.page,
       size: 10,
       show_type: 2,
       cate_id: this.data.active.id,
     }).then(result => {
-      if (result.list.length === 0) {
-        this.setData({
-          loading: false,
-        });
-        return;
-      }
-
       this.data.page++;
-      wx.stopPullDownRefresh();
 
       const list = result.list.map(item => {
         return {
@@ -81,16 +75,16 @@ Page({
       });
 
       this.setData({
-        loading: list.length >= 10,
-        list: this.data.list.concat(list)
+        loading: list.length > 0 && this.data.page <= result.allpage,
+        list: this.data.list.concat(list),
       });
     });
   },
   reset() {
-    this.data.list = [];
     this.setData({
+      list: [],
       page: 1,
-      loading: true
+      loading: true,
     });
     wx.pageScrollTo({
       scrollTop: 0,

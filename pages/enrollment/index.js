@@ -19,7 +19,7 @@ Page({
 
     if (school.id !== this.data.school.id) {
       this.reset();
-      this.loadNoticeList();
+      this.loadList();
       this.setData({
         school,
       });
@@ -31,18 +31,20 @@ Page({
     });
   },
   onReachBottom() {
-    this.loadNoticeList();
+    this.loadList();
   },
   onPullDownRefresh() {
-    this.setData({
-      page: 1,
-      loading: true
+    this.reset();
+    this.loadList().then(() => {
+      wx.stopPullDownRefresh();
     });
-    this.data.list = [];
-    this.loadNoticeList();
   },
-  loadNoticeList() {
-    request('/enrollment/getlist', {
+  loadList() {
+    if (!this.data.loading) {
+      return;
+    }
+
+    return request('/enrollment/getlist', {
       page: this.data.page,
       size: 10,
       keywords: this.data.search.keyword,
@@ -51,15 +53,7 @@ Page({
       type: 0,
       province_id: 0,
     }).then(result => {
-      if (result.list.length === 0) {
-        this.setData({
-          loading: false,
-        });
-        return;
-      }
-
       this.data.page++;
-      wx.stopPullDownRefresh();
 
       const list = result.list.map(item => {
         return {
@@ -71,16 +65,16 @@ Page({
       });
 
       this.setData({
-        loading: list.length >= 10,
-        list: this.data.list.concat(list)
+        loading: list.length > 0 && this.data.page <= result.allpage,
+        list: this.data.list.concat(list),
       });
     });
   },
   reset() {
-    this.data.list = [];
     this.setData({
+      list: [],
       page: 1,
-      loading: true
+      loading: true,
     });
     wx.pageScrollTo({
       scrollTop: 0,
@@ -94,7 +88,7 @@ Page({
         keyword: e.detail.value
       }
     });
-    this.loadNoticeList();
+    this.loadList();
   },
   setSearchFocus() {
     this.setData({

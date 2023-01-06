@@ -8,21 +8,23 @@ Page({
     loading: true,
   },
   onLoad() {
-    this.loadNoticeList();
+    this.loadList();
   },
   onReachBottom() {
-    this.loadNoticeList();
+    this.loadList();
   },
   onPullDownRefresh() {
-    this.setData({
-      page: 1,
-      loading: true,
+    this.reset();
+    this.loadList().then(() => {
+      wx.stopPullDownRefresh();
     });
-    this.data.list = [];
-    this.loadNoticeList();
   },
-  loadNoticeList() {
-    request('/jobfair/signenterprise', {
+  loadList() {
+    if (!this.data.loading) {
+      return;
+    }
+
+    return request('/jobfair/signenterprise', {
       id: this.options.id,
       page: this.data.page,
       size: 10,
@@ -30,15 +32,7 @@ Page({
       allotstatus: 3,
       check_status: 3,
     }).then(result => {
-      if (result.list.length === 0) {
-        this.setData({
-          loading: false,
-        });
-        return;
-      }
-
       this.data.page++;
-      wx.stopPullDownRefresh();
 
       const list = result.list.map(item => {
         return {
@@ -53,14 +47,14 @@ Page({
       });
 
       this.setData({
-        loading: list.length >= 10,
-        list: this.data.list.concat(list)
+        loading: list.length > 0 && this.data.page <= result.allpage,
+        list: this.data.list.concat(list),
       });
     });
   },
   reset() {
-    this.data.list = [];
     this.setData({
+      list: [],
       page: 1,
       loading: true,
     });

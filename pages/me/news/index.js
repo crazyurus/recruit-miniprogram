@@ -13,19 +13,17 @@ Page({
     },
   },
   onLoad() {
-    this.loadNoticeList();
+    this.loadList();
     this.calcCategory(0);
   },
   onReachBottom() {
-    this.loadNoticeList();
+    this.loadList();
   },
   onPullDownRefresh() {
-    this.setData({
-      page: 1,
-      loading: true,
+    this.reset();
+    this.loadList().then(() => {
+      wx.stopPullDownRefresh();
     });
-    this.data.list = [];
-    this.loadNoticeList();
   },
   calcCategory(index) {
     this.setData({
@@ -35,23 +33,19 @@ Page({
       ],
     });
   },
-  loadNoticeList() {
-    request('/news/listTitles', {
+  loadList() {
+    if (!this.data.loading) {
+      return;
+    }
+
+    return request('/news/listTitles', {
       pageNumber: this.data.page,
       pageSize: 10,
       newsType: this.data.category.value,
     }).then(result => {
-      if (result.length === 0) {
-        this.setData({
-          loading: false,
-        });
-        return;
-      }
-
       this.data.page++;
-      wx.stopPullDownRefresh();
 
-      const list = result.map(item => {
+      const list = result.list.map(item => {
         return {
           id: item.id,
           title: item.newsTitle.replace(/^【(.*?)】/, ''),
@@ -61,14 +55,14 @@ Page({
       });
 
       this.setData({
-        loading: list.length >= 10,
-        list: this.data.list.concat(list)
+        loading: list.length > 0 && this.data.list.length <= result.total,
+        list: this.data.list.concat(list),
       });
     });
   },
   reset() {
-    this.data.list = [];
     this.setData({
+      list: [],
       page: 1,
       loading: true,
     });
@@ -90,6 +84,6 @@ Page({
       'category.value': this.data.category.range[0][value[0]] + '-' + this.data.category.range[1][value[1]],
     });
     this.reset();
-    this.loadNoticeList();
+    this.loadList();
   },
 });

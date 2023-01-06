@@ -19,18 +19,20 @@ Page({
 
     if (school.id !== this.data.school.id) {
       this.reset();
-      this.loadNoticeList();
+      this.loadList();
       this.setData({
         school,
       });
     }
   },
   onReachBottom() {
-    this.loadNoticeList();
+    this.loadList();
   },
   onPullDownRefresh() {
     this.reset();
-    this.loadNoticeList();
+    this.loadList().then(() => {
+      wx.stopPullDownRefresh();
+    });
   },
   calcCalendar() {
     const now = dayjs();
@@ -66,8 +68,12 @@ Page({
       },
     });
   },
-  loadNoticeList() {
-    request('/preach/getlist', {
+  loadList() {
+    if (!this.data.loading) {
+      return;
+    }
+
+    return request('/preach/getlist', {
       page: this.data.page,
       size: 10,
       isunion: 2,
@@ -76,10 +82,6 @@ Page({
       hold_date: this.data.calendar.current === 7 ? '' : dayjs(this.data.calendar.list[this.data.calendar.group][this.data.calendar.current].value).format('YYYY-M-D'),
     }).then(result => {
       const colorArray = ['#ed9d81', '#a7d59a', '#8c88ff', '#56b8a4', '#60bfd8', '#c9759d'];
-
-      wx.stopPullDownRefresh();
-      if (result.length === 0) return;
-
       const list = result.list.map((item, i) => {
         return {
           id: item.id,
@@ -107,11 +109,11 @@ Page({
     });
   },
   reset() {
-    this.data.list = [];
     this.setData({
+      list: [],
       page: 1,
       loading: true,
-      left: 0
+      left: 0,
     });
     wx.pageScrollTo({
       scrollTop: 0,
@@ -127,7 +129,7 @@ Page({
       'calendar.group': group,
       'calendar.today': now.format('M 月 D 日'),
     });
-    this.loadNoticeList();
+    this.loadList();
   },
   onCalendarChange(e) {
     const { current } = e.detail;
@@ -159,6 +161,6 @@ Page({
     this.setData({
       'calendar.current': 7,
     });
-    this.loadNoticeList();
+    this.loadList();
   },
 });

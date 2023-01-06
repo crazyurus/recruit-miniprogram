@@ -1,4 +1,4 @@
-const { axios, createRequest, responseSuccessInterceptor, responseFailInterceptor } = require('./common');
+const { axios, createRequest, responseFailInterceptor } = require('./common');
 
 const instance = axios.create({
   baseURL: 'https://app1.whut.edu.cn/information/',
@@ -8,6 +8,23 @@ const instance = axios.create({
   },
 });
 
-instance.interceptors.response.use(responseSuccessInterceptor, responseFailInterceptor);
+instance.interceptors.response.use(response => {
+  if (response.status !== 200) {
+    return Promise.reject('服务器错误 ' + result.status);
+  }
+
+  if (response.data.code === 0) {
+    if (typeof response.data.total === 'number' && Array.isArray(response.data.data)) {
+      return {
+        list: response.data.data,
+        total: response.data.total,
+      };
+    }
+
+    return response.data.data;
+  }
+
+  return Promise.reject(response.data.msg);
+}, responseFailInterceptor);
 
 module.exports = createRequest(instance);
