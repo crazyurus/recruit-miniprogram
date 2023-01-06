@@ -20,7 +20,7 @@ Page({
           logo: utils.getCDNURL(result.logo_src),
           description: (!result.city_name || result.city_name === '市辖区' ? result.province_name : result.city_name) + ' ' + result.xingzhi_id_name + ' ' + result.business_name,
           type: result.xingzhi_id_name,
-          region: result.province_name + (result.city_name === '市辖区' ? '' : result.city_name) + result.region_name,
+          region: result.province_name + (result.city_name === '市辖区' ? '' : result.city_name || '') + (result.region_name || ''),
           industry: result.business_name,
           scale: result.guimo_id_name,
           registeredCapital: result.catype_name,
