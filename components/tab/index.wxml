@@ -1,0 +1,5 @@
+<view class="tabbar">
+  <view class="buttons-row">
+    <view wx:for="{{range}}" class="tab {{value === index ? 'active' : ''}}" data-index="{{index}}" bindtap="switchTab">{{item}}</view>
+  </view>
+</view>

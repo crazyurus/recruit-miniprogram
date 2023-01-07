@@ -1,3 +1,4 @@
+import { behavior as computedBehavior } from 'miniprogram-computed';
 import request from '../../libs/request/scc';
 import { formatTimestamp } from '../../libs/utils';
 import store from '../../store/index';
@@ -5,10 +6,15 @@ import tabMap from '../../data/notification';
 import schoolBehavior from '../../behaviors/school';
 
 Page({
-  behaviors: [schoolBehavior],
+  behaviors: [computedBehavior, schoolBehavior],
   data: {
     tabs: [],
-    active: {},
+    active: 0,
+  },
+  computed: {
+    range(data) {
+      return data.tabs.map(item => item.name);
+    },
   },
   onShow() {
     const { school } = store.getState();
@@ -24,7 +30,6 @@ Page({
       this.setData({
         school,
         tabs,
-        active: tabs.length > 0 ? tabs[0] : {},
       });
 
       if (tabs.length > 0) {
@@ -32,11 +37,11 @@ Page({
       }
     }
   },
-  switchTabs(e) {
-    const tab = this.data.tabs.find(tab => tab.id === e.currentTarget.dataset.tab);
+  switchTab(e) {
+    const { value } = e.detail;
 
     this.setData({
-      active: tab,
+      active: value,
     });
     this.reset();
     this.loadList();
@@ -46,7 +51,7 @@ Page({
       page: this.data.page,
       size: 10,
       show_type: 2,
-      cate_id: this.data.active.id,
+      cate_id: this.data.tabs[this.data.active].id,
     });
     const list = result.list.map(item => {
       return {

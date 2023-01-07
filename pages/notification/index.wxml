@@ -1,15 +1,13 @@
-<import src="/components/tabbar/tabbar.wxml" />
-
 <block wx:if="{{tabs.length > 0}}">
-  <template is="tabbar" data="{{ tabs: tabs, active: active.id }}"></template>
+  <tab range="{{range}}" value="{{active}}" bindchange="switchTab" />
   <view class="page-content page-content-top">
-    <view class="content-block-title">就业{{active.name}}</view>
+    <view class="content-block-title">就业{{tabs[active].name}}</view>
     <view class="list-block media-list record-list">
       <navigator url="detail?id={{item.id}}" wx:for="{{list}}" wx:key="id" class="item-link item-content">
         <view class="item-inner">
           <view class="item-title-row">
             <view class="item-title">
-              <view class="circle bg-{{active.color}}"></view>
+              <view class="circle bg-{{tabs[active].color}}"></view>
               <text>{{item.title}}</text>
             </view>
           </view>

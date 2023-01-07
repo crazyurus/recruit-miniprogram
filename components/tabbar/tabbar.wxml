@@ -1,7 +1,0 @@
-<template name="tabbar">
-  <view class="tabbar">
-    <view class="buttons-row">
-      <view wx:for="{{tabs}}" wx:key="id" class="tab {{active === item.id ? 'active' : ''}}" data-tab="{{item.id}}" bindtap="switchTabs">{{item.name}}</view>
-    </view>
-  </view>
-</template>

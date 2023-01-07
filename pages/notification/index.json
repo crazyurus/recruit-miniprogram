@@ -2,6 +2,7 @@
   "backgroundColor": "#fff",
   "enablePullDownRefresh": true,
   "usingComponents": {
-    "loading": "../../components/loading/index"
+    "loading": "../../components/loading/index",
+    "tab": "../../components/tab/index"
   }
 }
