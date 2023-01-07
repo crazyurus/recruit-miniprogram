@@ -39,9 +39,6 @@ Page({
       pageSize: 10,
       newsType: this.data.categoryText,
     });
-
-    this.data.page++;
-
     const list = result.list.map(item => {
       return {
         id: item.id,
@@ -50,6 +47,8 @@ Page({
         source: item.dept.trim(),
       };
     });
+
+    this.data.page++;
 
     return {
       list,

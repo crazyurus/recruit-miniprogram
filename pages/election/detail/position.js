@@ -14,9 +14,6 @@ Page({
       keywords: this.data.search,
       isunion: 2,
     });
-
-    this.data.page++;
-
     const list = result.list.map(item => {
       return {
         id: item.job_id,
@@ -26,6 +23,8 @@ Page({
         salary: [item.salary_floor, item.salay_ceil],
       };
     });
+
+    this.data.page++;
 
     return {
       list,

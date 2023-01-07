@@ -18,9 +18,6 @@ Page({
       type: 0,
       province_id: 0,
     });
-
-    this.data.page++;
-
     const list = result.list.map(item => {
       return {
         id: item.id,
@@ -29,6 +26,8 @@ Page({
         view: item.viewcount,
       };
     });
+
+    this.data.page++;
 
     return {
       list,

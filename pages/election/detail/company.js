@@ -13,9 +13,6 @@ Page({
       allotstatus: 3,
       check_status: 3,
     });
-
-    this.data.page++;
-
     const list = result.list.map(item => {
       return {
         id: item.com_id,
@@ -27,6 +24,8 @@ Page({
         },
       };
     });
+
+    this.data.page++;
 
     return {
       list,

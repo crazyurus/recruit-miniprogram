@@ -48,9 +48,6 @@ Page({
       show_type: 2,
       cate_id: this.data.active.id,
     });
-
-    this.data.page++;
-
     const list = result.list.map(item => {
       return {
         id: item.id,
@@ -59,6 +56,8 @@ Page({
         view: item.views,
       };
     });
+
+    this.data.page++;
 
     return {
       list,
