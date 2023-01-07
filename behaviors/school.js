@@ -1,22 +1,22 @@
-import store from '../store/index';
-import listBehavior from './list';
+import { selector as selectorBehavior } from 'miniprogram-redux';
 
 export default Behavior({
-  behaviors: [listBehavior],
-  data: {
-    school: {},
+  behaviors: [selectorBehavior],
+  selector(state) {
+    return {
+      school: state.school,
+    };
   },
   methods: {
-    onLoad() {},
+    onLoad() {
+      this.school = {};
+    },
     onShow() {
-      const { school } = store.getState();
+      if (this.school && this.school.id !== this.data.school.id) {
+        if (this.reset) this.reset();
+        if (this.loadList) this.loadList();
 
-      if (school.id !== this.data.school.id) {
-        this.reset();
-        this.loadList();
-        this.setData({
-          school,
-        });
+        this.school = this.data.school;
       }
     },
   },

@@ -3,8 +3,7 @@ import articleBehavior from '../../behaviors/article';
 import request from '../../libs/request/scc';
 import { toast } from '../../libs/ui';
 import { getAddress } from '../../libs/location';
-import { isQQ, getCDNURL} from '../../libs/utils';
-import store from '../../store/index';
+import { isQQ, getCDNURL } from '../../libs/utils';
 
 function unique(arr) {
   return Array.from(new Set(arr));
@@ -29,6 +28,9 @@ Page({
     positions: [],
     isExpired: true,
     isQQ: isQQ(),
+    contentStyle: {
+      a: 'color: #45c8dc',
+    },
   },
   async onLoad(options) {
     wx.setNavigationBarTitle({
@@ -74,37 +76,26 @@ Page({
     });
   },
   onCache() {
-    const { article } = store.getState();
+    const { backgroundColor } = this.data.article;
 
-    if (article) {
-      const { backgroundColor } = article;
+    if (backgroundColor) {
       this.setData({
         backgroundColor,
         opacityColor: hexToRgba(backgroundColor, 0.6),
-        article: {
-          ...this.data.article,
-          ...article,
-        },
         contentStyle: {
           a: 'color: ' + backgroundColor,
         },
       });
+
       wx.setNavigationBarColor({
         backgroundColor,
         frontColor: '#ffffff'
       });
-      setTimeout(() => {
-        wx.setBackgroundColor({
-          backgroundColorTop: backgroundColor,
-          backgroundColorBottom: '#efeff4',
-        });
-      }, 300);
+      wx.setBackgroundColor({
+        backgroundColorTop: backgroundColor,
+        backgroundColorBottom: '#efeff4',
+      });
     }
-  },
-  onUnload() {
-    store.dispatch({
-      type: 'CLEAR_ARTICLE',
-    });
   },
   showAddressMap() {
     if (this.data.article.address === '线上宣讲会') {
@@ -132,6 +123,6 @@ Page({
   openPoster() {
     wx.previewImage({
       urls: [this.data.article.poster],
-    })
-  }
+    });
+  },
 });

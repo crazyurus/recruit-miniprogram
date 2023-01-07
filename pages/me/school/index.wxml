@@ -2,7 +2,7 @@
 <view class="page-content">
   <view class="content-block-title">支持的学校列表</view>
   <view class="list-block">
-    <view wx:for="{{list}}" wx:key="id" class="item-link item-check {{active.id === item.id ? 'active' : ''}}" hover-class="item-link-active" data-id="{{item.id}}" bindtap="choose">
+    <view wx:for="{{list}}" wx:key="id" class="item-link item-check {{school.id === item.id ? 'active' : ''}}" hover-class="item-link-active" data-id="{{item.id}}" bindtap="choose">
       <view class="item-content">
         <view class="item-inner">
           <view class="item-title">{{item.name}}</view>

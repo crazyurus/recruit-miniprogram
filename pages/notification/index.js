@@ -1,12 +1,12 @@
 import { behavior as computedBehavior } from 'miniprogram-computed';
+import schoolBehavior from '../../behaviors/school';
+import listBehavior from '../../behaviors/list';
 import request from '../../libs/request/scc';
 import { formatTimestamp } from '../../libs/utils';
-import store from '../../store/index';
 import tabMap from '../../data/notification';
-import schoolBehavior from '../../behaviors/school';
 
 Page({
-  behaviors: [computedBehavior, schoolBehavior],
+  behaviors: [computedBehavior, listBehavior, schoolBehavior],
   data: {
     tabs: [],
     active: 0,
@@ -17,20 +17,19 @@ Page({
     },
   },
   onShow() {
-    const { school } = store.getState();
     const colorArray = ['green', 'purple', 'pink', 'orange', 'red'];
 
-    if (school.id !== this.data.school.id) {
-      const tabs = (tabMap[school.id] || []).map((tab, index) => ({
+    if (this.school.id !== this.data.school.id) {
+      const tabs = (tabMap[this.data.school.id] || []).map((tab, index) => ({
         ...tab,
         color: colorArray[index],
       }));
 
       this.reset();
       this.setData({
-        school,
         tabs,
       });
+      this.school = this.data.school;
 
       if (tabs.length > 0) {
         this.loadList();

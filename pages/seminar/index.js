@@ -1,10 +1,12 @@
 import dayjs from 'dayjs';
+import { dispatch } from 'miniprogram-redux';
 import request from '../../libs/request/scc';
-import store from '../../store/index';
 import schoolBehavior from '../../behaviors/school';
+import listBehavior from '../../behaviors/list';
 
 Page({
-  behaviors: [schoolBehavior],
+  behaviors: [listBehavior, schoolBehavior],
+  school: {},
   data: {
     left: 0,
     calendar: {},
@@ -107,7 +109,7 @@ Page({
     const { index } = e.currentTarget.dataset;
     const item = this.data.list[index];
 
-    store.dispatch({
+    dispatch({
       type: 'SET_ARTICLE',
       payload: {
         id: item.id,

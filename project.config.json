@@ -56,6 +56,10 @@
         "type": "file"
       },
       {
+        "value": "jsconfig.json",
+        "type": "file"
+      },
+      {
         "value": "miniprogram_npm/reselect/index.js",
         "type": "file"
       },

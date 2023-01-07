@@ -1,22 +1,20 @@
-import store from '../../store/index';
+import { dispatch } from 'miniprogram-redux';
+import schoolBehavior from '../../behaviors/school';
+import listBehavior from '../../behaviors/list';
 import request from '../../libs/request/scc';
 import { getCDNURL, formatTimestamp, openURL } from '../../libs/utils';
 
 Page({
+  behaviors: [listBehavior, schoolBehavior],
   data: {
     list: [],
     carousel: [],
-    school: {},
   },
   onShow() {
-    const { school } = store.getState();
-
-    if (school.id !== this.data.school.id) {
+    if (this.school.id !== this.data.school.id) {
       this.loadCarousel();
       this.loadList();
-      this.setData({
-        school,
-      });
+      this.school = this.data.school;
     }
   },
   async loadCarousel() {
@@ -76,7 +74,7 @@ Page({
     const { index } = e.currentTarget.dataset;
     const item = this.data.list[index];
 
-    store.dispatch({
+    dispatch({
       type: 'SET_ARTICLE',
       payload: item,
     });

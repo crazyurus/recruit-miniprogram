@@ -1,7 +1,6 @@
 import articleBehavior from '../../../behaviors/article';
 import request from '../../../libs/request/scc';
 import { getCDNURL, formatTimestamp } from '../../../libs/utils';
-import store from '../../../store/index';
 
 Page({
   behaviors: [articleBehavior],
@@ -30,23 +29,6 @@ Page({
 
     this.getDetail();
     this.getStatistics();
-  },
-  onReady() {
-    const { article } = store.getState();
-    const { statistics, ...item } = article;
-
-    if (article) {
-      this.setData({
-        article: {
-          ...this.data.article,
-          ...item,
-        },
-        statistics: {
-          ...this.data.statistics,
-          ...statistics,
-        },
-      });
-    }
   },
   async getDetail() {
     const result = await request('/jobfair/detail', {
@@ -85,11 +67,6 @@ Page({
       'statistics.resume': result.resumeUserList.count,
       'statistics.invite': result.resumeUserListYy.yaoqingCount,
       'statistics.accept': result.resumeUserListYy.yixiangCount,
-    });
-  },
-  onUnload() {
-    store.dispatch({
-      type: 'CLEAR_ARTICLE',
     });
   },
   makePhoneCall() {

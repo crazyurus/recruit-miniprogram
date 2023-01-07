@@ -1,4 +1,17 @@
+import { selector as selectorBehavior, dispatch } from 'miniprogram-redux';
+
 export default Behavior({
+  behaviors: [selectorBehavior],
+  selector(state, data) {
+    if (state.article) {
+      return {
+        article: {
+          ...data.article,
+          ...state.article,
+        },
+      };
+    }
+  },
   data: {
     title: false,
     article: {},
@@ -34,6 +47,11 @@ export default Behavior({
         title: this.data.article.title,
         imageUrl: this.icon,
       };
+    },
+    onUnload() {
+      dispatch({
+        type: 'CLEAR_ARTICLE',
+      });
     },
   },
 });

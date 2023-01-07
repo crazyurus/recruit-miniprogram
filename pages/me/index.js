@@ -1,5 +1,5 @@
 import { behavior as computedBehavior } from 'miniprogram-computed';
-import store from '../../store/index';
+import schoolBehavior from '../../behaviors/school';
 import { isQQ, openURL } from '../../libs/utils';
 import { toast } from '../../libs/ui';
 import { exist } from '../../libs/file';
@@ -9,11 +9,10 @@ const avatarFilePath = wx.env.USER_DATA_PATH + '/avatar.jpg';
 const nickNameStorageKey = 'nickName';
 
 Page({
-  behaviors: [computedBehavior],
+  behaviors: [schoolBehavior, computedBehavior],
   data: {
     isQQ: isQQ(),
     isLogin: false,
-    school: {},
     userInfo: {
       name: '',
       avatar: 'https://mmbiz.qpic.cn/mmbiz/icTdbqWNOwNRna42FI242Lcia07jQodd2FJGIYQfG0LAJGFxM4FbnQP6yfMxBgJ0F3YRqJCJ1aPAK2dQagdusBZg/0',
@@ -44,13 +43,6 @@ Page({
         });
       }
     })
-  },
-  onShow() {
-    const { school } = store.getState();
-
-    this.setData({
-      school,
-    });
   },
   tucao() {
     if (this.data.isQQ) {

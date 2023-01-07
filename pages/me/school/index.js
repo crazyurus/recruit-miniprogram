@@ -1,19 +1,15 @@
+import { dispatch } from 'miniprogram-redux';
+import schoolBehavior from '../../../behaviors/school';
 import request from '../../../libs/request/scc';
-import store from '../../../store/index';
 
 Page({
+  behaviors: [schoolBehavior],
   data: {
     list: [],
-    active: {},
     search: '',
   },
   onLoad() {
-    const { school } = store.getState();
-
     this.loadList();
-    this.setData({
-      active: school,
-    });
   },
   async loadList() {
     const result = await request('/School/getlistName', {
@@ -39,11 +35,7 @@ Page({
     const { id } = e.currentTarget.dataset;
     const school = this.data.originList.find(school => school.id === id);
 
-    this.setData({
-      active: school,
-    });
-
-    store.dispatch({
+    dispatch({
       type: 'SET_SCHOOL',
       payload: school,
     });

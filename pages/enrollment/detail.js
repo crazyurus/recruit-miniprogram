@@ -2,7 +2,6 @@ import articleBehavior from '../../behaviors/article';
 import request from '../../libs/request/scc';
 import { getCDNURL } from '../../libs/utils';
 import { getAddress } from '../../libs/location';
-import store from '../../store/index';
 
 Page({
   behaviors: [articleBehavior],
@@ -44,23 +43,6 @@ Page({
         description: (result.city_id_name === '市辖区' ? result.province_id_name : result.city_id_name) + ' ' + result.comInfo.xingzhi_id_name + ' ' + result.comInfo.business_name,
         telephone: result.tel,
       },
-    });
-  },
-  onReady() {
-    const { article } = store.getState();
-
-    if (article) {
-      this.setData({
-        article: {
-          ...this.data.article,
-          ...article,
-        },
-      });
-    }
-  },
-  onUnload() {
-    store.dispatch({
-      type: 'CLEAR_ARTICLE',
     });
   },
   makePhoneCall() {
