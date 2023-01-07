@@ -1,4 +1,4 @@
-import QQMap from './qqmap';
+import QQMap from './map';
 import { alert, loading } from './ui';
 import { isQQ, sharePath } from './utils';
 
@@ -17,32 +17,30 @@ async function getAddress(options) {
     });
     const hideLoading = loading('获取地理位置中');
 
-    location = await new Promise((resolve, reject) => {
-      SDK.geocoder({
+    try {
+      const response = await SDK.geocoder({
         address,
-        success(res) {
-          resolve({
-            latitude: res.result.location.lat,
-            longitude: res.result.location.lng,
-          });
-        },
-        fail(res) {
-          reject(res.message);
-        },
-        complete() {
-          hideLoading();
-        }
       });
-    }).catch(errMsg => {
-      alert(errMsg);
-    });
+
+      location = {
+        latitude: response.result.location.lat,
+        longitude: response.result.location.lng,
+      };
+
+    } catch (error) {
+      alert(error.message);
+    }
+
+  hideLoading();
   }
 
-  openLocation({
-    ...location,
-    name,
-    address: description || address,
-  });
+  if (location) {
+    openLocation({
+      ...location,
+      name,
+      address: description || address,
+    });
+  }
 }
 
 function openLocation(options) {

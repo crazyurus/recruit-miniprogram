@@ -633,7 +633,7 @@ var Utils = {
 };
 
 
-class QQMapWX {
+class QQMap {
 
   /**
    * 构造函数
@@ -851,10 +851,16 @@ class QQMapWX {
       requestParam.sig = Utils.getSig(requestParam, options.sig, 'geocoder');
     }
 
-    wx.request(Utils.buildWxRequestConfig(options, {
-      url: URL_GET_GEOCODER,
-      data: requestParam
-    }, 'geocoder'));
+    return new Promise((resolve, reject) => {
+      wx.request(Utils.buildWxRequestConfig({
+        ...options,
+        success: resolve,
+        fail: reject,
+      }, {
+        url: URL_GET_GEOCODER,
+        data: requestParam
+      }, 'geocoder'));
+    });
   };
 
 
@@ -1100,4 +1106,4 @@ class QQMapWX {
   }
 };
 
-export default QQMapWX;
+export default QQMap;
