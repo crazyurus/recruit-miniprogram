@@ -12,6 +12,7 @@
     "pages/me/school/index",
     "pages/me/news/index",
     "pages/me/news/detail",
+    "pages/me/contact/index",
     "pages/common/map",
     "pages/common/webview",
     "pages/election/index",

@@ -1,0 +1,16 @@
+@import '/styles/list.wxss';
+
+button.item-link {
+  border: none;
+  line-height: 1.3;
+  padding-right: 0;
+  color: inherit;
+}
+
+.list-block .item-link .item-inner {
+  display: flex;
+}
+
+.list-block .item-link .item-text {
+  margin: 0;
+}

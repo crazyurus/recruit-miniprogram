@@ -1,4 +1,4 @@
-<search placeholder="搜索职位" bindsearch="search" />
+<search placeholder="搜索岗位" bindsearch="search" />
 <view class="page-content page-content-top">
   <view class="content-block-title">招聘岗位</view>
   <view class="list-block media-list record-list">

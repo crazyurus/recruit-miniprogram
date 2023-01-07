@@ -15,7 +15,23 @@
     },
     {
       "action": "disallow",
+      "page": "pages/me/school/index"
+    },
+    {
+      "action": "disallow",
       "page": "pages/me/calendar/index"
+    },
+    {
+      "action": "disallow",
+      "page": "pages/me/news/index"
+    },
+    {
+      "action": "disallow",
+      "page": "pages/me/news/detail"
+    },
+    {
+      "action": "disallow",
+      "page": "pages/me/contact/detail"
     }
   ]
 }

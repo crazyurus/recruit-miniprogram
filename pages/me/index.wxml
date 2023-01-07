@@ -10,7 +10,7 @@
     </view>
   </view>
   <view class="list">
-    <navigator wx:if="{{school.id === 'b525083d-b83c-4c7e-892f-29909421d961'}}" class="list-item" url="./calendar/index">
+    <navigator wx:if="{{isWUT}}" class="list-item" url="./calendar/index">
       <image class="icon" src="../../images/module/calendar.png" />
       <view class="text">校历</view>
     </navigator>
@@ -34,14 +34,10 @@
       <image class="icon" src="../../images/module/privacy.png" />
       <view class="text">隐私协议</view>
     </view>
-    <button wx:if="{{isQQ}}" class="list-item" open-type="openGroupProfile" group-id="420082599" plain hover-class="none">
+    <navigator class="list-item" url="./contact/index">
       <image class="icon" src="../../images/module/help.png" />
       <view class="text">联系我们</view>
-    </button>
-    <button wx:else class="list-item" open-type="contact" plain hover-class="none">
-      <image class="icon" src="../../images/module/help.png" />
-      <view class="text">联系我们</view>
-    </button>
+    </navigator>
     <navigator class="list-item" url="./school/index">
       <image class="icon" src="../../images/module/switch.png" />
       <view class="text">切换学校</view>

@@ -20,6 +20,9 @@ Page({
     },
   },
   computed: {
+    isWUT(data) {
+      return data.school.id === WUTSchoolID;
+    },
     enablePostModule(data) {
       return data.school.id === WUTSchoolID && data.isLogin;
     },
