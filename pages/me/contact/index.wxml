@@ -1,7 +1,18 @@
 <view class="page-content page-content-top">
   <view class="content-block-title">联系我们</view>
   <view class="list-block media-list record-list">
-    <view class="item-link item-content" hover-class="navigator-hover" bindtap="openCustomerChat">
+    <view wx:if="{{isQQ}}" class="item-link item-content" hover-class="navigator-hover" data-value="2577438164" bindtap="copy">
+      <view class="item-inner">
+        <view class="item-title-row">
+          <view class="item-title">
+            <view class="circle bg-blue"></view>
+            <text>QQ客服</text>
+          </view>
+        </view>
+        <view class="item-text">2577438164</view>
+      </view>
+    </view>
+    <view wx:else class="item-link item-content" hover-class="navigator-hover" bindtap="openCustomerChat">
       <view class="item-inner">
         <view class="item-title-row">
           <view class="item-title">
@@ -11,7 +22,7 @@
         </view>
       </view>
     </view>
-    <button class="item-link item-content" open-type="contact" plain hover-class="none" hover-class="navigator-hover">
+    <button class="item-link item-content" open-type="contact" plain hover-class="navigator-hover">
       <view class="item-inner">
         <view class="item-title-row">
           <view class="item-title">
@@ -21,7 +32,18 @@
         </view>
       </view>
     </button>
-    <view class="item-link item-content" hover-class="navigator-hover" data-value="420082599" bindtap="copy">
+    <button wx:if="{{isQQ}}" class="item-link item-content" open-type="openGroupProfile" group-id="420082599" plain hover-class="navigator-hover">
+      <view class="item-inner">
+        <view class="item-title-row">
+          <view class="item-title">
+            <view class="circle bg-green"></view>
+            <text>QQ群</text>
+          </view>
+        </view>
+        <view class="item-text">420082599</view>
+      </view>
+    </button>
+    <view wx:else class="item-link item-content" hover-class="navigator-hover" data-value="420082599" bindtap="copy">
       <view class="item-inner">
         <view class="item-title-row">
           <view class="item-title">

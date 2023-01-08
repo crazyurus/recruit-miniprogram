@@ -98,5 +98,6 @@
     "tabIndent": "insertSpaces",
     "tabSize": 2
   },
+  "qqLibVersion": "1.58.2",
   "condition": {}
 }

@@ -1,4 +1,9 @@
+import { isQQ } from '../../../libs/utils';
+
 Page({
+  data: {
+    isQQ: isQQ(),
+  },
   openCustomerChat() {
     wx.openCustomerServiceChat({
       extInfo: {
