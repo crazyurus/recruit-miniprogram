@@ -1,12 +1,13 @@
 export default Behavior({
   lock: false,
+  currentPage: 1,
   data: {
     list: [],
-    page: 1,
     loading: true,
   },
   methods: {
     onLoad() {
+      this.currentPage = 1;
       this.loadList();
     },
     onReachBottom() {
@@ -36,9 +37,9 @@ export default Behavior({
       });
     },
     reset() {
+      this.currentPage = 1;
       this.setData({
         list: [],
-        page: 1,
         loading: true,
       });
       wx.pageScrollTo({

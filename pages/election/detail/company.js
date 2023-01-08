@@ -7,7 +7,7 @@ Page({
   async fetchData() {
     const result = await request('/jobfair/signenterprise', {
       id: this.options.id,
-      page: this.data.page,
+      page: this.currentPage,
       size: 10,
       confirm_status: -1,
       allotstatus: 3,
@@ -25,7 +25,7 @@ Page({
       };
     });
 
-    this.data.page++;
+    this.currentPage++;
 
     return {
       list,

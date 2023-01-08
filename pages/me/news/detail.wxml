@@ -1,7 +1,7 @@
 <view class="page-content">
   <view class="header">{{article.title}}</view>
   <view class="content">
-    <mp-html content="{{article.content}}" scroll-table tag-style="{{contentStyle}}" domain="{{domain}}" />
+    <mp-html content="{{article.content}}" selectable scroll-table lazy-load tag-style="{{contentStyle}}" domain="{{domain}}" />
     <view class="link" wx:for="{{article.attachments}}" data-url="{{item.url}}" bindtap="openAttachment">{{item.name}}</view>
   </view>
   <view class="footer">

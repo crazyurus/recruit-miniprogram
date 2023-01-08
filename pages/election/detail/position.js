@@ -9,7 +9,7 @@ Page({
   async fetchData() {
     const result = await request('/jobfair/getjoblist', {
       fair_id: this.options.id,
-      page: this.data.page,
+      page: this.currentPage,
       size: 10,
       keywords: this.data.search,
       isunion: 2,
@@ -24,7 +24,7 @@ Page({
       };
     });
 
-    this.data.page++;
+    this.currentPage++;
 
     return {
       list,

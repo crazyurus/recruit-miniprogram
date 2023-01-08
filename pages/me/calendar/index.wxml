@@ -4,7 +4,7 @@
   </view>
   <view class="content">
     <image class="calendar" src="{{calendarURL}}" mode="widthFix" lazy-load show-menu-by-longpress bindtap="previewCalendar" />
-    <view class="button" bindtap="saveCalendar">保存原图到相册</view>
+    <view class="button" hover-class="button-active" bindtap="saveCalendar">保存原图到相册</view>
   </view>
 </view>
 
@@ -16,27 +16,27 @@
     </view>
   </view>
   <view class="content list">
-    <view class="list-item" bindtap="openTimeTable">
+    <view class="list-item" hover-class="navigator-hover" bindtap="openTimeTable">
       <image class="icon" src="../../../images/calendar/book.png" />
       <view class="text">图书馆</view>
     </view>
-    <view class="list-item" bindtap="openTimeTable">
+    <view class="list-item" hover-class="navigator-hover" bindtap="openTimeTable">
       <image class="icon" src="../../../images/calendar/bus.png" />
       <view class="text">校车</view>
     </view>
-    <view class="list-item" bindtap="openTimeTable">
+    <view class="list-item" hover-class="navigator-hover" bindtap="openTimeTable">
       <image class="icon" src="../../../images/calendar/tea.png" />
       <view class="text">食堂</view>
     </view>
-    <view class="list-item" bindtap="openTimeTable">
+    <view class="list-item" hover-class="navigator-hover" bindtap="openTimeTable">
       <image class="icon" src="../../../images/calendar/hospital.png" />
       <view class="text">医院</view>
     </view>
-    <view class="list-item" bindtap="openTimeTable">
+    <view class="list-item" hover-class="navigator-hover" bindtap="openTimeTable">
       <image class="icon" src="../../../images/calendar/card.png" />
       <view class="text">卡务中心</view>
     </view>
-    <view class="list-item" bindtap="openTimeTable">
+    <view class="list-item" hover-class="navigator-hover" bindtap="openTimeTable">
       <image class="icon" src="../../../images/calendar/express.png" />
       <view class="text">快递</view>
     </view>

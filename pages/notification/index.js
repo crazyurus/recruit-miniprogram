@@ -47,7 +47,7 @@ Page({
   },
   async fetchData() {
     const result = await request('/Article/getlist', {
-      page: this.data.page,
+      page: this.currentPage,
       size: 10,
       show_type: 2,
       cate_id: this.data.tabs[this.data.active].id,
@@ -61,7 +61,7 @@ Page({
       };
     });
 
-    this.data.page++;
+    this.currentPage++;
 
     return {
       list,

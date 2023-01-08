@@ -9,11 +9,8 @@
   transform-origin: center center;
 }
 
-.card:active {
-  transform: scale(.97) translate3d(0, 0, 0);
-}
-
 .card.navigator-hover {
+  transform: scale(.97) translate3d(0, 0, 0);
   background-color: #fff;
   opacity: 1;
 }

@@ -59,11 +59,11 @@ page, .page-content {
 button.list-item[plain] {
   border: none;
   background-color: #fff;
-  color: #1f2329;
+  color: inherit;
 }
 
-navigator.list-item.navigator-hover, button.list-item:active, view.list-item:active { 
-  background-color: #ececec;
+.list-item.navigator-hover {
+  background-color: #ececec !important;
   opacity: 1;
 }
 

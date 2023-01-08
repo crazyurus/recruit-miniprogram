@@ -50,7 +50,7 @@ Page({
   },
   async fetchData() {
     const result = await request('/preach/getlist', {
-      page: this.data.page,
+      page: this.currentPage,
       size: 10,
       isunion: 2,
       laiyuan: 0,
@@ -76,10 +76,10 @@ Page({
     });
 
     this.data.left += list.length % colorArray.length;
-    this.data.page++;
+    this.currentPage++;
 
     return {
-      loading: list.length > 0 && this.data.page <= result.allpage,
+      loading: list.length > 0 && this.currentPage <= result.allpage,
       list,
       total: result.count,
     };

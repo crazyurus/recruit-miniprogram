@@ -18,19 +18,19 @@
       <image class="icon" src="../../images/module/news.png" />
       <view class="text">校园资讯</view>
     </navigator>
-    <button class="list-item" open-type="openSetting" plain hover-class="none">
+    <button class="list-item" open-type="openSetting" plain hover-class="navigator-hover">
       <image class="icon" src="../../images/module/setting.png" />
       <view class="text">设置</view>
     </button>
-    <button class="list-item" open-type="feedback" plain hover-class="none">
+    <button class="list-item" open-type="feedback" plain hover-class="navigator-hover">
       <image class="icon" src="../../images/module/feedback.png" />
       <view class="text">反馈</view>
     </button>
-    <view class="list-item" bindtap="tucao">
+    <view class="list-item" hover-class="navigator-hover" bindtap="tucao">
       <image class="icon" src="../../images/module/tucao.png" />
       <view class="text">吐槽</view>
     </view>
-    <view class="list-item" bindtap="privacy">
+    <view class="list-item" hover-class="navigator-hover" bindtap="privacy">
       <image class="icon" src="../../images/module/privacy.png" />
       <view class="text">隐私协议</view>
     </view>
@@ -43,7 +43,7 @@
       <view class="text">切换学校</view>
       <view class="after">{{school.name}}</view>
     </navigator>
-    <view class="list-item" bindtap="about">
+    <view class="list-item" hover-class="navigator-hover" bindtap="about">
       <image class="icon" src="../../images/module/about.png" />
       <view class="text">关于</view>
     </view>

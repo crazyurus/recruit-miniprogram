@@ -11,7 +11,7 @@ Page({
   },
   async fetchData() {
     const result = await request('/enrollment/getlist', {
-      page: this.data.page,
+      page: this.currentPage,
       size: 10,
       keywords: this.data.search,
       isben: 1,
@@ -28,7 +28,7 @@ Page({
       };
     });
 
-    this.data.page++;
+    this.currentPage++;
 
     return {
       list,

@@ -41,7 +41,7 @@ page {
   font-size: 16px;
 }
 
-.button:active {
+.button-active {
   opacity: 0.8;
 }
 
@@ -84,7 +84,8 @@ audio {
   transform: scaleY(0.5);
 }
 
-.list-item:active {
+.list-item.navigator-hover {
+  opacity: 1;
   background-color: #ececec;
 }
 

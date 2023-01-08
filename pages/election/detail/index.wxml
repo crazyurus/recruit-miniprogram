@@ -52,7 +52,7 @@
       </view>
       <block wx:if="{{article.content}}">
         <view class="seminar-content_title">双选会内容</view>
-        <mp-html content="{{article.content}}" scroll-table tag-style="{{contentStyle}}"></mp-html>
+        <mp-html content="{{article.content}}" selectable scroll-table lazy-load tag-style="{{contentStyle}}"></mp-html>
       </block>
       <block wx:if="{{article.telephone}}">
         <view class="seminar-content_title">咨询电话</view>

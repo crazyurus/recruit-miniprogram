@@ -6,6 +6,7 @@ import listBehavior from '../../../behaviors/list';
 
 Page({
   behaviors: [listBehavior, computedBehavior],
+  currentPage: 1,
   data: {
     category: {
       first: true,
@@ -35,7 +36,7 @@ Page({
   },
   async fetchData() {
     const result = await request('/news/listTitles', {
-      pageNumber: this.data.page,
+      pageNumber: this.currentPage,
       pageSize: 10,
       newsType: this.data.categoryText,
     });
@@ -48,7 +49,7 @@ Page({
       };
     });
 
-    this.data.page++;
+    this.currentPage++;
 
     return {
       list,
