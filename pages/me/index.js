@@ -44,16 +44,24 @@ Page({
       }
     })
   },
-  tucao() {
+  async tucao() {
     if (this.data.isQQ) {
       toast('QQ 小程序暂不支持此功能');
     } else {
-      wx.openEmbeddedMiniProgram({
+      const { tapIndex } = await wx.promises.showActionSheet({
+        itemList: ['提缺陷', '提建议'],
+      });
+      const params = tapIndex === 0 ? {
         appId: 'wx8abaf00ee8c3202e',
         extraData: {
           id: 23796,
         },
-      });
+      } : {
+        appId: 'wxebadf544ddae62cb',
+        path: 'pages/survey/index?sid=11501833&hash=89c8&navigateBackMiniProgram=true',
+      };
+
+      wx.openEmbeddedMiniProgram(params);
     }
   },
   privacy() {
