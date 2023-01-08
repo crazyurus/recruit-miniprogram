@@ -1,9 +1,13 @@
 {
   "name": "recruit-miniprogram",
   "version": "1.0.0",
-  "description": "武汉理工大学就业招聘",
+  "description": "就业招聘",
   "repository": "https://github.com/crazyurus/recruit-miniprogram.git",
-  "keywords": [],
+  "license": "GPL-3.0",
+  "keywords": [
+    "miniprogram",
+    "recruit"
+  ],
   "author": "Crazy Urus <crazyurus@vip.qq.com>",
   "dependencies": {
     "axios": "^0.26.1",
@@ -11,6 +15,7 @@
     "dayjs": "^1.11.7",
     "htmlparser2": "^8.0.1",
     "miniprogram-api-promise": "^1.0.4",
+    "miniprogram-cheerio": "^1.0.0",
     "miniprogram-computed": "^4.4.0",
     "miniprogram-redux": "^1.1.1",
     "mp-html": "^2.4.1"

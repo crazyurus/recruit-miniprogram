@@ -1,3 +1,4 @@
+import * as cheerio from 'miniprogram-cheerio';
 import articleBehavior from '../../../behaviors/article';
 import request from '../../../libs/request/app';
 import { openDocument } from '../../../libs/file';
@@ -14,11 +15,12 @@ Page({
     }, false);
     const href = result.newsHref.split(',');
     const html = result.html.replace(/font/g, 'f');
+    const $ = cheerio.load(html);
 
     this.setData({
       article: {
         title: result.newsTitle,
-        content: html.slice(html.indexOf('<div class=\"TRS_Editor\">'), html.indexOf('<div class=\"file_box\">')),
+        content: $('.TRS_Editor').html(),
         attachments: (result.fileName.split(',') || []).map((item, index) => ({
           name: item,
           url: this.data.domain + href[index],
