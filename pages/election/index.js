@@ -7,7 +7,6 @@ import { getCDNURL, formatTimestamp, openURL } from '../../libs/utils';
 Page({
   behaviors: [listBehavior, schoolBehavior],
   data: {
-    list: [],
     carousel: [],
   },
   onShow() {
@@ -36,7 +35,7 @@ Page({
   },
   async loadList() {
     const result = await request('/jobfair/getlist', {
-      page: 1,
+      page: this.data.page,
       size: 1000,
       isunion: 2,
       laiyuan: 0,

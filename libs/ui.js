@@ -36,6 +36,17 @@ function toast(title, icon = 'none') {
   return wx.hideToast;
 }
 
+function toastSuccess(title) {
+  return toast(title, 'success');
+}
+
+function toastFail(title) {
+  return toast(title, 'error');
+}
+
+toast.success = toastSuccess;
+toast.fail = toastFail;
+
 function loading(title) {
   wx.showLoading({ title });
 

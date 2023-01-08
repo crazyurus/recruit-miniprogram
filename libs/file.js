@@ -10,7 +10,7 @@ async function openDocument(url) {
       showMenu: true,
     });
   } catch (error) {
-    toast('打开失败');
+    toast.fail('打开失败');
   }
 
   hideLoading();

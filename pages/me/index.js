@@ -69,7 +69,7 @@ Page({
     const { errMsg } = e.detail;
 
     if (errMsg === 'getPhoneNumber:ok') {
-      toast('登录成功', 'success');
+      toast.success('登录成功');
 
       this.setData({
         isLogin: true,

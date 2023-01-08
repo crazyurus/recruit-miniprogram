@@ -116,7 +116,7 @@ Page({
       startTime: this.data.article.timestamp.start,
       endTime: this.data.article.timestamp.end,
       success() {
-        toast('添加成功', 'success');
+        toast.success('添加成功');
       },
     });
   },

@@ -12,7 +12,7 @@ Page({
   onShareAppMessage() {
     return {
       success() {
-        toast('分享成功', 'success');
+        toast.success('分享成功');
       }
     };
   }
