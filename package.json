@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "就业招聘",
   "repository": "https://github.com/crazyurus/recruit-miniprogram.git",
-  "license": "GPL-3.0",
+  "license": "BSD-3-Clause",
   "keywords": [
     "miniprogram",
     "recruit"
@@ -14,7 +14,7 @@
     "axios-miniprogram-adapter": "^0.3.5",
     "dayjs": "^1.11.7",
     "miniprogram-api-promise": "^1.0.4",
-    "miniprogram-cheerio": "^1.0.0",
+    "miniprogram-cheerio": "^1.0.1",
     "miniprogram-computed": "^4.4.0",
     "miniprogram-redux": "^1.1.1",
     "mp-html": "^2.4.1"
