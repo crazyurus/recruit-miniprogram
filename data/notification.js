@@ -1,7 +1,7 @@
 export default {
   'b525083d-b83c-4c7e-892f-29909421d961': [
     {
-      id: '17c226b1-6fe3-8ea5-9a8d-6ecb2e89f70c',
+      id: 'f14fd2e7-b52e-e8b4-6c6b-409108523ffa',
       name: '公告',
     },
     {
@@ -13,7 +13,7 @@ export default {
       name: '政策',
     },
     {
-      id: 'cfd0d61b-2137-f943-7c9d-219a9242022c',
+      id: '7df72493-2930-1467-88d5-a29bf14b126d',
       name: '指南',
     }
   ],

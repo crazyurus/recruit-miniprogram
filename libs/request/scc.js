@@ -1,8 +1,8 @@
 import store from '../../store/index';
 import { axios, createRequest, responseSuccessInterceptor, responseFailInterceptor } from './common';
+import { WUTSchoolID } from '../../data/const';
 
 const instance = axios.create({
-  baseURL: 'https://a.jiuyeb.cn/mobile.php',
   method: 'POST',
   headers: {
     'Content-Type': 'application/x-www-form-urlencoded',
@@ -20,6 +20,8 @@ instance.interceptors.request.use(config => {
     login_admin_school_code: '',
     login_admin_school_id: schoolID,
   });
+
+  config.baseURL = schoolID === WUTSchoolID ? 'https://scc.whut.edu.cn/mobile.php' : 'https://a.jiuyeb.cn/mobile.php';
 
   return config;
 });
