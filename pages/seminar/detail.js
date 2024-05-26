@@ -3,7 +3,7 @@ import articleBehavior from '../../behaviors/article';
 import request from '../../libs/request/scc';
 import { toast } from '../../libs/ui';
 import { getAddress } from '../../libs/location';
-import { isQQ, getCDNURL } from '../../libs/utils';
+import { getCDNURL } from '../../libs/utils';
 
 function unique(arr) {
   return Array.from(new Set(arr));
@@ -27,7 +27,6 @@ Page({
     company: {},
     positions: [],
     isExpired: true,
-    isQQ: isQQ(),
     contentStyle: {
       a: 'color: #45c8dc',
     },
@@ -111,7 +110,7 @@ Page({
   addToCalendar() {
     wx.addPhoneCalendar({
       title: this.data.article.title,
-      description: '来自就业招聘小程序',
+      description: '来自宣讲会导航小程序',
       location: this.data.article.university + this.data.article.address,
       startTime: this.data.article.timestamp.start,
       endTime: this.data.article.timestamp.end,

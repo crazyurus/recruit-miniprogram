@@ -43,9 +43,8 @@
   },
   "compileType": "miniprogram",
   "libVersion": "2.29.1",
-  "appid": "wx21545de6d74f4b0b",
-  "qqappid": "1109884680",
-  "projectname": "%E5%B0%B1%E4%B8%9A%E6%8B%9B%E8%81%98",
+  "appid": "wx282fc9c4183b714c",
+  "projectname": "宣讲会导航",
   "packOptions": {
     "ignore": [
       {
@@ -99,6 +98,5 @@
     "tabIndent": "insertSpaces",
     "tabSize": 2
   },
-  "qqLibVersion": "1.58.2",
   "condition": {}
 }

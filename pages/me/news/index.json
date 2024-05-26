@@ -1,8 +1,0 @@
-{
-  "backgroundColor": "#fff",
-  "enablePullDownRefresh": true,
-  "navigationBarTitleText": "校园资讯",
-  "usingComponents": {
-    "loading": "../../../components/loading/index"
-  }
-}

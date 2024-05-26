@@ -1,6 +1,6 @@
 import QQMap from './map';
 import { alert, loading } from './ui';
-import { isQQ, sharePath } from './utils';
+import { sharePath } from './utils';
 
 async function getAddress(options) {
   const { address, name, description, latitude, longitude } = options;
@@ -31,7 +31,7 @@ async function getAddress(options) {
       alert(error.message);
     }
 
-  hideLoading();
+    hideLoading();
   }
 
   if (location) {
@@ -44,16 +44,7 @@ async function getAddress(options) {
 }
 
 function openLocation(options) {
-  if (isQQ()) {
-    wx.navigateTo({
-      url: sharePath({
-        route: 'pages/common/map',
-        options,
-      }),
-    });
-  } else {
-    wx.openLocation(options);
-  }
+  wx.openLocation(options);
 }
 
 export {

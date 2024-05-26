@@ -1,9 +1,8 @@
 import { behavior as computedBehavior } from 'miniprogram-computed';
 import schoolBehavior from '../../behaviors/school';
-import { isQQ, openURL } from '../../libs/utils';
+import { openURL } from '../../libs/utils';
 import { toast } from '../../libs/ui';
 import { exist } from '../../libs/file';
-import { WUTSchoolID } from '../../data/const';
 
 const avatarFilePath = wx.env.USER_DATA_PATH + '/avatar.jpg';
 const nickNameStorageKey = 'nickName';
@@ -11,19 +10,10 @@ const nickNameStorageKey = 'nickName';
 Page({
   behaviors: [schoolBehavior, computedBehavior],
   data: {
-    isQQ: isQQ(),
     isLogin: false,
     userInfo: {
       name: '',
       avatar: 'https://mmbiz.qpic.cn/mmbiz/icTdbqWNOwNRna42FI242Lcia07jQodd2FJGIYQfG0LAJGFxM4FbnQP6yfMxBgJ0F3YRqJCJ1aPAK2dQagdusBZg/0',
-    },
-  },
-  computed: {
-    isWUT(data) {
-      return data.school.id === WUTSchoolID;
-    },
-    enablePostModule(data) {
-      return data.school.id === WUTSchoolID && data.isLogin;
     },
   },
   onLoad() {
@@ -45,28 +35,25 @@ Page({
     })
   },
   async tucao() {
-    if (this.data.isQQ) {
-      toast('QQ 小程序暂不支持此功能');
-    } else {
-      const { tapIndex } = await wx.promises.showActionSheet({
-        itemList: ['提缺陷', '提建议'],
-      });
-      const params = tapIndex === 0 ? {
-        appId: 'wx8abaf00ee8c3202e',
-        extraData: {
-          id: 23796,
-        },
-      } : {
-        appId: 'wxebadf544ddae62cb',
-        path: 'pages/survey/index?sid=11501833&hash=89c8&navigateBackMiniProgram=true',
-      };
+    const { tapIndex } = await wx.promises.showActionSheet({
+      itemList: ['提缺陷', '提建议'],
+    });
+    const params = tapIndex === 0 ? {
+      appId: 'wx8abaf00ee8c3202e',
+      extraData: {
+        id: 23796,
+      },
+    } : {
+      appId: 'wxebadf544ddae62cb',
+      path: 'pages/survey/index?sid=11501833&hash=89c8&navigateBackMiniProgram=true',
+    };
 
-      wx.openEmbeddedMiniProgram(params);
-    }
+    wx.openEmbeddedMiniProgram(params);
+
   },
   privacy() {
-    wx[this.data.isQQ ? 'navigateToMiniProgram' : 'openEmbeddedMiniProgram']({
-      appId: this.data.isQQ ? '1108338344' : 'wxd45c635d754dbf59',
+    wx.openEmbeddedMiniProgram({
+      appId: 'wxd45c635d754dbf59',
       path: 'pages/detail/detail?url=' + encodeURIComponent('https://docs.qq.com/doc/DRVRrVFZpZllsWU9k'),
     });
   },

@@ -28,15 +28,10 @@ function getCDNURL(url) {
   return url + '!y';
 }
 
-function isQQ() {
-  return typeof qq !== 'undefined';
-}
-
 export {
   sharePath,
   formatTimestamp,
   formatDateTime,
   openURL,
   getCDNURL,
-  isQQ,
 };

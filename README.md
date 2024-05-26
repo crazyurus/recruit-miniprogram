@@ -1,9 +1,9 @@
-# 就业招聘
+# 宣讲会导航
 
 ![预览](https://github.com/crazyurus/recruit-miniprogram/actions/workflows/preview.yml/badge.svg) 
 ![上传](https://github.com/crazyurus/recruit-miniprogram/actions/workflows/upload.yml/badge.svg)
 
-就业招聘小程序，由武汉理工大学 Token 团队开发，为全校学生提供了校内外宣讲会以及招聘信息，信息来源于各个学校的就业信息网及就业宝平台。
+宣讲会导航小程序，为高校学生提供了校内宣讲会以及就业招聘信息，信息来源于各个高校的就业信息网。
 
 ## 使用
 
