@@ -1,8 +1,0 @@
-<map longitude="{{longitude}}" latitude="{{latitude}}" scale="18" markers="{{[{latitude, longitude}]}}"></map>
-<view class="info">
-  <view class="content">
-    <view class="title">{{name}}</view>
-    <view class="desc">{{address}}</view>
-  </view>
-  <image src="../../images/map.png" bindtap="navigateBack"></image>
-</view>

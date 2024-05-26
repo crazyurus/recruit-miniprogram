@@ -3,5 +3,6 @@
   "projectname": "宣讲会导航",
   "setting": {
     "compileHotReLoad": true
-  }
+  },
+  "libVersion": "3.4.4"
 }

@@ -10,7 +10,6 @@ const nickNameStorageKey = 'nickName';
 Page({
   behaviors: [schoolBehavior, computedBehavior],
   data: {
-    isLogin: false,
     userInfo: {
       name: '',
       avatar: 'https://mmbiz.qpic.cn/mmbiz/icTdbqWNOwNRna42FI242Lcia07jQodd2FJGIYQfG0LAJGFxM4FbnQP6yfMxBgJ0F3YRqJCJ1aPAK2dQagdusBZg/0',
@@ -58,18 +57,7 @@ Page({
     });
   },
   about() {
-    openURL('https://mp.weixin.qq.com/s/HbXW7A87ilgW_CbEI-1ODQ');
-  },
-  getUserInfo(e) {
-    const { errMsg } = e.detail;
-
-    if (errMsg === 'getPhoneNumber:ok') {
-      toast.success('登录成功');
-
-      this.setData({
-        isLogin: true,
-      });
-    }
+    openURL('https://crazyurus.cn');
   },
   changeNickName() {
     const self = this;

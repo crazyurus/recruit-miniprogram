@@ -1,12 +1,4 @@
 Page({
-  openCustomerChat() {
-    wx.openCustomerServiceChat({
-      extInfo: {
-        url: 'https://work.weixin.qq.com/kfid/kfc87dc64d44c7caad5'
-      },
-      corpId: 'wwbdabc7d0777cceaf',
-    });
-  },
   copy(e) {
     const { value } = e.currentTarget.dataset;
 

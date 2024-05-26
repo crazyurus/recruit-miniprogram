@@ -2,7 +2,7 @@
   <view class="header">
     <view class="header-top">
       <image class="user-avatar" src="{{userInfo.avatar}}" />
-      <button class="user-blank" open-type="{{isLogin ? 'chooseAvatar' : 'getPhoneNumber'}}" bind:getphonenumber="getUserInfo" bind:chooseavatar="chooseAvatar"></button>
+      <button class="user-blank" open-type="chooseAvatar" bind:chooseavatar="chooseAvatar"></button>
     </view>
     <view class="header-bottom">
       <text wx:if="{{userInfo.name}}" class="user-name" bindtap="changeNickName">{{userInfo.name}}</text>

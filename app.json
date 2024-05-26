@@ -10,7 +10,6 @@
     "pages/me/index",
     "pages/me/school/index",
     "pages/me/contact/index",
-    "pages/common/map",
     "pages/common/webview",
     "pages/election/index",
     "pages/election/detail/index",

@@ -1,16 +1,6 @@
 <view class="page-content page-content-top">
   <view class="content-block-title">联系我们</view>
   <view class="list-block media-list record-list">
-    <view class="item-link item-content" hover-class="navigator-hover" bindtap="openCustomerChat">
-      <view class="item-inner">
-        <view class="item-title-row">
-          <view class="item-title">
-            <view class="circle bg-blue"></view>
-            <text>微信客服</text>
-          </view>
-        </view>
-      </view>
-    </view>
     <button class="item-link item-content" open-type="contact" plain hover-class="navigator-hover">
       <view class="item-inner">
         <view class="item-title-row">
@@ -21,29 +11,18 @@
         </view>
       </view>
     </button>
-    <view class="item-link item-content" hover-class="navigator-hover" data-value="420082599" bindtap="copy">
+    <view class="item-link item-content" hover-class="navigator-hover" data-value="710161378" bindtap="copy">
       <view class="item-inner">
         <view class="item-title-row">
           <view class="item-title">
             <view class="circle bg-green"></view>
-            <text>QQ群</text>
+            <text>QQ</text>
           </view>
         </view>
-        <view class="item-text">420082599</view>
+        <view class="item-text">710161378</view>
       </view>
     </view>
-    <view class="item-link item-content" hover-class="navigator-hover" data-value="027-87855617" bindtap="makePhoneCall">
-      <view class="item-inner">
-        <view class="item-title-row">
-          <view class="item-title">
-            <view class="circle bg-orange"></view>
-            <text>办公电话</text>
-          </view>
-        </view>
-        <view class="item-text">027-87855617</view>
-      </view>
-    </view>
-    <view class="item-link item-content" hover-class="navigator-hover" data-value="token@wutnews.net" bindtap="copy">
+    <view class="item-link item-content" hover-class="navigator-hover" data-value="crazyurus@vip.qq.com" bindtap="copy">
       <view class="item-inner">
         <view class="item-title-row">
           <view class="item-title">
@@ -51,7 +30,7 @@
             <text>邮箱</text>
           </view>
         </view>
-        <view class="item-text">token@wutnews.net</view>
+        <view class="item-text">crazyurus@vip.qq.com</view>
       </view>
     </view>
   </view>
