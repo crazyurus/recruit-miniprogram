@@ -46,6 +46,12 @@ Page({
       payload: school,
     });
 
-    wx.navigateBack();
+    if (getCurrentPages().length > 1) {
+      wx.navigateBack();
+    } else {
+      wx.reLaunch({
+        url: '/pages/seminar/index'
+      });
+    }
   },
 });

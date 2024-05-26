@@ -1,7 +1,6 @@
 import { behavior as computedBehavior } from 'miniprogram-computed';
 import schoolBehavior from '../../behaviors/school';
 import { openURL } from '../../libs/utils';
-import { toast } from '../../libs/ui';
 import { exist } from '../../libs/file';
 
 const avatarFilePath = wx.env.USER_DATA_PATH + '/avatar.jpg';
@@ -40,7 +39,7 @@ Page({
     const params = tapIndex === 0 ? {
       appId: 'wx8abaf00ee8c3202e',
       extraData: {
-        id: 23796,
+        id: 535649,
       },
     } : {
       appId: 'wxebadf544ddae62cb',

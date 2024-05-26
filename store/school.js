@@ -1,18 +1,13 @@
-import { WUTSchoolID } from '../data/const';
-
 const SET_SCHOOL = 'SET_SCHOOL';
 
-function getDefaultSchool() {
+export function getDefaultSchool() {
   const school = wx.getStorageSync('school');
 
   if (school) {
     return school;
   }
 
-  return {
-    id: WUTSchoolID,
-    name: '武汉理工大学',
-  };
+  return {};
 }
 
 function reducer(state = getDefaultSchool(), action) {
