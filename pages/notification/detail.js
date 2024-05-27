@@ -1,6 +1,7 @@
 import articleBehavior from '../../behaviors/article';
 import request from '../../libs/request/scc';
 import { openDocument } from '../../libs/file';
+import { openURL } from '../../libs/utils';
 
 Page({
   behaviors: [articleBehavior],
@@ -27,4 +28,9 @@ Page({
 
     openDocument(url);
   },
+  handleLink(e) {
+    const { href } = e.detail;
+
+    openURL(href);
+  }
 });

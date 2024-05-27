@@ -1,6 +1,6 @@
 import articleBehavior from '../../../behaviors/article';
 import request from '../../../libs/request/scc';
-import { getCDNURL, formatTimestamp } from '../../../libs/utils';
+import { getCDNURL, formatTimestamp, openURL } from '../../../libs/utils';
 
 Page({
   behaviors: [articleBehavior],
@@ -74,4 +74,9 @@ Page({
       phoneNumber: this.data.article.telephone,
     });
   },
+  handleLink(e) {
+    const { href } = e.detail;
+
+    openURL(href);
+  }
 });

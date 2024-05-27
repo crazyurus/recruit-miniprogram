@@ -22,7 +22,7 @@
     <view class="seminar-content">
       <block wx:if="{{article.content}}">
         <view class="seminar-content_title">招聘内容</view>
-        <mp-html content="{{article.content}}" selectable scroll-table lazy-load tag-style="{{contentStyle}}"></mp-html>
+        <mp-html content="{{article.content}}" selectable scroll-table lazy-load tag-style="{{contentStyle}}" copy-link="{{false}}" bind:linktap="handleLink" />
       </block>
       <block wx:if="{{positions.length > 0}}">
         <view class="seminar-content_title">招聘专业</view>

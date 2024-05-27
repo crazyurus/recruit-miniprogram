@@ -1,6 +1,6 @@
 import articleBehavior from '../../behaviors/article';
 import request from '../../libs/request/scc';
-import { getCDNURL } from '../../libs/utils';
+import { getCDNURL, openURL } from '../../libs/utils';
 import { getAddress } from '../../libs/location';
 
 Page({
@@ -56,4 +56,9 @@ Page({
       address: this.data.company.address,
     });
   },
+  handleLink(e) {
+    const { href } = e.detail;
+
+    openURL(href);
+  }
 });

@@ -37,7 +37,7 @@
     <view class="seminar-content">
       <block wx:if="{{article.content}}">
         <view class="seminar-content_title" style="border-bottom-color: {{opacityColor}}">宣讲会内容</view>
-        <mp-html content="{{article.content}}" selectable scroll-table lazy-load tag-style="{{contentStyle}}"></mp-html>
+        <mp-html content="{{article.content}}" selectable scroll-table lazy-load tag-style="{{contentStyle}}" copy-link="{{false}}" bind:linktap="handleLink" />
         <view wx:if="{{article.poster}}" class="link" style="margin-top: 16px; color: {{backgroundColor}}" bindtap="openPoster">查看海报</view>
       </block>
       <block wx:if="{{positions.length > 0}}">

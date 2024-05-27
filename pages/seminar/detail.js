@@ -3,7 +3,7 @@ import articleBehavior from '../../behaviors/article';
 import request from '../../libs/request/scc';
 import { toast } from '../../libs/ui';
 import { getAddress } from '../../libs/location';
-import { getCDNURL } from '../../libs/utils';
+import { getCDNURL, openURL } from '../../libs/utils';
 
 function unique(arr) {
   return Array.from(new Set(arr));
@@ -124,4 +124,9 @@ Page({
       urls: [this.data.article.poster],
     });
   },
+  handleLink(e) {
+    const { href } = e.detail;
+
+    openURL(href);
+  }
 });

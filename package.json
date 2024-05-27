@@ -17,6 +17,6 @@
     "miniprogram-cheerio": "^1.0.1",
     "miniprogram-computed": "^4.4.0",
     "miniprogram-redux": "^1.1.1",
-    "mp-html": "^2.4.1"
+    "mp-html": "^2.5.0"
   }
 }
