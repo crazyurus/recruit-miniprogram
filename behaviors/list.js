@@ -27,13 +27,24 @@ export default Behavior({
       this.lock = true;
 
       const { list, total } = await this.fetchData();
-      const newList = this.data.list.concat(list);
+      const startIndex = this.data.list.length;
+      const newList = {};
+
+      if (startIndex === 0) {
+        newList.list = list;
+      } else {
+        list.forEach((item, index) => {
+          const key = `list[${startIndex + index}]`;
+
+          newList[key] = item;
+        });
+      }
 
       this.lock = false;
 
       this.setData({
-        loading: list.length > 0 && newList.length < total,
-        list: newList,
+        loading: list.length > 0 && (list.length + startIndex) < total,
+        ...newList,
       });
     },
     reset() {
