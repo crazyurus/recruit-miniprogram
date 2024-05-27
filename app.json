@@ -19,7 +19,7 @@
   "window": {
     "navigationBarBackgroundColor": "#45c8dc",
     "navigationBarTextStyle": "white",
-    "navigationBarTitleText": "就业招聘",
+    "navigationBarTitleText": "校园宣讲汇",
     "onReachBottomDistance": 100,
     "backgroundTextStyle": "dark"
   },
@@ -36,7 +36,7 @@
       },
       {
         "pagePath": "pages/enrollment/index",
-        "text": "招聘",
+        "text": "企业",
         "iconPath": "./images/tabbar/job.png",
         "selectedIconPath": "./images/tabbar/job_s.png"
       },

@@ -6,7 +6,7 @@ function alert(params) {
   }
 
   return wx.promises.showModal({
-    title: params.title || '就业招聘',
+    title: params.title || '校园宣讲汇',
     content: params.content,
     showCancel: params.showCancel || false,
     confirmColor: '#45c8dc',

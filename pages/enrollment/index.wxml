@@ -1,6 +1,6 @@
 <search placeholder="职位/公司名" bindsearch="search" />
 <view class="page-content page-content-top">
-  <view class="content-block-title">招聘信息</view>
+  <view class="content-block-title">企业信息</view>
   <view class="list-block media-list record-list">
     <navigator url="detail?id={{item.id}}" wx:for="{{list}}" wx:key="id" class="item-link item-content" data-index="{{index}}" bindtap="openDetail">
       <view class="item-inner">
