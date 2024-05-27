@@ -25,6 +25,7 @@ Page({
         title: item.title,
         time: formatTimestamp(item.addtime),
         view: item.viewcount,
+        url: item.httpurl,
       };
     });
 

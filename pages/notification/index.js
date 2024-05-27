@@ -58,6 +58,7 @@ Page({
         title: item.title,
         time: formatTimestamp(item.addtime),
         view: item.views,
+        url: item.content_url,
       };
     });
 

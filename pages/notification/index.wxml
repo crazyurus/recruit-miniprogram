@@ -3,7 +3,7 @@
   <view class="page-content page-content-top">
     <view class="content-block-title">就业{{tabs[active].name}}</view>
     <view class="list-block media-list record-list">
-      <navigator url="detail?id={{item.id}}" wx:for="{{list}}" wx:key="id" class="item-link item-content">
+      <navigator url="{{item.url ? '/pages/common/webview?url=' + item.url : 'detail?id=' + item.id}}" wx:for="{{list}}" wx:key="id" class="item-link item-content">
         <view class="item-inner">
           <view class="item-title-row">
             <view class="item-title">
