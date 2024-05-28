@@ -1,9 +1,9 @@
-# 校园宣讲汇
+# 宣讲汇
 
 ![预览](https://github.com/crazyurus/recruit-miniprogram/actions/workflows/preview.yml/badge.svg)
 ![上传](https://github.com/crazyurus/recruit-miniprogram/actions/workflows/upload.yml/badge.svg)
 
-校园宣讲汇小程序，为高校学生提供了校内宣讲会以及就业招聘信息，信息来源于各个高校的就业信息网。
+宣讲汇小程序，为高校学生提供了校内宣讲会以及就业招聘信息，信息来源于各个学校的就业信息网。
 
 ## 使用
 

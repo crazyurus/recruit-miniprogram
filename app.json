@@ -19,7 +19,7 @@
   "window": {
     "navigationBarBackgroundColor": "#45c8dc",
     "navigationBarTextStyle": "white",
-    "navigationBarTitleText": "校园宣讲汇",
+    "navigationBarTitleText": "宣讲汇",
     "onReachBottomDistance": 100,
     "backgroundTextStyle": "dark"
   },

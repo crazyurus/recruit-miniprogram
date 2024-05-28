@@ -102,7 +102,7 @@ Page({
   addToCalendar() {
     wx.addPhoneCalendar({
       title: this.data.article.title,
-      description: '来自校园宣讲汇小程序',
+      description: '来自宣讲汇小程序',
       location: this.data.article.university + this.data.article.address,
       startTime: this.data.article.timestamp.start,
       endTime: this.data.article.timestamp.end,
