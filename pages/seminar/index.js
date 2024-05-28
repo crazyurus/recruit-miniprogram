@@ -128,4 +128,7 @@ Page({
     });
     this.loadList();
   },
+  customReset() {
+    this.data.left = 0
+  }
 });

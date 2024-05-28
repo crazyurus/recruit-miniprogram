@@ -56,6 +56,10 @@ export default Behavior({
       wx.pageScrollTo({
         scrollTop: 0,
       });
+
+      if (typeof this.customReset === 'function') {
+        this.customReset();
+      }
     },
   },
 });

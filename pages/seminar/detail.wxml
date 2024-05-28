@@ -1,5 +1,9 @@
 <import src="./detail.skeleton.wxml"/>
 
+<page-meta background-color="{{backgroundColor}}" background-color-bottom="#efeff4">
+  <navigation-bar loading="{{loading}}" front-color="#ffffff" background-color="{{backgroundColor}}" />
+</page-meta>
+
 <view class="page-content">
   <view class="seminar-header" style="background-color: {{backgroundColor}}">
     <view class="seminar-title">

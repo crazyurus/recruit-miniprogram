@@ -86,14 +86,6 @@ Page({
         },
       });
 
-      wx.setNavigationBarColor({
-        backgroundColor,
-        frontColor: '#ffffff'
-      });
-      wx.setBackgroundColor({
-        backgroundColorTop: backgroundColor,
-        backgroundColorBottom: '#efeff4',
-      });
     }
   },
   showAddressMap() {
