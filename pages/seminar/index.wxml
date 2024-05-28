@@ -23,7 +23,7 @@
         </view>
         <view class="card-content-line" wx:if="{{item.address}}">
           <text>{{item.address}}</text>
-        </view>        
+        </view>
       </view>
     </view>
     <view class="card-footer">
