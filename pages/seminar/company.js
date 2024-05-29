@@ -1,6 +1,6 @@
 import request from '../../libs/request/scc';
 import { getAddress } from '../../libs/location';
-import { getCDNURL, formatTimestamp, sharePath } from '../../libs/utils';
+import { getCDNURL, formatTimestamp, sharePath, openURL } from '../../libs/utils';
 
 Page({
   data: {
@@ -53,6 +53,9 @@ Page({
     }
 
     getAddress(options);
+  },
+  openLink() {
+    openURL(this.data.company.website);
   },
   onShareAppMessage() {
     return {

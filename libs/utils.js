@@ -22,6 +22,12 @@ function openURL(url) {
   });
 }
 
+function mailTo(email) {
+  wx.navigateTo({
+    url: '/pages/common/webview?url=mailto:' + email,
+  });
+}
+
 function getCDNURL(url) {
   if (!url) return '';
   if (url.startsWith('//')) url = 'https:' + url;
@@ -34,4 +40,5 @@ export {
   formatDateTime,
   openURL,
   getCDNURL,
+  mailTo,
 };

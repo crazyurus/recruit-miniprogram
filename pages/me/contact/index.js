@@ -1,3 +1,5 @@
+import { mailTo } from '../../../libs/utils';
+
 Page({
   copy(e) {
     const { value } = e.currentTarget.dataset;
@@ -12,5 +14,10 @@ Page({
     wx.makePhoneCall({
       phoneNumber: value,
     });
+  },
+  openEmail(e) {
+    const { value } = e.currentTarget.dataset;
+
+    mailTo(value);
   },
 });

@@ -50,7 +50,7 @@
       </block>
       <block wx:if="{{contact.email}}">
         <view class="seminar-content_title" style="border-bottom-color: {{opacityColor}}">联系方式</view>
-        <navigator url="{{'/pages/common/webview?url=mailto:' + contact.email}}" class="link" style="color: {{backgroundColor}}">{{contact.email}}</navigator>
+        <view class="link" style="color: {{backgroundColor}}" bindtap="openEmail">{{contact.email}}</view>
       </block>
       <block wx:if="{{article.tips}}">
         <view class="seminar-content_title" style="border-bottom-color: {{opacityColor}}">本校提醒</view>

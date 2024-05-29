@@ -3,7 +3,7 @@ import articleBehavior from '../../behaviors/article';
 import request from '../../libs/request/scc';
 import { toast } from '../../libs/ui';
 import { getAddress } from '../../libs/location';
-import { getCDNURL, openURL } from '../../libs/utils';
+import { getCDNURL, openURL, mailTo } from '../../libs/utils';
 
 function unique(arr) {
   return Array.from(new Set(arr));
@@ -115,6 +115,9 @@ Page({
     wx.previewImage({
       urls: [this.data.article.poster],
     });
+  },
+  openEmail() {
+    mailTo(this.data.contact.email);
   },
   handleLink(e) {
     const { href } = e.detail;

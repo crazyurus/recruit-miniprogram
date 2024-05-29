@@ -18,7 +18,7 @@
     <view class="form-value">{{company.createTime}}</view>
     <block wx:if="{{company.website}}">
       <view class="form-label">企业网站</view>
-      <navigator url="{{'/pages/common/webview?url=' + company.website}}" class="form-value link">{{company.website}}</navigator>
+      <view class="form-value link" bindtap="openLink">{{company.website}}</view>
     </block>
     <block wx:if="{{company.address}}">
       <view class="form-label">地址</view>

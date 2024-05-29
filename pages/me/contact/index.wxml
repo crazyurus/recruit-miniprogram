@@ -22,7 +22,7 @@
         <view class="item-text">710161378</view>
       </view>
     </view>
-    <view class="item-link item-content" hover-class="navigator-hover" data-value="crazyurus@vip.qq.com" bindtap="copy">
+    <view class="item-link item-content" hover-class="navigator-hover" data-value="crazyurus@vip.qq.com" bindtap="openEmail">
       <view class="item-inner">
         <view class="item-title-row">
           <view class="item-title">
