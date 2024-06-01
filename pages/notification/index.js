@@ -2,7 +2,7 @@ import { behavior as computedBehavior } from 'miniprogram-computed';
 import schoolBehavior from '../../behaviors/school';
 import listBehavior from '../../behaviors/list';
 import request from '../../libs/request/scc';
-import { formatTimestamp } from '../../libs/utils';
+import { formatTimestamp, openURL } from '../../libs/utils';
 import tabMap from '../../data/notification';
 
 Page({
@@ -68,5 +68,17 @@ Page({
       list,
       total: result.count,
     };
+  },
+  openDetail(e) {
+    const { index } = e.currentTarget.dataset;
+    const item = this.data.list[index];
+
+    if (item.url) {
+      openURL(item.url);
+    } else {
+      wx.navigateTo({
+        url: '/pages/notification/detail?id=' + item.id
+      });
+    }
   },
 });

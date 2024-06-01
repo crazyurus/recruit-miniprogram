@@ -17,8 +17,14 @@ function formatDateTime(dateTime) {
 }
 
 function openURL(url) {
-  wx.navigateTo({
-    url: '/pages/common/webview?url=' + encodeURIComponent(url),
+  wx.navigateToMiniProgram({
+    appId: 'wx282fc9c4183b714c',
+    path: '/pages/common/webview',
+    extraData: {
+      url,
+      navigationBarBackgroundColor: "#45c8dc",
+      navigationBarTextStyle: "white"
+    }
   });
 }
 

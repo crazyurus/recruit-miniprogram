@@ -35,10 +35,10 @@
       <view class="text">切换学校</view>
       <view class="after">{{school.name}}</view>
     </navigator>
-    <navigator class="list-item" url="/pages/common/webview?url=https://github.com/crazyurus/recruit-miniprogram">
+    <view class="list-item" bindtap="openGitHub">
       <image class="icon" src="../../images/module/news.png" />
       <view class="text">项目代码</view>
-    </navigator>
+    </view>
     <view class="list-item" hover-class="navigator-hover" bindtap="about">
       <image class="icon" src="../../images/module/about.png" />
       <view class="text">关于</view>

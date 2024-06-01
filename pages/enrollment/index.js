@@ -1,6 +1,6 @@
 import { dispatch } from 'miniprogram-redux';
 import request from '../../libs/request/scc';
-import { formatTimestamp } from '../../libs/utils';
+import { formatTimestamp, openURL } from '../../libs/utils';
 import schoolBehavior from '../../behaviors/school';
 import listBehavior from '../../behaviors/list';
 
@@ -47,13 +47,21 @@ Page({
     const { index } = e.currentTarget.dataset;
     const item = this.data.list[index];
 
-    dispatch({
-      type: 'SET_ARTICLE',
-      payload: {
-        id: item.id,
-        title: item.title,
-        source: '其它企业',
-      },
-    });
+    if (item.url) {
+      openURL(item.url);
+    } else {
+      dispatch({
+        type: 'SET_ARTICLE',
+        payload: {
+          id: item.id,
+          title: item.title,
+          source: '其它企业',
+        },
+      });
+
+      wx.navigateTo({
+        url: '/pages/enrollment/detail?id=' + item.id
+      });
+    }
   },
 });

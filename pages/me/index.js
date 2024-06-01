@@ -97,4 +97,7 @@ Page({
       });
     });
   },
+  openGitHub() {
+    openURL('https://github.com/crazyurus/recruit-miniprogram');
+  }
 });
