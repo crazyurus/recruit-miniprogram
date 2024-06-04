@@ -50,10 +50,7 @@ Page({
 
   },
   privacy() {
-    wx.openEmbeddedMiniProgram({
-      appId: 'wxd45c635d754dbf59',
-      path: 'pages/detail/detail?url=' + encodeURIComponent('https://docs.qq.com/doc/DRVF2SWhzaWVBUWtP'),
-    });
+    wx.openPrivacyContract();
   },
   about() {
     openURL('https://crazyurus.cn');
