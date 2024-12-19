@@ -39,7 +39,8 @@
     "useCompilerPlugins": false,
     "ignoreUploadUnusedFiles": true,
     "useStaticServer": true,
-    "condition": false
+    "condition": false,
+    "swc": false
   },
   "compileType": "miniprogram",
   "libVersion": "2.29.1",

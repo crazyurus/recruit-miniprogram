@@ -17,7 +17,7 @@ function formatDateTime(dateTime) {
 }
 
 function openURL(url) {
-  const hostname = url.split('/', 3);
+  const hostname = url.split('/', 3)[2];
 
   if (hostname === 'mp.weixin.qq.com') {
     wx.openOfficialAccountArticle({
