@@ -17,15 +17,23 @@ function formatDateTime(dateTime) {
 }
 
 function openURL(url) {
-  wx.navigateToMiniProgram({
-    appId: 'wx282fc9c4183b714c',
-    path: '/pages/common/webview',
-    extraData: {
+  const hostname = url.split('/', 3);
+
+  if (hostname === 'mp.weixin.qq.com') {
+    wx.openOfficialAccountArticle({
       url,
-      navigationBarBackgroundColor: "#45c8dc",
-      navigationBarTextStyle: "white"
-    }
-  });
+    });
+  } else {
+    wx.navigateToMiniProgram({
+      appId: 'wx282fc9c4183b714c',
+      path: '/pages/common/webview',
+      extraData: {
+        url,
+        navigationBarBackgroundColor: "#45c8dc",
+        navigationBarTextStyle: "white"
+      }
+    });
+  }
 }
 
 function mailTo(email) {
