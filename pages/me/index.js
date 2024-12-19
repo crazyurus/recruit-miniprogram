@@ -53,7 +53,7 @@ Page({
     wx.openPrivacyContract();
   },
   about() {
-    openURL('https://crazyurus.cn');
+    openURL('https://crazyurus.com/');
   },
   changeNickName() {
     const self = this;
